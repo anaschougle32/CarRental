@@ -12,9 +12,9 @@ const CarFilters = () => {
   const router = useRouter();
   
   const [priceRange, setPriceRange] = useState([0, 5000]);
-  const [category, setCategory] = useState(searchParams.get("category") || "All");
-  const [fuelType, setFuelType] = useState(searchParams.get("fuel") || "All");
-  const [transmission, setTransmission] = useState(searchParams.get("transmission") || "All");
+  const [category, setCategory] = useState(searchParams?.get("category") || "All");
+  const [fuelType, setFuelType] = useState(searchParams?.get("fuel") || "All");
+  const [transmission, setTransmission] = useState(searchParams?.get("transmission") || "All");
 
   const applyFilters = () => {
     const params = new URLSearchParams();

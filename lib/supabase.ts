@@ -9,17 +9,12 @@ if (!supabaseUrl || !supabaseAnonKey) {
   console.error('Supabase URL or Anon Key is missing in environment variables');
 }
 
-// Create Supabase client with realtime disabled to prevent WebSocket warnings
+// Create Supabase client with minimal configuration
 export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   auth: {
     persistSession: true,
   },
-  realtime: {
-    // Disable realtime subscriptions
-    connect: false,
-  },
   global: {
-    // Disable WebSocket warnings in console
     fetch: (...args) => fetch(...args),
   },
 });

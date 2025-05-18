@@ -76,15 +76,20 @@ const CarsGrid = () => {
 
   // Apply filters when search parameters change
   useEffect(() => {
+    // Apply filters
+    let filtered = [...allCars];
+    
+    if (!searchParams) {
+      setFilteredCars(filtered);
+      return;
+    }
+    
     // Get filter values from URL
     const category = searchParams.get("category");
     const fuelType = searchParams.get("fuel");
     const transmission = searchParams.get("transmission");
     const minPrice = searchParams.get("min_price");
     const maxPrice = searchParams.get("max_price");
-    
-    // Apply filters
-    let filtered = [...allCars];
     
     if (category && category !== "All") {
       filtered = filtered.filter(car => car.category === category);
