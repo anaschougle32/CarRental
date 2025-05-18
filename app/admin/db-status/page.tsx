@@ -13,11 +13,21 @@ export const metadata: Metadata = {
   description: "Check the status of your Supabase database connection and tables",
 };
 
+// Define the table names as a type for better type safety
+type TableName = 'brands' | 'cars' | 'testimonials' | 'contact_messages';
+
+// Define the structure of our status object
+type DbStatus = {
+  connection: { success: boolean, message: string },
+  tables: Record<TableName, { exists: boolean, count: number }>,
+  counts: Record<TableName, number>
+}
+
 async function getDbStatus() {
   const envStatus = checkSupabaseEnv();
   
   // Default status with connection info
-  const status = {
+  const status: DbStatus = {
     connection: { success: false, message: "" },
     tables: {
       brands: { exists: false, count: 0 },
@@ -60,7 +70,7 @@ async function getDbStatus() {
     };
     
     // Check tables and get counts
-    const tables = ['brands', 'cars', 'testimonials', 'contact_messages'];
+    const tables: TableName[] = ['brands', 'cars', 'testimonials', 'contact_messages'];
     
     for (const table of tables) {
       const { data, error } = await supabase
@@ -213,7 +223,7 @@ export default async function DbStatusPage() {
                         <AlertCircle className="h-5 w-5 text-red-500" />
                       )}
                     </TableCell>
-                    <TableCell>{exists ? status.counts[table] : "N/A"}</TableCell>
+                    <TableCell>{exists ? status.counts[table as TableName] : "N/A"}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
