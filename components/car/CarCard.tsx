@@ -24,7 +24,7 @@ const CarCard = ({ car, showCategory = false }: CarCardProps) => {
   
   // Create WhatsApp message with car details
   const whatsappMessage = encodeURIComponent(`Hi, I'm interested in renting the ${car.brand} ${car.name}. Could you provide more information?`);
-  const whatsappLink = `https://wa.me/918888888888?text=${whatsappMessage}`;
+  const whatsappLink = `https://wa.me/919867975473?text=${whatsappMessage}`;
   
   return (
     <Card className="overflow-hidden group h-full flex flex-col transition-all hover:shadow-lg">
@@ -53,7 +53,10 @@ const CarCard = ({ car, showCategory = false }: CarCardProps) => {
       
       <CardContent className="flex-1 pt-6">
         <div className="flex justify-between items-start mb-2">
-          <h3 className="font-bold text-lg">{car.brand} {car.name}</h3>
+          <div>
+            <p className="text-sm text-gray-500 font-medium mb-1">{car.brand}</p>
+            <h3 className="font-bold text-lg">{car.name}</h3>
+          </div>
           <div className="flex items-center text-amber-500">
             <Star size={16} fill="currentColor" className="mr-1" />
             <span className="text-sm">4.8</span>
@@ -61,7 +64,7 @@ const CarCard = ({ car, showCategory = false }: CarCardProps) => {
         </div>
         
         <p className="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">
-          {car.description?.split('.')[0] || `Experience the ${car.brand} ${car.name} for your next adventure.`}
+          {car.description?.split('.')[0] || `Experience the ${car.name} for your next adventure.`}
         </p>
         
         <div className="flex items-center space-x-4 text-sm text-gray-600 dark:text-gray-400 mb-3">
@@ -109,7 +112,7 @@ const CarCard = ({ car, showCategory = false }: CarCardProps) => {
             className="border-blue-500 text-blue-600 hover:bg-blue-50 hover:border-blue-600 dark:hover:bg-blue-900/20 flex items-center justify-center"
             asChild
           >
-            <Link href="tel:+918888888888">
+            <Link href="tel:+919867975473">
               <Phone size={14} className="mr-1.5" />
               Call Now
             </Link>

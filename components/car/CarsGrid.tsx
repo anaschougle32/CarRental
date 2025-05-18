@@ -42,6 +42,7 @@ const CarsGrid = () => {
             id: car.id,
             name: car.name,
             brand: brandName,
+            brand_id: car.brand_id,
             slug: car.slug,
             price_per_day: car.price_per_day,
             description: car.description || `Experience the comfort of ${car.name} for your Goa trip.`,
@@ -88,6 +89,7 @@ const CarsGrid = () => {
     const category = searchParams.get("category");
     const fuelType = searchParams.get("fuel");
     const transmission = searchParams.get("transmission");
+    const brand = searchParams.get("brand");
     const minPrice = searchParams.get("min_price");
     const maxPrice = searchParams.get("max_price");
     
@@ -101,6 +103,10 @@ const CarsGrid = () => {
     
     if (transmission && transmission !== "All") {
       filtered = filtered.filter(car => car.transmission === transmission);
+    }
+
+    if (brand && brand !== "All") {
+      filtered = filtered.filter(car => car.brand === brand);
     }
     
     if (minPrice) {

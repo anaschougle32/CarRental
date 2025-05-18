@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { getBrands } from "@/lib/supabase";
 
 const CarFilters = () => {
   const searchParams = useSearchParams();
@@ -15,6 +16,25 @@ const CarFilters = () => {
   const [category, setCategory] = useState(searchParams?.get("category") || "All");
   const [fuelType, setFuelType] = useState(searchParams?.get("fuel") || "All");
   const [transmission, setTransmission] = useState(searchParams?.get("transmission") || "All");
+  const [brand, setBrand] = useState(searchParams?.get("brand") || "All");
+  const [brands, setBrands] = useState<{id: string, name: string}[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch brands from Supabase
+  useEffect(() => {
+    const fetchBrands = async () => {
+      try {
+        const brandsData = await getBrands();
+        setBrands(brandsData);
+      } catch (error) {
+        console.error("Error fetching brands:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchBrands();
+  }, []);
 
   const applyFilters = () => {
     const params = new URLSearchParams();
@@ -22,6 +42,7 @@ const CarFilters = () => {
     if (category !== "All") params.set("category", category);
     if (fuelType !== "All") params.set("fuel", fuelType);
     if (transmission !== "All") params.set("transmission", transmission);
+    if (brand !== "All") params.set("brand", brand);
     if (priceRange[0] > 0 || priceRange[1] < 5000) {
       params.set("min_price", priceRange[0].toString());
       params.set("max_price", priceRange[1].toString());
@@ -35,12 +56,26 @@ const CarFilters = () => {
     setCategory("All");
     setFuelType("All");
     setTransmission("All");
+    setBrand("All");
     router.push("/cars");
   };
 
   return (
     <Card className="p-6 sticky top-24">
       <h2 className="text-xl font-semibold mb-6">Filter Cars</h2>
+      
+      {/* Brand Filter */}
+      <div className="mb-6">
+        <h3 className="text-sm font-medium mb-3">Brand</h3>
+        <ToggleGroup type="single" value={brand} onValueChange={(value) => value && setBrand(value)} className="flex flex-wrap gap-2">
+          <ToggleGroupItem value="All" className="rounded-full text-xs">All</ToggleGroupItem>
+          {brands.map((b) => (
+            <ToggleGroupItem key={b.id} value={b.name} className="rounded-full text-xs">
+              {b.name}
+            </ToggleGroupItem>
+          ))}
+        </ToggleGroup>
+      </div>
       
       {/* Car Type */}
       <div className="mb-6">

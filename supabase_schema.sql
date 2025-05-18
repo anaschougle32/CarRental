@@ -1,4 +1,7 @@
--- Create Brands Table
+-- Enable UUID extension
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+-- Create brands table
 CREATE TABLE IF NOT EXISTS brands (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   name TEXT NOT NULL,
@@ -6,36 +9,36 @@ CREATE TABLE IF NOT EXISTS brands (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Create Cars Table
+-- Create cars table
 CREATE TABLE IF NOT EXISTS cars (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   name TEXT NOT NULL,
   slug TEXT NOT NULL UNIQUE,
   brand_id UUID REFERENCES brands(id),
   price_per_day INTEGER NOT NULL,
-  transmission TEXT NOT NULL CHECK (transmission IN ('Manual', 'Automatic')),
-  fuel_type TEXT NOT NULL CHECK (fuel_type IN ('Petrol', 'Diesel', 'Electric', 'Hybrid')),
+  transmission TEXT NOT NULL,
+  fuel_type TEXT NOT NULL,
   seats INTEGER NOT NULL,
   luggage INTEGER NOT NULL,
   description TEXT,
   features TEXT[] DEFAULT '{}',
-  main_image TEXT NOT NULL,
+  main_image TEXT,
   images TEXT[] DEFAULT '{}',
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Create Testimonials Table
+-- Create testimonials table
 CREATE TABLE IF NOT EXISTS testimonials (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   name TEXT NOT NULL,
   location TEXT NOT NULL,
-  rating INTEGER NOT NULL CHECK (rating BETWEEN 1 AND 5),
+  rating INTEGER NOT NULL,
   comment TEXT NOT NULL,
   image TEXT,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Create Contact Messages Table
+-- Create contact_messages table
 CREATE TABLE IF NOT EXISTS contact_messages (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   name TEXT NOT NULL,
@@ -45,181 +48,288 @@ CREATE TABLE IF NOT EXISTS contact_messages (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Create indexes for better performance
-CREATE INDEX IF NOT EXISTS cars_brand_id_idx ON cars(brand_id);
-CREATE INDEX IF NOT EXISTS cars_transmission_idx ON cars(transmission);
-CREATE INDEX IF NOT EXISTS cars_fuel_type_idx ON cars(fuel_type);
-CREATE INDEX IF NOT EXISTS cars_seats_idx ON cars(seats);
-CREATE INDEX IF NOT EXISTS cars_price_per_day_idx ON cars(price_per_day);
-
--- Insert sample data for Brands
-INSERT INTO brands (name, logo) VALUES
-('Honda', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Honda.svg/2560px-Honda.svg.png'),
-('Toyota', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Toyota_carlogo.svg/1024px-Toyota_carlogo.svg.png'),
-('Maruti Suzuki', 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Maruti_Suzuki_Logo.svg/2560px-Maruti_Suzuki_Logo.svg.png'),
-('Hyundai', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Hyundai_Motor_Company_logo.svg/2560px-Hyundai_Motor_Company_logo.svg.png'),
-('Mahindra', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Mahindra_Rise_Logo.svg/2560px-Mahindra_Rise_Logo.svg.png');
-
--- Insert sample data for Cars
-INSERT INTO cars (name, slug, brand_id, price_per_day, transmission, fuel_type, seats, luggage, description, features, main_image, images) VALUES
-(
-  'Swift', 
-  'maruti-swift', 
-  (SELECT id FROM brands WHERE name = 'Maruti Suzuki'), 
-  1500, 
-  'Manual', 
-  'Petrol', 
-  5, 
-  2, 
-  'The Maruti Swift is a popular hatchback perfect for navigating Goa''s narrow roads with excellent fuel efficiency.', 
-  ARRAY['Air Conditioning', 'Power Steering', 'Power Windows', 'Central Locking', 'USB Charging', 'Bluetooth Audio'],
-  'https://imgd.aeplcdn.com/664x374/n/cw/ec/130591/swift-exterior-right-front-three-quarter-2.jpeg',
-  ARRAY['https://imgd.aeplcdn.com/664x374/n/cw/ec/130591/swift-exterior-right-front-three-quarter-3.jpeg', 'https://imgd.aeplcdn.com/664x374/n/cw/ec/130591/swift-exterior-right-rear-three-quarter.jpeg', 'https://imgd.aeplcdn.com/664x374/n/cw/ec/130591/swift-interior-dashboard-3.jpeg']
-),
-(
-  'i20', 
-  'hyundai-i20', 
-  (SELECT id FROM brands WHERE name = 'Hyundai'), 
-  1700, 
-  'Manual', 
-  'Petrol', 
-  5, 
-  3, 
-  'The Hyundai i20 offers premium features, comfortable interior, and good fuel efficiency for your Goan adventure.', 
-  ARRAY['Air Conditioning', 'Power Steering', 'Power Windows', 'Central Locking', 'USB Charging', 'Bluetooth Audio', 'Touchscreen Infotainment'],
-  'https://imgd.aeplcdn.com/664x374/n/cw/ec/41406/i20-exterior-right-front-three-quarter-2.jpeg',
-  ARRAY['https://imgd.aeplcdn.com/664x374/n/cw/ec/41406/i20-exterior-right-side-view.jpeg', 'https://imgd.aeplcdn.com/664x374/n/cw/ec/41406/i20-exterior-right-rear-three-quarter.jpeg', 'https://imgd.aeplcdn.com/664x374/n/cw/ec/41406/i20-interior-dashboard.jpeg']
-),
-(
-  'Creta', 
-  'hyundai-creta', 
-  (SELECT id FROM brands WHERE name = 'Hyundai'), 
-  2500, 
-  'Automatic', 
-  'Diesel', 
-  5, 
-  4, 
-  'The Hyundai Creta is a compact SUV with ample space, perfect for exploring Goa''s beaches and hills with your family.', 
-  ARRAY['Air Conditioning', 'Power Steering', 'Power Windows', 'Central Locking', 'USB Charging', 'Bluetooth Audio', 'Touchscreen Infotainment', 'Cruise Control', 'Reverse Camera'],
-  'https://imgd.aeplcdn.com/664x374/n/cw/ec/106815/creta-exterior-right-front-three-quarter-2.jpeg',
-  ARRAY['https://imgd.aeplcdn.com/664x374/n/cw/ec/106815/creta-exterior-right-rear-three-quarter.jpeg', 'https://imgd.aeplcdn.com/664x374/n/cw/ec/106815/creta-exterior-right-side-view.jpeg', 'https://imgd.aeplcdn.com/664x374/n/cw/ec/106815/creta-interior-dashboard.jpeg']
-),
-(
-  'Fortuner', 
-  'toyota-fortuner', 
-  (SELECT id FROM brands WHERE name = 'Toyota'), 
-  5000, 
-  'Automatic', 
-  'Diesel', 
-  7, 
-  5, 
-  'The Toyota Fortuner is a powerful SUV with excellent off-road capabilities, perfect for exploring Goa''s hidden beaches.', 
-  ARRAY['Air Conditioning', 'Power Steering', 'Power Windows', 'Central Locking', 'USB Charging', 'Bluetooth Audio', 'Touchscreen Infotainment', 'Cruise Control', 'Reverse Camera', 'Leather Seats', 'Sunroof', '4x4 Drive'],
-  'https://imgd.aeplcdn.com/664x374/n/cw/ec/44709/fortuner-exterior-right-front-three-quarter-19.jpeg',
-  ARRAY['https://imgd.aeplcdn.com/664x374/n/cw/ec/44709/fortuner-exterior-right-rear-three-quarter-18.jpeg', 'https://imgd.aeplcdn.com/664x374/n/cw/ec/44709/fortuner-exterior-right-side-view-2.jpeg', 'https://imgd.aeplcdn.com/664x374/n/cw/ec/44709/fortuner-interior-dashboard-22.jpeg']
-),
-(
-  'City', 
-  'honda-city', 
-  (SELECT id FROM brands WHERE name = 'Honda'), 
-  2200, 
-  'Automatic', 
-  'Petrol', 
-  5, 
-  3, 
-  'The Honda City offers a perfect blend of comfort, style, and fuel efficiency for your Goan vacation.', 
-  ARRAY['Air Conditioning', 'Power Steering', 'Power Windows', 'Central Locking', 'USB Charging', 'Bluetooth Audio', 'Touchscreen Infotainment', 'Cruise Control', 'Reverse Camera'],
-  'https://imgd.aeplcdn.com/664x374/n/cw/ec/134287/city-exterior-right-front-three-quarter-2.jpeg',
-  ARRAY['https://imgd.aeplcdn.com/664x374/n/cw/ec/134287/city-exterior-right-rear-three-quarter.jpeg', 'https://imgd.aeplcdn.com/664x374/n/cw/ec/134287/city-exterior-right-side-view.jpeg', 'https://imgd.aeplcdn.com/664x374/n/cw/ec/134287/city-interior-dashboard.jpeg']
-),
-(
-  'Thar', 
-  'mahindra-thar', 
-  (SELECT id FROM brands WHERE name = 'Mahindra'), 
-  3000, 
-  'Manual', 
-  'Diesel', 
-  4, 
-  2, 
-  'The iconic Mahindra Thar is perfect for adventure lovers looking to explore Goa''s off-road trails and beaches.', 
-  ARRAY['Air Conditioning', 'Power Steering', 'Power Windows', 'Central Locking', 'USB Charging', 'Bluetooth Audio', 'Touchscreen Infotainment', '4x4 Drive', 'All-Terrain Tires'],
-  'https://imgd.aeplcdn.com/664x374/n/cw/ec/40087/thar-exterior-right-front-three-quarter-11.jpeg',
-  ARRAY['https://imgd.aeplcdn.com/664x374/n/cw/ec/40087/thar-exterior-right-rear-three-quarter-10.jpeg', 'https://imgd.aeplcdn.com/664x374/n/cw/ec/40087/thar-exterior-right-side-view-3.jpeg', 'https://imgd.aeplcdn.com/664x374/n/cw/ec/40087/thar-interior-dashboard-2.jpeg']
+-- Create blogs table
+CREATE TABLE IF NOT EXISTS blogs (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  title TEXT NOT NULL,
+  slug TEXT NOT NULL UNIQUE,
+  excerpt TEXT NOT NULL,
+  content TEXT NOT NULL,
+  cover_image TEXT,
+  author TEXT NOT NULL,
+  published_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Insert sample data for Testimonials
-INSERT INTO testimonials (name, location, rating, comment, image) VALUES
-(
-  'Rahul Sharma', 
-  'Delhi', 
-  5, 
-  'Excellent service! The car was in perfect condition and the staff was very helpful. Will definitely rent again on my next trip to Goa.',
-  'https://randomuser.me/api/portraits/men/1.jpg'
-),
-(
-  'Priya Patel', 
-  'Mumbai', 
-  5, 
-  'Used GoDrive during our family vacation in Goa. The SUV was perfect for our needs and the unlimited kilometers was a huge plus!',
-  'https://randomuser.me/api/portraits/women/2.jpg'
-),
-(
-  'Vikram Singh', 
-  'Bangalore', 
-  4, 
-  'Smooth booking process and good condition cars. Would have given 5 stars but pickup took a bit longer than expected.',
-  'https://randomuser.me/api/portraits/men/3.jpg'
-),
-(
-  'Ananya Desai', 
-  'Pune', 
-  5, 
-  'The freedom to explore Goa on our own terms with a reliable car made our trip so much better. Highly recommend GoDrive!',
-  'https://randomuser.me/api/portraits/women/4.jpg'
-),
-(
-  'Arjun Nair', 
-  'Chennai', 
-  5, 
-  'We rented the Thar for our Goa trip and it was the best decision ever! Perfect for beach hopping and exploring off-road paths.',
-  'https://randomuser.me/api/portraits/men/5.jpg'
-);
-
--- Create storage policy for public access to car images
-INSERT INTO storage.buckets (id, name, public) VALUES ('car-images', 'car-images', true);
-INSERT INTO storage.buckets (id, name, public) VALUES ('brand-logos', 'brand-logos', true);
-
--- Set up RLS policies
-ALTER TABLE cars ENABLE ROW LEVEL SECURITY;
+-- Enable Row Level Security
 ALTER TABLE brands ENABLE ROW LEVEL SECURITY;
+ALTER TABLE cars ENABLE ROW LEVEL SECURITY;
 ALTER TABLE testimonials ENABLE ROW LEVEL SECURITY;
 ALTER TABLE contact_messages ENABLE ROW LEVEL SECURITY;
+ALTER TABLE blogs ENABLE ROW LEVEL SECURITY;
 
--- Policy for brands - everyone can view
-CREATE POLICY "Public can view brands" 
-  ON brands 
-  FOR SELECT 
-  USING (true);
+-- Create policies for public access (read-only)
+CREATE POLICY "Allow public read access for brands" ON brands
+  FOR SELECT USING (true);
 
--- Policy for cars - everyone can view
-CREATE POLICY "Public can view cars" 
-  ON cars 
-  FOR SELECT 
-  USING (true);
+CREATE POLICY "Allow public read access for cars" ON cars
+  FOR SELECT USING (true);
 
--- Policy for testimonials - everyone can view
-CREATE POLICY "Public can view testimonials" 
-  ON testimonials 
-  FOR SELECT 
-  USING (true);
+CREATE POLICY "Allow public read access for testimonials" ON testimonials
+  FOR SELECT USING (true);
 
--- Policy for contact messages - anyone can insert, only authenticated users can view
-CREATE POLICY "Public can submit contact messages" 
-  ON contact_messages 
-  FOR INSERT 
-  WITH CHECK (true);
+CREATE POLICY "Allow public read access for blogs" ON blogs
+  FOR SELECT USING (true);
 
-CREATE POLICY "Only authenticated users can view contact messages" 
-  ON contact_messages 
-  FOR SELECT 
-  USING (auth.role() = 'authenticated'); 
+-- Create policy for allowing contact form submissions
+CREATE POLICY "Allow public to insert contact messages" ON contact_messages
+  FOR INSERT WITH CHECK (true);
+
+-- Insert sample data for brands
+INSERT INTO brands (name, logo) VALUES
+  ('Hyundai', 'https://example.com/logos/hyundai.png'),
+  ('Maruti Suzuki', 'https://example.com/logos/maruti.png'),
+  ('Toyota', 'https://example.com/logos/toyota.png'),
+  ('Honda', 'https://example.com/logos/honda.png'),
+  ('Tata', 'https://example.com/logos/tata.png'),
+  ('Mahindra', 'https://example.com/logos/mahindra.png'),
+  ('BMW', 'https://example.com/logos/bmw.png'),
+  ('Jeep', 'https://example.com/logos/jeep.png')
+ON CONFLICT DO NOTHING;
+
+-- Insert sample data for cars
+-- Replace with your actual data and image URLs
+INSERT INTO cars (name, slug, brand_id, price_per_day, transmission, fuel_type, seats, luggage, description, features, main_image, images)
+SELECT 
+  'i20',
+  'hyundai-i20',
+  id,
+  1200,
+  'Manual',
+  'Petrol',
+  5,
+  2,
+  'The Hyundai i20 is a perfect hatchback for exploring Goa''s narrow streets and beaches. Compact, fuel-efficient, and easy to park, this car is ideal for couples or small families.',
+  ARRAY['Air Conditioning', 'Power Steering', 'Central Locking', 'Power Windows', 'Music System'],
+  'https://picsum.photos/800/600',
+  ARRAY['https://picsum.photos/800/600', 'https://picsum.photos/800/601', 'https://picsum.photos/800/602']
+FROM brands WHERE name = 'Hyundai'
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cars (name, slug, brand_id, price_per_day, transmission, fuel_type, seats, luggage, description, features, main_image, images)
+SELECT 
+  'Swift',
+  'maruti-swift',
+  id,
+  1100,
+  'Manual',
+  'Petrol',
+  5,
+  2,
+  'The evergreen Maruti Swift offers unbeatable fuel efficiency and reliability for your Goan adventure. Agile, comfortable, and affordable, it''s a perfect companion for exploring the coastal state.',
+  ARRAY['Air Conditioning', 'Power Steering', 'Central Locking', 'Power Windows', 'Music System'],
+  'https://picsum.photos/800/603',
+  ARRAY['https://picsum.photos/800/603', 'https://picsum.photos/800/604', 'https://picsum.photos/800/605']
+FROM brands WHERE name = 'Maruti Suzuki'
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cars (name, slug, brand_id, price_per_day, transmission, fuel_type, seats, luggage, description, features, main_image, images)
+SELECT 
+  'Innova Crysta',
+  'toyota-innova-crysta',
+  id,
+  2800,
+  'Automatic',
+  'Diesel',
+  7,
+  3,
+  'The Toyota Innova Crysta is perfect for larger groups and families exploring Goa. Spacious, comfortable, and reliable, it offers a premium travel experience with ample luggage space.',
+  ARRAY['Air Conditioning', 'Power Steering', 'Central Locking', 'Power Windows', 'Music System', 'Cruise Control', 'Rear AC Vents'],
+  'https://picsum.photos/800/606',
+  ARRAY['https://picsum.photos/800/606', 'https://picsum.photos/800/607', 'https://picsum.photos/800/608']
+FROM brands WHERE name = 'Toyota'
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cars (name, slug, brand_id, price_per_day, transmission, fuel_type, seats, luggage, description, features, main_image, images)
+SELECT 
+  'City',
+  'honda-city',
+  id,
+  1800,
+  'Automatic',
+  'Petrol',
+  5,
+  3,
+  'The Honda City sedan combines elegance with performance, offering a premium driving experience. Perfect for business travelers or families seeking comfort and style.',
+  ARRAY['Air Conditioning', 'Power Steering', 'Central Locking', 'Power Windows', 'Music System', 'Cruise Control', 'Alloy Wheels'],
+  'https://picsum.photos/800/609',
+  ARRAY['https://picsum.photos/800/609', 'https://picsum.photos/800/610', 'https://picsum.photos/800/611']
+FROM brands WHERE name = 'Honda'
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cars (name, slug, brand_id, price_per_day, transmission, fuel_type, seats, luggage, description, features, main_image, images)
+SELECT 
+  'Nexon',
+  'tata-nexon',
+  id,
+  1600,
+  'Manual',
+  'Petrol',
+  5,
+  2,
+  'The Tata Nexon combines stylish looks with practicality. This compact SUV offers excellent ground clearance for Goa''s varied terrain and a comfortable ride for all passengers.',
+  ARRAY['Air Conditioning', 'Power Steering', 'Central Locking', 'Power Windows', 'Music System', 'Airbags', 'Touchscreen Infotainment'],
+  'https://picsum.photos/800/612',
+  ARRAY['https://picsum.photos/800/612', 'https://picsum.photos/800/613', 'https://picsum.photos/800/614']
+FROM brands WHERE name = 'Tata'
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cars (name, slug, brand_id, price_per_day, transmission, fuel_type, seats, luggage, description, features, main_image, images)
+SELECT 
+  'Thar',
+  'mahindra-thar',
+  id,
+  2500,
+  'Manual',
+  'Diesel',
+  4,
+  2,
+  'The iconic Mahindra Thar is built for adventure in Goa. Perfect for beach trails and off-road experiences, this 4x4 combines ruggedness with modern amenities.',
+  ARRAY['Air Conditioning', 'Power Steering', '4x4 Drive', 'Convertible Top', 'All-Terrain Tires', 'Touchscreen Infotainment'],
+  'https://picsum.photos/800/615',
+  ARRAY['https://picsum.photos/800/615', 'https://picsum.photos/800/616', 'https://picsum.photos/800/617']
+FROM brands WHERE name = 'Mahindra'
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cars (name, slug, brand_id, price_per_day, transmission, fuel_type, seats, luggage, description, features, main_image, images)
+SELECT 
+  '3 Series',
+  'bmw-3-series',
+  id,
+  4500,
+  'Automatic',
+  'Petrol',
+  5,
+  3,
+  'Experience luxury with the BMW 3 Series. This premium sedan offers sophisticated style, dynamic performance, and advanced features for a truly exclusive Goa road trip.',
+  ARRAY['Air Conditioning', 'Leather Seats', 'Panoramic Sunroof', 'Premium Sound System', 'Navigation', 'Cruise Control', 'Parking Sensors'],
+  'https://picsum.photos/800/618',
+  ARRAY['https://picsum.photos/800/618', 'https://picsum.photos/800/619', 'https://picsum.photos/800/620']
+FROM brands WHERE name = 'BMW'
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cars (name, slug, brand_id, price_per_day, transmission, fuel_type, seats, luggage, description, features, main_image, images)
+SELECT 
+  'Compass',
+  'jeep-compass',
+  id,
+  3000,
+  'Automatic',
+  'Diesel',
+  5,
+  3,
+  'The Jeep Compass is the perfect blend of comfort and capability. This premium SUV handles Goa''s terrain with ease while offering a refined interior and advanced features.',
+  ARRAY['Air Conditioning', 'Leather Seats', 'Panoramic Sunroof', 'Navigation System', 'Cruise Control', 'Hill Descent Control', 'Premium Sound System'],
+  'https://picsum.photos/800/621',
+  ARRAY['https://picsum.photos/800/621', 'https://picsum.photos/800/622', 'https://picsum.photos/800/623']
+FROM brands WHERE name = 'Jeep'
+ON CONFLICT DO NOTHING;
+
+-- Insert sample testimonials
+INSERT INTO testimonials (name, location, rating, comment, image)
+VALUES
+  ('Rahul Sharma', 'Mumbai', 5, 'Fantastic service! The car was in perfect condition, and the process was smooth from booking to return. Will definitely use GoDrive again on my next trip to Goa.', 'https://picsum.photos/100/100'),
+  ('Priya Patel', 'Delhi', 4, 'Very good experience with GoDrive. The car was clean and well-maintained. The only reason for not giving 5 stars is that the pickup took a bit longer than expected.', 'https://picsum.photos/100/101'),
+  ('Amit Singh', 'Bangalore', 5, 'Excellent service and very reasonable prices. The staff was helpful and professional. The car was perfect for our family trip around Goa.', 'https://picsum.photos/100/102'),
+  ('Neha Gupta', 'Pune', 5, 'Best car rental service in Goa! Clean cars, transparent pricing, and great customer service. Highly recommended for anyone visiting Goa.', 'https://picsum.photos/100/103')
+ON CONFLICT DO NOTHING;
+
+-- Insert sample blog posts
+INSERT INTO blogs (title, slug, excerpt, content, cover_image, author) 
+VALUES 
+  (
+    'Top 10 Beaches to Explore in Goa with Your Rental Car',
+    'top-10-beaches-goa-with-rental-car',
+    'Discover the most beautiful beaches in Goa that are easily accessible with your rental car.',
+    'Goa, the smallest state of India, is home to some of the most beautiful beaches in the world. With your rental car from GoDrive, you can easily explore these coastal gems at your own pace.
+
+## 1. Calangute Beach
+Often called the "Queen of Beaches," Calangute is one of the largest and most popular beaches in North Goa. The beach offers a wide range of water sports activities and is lined with restaurants and shops.
+
+## 2. Baga Beach
+Adjacent to Calangute, Baga Beach is famous for its nightlife and water sports. Don''t miss the Saturday night market for some shopping and local cuisine.
+
+## 3. Anjuna Beach
+Known for its full-moon parties and the famous flea market, Anjuna has a distinctly bohemian vibe. The rocky shoreline creates scenic views, especially at sunset.
+
+## 4. Vagator Beach
+Divided into two parts by a headland, Vagator offers stunning views of the Chapora Fort. The beach is less crowded and perfect for those seeking tranquility.
+
+## 5. Morjim Beach
+Also known as "Little Russia," Morjim is a nesting ground for the Olive Ridley turtles. The beach has a more laid-back atmosphere and some great seafood restaurants.
+
+## 6. Arambol Beach
+Popular among long-stay travelers, Arambol has a bohemian atmosphere with drum circles, yoga classes, and vibrant beach shacks.
+
+## 7. Palolem Beach
+Located in South Goa, Palolem is a crescent-shaped beach with calm waters, making it ideal for swimming. The beach is lined with colorful wooden huts during the season.
+
+## 8. Agonda Beach
+One of the quietest and most beautiful beaches in South Goa, Agonda is perfect for those seeking peace and solitude. The beach is clean and less commercialized.
+
+## 9. Colva Beach
+The longest beach in South Goa, Colva is popular among locals and domestic tourists. The white sandy beach is dotted with coconut palms and beach shacks.
+
+## 10. Benaulim Beach
+Just south of Colva, Benaulim is a fishing beach with a more authentic Goan vibe. The beach is clean and less crowded, making it perfect for a peaceful day out.
+
+With your rental car from GoDrive, you can visit all these beaches at your own convenience, allowing you to truly explore the coastal beauty of Goa. Remember to carry your driving essentials, including water, sunscreen, and a map, to make the most of your beach-hopping adventure!',
+    'https://picsum.photos/800/400',
+    'Deepak Mehta'
+  ),
+  (
+    'A Guide to Goa''s Spice Plantations: Day Trips by Car',
+    'goa-spice-plantations-day-trips-by-car',
+    'Plan the perfect day trip to Goa''s aromatic spice plantations with our comprehensive driving guide.',
+    'Beyond its beaches, Goa is home to lush spice plantations that offer a glimpse into the state''s agricultural heritage. With a rental car from GoDrive, you can easily plan a day trip to these aromatic plantations.
+
+## Why Visit Spice Plantations?
+
+Goa''s spice plantations are a treat for the senses. Walk through paths lined with vanilla, cardamom, cinnamon, and pepper plants. Learn about sustainable farming practices and the historical importance of the spice trade in India.
+
+## Top Spice Plantations to Visit
+
+### 1. Sahakari Spice Farm
+Located near Ponda, Sahakari is one of the largest and most popular spice plantations in Goa. Visitors can enjoy guided tours, elephant rides, and a traditional Goan lunch.
+
+**Driving Directions:** From Panaji, take the NH4A towards Ponda. The farm is approximately 30 km from the capital city and well-marked with signs.
+
+### 2. Tropical Spice Plantation
+This plantation near Ponda offers an immersive experience with guided tours, butterfly gardens, and bird watching. Don''t miss their traditional Goan cuisine served on banana leaves.
+
+**Driving Directions:** Located in Keri Village, about 7 km from Ponda. Follow the signs from the main road.
+
+### 3. Pascoal Spice Village
+A lesser-known gem, Pascoal offers a more intimate experience with smaller crowds. The guides here are particularly knowledgeable about medicinal uses of spices.
+
+**Driving Directions:** Located near Khandepar, about 10 km from Ponda town.
+
+## Planning Your Drive
+
+The best time to visit the spice plantations is during the monsoon season (June to September) when the plantations are lush and vibrant. However, be cautious of slippery roads during heavy rains.
+
+Most plantations are clustered around the Ponda region, making it easy to visit multiple plantations in a single day. Start early, around 9 AM, to make the most of your trip.
+
+## What to Pack
+
+- Comfortable walking shoes
+- Insect repellent
+- Camera
+- Cash (some plantations don''t accept cards)
+- Light rain jacket during monsoon
+
+With your GoDrive rental car, you have the flexibility to explore these hidden treasures of Goa at your own pace. The drive through the Western Ghats to reach the plantations is an experience in itself, with stunning views of the countryside. Happy exploring!',
+    'https://picsum.photos/800/401',
+    'Ananya Desai'
+  )
+ON CONFLICT DO NOTHING; 

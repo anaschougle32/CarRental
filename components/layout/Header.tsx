@@ -81,9 +81,9 @@ const Header = () => {
             className="bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full px-4 shadow-md" 
             asChild
           >
-            <Link href="tel:+918888888888" className="flex items-center gap-2">
+            <Link href="tel:+919867975473" className="flex items-center gap-2">
               <Phone size={16} />
-              <span>+91 8888 888 888</span>
+              <span>+919867975473</span>
             </Link>
           </Button>
         </div>

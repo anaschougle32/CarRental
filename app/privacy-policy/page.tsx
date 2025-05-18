@@ -109,19 +109,12 @@ export default function PrivacyPolicyPage() {
             We may update this Privacy Policy from time to time. The updated version will be indicated by an updated "Last Updated" date. We encourage you to review this Privacy Policy periodically.
           </p>
           
-          <h2>Contact Us</h2>
-          
-          <p>
-            If you have questions or concerns about this Privacy Policy or our data practices, please contact us at:
+          <h2 className="text-2xl font-semibold mt-8 mb-3">Contact Us</h2>
+          <p className="mb-4">
+            If you have any questions about this Privacy Policy, please contact us:
           </p>
-          
-          <p>
-            GoDrive Car Rentals<br />
-            123 Beach Road, Calangute<br />
-            North Goa, 403516<br />
-            Email: privacy@godrive.com<br />
-            Phone: +91 8888 888 888
-          </p>
+          <p className="mb-1">Email: info@godrive.com</p>
+          <p className="mb-4">Phone: +919867975473</p>
         </div>
       </div>
     </div>

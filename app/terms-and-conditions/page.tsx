@@ -117,19 +117,12 @@ export default function TermsPage() {
             We reserve the right to modify these Terms at any time. Changes will take effect immediately upon posting to our website. Your continued use of our services after any changes indicates your acceptance of the revised Terms.
           </p>
           
-          <h2>8. Contact Information</h2>
-          
-          <p>
-            If you have questions about these Terms, please contact us at:
+          <h2 className="text-2xl font-semibold mt-8 mb-3">Contact Us</h2>
+          <p className="mb-4">
+            If you have any questions about these Terms, please contact us:
           </p>
-          
-          <p>
-            GoDrive Car Rentals<br />
-            123 Beach Road, Calangute<br />
-            North Goa, 403516<br />
-            Email: info@godrive.com<br />
-            Phone: +91 8888 888 888
-          </p>
+          <p className="mb-1">Email: info@godrive.com</p>
+          <p className="mb-4">Phone: +919867975473</p>
         </div>
       </div>
     </div>
