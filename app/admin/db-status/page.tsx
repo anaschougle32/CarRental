@@ -213,19 +213,22 @@ export default async function DbStatusPage() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {Object.entries(status.tables).map(([table, { exists }]) => (
-                  <TableRow key={table}>
-                    <TableCell className="font-mono">{table}</TableCell>
-                    <TableCell>
-                      {exists ? (
-                        <CheckCircle2 className="h-5 w-5 text-green-500" />
-                      ) : (
-                        <AlertCircle className="h-5 w-5 text-red-500" />
-                      )}
-                    </TableCell>
-                    <TableCell>{exists ? status.counts[table as TableName] : "N/A"}</TableCell>
-                  </TableRow>
-                ))}
+                {Object.entries(status.tables).map(([tableKey, { exists }]) => {
+                  const table = tableKey as TableName;
+                  return (
+                    <TableRow key={table}>
+                      <TableCell className="font-mono">{table}</TableCell>
+                      <TableCell>
+                        {exists ? (
+                          <CheckCircle2 className="h-5 w-5 text-green-500" />
+                        ) : (
+                          <AlertCircle className="h-5 w-5 text-red-500" />
+                        )}
+                      </TableCell>
+                      <TableCell>{exists ? status.counts[table] : "N/A"}</TableCell>
+                    </TableRow>
+                  );
+                })}
               </TableBody>
             </Table>
           </CardContent>
