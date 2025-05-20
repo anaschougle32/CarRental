@@ -15,7 +15,7 @@ export interface Car {
   fuel_type: 'Petrol' | 'Diesel' | 'Electric' | 'Hybrid';
   transmission: 'Manual' | 'Automatic';
   min_days: number;
-  images: string[];
+  main_image: string;
   category: 'Hatchback' | 'Sedan' | 'SUV' | 'Luxury' | 'Premium';
 }
 

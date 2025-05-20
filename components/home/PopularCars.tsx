@@ -46,7 +46,7 @@ const PopularCars = () => {
             fuel_type: car.fuel_type as any,
             transmission: car.transmission as any,
             min_days: 1,
-            images: car.main_image ? [car.main_image, ...(car.images || [])] : ["/images/car-placeholder.jpg"],
+            main_image: car.main_image || "/images/car-placeholder.jpg",
             category: car.seats <= 5 
               ? car.seats <= 4 ? "Hatchback" : "Sedan" 
               : car.seats <= 7 ? "SUV" : "Premium"

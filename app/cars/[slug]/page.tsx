@@ -81,7 +81,7 @@ async function mapSupabaseCarToAppCar(carData: SupabaseCar): Promise<Car> {
     fuel_type: carData.fuel_type as any,
     transmission: carData.transmission as any,
     min_days: 1, // Default minimum days
-    images: [carData.main_image, ...(carData.images || [])],
+    main_image: carData.main_image || "/images/car-placeholder.jpg",
     category: carData.seats <= 5 
       ? carData.seats <= 4 ? "Hatchback" : "Sedan" 
       : carData.seats <= 7 ? "SUV" : "Premium"
@@ -109,7 +109,7 @@ export default async function CarPage({ params }: Props) {
               Self Drive Rental in Goa
             </p>
             
-            <CarGallery images={car.images} alt={`${car.brand} ${car.name}`} />
+            <CarGallery main_image={car.main_image} alt={`${car.brand} ${car.name}`} />
             
             <Separator className="my-8" />
             

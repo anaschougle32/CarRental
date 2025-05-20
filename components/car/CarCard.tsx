@@ -19,9 +19,6 @@ const CarCard = ({ car, showCategory = false }: CarCardProps) => {
   // State to track if image has error
   const [hasImageError, setHasImageError] = useState(false);
   
-  // Ensure we have at least one valid image
-  const mainImage = car.images && car.images.length > 0 ? car.images[0] : null;
-  
   // Create WhatsApp message with car details
   const whatsappMessage = encodeURIComponent(`Hi, I'm interested in renting the ${car.brand} ${car.name}. Could you provide more information?`);
   const whatsappLink = `https://wa.me/919867975473?text=${whatsappMessage}`;
@@ -29,10 +26,10 @@ const CarCard = ({ car, showCategory = false }: CarCardProps) => {
   return (
     <Card className="overflow-hidden group h-full flex flex-col transition-all hover:shadow-lg">
       <div className="relative h-48 overflow-hidden">
-        {mainImage && !hasImageError ? (
+        {car.main_image && !hasImageError ? (
           <div className="relative w-full h-full">
             <Image
-              src={mainImage}
+              src={car.main_image}
               alt={`${car.brand} ${car.name}`}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -79,44 +76,32 @@ const CarCard = ({ car, showCategory = false }: CarCardProps) => {
         </div>
       </CardContent>
       
-      <CardFooter className="border-t flex-col space-y-3 pt-4">
-        <div className="flex items-center justify-between w-full">
-          <div>
-            <p className="text-sm text-gray-500 dark:text-gray-400">Starting from</p>
-            <p className="font-bold text-lg">
-              ₹{car.price_per_day}
-              <span className="text-sm font-normal text-gray-500">/day</span>
-            </p>
-          </div>
-          <Button variant="default" size="sm" className="bg-blue-600 hover:bg-blue-700" asChild>
-            <Link href={`/cars/${car.slug}`}>View Details</Link>
-          </Button>
-        </div>
-        
-        <div className="grid grid-cols-2 gap-2 w-full">
-          <Button 
-            variant="outline" 
-            size="sm" 
-            className="border-green-500 text-green-600 hover:bg-green-50 hover:border-green-600 dark:hover:bg-green-900/20 flex items-center justify-center"
-            asChild
-          >
-            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-              <MessageCircle size={14} className="mr-1.5" />
-              WhatsApp
-            </a>
-          </Button>
-          
-          <Button 
-            variant="outline" 
-            size="sm" 
-            className="border-blue-500 text-blue-600 hover:bg-blue-50 hover:border-blue-600 dark:hover:bg-blue-900/20 flex items-center justify-center"
-            asChild
-          >
-            <Link href="tel:+919867975473">
-              <Phone size={14} className="mr-1.5" />
-              Call Now
+      <CardFooter className="pt-0">
+        <div className="w-full">
+          <div className="flex justify-between items-center mb-4">
+            <div>
+              <p className="text-sm text-gray-500">Price per day</p>
+              <p className="text-xl font-bold">₹{car.price_per_day}</p>
+            </div>
+            <Link href={`/cars/${car.slug}`}>
+              <Button variant="outline">View Details</Button>
             </Link>
-          </Button>
+          </div>
+          
+          <div className="flex gap-2">
+            <Button variant="outline" className="flex-1" asChild>
+              <a href={`tel:919867975473`}>
+                <Phone size={16} className="mr-2" />
+                Call
+              </a>
+            </Button>
+            <Button variant="outline" className="flex-1" asChild>
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                <MessageCircle size={16} className="mr-2" />
+                WhatsApp
+              </a>
+            </Button>
+          </div>
         </div>
       </CardFooter>
     </Card>
