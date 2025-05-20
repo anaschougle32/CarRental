@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, Database } from "lucide-react";
+import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Company Info */}
           <div>
-            <h3 className="font-br-novatic text-xl font-bold mb-4">
+            <h3 className="font-satoshi text-xl font-bold mb-4">
               Go<span className="text-primary">Drive</span>
             </h3>
             <p className="text-gray-300 mb-6 max-w-xs">
@@ -52,7 +52,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-bold mb-4">Quick Links</h3>
+            <h3 className="font-satoshi text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-3">
               <li>
                 <Link
@@ -91,7 +91,7 @@ const Footer = () => {
 
           {/* Legal */}
           <div>
-            <h3 className="text-lg font-bold mb-4">Legal</h3>
+            <h3 className="font-satoshi text-lg font-bold mb-4">Legal</h3>
             <ul className="space-y-3">
               <li>
                 <Link
@@ -122,7 +122,7 @@ const Footer = () => {
 
           {/* Contact Information */}
           <div>
-            <h3 className="text-lg font-bold mb-4">Contact Us</h3>
+            <h3 className="font-satoshi text-lg font-bold mb-4">Contact Us</h3>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <MapPin className="text-primary mt-1 flex-shrink-0" size={18} />

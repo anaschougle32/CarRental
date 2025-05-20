@@ -36,7 +36,7 @@ const Header = () => {
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2 text-primary">
           <Logo className="h-10 w-10" />
-          <span className="font-bold text-2xl">
+          <span className="font-satoshi font-bold text-2xl">
             Go<span className="text-blue-600">Drive</span>
           </span>
         </Link>
@@ -44,31 +44,31 @@ const Header = () => {
         <nav className="hidden md:flex items-center space-x-8">
           <Link
             href="/"
-            className="nav-link font-semibold text-gray-900 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 transition-colors"
+            className="nav-link font-medium text-gray-900 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 transition-colors"
           >
             Home
           </Link>
           <Link
             href="/cars"
-            className="nav-link font-semibold text-gray-900 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 transition-colors"
+            className="nav-link font-medium text-gray-900 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 transition-colors"
           >
             Cars
           </Link>
           <Link
             href="/blogs"
-            className="nav-link font-semibold text-gray-900 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 transition-colors"
+            className="nav-link font-medium text-gray-900 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 transition-colors"
           >
             Blog
           </Link>
           <Link
             href="/about"
-            className="nav-link font-semibold text-gray-900 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 transition-colors"
+            className="nav-link font-medium text-gray-900 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 transition-colors"
           >
             About
           </Link>
           <Link
             href="/contact"
-            className="nav-link font-semibold text-gray-900 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 transition-colors"
+            className="nav-link font-medium text-gray-900 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 transition-colors"
           >
             Contact
           </Link>

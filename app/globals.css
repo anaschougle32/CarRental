@@ -8,6 +8,8 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --font-poppins: 'Poppins', system-ui, sans-serif;
+  --font-satoshi: 'Satoshi', system-ui, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -69,15 +71,35 @@
   * {
     @apply border-border;
   }
+  
+  html {
+    font-family: var(--font-poppins);
+  }
+  
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-poppins;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-satoshi);
+    @apply font-bold;
+  }
+  
+  .font-satoshi {
+    font-family: var(--font-satoshi);
+  }
+  
+  .font-poppins {
+    font-family: var(--font-poppins);
   }
 }
 
-.button-hover {
-  @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
-}
+@layer components {
+  .button-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
+  }
 
-.nav-link {
-  @apply relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full;
+  .nav-link {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full;
+  }
 }

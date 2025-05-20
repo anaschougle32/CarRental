@@ -9,11 +9,13 @@ import FloatingCTA from '@/components/common/FloatingCTA';
 // Optimize font loading
 const poppins = Poppins({ 
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600', '700'],
   variable: '--font-poppins',
   display: 'swap', // Ensure text remains visible during font loading
   preload: true,
 });
+
+// Satoshi font is imported via CSS in globals.css
 
 export const metadata: Metadata = {
   title: {
@@ -86,6 +88,12 @@ export default function RootLayout({
         <link 
           rel="dns-prefetch" 
           href="https://images.pexels.com" 
+        />
+        {/* Preload Satoshi font */}
+        <link
+          rel="preconnect"
+          href="https://api.fontshare.com"
+          crossOrigin="anonymous"
         />
       </head>
       <body className={poppins.className}>
