@@ -47,7 +47,7 @@ interface Blog {
   excerpt: string;
   cover_image: string;
   created_at: string;
-  published: boolean;
+  published_at: string | null;
 }
 
 export default function AdminBlogs() {
@@ -62,7 +62,7 @@ export default function AdminBlogs() {
     slug: "",
     content: "",
     excerpt: "",
-    published: true,
+    published_at: new Date().toISOString(),
   });
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState("");
@@ -108,7 +108,7 @@ export default function AdminBlogs() {
       slug: "",
       content: "",
       excerpt: "",
-      published: true,
+      published_at: new Date().toISOString(),
     });
     setImageFile(null);
     setImagePreview("");
@@ -122,7 +122,7 @@ export default function AdminBlogs() {
       slug: blog.slug,
       content: blog.content,
       excerpt: blog.excerpt,
-      published: blog.published,
+      published_at: blog.published_at,
     });
     setImagePreview(blog.cover_image || "");
     setIsDialogOpen(true);
@@ -233,7 +233,7 @@ export default function AdminBlogs() {
   const handleTogglePublished = () => {
     setFormData({
       ...formData,
-      published: !formData.published,
+      published_at: formData.published_at ? null : new Date().toISOString(),
     });
   };
 
@@ -259,6 +259,27 @@ export default function AdminBlogs() {
     showNotification("Uploading image to storage...", "info");
     
     try {
+      // First, check if the bucket exists and create it if it doesn't
+      try {
+        const { data: buckets } = await supabase.storage.listBuckets();
+        const blogBucketExists = buckets?.some(bucket => bucket.name === 'blog-images');
+        
+        if (!blogBucketExists) {
+          console.log("Blog images bucket doesn't exist, creating it...");
+          const { error: createBucketError } = await supabase.storage.createBucket('blog-images', {
+            public: true
+          });
+          
+          if (createBucketError) {
+            console.error("Error creating bucket:", createBucketError);
+            // Continue anyway, the bucket might exist but not be visible to the current user
+          }
+        }
+      } catch (bucketError) {
+        console.error("Error checking/creating bucket:", bucketError);
+        // Continue anyway, the upload might still work
+      }
+      
       // Create a unique filename with timestamp and random string
       const extension = imageFile.name.split(".").pop()?.toLowerCase() || "jpg";
       const timestamp = new Date().getTime();
@@ -316,7 +337,7 @@ export default function AdminBlogs() {
       const cleanFormData = {
         ...formData,
         slug,
-        published: Boolean(formData.published)
+        published_at: formData.published_at
       };
       
       console.log("Form data for blog:", cleanFormData);
@@ -352,13 +373,17 @@ export default function AdminBlogs() {
         showNotification("Updating blog...", "info");
         
         try {
+          // Make sure published is a boolean
           const updateData = {
             title: cleanFormData.title,
             slug: cleanFormData.slug,
-            content: cleanFormData.content,
-            excerpt: cleanFormData.excerpt,
-            published: cleanFormData.published,
-            cover_image: blogImageUrl
+            content: cleanFormData.content || '',
+            excerpt: cleanFormData.excerpt || '',
+            published_at: cleanFormData.published_at,
+            cover_image: blogImageUrl,
+            // Add author and category if they don't exist
+            author: selectedBlog.author || 'Admin',
+            category: selectedBlog.category || 'Travel'
           };
           
           console.log("Updating blog with data:", updateData);
@@ -428,11 +453,13 @@ export default function AdminBlogs() {
           const insertData = {
             title: cleanFormData.title,
             slug: cleanFormData.slug,
-            content: cleanFormData.content,
-            excerpt: cleanFormData.excerpt,
-            published: cleanFormData.published,
+            content: cleanFormData.content || '',
+            excerpt: cleanFormData.excerpt || '',
+            published_at: cleanFormData.published_at,
             cover_image: blogImageUrl,
-            created_at: now
+            created_at: now,
+            author: 'Admin', // Default author
+            category: 'Travel' // Default category
           };
           
           console.log("Adding new blog with data:", insertData);
@@ -599,11 +626,12 @@ export default function AdminBlogs() {
                         <div className="w-16 h-16 relative overflow-hidden rounded-md">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
-                            src={blog.main_image}
+                            src={blog.cover_image}
                             alt={blog.title}
                             className="object-cover w-full h-full"
                             onError={(e) => {
-                              (e.target as HTMLImageElement).src = "/images/blog-placeholder.jpg";
+                              // Fallback for broken images
+                              e.currentTarget.src = "/images/placeholder.jpg";
                             }}
                           />
                         </div>
@@ -629,11 +657,11 @@ export default function AdminBlogs() {
                     </TableCell>
                     <TableCell>
                       <span className={`px-3 py-1 rounded-full text-xs ${
-                        blog.published 
+                        blog.published_at 
                           ? "bg-green-100 text-green-800" 
                           : "bg-gray-100 text-gray-800"
                       }`}>
-                        {blog.published ? "Published" : "Draft"}
+                        {blog.published_at ? "Published" : "Draft"}
                       </span>
                     </TableCell>
                     <TableCell className="flex space-x-2">
@@ -750,7 +778,7 @@ export default function AdminBlogs() {
               <input
                 type="checkbox"
                 id="published"
-                checked={formData.published}
+                checked={!!formData.published_at}
                 onChange={handleTogglePublished}
                 className="rounded"
               />
@@ -786,7 +814,7 @@ export default function AdminBlogs() {
                         <body>
                           <h1>${formData.title || 'Blog Title'}</h1>
                           <div class="blog-meta">
-                            ${new Date().toLocaleDateString()} · ${formData.published ? 'Published' : 'Draft'}
+                            ${new Date().toLocaleDateString()} · ${formData.published_at ? 'Published' : 'Draft'}
                           </div>
                           ${imagePreview ? `<div class="blog-image"><img src="${imagePreview}" alt="${formData.title}"></div>` : ''}
                           <div class="blog-content">

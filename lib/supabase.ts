@@ -51,7 +51,7 @@ export type Blog = {
   excerpt: string;
   cover_image: string;
   created_at: string;
-  published: boolean;
+  published_at: string;
   author?: string;
   category?: string;
 };
@@ -150,7 +150,7 @@ export async function getBlogs() {
   const { data, error } = await supabase
     .from('blogs')
     .select('*')
-    .eq('published', true)
+    .not('published_at', 'is', null)
     .order('created_at', { ascending: false });
   
   if (error) {
@@ -166,7 +166,7 @@ export async function getBlogBySlug(slug: string) {
     .from('blogs')
     .select('*')
     .eq('slug', slug)
-    .eq('published', true)
+    .not('published_at', 'is', null)
     .single();
   
   if (error) {
@@ -181,7 +181,7 @@ export async function getRelatedBlogs(currentSlug: string, category: string, cou
   const { data, error } = await supabase
     .from('blogs')
     .select('*')
-    .eq('published', true)
+    .not('published_at', 'is', null)
     .eq('category', category)
     .neq('slug', currentSlug)
     .limit(count);
