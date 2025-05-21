@@ -45,7 +45,7 @@ interface Blog {
   slug: string;
   content: string;
   excerpt: string;
-  main_image: string;
+  cover_image: string;
   created_at: string;
   published: boolean;
 }
@@ -124,7 +124,7 @@ export default function AdminBlogs() {
       excerpt: blog.excerpt,
       published: blog.published,
     });
-    setImagePreview(blog.main_image || "");
+    setImagePreview(blog.cover_image || "");
     setIsDialogOpen(true);
   };
 
@@ -137,6 +137,37 @@ export default function AdminBlogs() {
     if (!selectedBlog) return;
     
     try {
+      showNotification("Deleting blog...", "info");
+      console.log("Deleting blog with ID:", selectedBlog.id);
+      
+      // Check if the blog has an image in Supabase Storage
+      if (selectedBlog.cover_image && selectedBlog.cover_image.includes('blog-images')) {
+        try {
+          // Extract the filename from the URL
+          const url = new URL(selectedBlog.cover_image);
+          const pathParts = url.pathname.split('/');
+          const filename = pathParts[pathParts.length - 1];
+          
+          console.log("Attempting to delete blog image:", filename);
+          
+          // Delete the image from storage
+          const { error: storageError } = await supabase.storage
+            .from('blog-images')
+            .remove([filename]);
+          
+          if (storageError) {
+            console.error("Error deleting image from storage:", storageError);
+            // Continue with blog deletion even if image deletion fails
+          } else {
+            console.log("Blog image deleted successfully");
+          }
+        } catch (imageError) {
+          console.error("Error processing image deletion:", imageError);
+          // Continue with blog deletion even if image deletion fails
+        }
+      }
+      
+      // Delete the blog from the database
       const { error } = await supabase
         .from("blogs")
         .delete()
@@ -144,14 +175,16 @@ export default function AdminBlogs() {
       
       if (error) throw error;
       
-      // Update the local state
+      // Update local state
       setBlogs(blogs.filter(blog => blog.id !== selectedBlog.id));
       showNotification("Blog deleted successfully", "success");
+      setIsDeleteDialogOpen(false);
     } catch (error) {
       console.error("Error deleting blog:", error);
-      showNotification("Error deleting blog", "error");
-    } finally {
-      setIsDeleteDialogOpen(false);
+      showNotification(
+        `Error deleting blog: ${error instanceof Error ? error.message : 'Unknown error'}`,
+        "error"
+      );
     }
   };
 
@@ -174,28 +207,26 @@ export default function AdminBlogs() {
   ) => {
     const { name, value } = e.target;
     
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-    
     // Auto-generate slug from title
     if (name === "title") {
-      setFormData({
-        ...formData,
+      const generatedSlug = value.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
+      setFormData(prev => ({
+        ...prev,
         title: value,
-        slug: value.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, ""),
-      });
-    }
-
-    // Auto-generate excerpt from content if it's not already set
-    if (name === "content" && !formData.excerpt) {
-      const excerpt = value.substring(0, 150) + (value.length > 150 ? "..." : "");
-      setFormData({
-        ...formData,
-        content: value,
-        excerpt,
-      });
+        slug: generatedSlug,
+      }));
+    } else if (name === "published") {
+      // Handle checkbox
+      setFormData(prev => ({
+        ...prev,
+        published: (e.target as HTMLInputElement).checked,
+      }));
+    } else {
+      // Handle all other inputs
+      setFormData(prev => ({
+        ...prev,
+        [name]: value,
+      }));
     }
   };
 
@@ -209,101 +240,287 @@ export default function AdminBlogs() {
   const uploadImage = async (): Promise<string> => {
     if (!imageFile) {
       // If editing and no new image selected, use the existing one
-      if (selectedBlog?.main_image) {
-        return selectedBlog.main_image;
+      if (selectedBlog?.cover_image) {
+        return selectedBlog.cover_image;
       }
       throw new Error("No image selected");
     }
     
-    // Create a unique filename
-    const extension = imageFile.name.split(".").pop() || "jpg";
-    const filename = `${Date.now()}-${Math.random().toString(36).substring(2, 15)}.${extension}`;
-    const filePath = `blogs/${filename}`;
+    // Validate file type
+    const fileType = imageFile.type.toLowerCase();
+    const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
     
-    // Upload to Supabase Storage
-    const { data, error } = await supabase.storage
-      .from("images")
-      .upload(filePath, imageFile);
+    if (!validTypes.includes(fileType)) {
+      showNotification("Invalid file type. Please upload JPG, JPEG, PNG, or WEBP images only.", "error");
+      throw new Error("Invalid file type");
+    }
     
-    if (error) throw error;
+    // Show uploading notification
+    showNotification("Uploading image to storage...", "info");
     
-    // Return the public URL
-    return `/images/blogs/${filename}`;
+    try {
+      // Create a unique filename with timestamp and random string
+      const extension = imageFile.name.split(".").pop()?.toLowerCase() || "jpg";
+      const timestamp = new Date().getTime();
+      const randomString = Math.random().toString(36).substring(2, 10);
+      const filename = `blog_${timestamp}_${randomString}.${extension}`;
+      
+      console.log("Uploading blog image with filename:", filename);
+      
+      // Upload to Supabase Storage
+      const { data, error } = await supabase.storage
+        .from('blog-images')
+        .upload(filename, imageFile, {
+          cacheControl: '3600',
+          upsert: true // Use upsert to overwrite if file exists
+        });
+      
+      if (error) {
+        console.error("Storage upload error:", error);
+        throw error;
+      }
+      
+      // Get the public URL
+      const { data: publicUrlData } = supabase.storage
+        .from('blog-images')
+        .getPublicUrl(filename);
+      
+      if (!publicUrlData || !publicUrlData.publicUrl) {
+        throw new Error("Failed to get public URL for uploaded image");
+      }
+      
+      console.log("Blog image uploaded successfully, URL:", publicUrlData.publicUrl);
+      showNotification("Image uploaded successfully", "success");
+      return publicUrlData.publicUrl;
+    } catch (error) {
+      console.error("Image upload error:", error);
+      showNotification(`Error uploading image: ${error instanceof Error ? error.message : 'Unknown error'}`, "error");
+      throw error;
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     try {
-      let imageUrl = "";
+      // Validate required fields
+      if (!formData.title) {
+        showNotification("Title is required", "error");
+        return;
+      }
+      
+      // Always ensure slug is generated/updated from the title
+      const slug = formData.title.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
+      
+      // Create a clean form data object
+      const cleanFormData = {
+        ...formData,
+        slug,
+        published: Boolean(formData.published)
+      };
+      
+      console.log("Form data for blog:", cleanFormData);
+      
+      let blogImageUrl = "";
       
       // Upload image if we have a file
       if (imageFile) {
-        imageUrl = await uploadImage();
-      } else if (selectedBlog?.main_image) {
-        imageUrl = selectedBlog.main_image;
+        try {
+          blogImageUrl = await uploadImage();
+          console.log("Uploaded blog image URL:", blogImageUrl);
+        } catch (error) {
+          console.error("Image upload error:", error);
+          // Continue with the form submission even if image upload fails
+          if (selectedBlog?.cover_image) {
+            blogImageUrl = selectedBlog.cover_image;
+            console.log("Using existing blog image URL:", blogImageUrl);
+          } else {
+            showNotification("Image upload failed. Please try again.", "error");
+            return;
+          }
+        }
+      } else if (selectedBlog?.cover_image) {
+        blogImageUrl = selectedBlog.cover_image;
+        console.log("Using existing blog image URL (no new file):", blogImageUrl);
       } else {
-        throw new Error("Image is required");
+        showNotification("Image is required", "error");
+        return;
       }
       
       if (selectedBlog) {
-        // Update existing blog
-        const { error } = await supabase
-          .from("blogs")
-          .update({
-            ...formData,
-            main_image: imageUrl,
-          })
-          .eq("id", selectedBlog.id);
+        // Show updating notification
+        showNotification("Updating blog...", "info");
         
-        if (error) throw error;
-        
-        // Update local state
-        setBlogs(
-          blogs.map(blog => 
-            blog.id === selectedBlog.id 
-              ? { ...blog, ...formData, main_image: imageUrl } 
-              : blog
-          )
-        );
-        
-        showNotification("Blog updated successfully", "success");
+        try {
+          const updateData = {
+            title: cleanFormData.title,
+            slug: cleanFormData.slug,
+            content: cleanFormData.content,
+            excerpt: cleanFormData.excerpt,
+            published: cleanFormData.published,
+            cover_image: blogImageUrl
+          };
+          
+          console.log("Updating blog with data:", updateData);
+          
+          // Update existing blog
+          const { error } = await supabase
+            .from("blogs")
+            .update(updateData)
+            .eq("id", selectedBlog.id);
+          
+          if (error) {
+            console.error("Update error:", error);
+            throw error;
+          }
+          
+          // Fetch the updated blog to ensure we have the latest data
+          const { data: updatedBlog, error: fetchError } = await supabase
+            .from("blogs")
+            .select("*")
+            .eq("id", selectedBlog.id)
+            .single();
+          
+          if (fetchError) {
+            console.error("Error fetching updated blog:", fetchError);
+            // Still update local state with what we have
+            setBlogs(
+              blogs.map(blog => 
+                blog.id === selectedBlog.id 
+                  ? { ...blog, ...cleanFormData, cover_image: blogImageUrl } 
+                  : blog
+              )
+            );
+          } else if (updatedBlog) {
+            console.log("Updated blog data:", updatedBlog);
+            // Update local state with the fetched data
+            setBlogs(
+              blogs.map(blog => 
+                blog.id === selectedBlog.id ? updatedBlog : blog
+              )
+            );
+          }
+          
+          // Show success notification and redirect to blogs list
+          showNotification("Blog updated successfully", "success");
+          
+          // Close dialog and redirect after a short delay
+          setIsDialogOpen(false);
+          setTimeout(() => {
+            // Refresh the page to show updated data
+            window.location.reload();
+          }, 1500);
+        } catch (updateError) {
+          console.error("Error updating blog:", updateError);
+          showNotification(
+            `Error updating blog: ${updateError instanceof Error ? updateError.message : 'Database error'}`,
+            "error"
+          );
+        }
       } else {
-        // Create new blog
-        const now = new Date().toISOString();
+        // Show creating notification
+        showNotification("Adding new blog...", "info");
         
-        const { data, error } = await supabase
-          .from("blogs")
-          .insert({
-            ...formData,
-            main_image: imageUrl,
-            created_at: now,
-          })
-          .select();
-        
-        if (error) throw error;
-        
-        // Update local state
-        if (data && data.length > 0) {
-          setBlogs([data[0], ...blogs]);
-          showNotification("Blog added successfully", "success");
+        try {
+          // Create new blog with all fields explicitly listed
+          const now = new Date().toISOString();
+          
+          const insertData = {
+            title: cleanFormData.title,
+            slug: cleanFormData.slug,
+            content: cleanFormData.content,
+            excerpt: cleanFormData.excerpt,
+            published: cleanFormData.published,
+            cover_image: blogImageUrl,
+            created_at: now
+          };
+          
+          console.log("Adding new blog with data:", insertData);
+          
+          const { data, error } = await supabase
+            .from("blogs")
+            .insert(insertData)
+            .select();
+          
+          if (error) {
+            console.error("Insert error:", error);
+            throw error;
+          }
+          
+          // Update local state
+          if (data && data.length > 0) {
+            console.log("New blog data:", data[0]);
+            setBlogs([data[0], ...blogs]);
+            showNotification("Blog added successfully", "success");
+            
+            // Close dialog and redirect after a short delay
+            setIsDialogOpen(false);
+            setTimeout(() => {
+              // Refresh the page to show updated data
+              window.location.reload();
+            }, 1500);
+          }
+        } catch (insertError) {
+          console.error("Error adding blog:", insertError);
+          showNotification(
+            `Error adding blog: ${insertError instanceof Error ? insertError.message : 'Database error'}`,
+            "error"
+          );
         }
       }
-      
-      setIsDialogOpen(false);
     } catch (error) {
       console.error("Error saving blog:", error);
       showNotification(
-        `Error ${selectedBlog ? "updating" : "adding"} blog`,
+        `Error ${selectedBlog ? "updating" : "adding"} blog: ${error instanceof Error ? error.message : 'Unknown error'}`,
         "error"
       );
     }
   };
 
   const showNotification = (message: string, type: string) => {
+    // Set notification state
     setNotification({ show: true, message, type });
+    
+    // Create a toast-like notification that appears at the top of the screen
+    const toast = document.createElement('div');
+    toast.className = `fixed top-4 right-4 z-50 p-4 rounded-md shadow-md ${type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`;
+    toast.style.minWidth = '300px';
+    toast.style.maxWidth = '500px';
+    
+    const content = document.createElement('div');
+    content.className = 'flex items-center';
+    content.innerHTML = `
+      <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        ${type === 'success' 
+          ? '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>'
+          : '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>'
+        }
+      </svg>
+      <p>${message}</p>
+    `;
+    
+    toast.appendChild(content);
+    document.body.appendChild(toast);
+    
+    // Animate in
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(-20px)';
+    toast.style.transition = 'all 0.3s ease';
+    
     setTimeout(() => {
-      setNotification({ show: false, message: "", type: "" });
+      toast.style.opacity = '1';
+      toast.style.transform = 'translateY(0)';
+    }, 10);
+    
+    // Remove after delay
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(-20px)';
+      
+      setTimeout(() => {
+        document.body.removeChild(toast);
+        setNotification({ show: false, message: "", type: "" });
+      }, 300);
     }, 3000);
   };
 
@@ -542,13 +759,57 @@ export default function AdminBlogs() {
               </Label>
             </div>
             
-            <DialogFooter>
-              <Button type="button" variant="outline" onClick={() => setIsDialogOpen(false)}>
-                Cancel
-              </Button>
-              <Button type="submit">
-                {selectedBlog ? "Update Blog" : "Add Blog"}
-              </Button>
+            <DialogFooter className="flex justify-between">
+              <div>
+                <Button 
+                  type="button" 
+                  variant="outline" 
+                  onClick={() => {
+                    // Open preview in new tab
+                    const previewWindow = window.open('', '_blank');
+                    if (previewWindow) {
+                      previewWindow.document.write(`
+                        <!DOCTYPE html>
+                        <html>
+                        <head>
+                          <title>${formData.title || 'Blog Preview'}</title>
+                          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                          <style>
+                            body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; }
+                            img { max-width: 100%; height: auto; border-radius: 8px; }
+                            h1 { margin-top: 40px; }
+                            .blog-content { margin-top: 30px; }
+                            .blog-image { margin-bottom: 30px; }
+                            .blog-meta { color: #666; font-size: 0.9rem; margin-bottom: 20px; }
+                          </style>
+                        </head>
+                        <body>
+                          <h1>${formData.title || 'Blog Title'}</h1>
+                          <div class="blog-meta">
+                            ${new Date().toLocaleDateString()} · ${formData.published ? 'Published' : 'Draft'}
+                          </div>
+                          ${imagePreview ? `<div class="blog-image"><img src="${imagePreview}" alt="${formData.title}"></div>` : ''}
+                          <div class="blog-content">
+                            ${formData.content?.replace(/\n/g, '<br>') || 'No content'}
+                          </div>
+                        </body>
+                        </html>
+                      `);
+                      previewWindow.document.close();
+                    }
+                  }}
+                >
+                  Preview
+                </Button>
+              </div>
+              <div className="flex space-x-2">
+                <Button type="button" variant="outline" onClick={() => setIsDialogOpen(false)}>
+                  Cancel
+                </Button>
+                <Button type="submit">
+                  {selectedBlog ? "Update Blog" : "Add Blog"}
+                </Button>
+              </div>
             </DialogFooter>
           </form>
         </DialogContent>
@@ -574,3 +835,5 @@ export default function AdminBlogs() {
     </div>
   );
 } 
+
+

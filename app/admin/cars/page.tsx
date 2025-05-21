@@ -124,15 +124,20 @@ export default function AdminCars() {
 
   const fetchBrands = async () => {
     try {
-      const { data, error } = await supabase.from("brands").select("*");
+      const { data, error } = await supabase.from("brands").select("*").order('name');
       
       if (error) throw error;
       
       if (data) {
-        setBrands(data);
+        // Remove duplicates by name (case insensitive)
+        const uniqueBrands = data.filter((brand, index, self) =>
+          index === self.findIndex(b => b.name.toLowerCase() === brand.name.toLowerCase())
+        );
+        setBrands(uniqueBrands);
       }
     } catch (error) {
       console.error("Error fetching brands:", error);
+      showNotification("Error loading brands", "error");
     }
   };
 
@@ -182,6 +187,37 @@ export default function AdminCars() {
     if (!selectedCar) return;
     
     try {
+      showNotification("Deleting car...", "info");
+      console.log("Deleting car with ID:", selectedCar.id);
+      
+      // Check if the car has an image in Supabase Storage
+      if (selectedCar.main_image && selectedCar.main_image.includes('car-images')) {
+        try {
+          // Extract the filename from the URL
+          const url = new URL(selectedCar.main_image);
+          const pathParts = url.pathname.split('/');
+          const filename = pathParts[pathParts.length - 1];
+          
+          console.log("Attempting to delete image:", filename);
+          
+          // Delete the image from storage
+          const { error: storageError } = await supabase.storage
+            .from('car-images')
+            .remove([filename]);
+          
+          if (storageError) {
+            console.error("Error deleting image from storage:", storageError);
+            // Continue with car deletion even if image deletion fails
+          } else {
+            console.log("Image deleted successfully");
+          }
+        } catch (imageError) {
+          console.error("Error processing image deletion:", imageError);
+          // Continue with car deletion even if image deletion fails
+        }
+      }
+      
+      // Delete the car from the database
       const { error } = await supabase
         .from("cars")
         .delete()
@@ -189,14 +225,16 @@ export default function AdminCars() {
       
       if (error) throw error;
       
-      // Update the local state
+      // Update local state
       setCars(cars.filter(car => car.id !== selectedCar.id));
       showNotification("Car deleted successfully", "success");
+      setIsDeleteDialogOpen(false);
     } catch (error) {
       console.error("Error deleting car:", error);
-      showNotification("Error deleting car", "error");
-    } finally {
-      setIsDeleteDialogOpen(false);
+      showNotification(
+        `Error deleting car: ${error instanceof Error ? error.message : 'Unknown error'}`,
+        "error"
+      );
     }
   };
 
@@ -219,26 +257,33 @@ export default function AdminCars() {
   ) => {
     const { name, value } = e.target;
     
+    // Handle numeric fields
     if (name === "price_per_day" || name === "seats" || name === "luggage") {
-      setFormData({
-        ...formData,
-        [name]: Number(value),
-      });
-    } else {
-      setFormData({
-        ...formData,
-        [name]: value,
-      });
+      const numValue = value === "" ? 0 : parseFloat(value);
+      setFormData(prev => ({
+        ...prev,
+        [name]: numValue
+      }));
+      return;
     }
     
-    // Auto-generate slug from name
+    // Handle slug generation from name
     if (name === "name") {
-      setFormData({
-        ...formData,
+      const slug = value.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
+      
+      // Always auto-update slug when name changes
+      setFormData(prev => ({
+        ...prev,
         name: value,
-        slug: value.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, ""),
-      });
+        slug
+      }));
+      return;
     }
+    
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   const handleSelectChange = (name: string, value: string) => {
@@ -250,6 +295,16 @@ export default function AdminCars() {
 
   const addFeature = () => {
     if (!featureInput.trim()) return;
+    
+    // Check if feature already exists (case insensitive)
+    const featureExists = formData.features?.some(
+      feature => feature.toLowerCase() === featureInput.trim().toLowerCase()
+    );
+    
+    if (featureExists) {
+      showNotification("Feature already exists", "error");
+      return;
+    }
     
     setFormData({
       ...formData,
@@ -278,92 +333,287 @@ export default function AdminCars() {
       throw new Error("No image selected");
     }
     
-    // Create a unique filename
-    const extension = imageFile.name.split(".").pop() || "jpg";
-    const filename = `${Date.now()}-${Math.random().toString(36).substring(2, 15)}.${extension}`;
-    const filePath = `cars/${filename}`;
+    // Validate file type
+    const fileType = imageFile.type.toLowerCase();
+    const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
     
-    // Upload to Supabase Storage
-    const { data, error } = await supabase.storage
-      .from("images")
-      .upload(filePath, imageFile);
+    if (!validTypes.includes(fileType)) {
+      showNotification("Invalid file type. Please upload JPG, JPEG, PNG, or WEBP images only.", "error");
+      throw new Error("Invalid file type");
+    }
     
-    if (error) throw error;
+    // Show uploading notification
+    showNotification("Uploading image to storage...", "info");
     
-    // Return the public URL
-    return `/images/cars/${filename}`;
+    try {
+      // Create a unique filename with timestamp and random string
+      const extension = imageFile.name.split(".").pop()?.toLowerCase() || "jpg";
+      const timestamp = new Date().getTime();
+      const randomString = Math.random().toString(36).substring(2, 10);
+      const filename = `car_${timestamp}_${randomString}.${extension}`;
+      
+      // Upload to Supabase Storage
+      const { data, error } = await supabase.storage
+        .from('car-images')
+        .upload(filename, imageFile, {
+          cacheControl: '3600',
+          upsert: true // Use upsert to overwrite if file exists
+        });
+      
+      if (error) {
+        console.error("Storage upload error:", error);
+        throw error;
+      }
+      
+      // Get the public URL
+      const { data: publicUrlData } = supabase.storage
+        .from('car-images')
+        .getPublicUrl(filename);
+      
+      if (!publicUrlData || !publicUrlData.publicUrl) {
+        throw new Error("Failed to get public URL for uploaded image");
+      }
+      
+      showNotification("Image uploaded successfully", "success");
+      return publicUrlData.publicUrl;
+    } catch (error) {
+      console.error("Image upload error:", error);
+      showNotification(`Error uploading image: ${error instanceof Error ? error.message : 'Unknown error'}`, "error");
+      throw error;
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     try {
+      // Validate required fields
+      if (!formData.name || !formData.brand_id) {
+        showNotification("Name and brand are required", "error");
+        return;
+      }
+      
+      // Always ensure slug is generated/updated from the name
+      const slug = formData.name.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
+      
+      // Convert numeric fields to numbers
+      const numericFormData = {
+        ...formData,
+        slug,
+        price_per_day: Number(formData.price_per_day),
+        seats: Number(formData.seats),
+        luggage: Number(formData.luggage)
+      };
+      
       let imageUrl = "";
       
       // Upload image if we have a file
       if (imageFile) {
-        imageUrl = await uploadImage();
+        try {
+          imageUrl = await uploadImage();
+          console.log("Uploaded image URL:", imageUrl);
+        } catch (error) {
+          console.error("Image upload error:", error);
+          // Continue with the form submission even if image upload fails
+          if (selectedCar?.main_image) {
+            imageUrl = selectedCar.main_image;
+            console.log("Using existing image URL:", imageUrl);
+          } else {
+            showNotification("Image upload failed. Please try again.", "error");
+            return;
+          }
+        }
       } else if (selectedCar?.main_image) {
         imageUrl = selectedCar.main_image;
+        console.log("Using existing image URL (no new file):", imageUrl);
       } else {
-        throw new Error("Image is required");
+        showNotification("Image is required", "error");
+        return;
       }
       
       if (selectedCar) {
-        // Update existing car
-        const { error } = await supabase
-          .from("cars")
-          .update({
-            ...formData,
-            main_image: imageUrl,
-          })
-          .eq("id", selectedCar.id);
+        // Show updating notification
+        showNotification("Updating car...", "info");
         
-        if (error) throw error;
-        
-        // Update local state
-        setCars(
-          cars.map(car => 
-            car.id === selectedCar.id 
-              ? { ...car, ...formData, main_image: imageUrl } 
-              : car
-          )
-        );
-        
-        showNotification("Car updated successfully", "success");
+        try {
+          const updateData = {
+            name: numericFormData.name,
+            slug: numericFormData.slug,
+            brand_id: numericFormData.brand_id,
+            price_per_day: numericFormData.price_per_day,
+            transmission: numericFormData.transmission,
+            fuel_type: numericFormData.fuel_type,
+            seats: numericFormData.seats,
+            luggage: numericFormData.luggage,
+            description: numericFormData.description,
+            features: numericFormData.features,
+            main_image: imageUrl
+          };
+          
+          console.log("Updating car with data:", updateData);
+          
+          // Update existing car
+          const { error } = await supabase
+            .from("cars")
+            .update(updateData)
+            .eq("id", selectedCar.id);
+          
+          if (error) {
+            console.error("Update error:", error);
+            throw error;
+          }
+          
+          // Fetch the updated car to ensure we have the latest data
+          const { data: updatedCar, error: fetchError } = await supabase
+            .from("cars")
+            .select("*")
+            .eq("id", selectedCar.id)
+            .single();
+          
+          if (fetchError) {
+            console.error("Error fetching updated car:", fetchError);
+            // Still update local state with what we have
+            setCars(
+              cars.map(car => 
+                car.id === selectedCar.id 
+                  ? { ...car, ...numericFormData, main_image: imageUrl } 
+                  : car
+              )
+            );
+          } else if (updatedCar) {
+            console.log("Updated car data:", updatedCar);
+            // Update local state with the fetched data
+            setCars(
+              cars.map(car => 
+                car.id === selectedCar.id ? updatedCar : car
+              )
+            );
+          }
+          
+          // Show success notification and redirect to cars list
+          showNotification("Car updated successfully", "success");
+          
+          // Close dialog and redirect after a short delay
+          setIsDialogOpen(false);
+          setTimeout(() => {
+            // Refresh the current page to show updated data
+            window.location.reload();
+          }, 1500);
+        } catch (updateError) {
+          console.error("Error updating car:", updateError);
+          showNotification(
+            `Error updating car: ${updateError instanceof Error ? updateError.message : 'Database error'}`,
+            "error"
+          );
+        }
       } else {
-        // Create new car
-        const { data, error } = await supabase
-          .from("cars")
-          .insert({
-            ...formData,
-            main_image: imageUrl,
-          })
-          .select();
+        // Show creating notification
+        showNotification("Adding new car...", "info");
         
-        if (error) throw error;
-        
-        // Update local state
-        if (data && data.length > 0) {
-          setCars([...cars, data[0]]);
-          showNotification("Car added successfully", "success");
+        try {
+          const insertData = {
+            name: numericFormData.name,
+            slug: numericFormData.slug,
+            brand_id: numericFormData.brand_id,
+            price_per_day: numericFormData.price_per_day,
+            transmission: numericFormData.transmission,
+            fuel_type: numericFormData.fuel_type,
+            seats: numericFormData.seats,
+            luggage: numericFormData.luggage,
+            description: numericFormData.description,
+            features: numericFormData.features,
+            main_image: imageUrl
+          };
+          
+          console.log("Adding new car with data:", insertData);
+          
+          // Create new car
+          const { data, error } = await supabase
+            .from("cars")
+            .insert(insertData)
+            .select();
+          
+          if (error) {
+            console.error("Insert error:", error);
+            throw error;
+          }
+          
+          // Update local state
+          if (data && data.length > 0) {
+            console.log("New car data:", data[0]);
+            setCars([...cars, data[0]]);
+            showNotification("Car added successfully", "success");
+            
+            // Close dialog and redirect after a short delay
+            setIsDialogOpen(false);
+            setTimeout(() => {
+              // Refresh the current page to show updated data
+              window.location.reload();
+            }, 1500);
+          }
+        } catch (insertError) {
+          console.error("Error adding car:", insertError);
+          showNotification(
+            `Error adding car: ${insertError instanceof Error ? insertError.message : 'Database error'}`,
+            "error"
+          );
         }
       }
-      
-      setIsDialogOpen(false);
     } catch (error) {
       console.error("Error saving car:", error);
       showNotification(
-        `Error ${selectedCar ? "updating" : "adding"} car`,
+        `Error ${selectedCar ? "updating" : "adding"} car: ${error instanceof Error ? error.message : 'Unknown error'}`,
         "error"
       );
     }
   };
 
   const showNotification = (message: string, type: string) => {
+    // Set notification state
     setNotification({ show: true, message, type });
+    
+    // Create a toast-like notification that appears at the top-right corner of the screen
+    const toast = document.createElement('div');
+    toast.className = `fixed top-4 right-4 z-50 p-4 rounded-md shadow-md ${type === 'success' ? 'bg-green-100 text-green-800' : type === 'error' ? 'bg-red-100 text-red-800' : 'bg-blue-100 text-blue-800'}`;
+    toast.style.minWidth = '300px';
+    toast.style.maxWidth = '500px';
+    
+    const content = document.createElement('div');
+    content.className = 'flex items-center';
+    content.innerHTML = `
+      <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        ${type === 'success' 
+          ? '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>'
+          : type === 'error'
+          ? '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>'
+          : '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>'
+        }
+      </svg>
+      <p>${message}</p>
+    `;
+    
+    toast.appendChild(content);
+    document.body.appendChild(toast);
+    
+    // Animate in
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(-20px)';
+    toast.style.transition = 'all 0.3s ease';
+    
     setTimeout(() => {
-      setNotification({ show: false, message: "", type: "" });
+      toast.style.opacity = '1';
+      toast.style.transform = 'translateY(0)';
+    }, 10);
+    
+    // Remove after delay
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(-20px)';
+      
+      setTimeout(() => {
+        document.body.removeChild(toast);
+        setNotification({ show: false, message: "", type: "" });
+      }, 300);
     }, 3000);
   };
 
@@ -399,11 +649,17 @@ export default function AdminCars() {
         <div className={`p-4 mb-4 rounded-md ${
           notification.type === "success" 
             ? "bg-green-50 text-green-700 border border-green-200" 
+            : notification.type === "info"
+            ? "bg-blue-50 text-blue-700 border border-blue-200"
             : "bg-red-50 text-red-700 border border-red-200"
         }`}>
           <div className="flex items-center">
             {notification.type === "success" ? (
               <CheckCircle className="h-5 w-5 mr-2" />
+            ) : notification.type === "info" ? (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
             ) : (
               <AlertCircle className="h-5 w-5 mr-2" />
             )}
@@ -713,3 +969,4 @@ export default function AdminCars() {
     </div>
   );
 } 
+
