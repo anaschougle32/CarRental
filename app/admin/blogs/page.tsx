@@ -595,7 +595,7 @@ export default function AdminBlogs() {
                 filteredBlogs.map((blog) => (
                   <TableRow key={blog.id}>
                     <TableCell>
-                      {blog.main_image ? (
+                      {blog.cover_image ? (
                         <div className="w-16 h-16 relative overflow-hidden rounded-md">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img

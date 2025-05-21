@@ -43,6 +43,19 @@ export type Brand = {
   logo: string;
 };
 
+export type Blog = {
+  id: string;
+  title: string;
+  slug: string;
+  content: string;
+  excerpt: string;
+  cover_image: string;
+  created_at: string;
+  published: boolean;
+  author?: string;
+  category?: string;
+};
+
 export type Testimonial = {
   id: string;
   name: string;
@@ -130,4 +143,53 @@ export async function submitContactForm(contactData: Omit<ContactMessage, 'id' |
   }
   
   return { success: true, data };
-} 
+}
+
+// Blog functions
+export async function getBlogs() {
+  const { data, error } = await supabase
+    .from('blogs')
+    .select('*')
+    .eq('published', true)
+    .order('created_at', { ascending: false });
+  
+  if (error) {
+    console.error('Error fetching blogs:', error);
+    return [];
+  }
+  
+  return data as Blog[];
+}
+
+export async function getBlogBySlug(slug: string) {
+  const { data, error } = await supabase
+    .from('blogs')
+    .select('*')
+    .eq('slug', slug)
+    .eq('published', true)
+    .single();
+  
+  if (error) {
+    console.error('Error fetching blog:', error);
+    return null;
+  }
+  
+  return data as Blog;
+}
+
+export async function getRelatedBlogs(currentSlug: string, category: string, count = 2) {
+  const { data, error } = await supabase
+    .from('blogs')
+    .select('*')
+    .eq('published', true)
+    .eq('category', category)
+    .neq('slug', currentSlug)
+    .limit(count);
+  
+  if (error) {
+    console.error('Error fetching related blogs:', error);
+    return [];
+  }
+  
+  return data as Blog[];
+}

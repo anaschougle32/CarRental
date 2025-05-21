@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getBlogBySlug, getRelatedBlogs } from "@/data/blogs";
+import { getBlogBySlug, getRelatedBlogs } from "@/lib/supabase";
 import BlogContent from "@/components/blog/BlogContent";
 import RelatedBlogs from "@/components/blog/RelatedBlogs";
 import CtaBanner from "@/components/home/CtaBanner";
@@ -12,7 +12,7 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const blog = getBlogBySlug(params.slug);
+  const blog = await getBlogBySlug(params.slug);
   
   if (!blog) {
     return {
@@ -22,15 +22,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   
   return {
     title: blog.title,
-    description: blog.description,
+    description: blog.excerpt,
     openGraph: {
       images: [blog.cover_image],
     },
   };
 }
 
-export default function BlogPage({ params }: Props) {
-  const blog = getBlogBySlug(params.slug);
+export default async function BlogPage({ params }: Props) {
+  const blog = await getBlogBySlug(params.slug);
   
   if (!blog) {
     notFound();
@@ -76,7 +76,9 @@ export default function BlogPage({ params }: Props) {
           <Separator className="my-12" />
           
           {/* Related Posts */}
-          <RelatedBlogs currentSlug={blog.slug} />
+          {blog.category && (
+            <RelatedBlogs currentSlug={blog.slug} category={blog.category || 'Travel'} />
+          )}
         </div>
       </div>
       

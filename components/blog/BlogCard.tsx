@@ -1,21 +1,26 @@
 import Link from "next/link";
 import { CalendarDays } from "lucide-react";
-import { formatDistance } from "date-fns";
+import { formatDistance, parseISO } from "date-fns";
 import { BlogPost } from "@/lib/types";
+import { Blog } from "@/lib/supabase";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 interface BlogCardProps {
-  blog: BlogPost;
+  blog: BlogPost | Blog;
 }
 
 const BlogCard = ({ blog }: BlogCardProps) => {
   // Calculate how long ago the post was published
   const timeAgo = formatDistance(
-    new Date(blog.date),
+    new Date('date' in blog ? blog.date : blog.created_at),
     new Date(),
     { addSuffix: true }
   );
+  
+  // Handle different data structures between BlogPost and Blog
+  const category = 'category' in blog ? blog.category : 'Travel';
+  const description = 'description' in blog ? blog.description : blog.excerpt;
 
   return (
     <Card className="overflow-hidden h-full flex flex-col hover:shadow-lg transition-shadow">
@@ -26,7 +31,7 @@ const BlogCard = ({ blog }: BlogCardProps) => {
           className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
         />
         <span className="absolute top-3 right-3 bg-blue-600 text-white px-3 py-1 text-xs rounded-full">
-          {blog.category}
+          {category}
         </span>
       </div>
       
@@ -43,7 +48,7 @@ const BlogCard = ({ blog }: BlogCardProps) => {
         </h3>
         
         <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
-          {blog.description}
+          {description}
         </p>
       </CardContent>
       

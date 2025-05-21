@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import { blogs } from "@/data/blogs";
 import BlogCard from "@/components/blog/BlogCard";
+import { getBlogs, Blog } from "@/lib/supabase";
 
 export const metadata: Metadata = {
   title: "Travel Tips, Driving Guides & Rental Advice – Blog",
@@ -8,7 +8,10 @@ export const metadata: Metadata = {
   keywords: "car rental blog, Goa travel tips, driving in Goa, self drive advice",
 };
 
-export default function BlogsPage() {
+export default async function BlogsPage() {
+  // Fetch blogs from Supabase
+  const blogs = await getBlogs();
+  
   return (
     <div className="container mx-auto px-4 md:px-6 py-10 pt-24 md:pt-32">
       <div className="text-center mb-12">
@@ -21,9 +24,15 @@ export default function BlogsPage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {blogs.map(blog => (
-          <BlogCard key={blog.id} blog={blog} />
-        ))}
+        {blogs.length > 0 ? (
+          blogs.map(blog => (
+            <BlogCard key={blog.id} blog={blog} />
+          ))
+        ) : (
+          <div className="col-span-3 text-center py-10">
+            <p className="text-gray-500 dark:text-gray-400">No blog posts found.</p>
+          </div>
+        )}
       </div>
     </div>
   );
