@@ -1,13 +1,14 @@
-import { getRelatedBlogs } from "@/lib/supabase";
+import { getRelatedBlogs } from "@/lib/blogs";
 import BlogCard from "@/components/blog/BlogCard";
+import { BlogPost } from "@/lib/types";
 
 interface RelatedBlogsProps {
   currentSlug: string;
   category: string;
 }
 
-const RelatedBlogs = async ({ currentSlug, category }: RelatedBlogsProps) => {
-  const relatedBlogs = await getRelatedBlogs(currentSlug, category, 2);
+const RelatedBlogs = async ({ currentSlug }: RelatedBlogsProps) => {
+  const relatedBlogs = await getRelatedBlogs(currentSlug, 2);
 
   if (relatedBlogs.length === 0) return null;
 

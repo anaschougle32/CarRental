@@ -109,24 +109,15 @@ export default function AdminBlogs() {
   const fetchBlogs = async () => {
     try {
       setIsLoading(true);
-      console.log("Fetching blogs from database...");
-      
       const { data, error } = await supabase
         .from("blogs")
         .select("*")
         .order("created_at", { ascending: false });
       
-      if (error) {
-        console.error("Error in Supabase query:", error);
-        throw error;
-      }
+      if (error) throw error;
       
       if (data) {
-        console.log("Blogs fetched successfully:", data.length, "blogs found");
-        console.log("First blog data sample:", data[0] || "No blogs found");
         setBlogs(data);
-      } else {
-        console.log("No blogs returned from database");
       }
     } catch (error) {
       console.error("Error fetching blogs:", error);
@@ -288,93 +279,46 @@ export default function AdminBlogs() {
 
   const uploadImage = async (): Promise<string> => {
     if (!imageFile) {
-      // If editing and no new image selected, use the existing one
-      if (selectedBlog?.cover_image) {
-        return selectedBlog.cover_image;
-      }
       throw new Error("No image selected");
     }
     
     // Validate file type
     const fileType = imageFile.type.toLowerCase();
     const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
-    
     if (!validTypes.includes(fileType)) {
-      showNotification("Invalid file type. Please upload JPG, JPEG, PNG, or WEBP images only.", "error");
-      throw new Error("Invalid file type");
+      throw new Error("Invalid file type. Please use JPEG, PNG or WebP images.");
     }
     
-    // Show uploading notification
-    showNotification("Uploading image to storage...", "info");
-    
     try {
-      // First check if the bucket exists
-      const { data: buckets, error: bucketsError } = await supabase.storage.listBuckets();
-      
-      if (bucketsError) {
-        console.error("Error checking buckets:", bucketsError);
-        throw bucketsError;
-      }
-      
-      // Check if blog-images bucket exists
-      const bucketExists = buckets?.some(bucket => bucket.name === 'blog-images');
-      
-      if (!bucketExists) {
-        console.log("blog-images bucket doesn't exist, attempting to create it");
-        try {
-          const { error: createBucketError } = await supabase.storage.createBucket('blog-images', {
-            public: true
-          });
-          
-          if (createBucketError) {
-            console.error("Error creating bucket:", createBucketError);
-            // Continue anyway, as the bucket might exist but not be visible to the current user
-          }
-        } catch (bucketError) {
-          console.error("Error creating bucket:", bucketError);
-          // Continue anyway
-        }
-      }
-      
-      // Create a unique filename with timestamp and random string
-      const extension = imageFile.name.split(".").pop()?.toLowerCase() || "jpg";
+      // Generate a unique filename with timestamp to avoid conflicts
       const timestamp = new Date().getTime();
-      const randomString = Math.random().toString(36).substring(2, 10);
-      const filename = `blog_${timestamp}_${randomString}.${extension}`;
+      const fileExt = imageFile.name.split('.').pop();
+      const safeFileName = `${timestamp}-${imageFile.name.replace(/[^a-zA-Z0-9.]/g, '-').toLowerCase()}`;
       
-      console.log(`Uploading image to 'blog-images/${filename}'`);
+      console.log("Uploading image with filename:", safeFileName);
       
       // Upload to Supabase Storage
       const { data, error } = await supabase.storage
         .from('blog-images')
-        .upload(filename, imageFile, {
-          cacheControl: '3600',
-          upsert: true, // Use upsert to overwrite if file exists
-          contentType: imageFile.type // Set the content type explicitly
+        .upload(safeFileName, imageFile, { 
+          upsert: true,
+          contentType: imageFile.type 
         });
       
       if (error) {
-        console.error("Storage upload error:", error);
+        console.error("Error uploading image:", error);
         throw error;
       }
-      
-      console.log("Image uploaded successfully, getting public URL");
       
       // Get the public URL
       const { data: publicUrlData } = supabase.storage
         .from('blog-images')
-        .getPublicUrl(filename);
+        .getPublicUrl(safeFileName);
       
-      if (!publicUrlData || !publicUrlData.publicUrl) {
-        throw new Error("Failed to get public URL for uploaded image");
-      }
-      
-      console.log("Image public URL:", publicUrlData.publicUrl);
-      showNotification("Image uploaded successfully", "success");
+      console.log("Image uploaded successfully. URL:", publicUrlData.publicUrl);
       return publicUrlData.publicUrl;
     } catch (error) {
-      console.error("Image upload error:", error);
-      showNotification(`Error uploading image: ${error instanceof Error ? error.message : 'Unknown error'}`, "error");
+      console.error("Error in uploadImage:", error);
       throw error;
     }
   };
@@ -392,51 +336,17 @@ export default function AdminBlogs() {
       // Generate slug from title
       const slug = formData.title.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
       
-      // Show loading notification
-      showNotification("Processing blog...", "info");
-      
-      // STEP 1: Handle image upload first
       let blogImageUrl = "";
+      
+      // Handle image upload
       if (imageFile) {
         try {
-          showNotification("Uploading image...", "info");
-          
-          // Create a unique filename with timestamp and random string
-          const extension = imageFile.name.split(".").pop()?.toLowerCase() || "jpg";
-          const timestamp = new Date().getTime();
-          const randomString = Math.random().toString(36).substring(2, 10);
-          const filename = `blog_${timestamp}_${randomString}.${extension}`;
-          
-          console.log(`Uploading image to 'blog-images/${filename}'`);
-          
-          // Upload directly to Supabase Storage
-          const { data, error } = await supabase.storage
-            .from('blog-images')
-            .upload(filename, imageFile, {
-              cacheControl: '3600',
-              upsert: true,
-              contentType: imageFile.type
-            });
-          
-          if (error) {
-            console.error("Storage upload error:", error);
-            throw error;
-          }
-          
-          // Get the public URL
-          const { data: publicUrlData } = supabase.storage
-            .from('blog-images')
-            .getPublicUrl(filename);
-          
-          if (!publicUrlData || !publicUrlData.publicUrl) {
-            throw new Error("Failed to get public URL for uploaded image");
-          }
-          
-          blogImageUrl = publicUrlData.publicUrl;
+          blogImageUrl = await uploadImage();
           console.log("Successfully uploaded image:", blogImageUrl);
         } catch (error) {
           console.error("Image upload failed:", error);
           if (selectedBlog?.cover_image) {
+            // Use existing image if available
             blogImageUrl = selectedBlog.cover_image;
             console.log("Using existing image:", blogImageUrl);
           } else {
@@ -445,6 +355,7 @@ export default function AdminBlogs() {
           }
         }
       } else if (selectedBlog?.cover_image) {
+        // Keep existing image if no new one was uploaded
         blogImageUrl = selectedBlog.cover_image;
         console.log("Keeping existing image:", blogImageUrl);
       } else {
@@ -452,111 +363,93 @@ export default function AdminBlogs() {
         return;
       }
       
-      // STEP 2: Prepare the data for database operation
-      const now = new Date().toISOString();
-      const blogData = {
-        title: formData.title,
-        slug: slug,
-        content: formData.content || '',
-        excerpt: formData.excerpt || '',
-        published_at: formData.published_at ? now : null,
-        cover_image: blogImageUrl,
-        author: formData.author || (selectedBlog?.author || 'Admin'),
-        category: formData.category || (selectedBlog?.category || 'Travel')
-      };
-      
-      // STEP 3: Database operation (update or insert)
       if (selectedBlog) {
         // UPDATING EXISTING BLOG
-        console.log("Updating blog with ID:", selectedBlog.id);
-        console.log("Update data:", JSON.stringify(blogData, null, 2));
+        showNotification("Updating blog...", "info");
         
-        // Use a raw SQL query to update the blog
-        // This bypasses any potential RLS or schema issues
-        const { error } = await supabase.rpc('update_blog', {
-          blog_id: selectedBlog.id,
-          blog_title: blogData.title,
-          blog_slug: blogData.slug,
-          blog_content: blogData.content,
-          blog_excerpt: blogData.excerpt,
-          blog_cover_image: blogData.cover_image,
-          blog_published_at: blogData.published_at,
-          blog_author: blogData.author,
-          blog_category: blogData.category
-        });
-        
-        if (error) {
-          console.error("Error calling update_blog RPC:", error);
-          
-          // Fallback to direct update if RPC fails
-          console.log("Falling back to direct update...");
-          const { error: updateError } = await supabase
-            .from("blogs")
-            .update(blogData)
-            .eq("id", selectedBlog.id);
-          
-          if (updateError) {
-            console.error("Update error:", updateError);
-            showNotification(`Error updating blog: ${updateError.message}`, "error");
-            return;
-          }
-        }
-        
-        console.log("Blog update successful");
-        showNotification("Blog updated successfully", "success");
-      } else {
-        // ADDING NEW BLOG
-        console.log("Adding new blog with data:", JSON.stringify(blogData, null, 2));
-        
-        // Add created_at for new blogs
-        const insertData = {
-          ...blogData,
-          created_at: now
+        const updateData = {
+          title: formData.title,
+          slug: slug,
+          content: formData.content || '',
+          excerpt: formData.excerpt || '',
+          published_at: formData.published_at ? new Date().toISOString() : null,
+          cover_image: blogImageUrl,
+          author: formData.author || selectedBlog.author || 'Admin',
+          category: formData.category || selectedBlog.category || 'Travel'
         };
         
-        // Use a raw SQL query to insert the blog
-        // This bypasses any potential RLS or schema issues
-        const { error } = await supabase.rpc('insert_blog', {
-          blog_title: insertData.title,
-          blog_slug: insertData.slug,
-          blog_content: insertData.content,
-          blog_excerpt: insertData.excerpt,
-          blog_cover_image: insertData.cover_image,
-          blog_published_at: insertData.published_at,
-          blog_created_at: insertData.created_at,
-          blog_author: insertData.author,
-          blog_category: insertData.category
-        });
+        console.log("Updating blog with ID:", selectedBlog.id);
+        console.log("Update data:", updateData);
+        
+        const { error } = await supabase
+          .from("blogs")
+          .update(updateData)
+          .eq("id", selectedBlog.id);
         
         if (error) {
-          console.error("Error calling insert_blog RPC:", error);
-          
-          // Fallback to direct insert if RPC fails
-          console.log("Falling back to direct insert...");
-          const { error: insertError } = await supabase
-            .from("blogs")
-            .insert(insertData);
-          
-          if (insertError) {
-            console.error("Insert error:", insertError);
-            showNotification(`Error adding blog: ${insertError.message}`, "error");
-            return;
-          }
+          console.error("Error updating blog:", error);
+          showNotification(`Error updating blog: ${error.message}`, "error");
+          return;
         }
         
-        console.log("Blog added successfully");
-        showNotification("Blog added successfully", "success");
+        // Update local state
+        setBlogs(prevBlogs => 
+          prevBlogs.map(blog => 
+            blog.id === selectedBlog.id 
+              ? { ...blog, ...updateData } 
+              : blog
+          )
+        );
+        
+        showNotification("Blog updated successfully!", "success");
+        setIsDialogOpen(false);
+        
+        // Refresh data
+        setTimeout(() => fetchBlogs(), 500);
+      } else {
+        // ADDING NEW BLOG
+        showNotification("Adding new blog...", "info");
+        
+        const now = new Date().toISOString();
+        const insertData = {
+          title: formData.title,
+          slug: slug,
+          content: formData.content || '',
+          excerpt: formData.excerpt || '',
+          published_at: formData.published_at ? now : null,
+          cover_image: blogImageUrl,
+          created_at: now,
+          author: formData.author || 'Admin',
+          category: formData.category || 'Travel'
+        };
+        
+        console.log("Adding new blog with data:", insertData);
+        
+        const { data, error } = await supabase
+          .from("blogs")
+          .insert(insertData)
+          .select();
+        
+        if (error) {
+          console.error("Error adding blog:", error);
+          showNotification(`Error adding blog: ${error.message}`, "error");
+          return;
+        }
+        
+        if (data && data.length > 0) {
+          // Update local state
+          setBlogs(prevBlogs => [data[0], ...prevBlogs]);
+          showNotification("Blog added successfully!", "success");
+          setIsDialogOpen(false);
+          
+          // Refresh data
+          setTimeout(() => fetchBlogs(), 500);
+        }
       }
-      
-      // STEP 4: Close dialog and refresh data
-      setIsDialogOpen(false);
-      
-      // Force reload the page to ensure everything is fresh
-      window.location.reload();
-    } catch (error) {
-      console.error("Error saving blog:", error);
+    } catch (error: any) {
+      console.error("Form submission error:", error);
       showNotification(
-        `Error ${selectedBlog ? "updating" : "adding"} blog: ${error instanceof Error ? error.message : 'Unknown error'}`,
+        `Error: ${error?.message || 'Something went wrong'}`,
         "error"
       );
     }

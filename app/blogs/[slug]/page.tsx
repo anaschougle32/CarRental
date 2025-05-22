@@ -1,11 +1,12 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getBlogBySlug, getRelatedBlogs } from "@/lib/supabase";
+import { getBlogBySlug, getRelatedBlogs } from "@/lib/blogs";
 import BlogContent from "@/components/blog/BlogContent";
 import RelatedBlogs from "@/components/blog/RelatedBlogs";
 import CtaBanner from "@/components/home/CtaBanner";
 import { Separator } from "@/components/ui/separator";
 import { CalendarDays, User } from "lucide-react";
+import { BlogPost } from "@/lib/types";
 
 type Props = {
   params: { slug: string };
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   
   return {
     title: blog.title,
-    description: blog.excerpt,
+    description: blog.description,
     openGraph: {
       images: [blog.cover_image],
     },

@@ -1,12 +1,33 @@
+"use client";
+
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { blogs } from "@/data/blogs";
 import { Button } from "@/components/ui/button";
 import BlogCard from "@/components/blog/BlogCard";
+import { getBlogs } from "@/lib/blogs";
+import { BlogPost } from "@/lib/types";
+import { useEffect, useState } from "react";
 
 const BlogPreview = () => {
-  // Get the first 3 blogs to display
-  const recentBlogs = blogs.slice(0, 3);
+  const [recentBlogs, setRecentBlogs] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchBlogs() {
+      try {
+        setLoading(true);
+        const blogs = await getBlogs();
+        // Get the first 3 blogs to display
+        setRecentBlogs(blogs.slice(0, 3));
+      } catch (error) {
+        console.error('Error fetching blogs:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchBlogs();
+  }, []);
 
   return (
     <section className="py-20 bg-white dark:bg-gray-900">
@@ -20,11 +41,23 @@ const BlogPreview = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-          {recentBlogs.map((blog) => (
-            <BlogCard key={blog.id} blog={blog} />
-          ))}
-        </div>
+        {loading ? (
+          <div className="flex justify-center items-center h-64">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+          </div>
+        ) : recentBlogs.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+            {recentBlogs.map((blog) => (
+              <BlogCard key={blog.id} blog={blog} />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-lg text-gray-600 dark:text-gray-400">
+              No blogs available at the moment. Check back soon!
+            </p>
+          </div>
+        )}
 
         <div className="mt-12 text-center">
           <Button variant="outline" asChild>

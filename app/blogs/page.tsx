@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import BlogCard from "@/components/blog/BlogCard";
-import { getBlogs, Blog } from "@/lib/supabase";
+import { getBlogs } from "@/lib/blogs";
+import { BlogPost } from "@/lib/types";
 
 export const metadata: Metadata = {
   title: "Travel Tips, Driving Guides & Rental Advice – Blog",
