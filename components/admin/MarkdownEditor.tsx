@@ -62,8 +62,15 @@ const MarkdownEditor: React.FC<MarkdownEditorProps> = ({
         }
 
         if (data) {
-          setBlogs(data);
-          setFilteredBlogs(data);
+          // Explicitly cast the data to the correct type
+          const typedData: BlogOption[] = data.map(item => ({
+            id: String(item.id),
+            title: String(item.title),
+            slug: String(item.slug)
+          }));
+          
+          setBlogs(typedData);
+          setFilteredBlogs(typedData);
         }
       } catch (error) {
         console.error("Error in blogs fetch:", error);
@@ -145,7 +152,7 @@ const MarkdownEditor: React.FC<MarkdownEditorProps> = ({
                 <span>Add Backlink</span>
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="p-0" align="end" side="bottom" sideOffset={5} alignOffset={0} width={300}>
+            <PopoverContent className="p-0 w-[300px]" align="end" side="bottom" sideOffset={5} alignOffset={0}>
               <Command>
                 <CommandInput 
                   placeholder="Search blogs..." 

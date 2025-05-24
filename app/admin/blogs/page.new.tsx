@@ -117,7 +117,21 @@ export default function AdminBlogs() {
       if (error) throw error;
       
       if (data) {
-        setBlogs(data);
+        // Ensure data is properly typed
+        const typedData = data.map(item => ({
+          id: String(item.id),
+          title: String(item.title || ''),
+          slug: String(item.slug || ''),
+          content: String(item.content || ''),
+          excerpt: String(item.excerpt || ''),
+          cover_image: String(item.cover_image || ''),
+          created_at: String(item.created_at || ''),
+          published_at: item.published_at ? String(item.published_at) : null,
+          author: item.author ? String(item.author) : undefined,
+          category: item.category ? String(item.category) : undefined
+        }));
+        
+        setBlogs(typedData);
       }
     } catch (error) {
       console.error("Error fetching blogs:", error);
