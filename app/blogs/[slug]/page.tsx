@@ -8,6 +8,10 @@ import { Separator } from "@/components/ui/separator";
 import { CalendarDays, User } from "lucide-react";
 import { BlogPost } from "@/lib/types";
 
+// This disables caching for this route
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 type Props = {
   params: { slug: string };
 };

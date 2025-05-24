@@ -7,12 +7,12 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-white pt-16 pb-8">
+    <footer className="bg-gray-900 text-white pt-16 pb-8 w-full">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
-          <div>
-            <h3 className="font-satoshi text-xl font-bold mb-4">
+          <div className="mb-8 md:mb-0">
+            <h3 className="text-xl font-bold mb-4">
               Go<span className="text-primary">Drive</span>
             </h3>
             <p className="text-gray-300 mb-6 max-w-xs">
@@ -51,13 +51,13 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="font-satoshi text-lg font-bold mb-4">Quick Links</h3>
-            <ul className="space-y-3">
+          <div className="mb-8 md:mb-0">
+            <h3 className="text-lg font-bold mb-4">Quick Links</h3>
+            <ul className="space-y-2">
               <li>
                 <Link
                   href="/cars"
-                  className="text-gray-300 hover:text-primary transition-colors"
+                  className="text-gray-300 hover:text-primary transition-colors block py-1"
                 >
                   Our Cars
                 </Link>
@@ -65,7 +65,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/blogs"
-                  className="text-gray-300 hover:text-primary transition-colors"
+                  className="text-gray-300 hover:text-primary transition-colors block py-1"
                 >
                   Blog
                 </Link>
@@ -73,7 +73,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/about"
-                  className="text-gray-300 hover:text-primary transition-colors"
+                  className="text-gray-300 hover:text-primary transition-colors block py-1"
                 >
                   About Us
                 </Link>
@@ -81,7 +81,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/contact"
-                  className="text-gray-300 hover:text-primary transition-colors"
+                  className="text-gray-300 hover:text-primary transition-colors block py-1"
                 >
                   Contact
                 </Link>
@@ -90,13 +90,13 @@ const Footer = () => {
           </div>
 
           {/* Legal */}
-          <div>
-            <h3 className="font-satoshi text-lg font-bold mb-4">Legal</h3>
-            <ul className="space-y-3">
+          <div className="mb-8 md:mb-0">
+            <h3 className="text-lg font-bold mb-4">Legal</h3>
+            <ul className="space-y-2">
               <li>
                 <Link
                   href="/privacy-policy"
-                  className="text-gray-300 hover:text-primary transition-colors"
+                  className="text-gray-300 hover:text-primary transition-colors block py-1"
                 >
                   Privacy Policy
                 </Link>
@@ -104,7 +104,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/terms-and-conditions"
-                  className="text-gray-300 hover:text-primary transition-colors"
+                  className="text-gray-300 hover:text-primary transition-colors block py-1"
                 >
                   Terms & Conditions
                 </Link>
@@ -112,7 +112,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/refund-policy"
-                  className="text-gray-300 hover:text-primary transition-colors"
+                  className="text-gray-300 hover:text-primary transition-colors block py-1"
                 >
                   Refund Policy
                 </Link>
@@ -122,8 +122,8 @@ const Footer = () => {
 
           {/* Contact Information */}
           <div>
-            <h3 className="font-satoshi text-lg font-bold mb-4">Contact Us</h3>
-            <div className="space-y-4">
+            <h3 className="text-lg font-bold mb-4">Contact Us</h3>
+            <div className="space-y-3">
               <div className="flex items-start space-x-3">
                 <MapPin className="text-primary mt-1 flex-shrink-0" size={18} />
                 <p className="text-gray-300">
@@ -153,7 +153,7 @@ const Footer = () => {
         </div>
 
         {/* Google Map */}
-        <div className="mt-12 rounded-lg overflow-hidden">
+        <div className="mt-12 rounded-lg overflow-hidden shadow-lg">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15390.159165803!2d73.74961!3d15.5461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfc0c8f50000%3A0x3f1e1c3b0b0c0b00!2sCalangute%2C%20Goa!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
             width="100%"
@@ -162,6 +162,8 @@ const Footer = () => {
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
+            title="Google Map of Calangute, Goa"
+            className="w-full"
           ></iframe>
         </div>
 

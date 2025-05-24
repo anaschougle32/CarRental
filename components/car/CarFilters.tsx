@@ -61,7 +61,7 @@ const CarFilters = () => {
   };
 
   return (
-    <Card className="p-6 sticky top-24">
+    <Card className="p-6 sticky top-24 max-h-[calc(100vh-120px)] overflow-y-auto">
       <h2 className="text-xl font-semibold mb-6">Filter Cars</h2>
       
       {/* Brand Filter */}

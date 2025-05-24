@@ -4,8 +4,10 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
 import { 
-  Edit, Trash2, Plus, Search, Upload, X, CheckCircle, AlertCircle, Calendar
+  Edit, Trash2, Plus, Search, Upload, X, CheckCircle, AlertCircle, Calendar,
+  Link as LinkIcon
 } from "lucide-react";
+import RichTextEditor from "@/components/admin/RichTextEditor";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -766,13 +768,15 @@ export default function AdminBlogs() {
             
             <div className="space-y-2">
               <Label htmlFor="content">Content</Label>
-              <Textarea
-                id="content"
-                name="content"
-                value={formData.content}
-                onChange={handleInputChange}
-                placeholder="Blog content"
-                rows={10}
+              <RichTextEditor
+                value={formData.content || ''}
+                onChange={(value) => {
+                  setFormData(prev => ({
+                    ...prev,
+                    content: value
+                  }));
+                }}
+                placeholder="Write your blog content here..."
               />
             </div>
             

@@ -6,13 +6,14 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import FloatingCTA from '@/components/common/FloatingCTA';
 
-// Optimize font loading
+// Optimize font loading with stronger implementation
 const poppins = Poppins({ 
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
   variable: '--font-poppins',
   display: 'swap', // Ensure text remains visible during font loading
   preload: true,
+  fallback: ['system-ui', 'Arial', 'sans-serif'], // Fallback fonts
 });
 
 // Satoshi font is imported via CSS in globals.css

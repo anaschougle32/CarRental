@@ -13,20 +13,101 @@ const BlogPreview = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    let isMounted = true;
+    
     async function fetchBlogs() {
       try {
         setLoading(true);
+        // Add a small delay to prevent immediate state updates that might cause issues
+        await new Promise(resolve => setTimeout(resolve, 100));
+        
         const blogs = await getBlogs();
-        // Get the first 3 blogs to display
-        setRecentBlogs(blogs.slice(0, 3));
+        
+        // Only update state if component is still mounted
+        if (isMounted) {
+          // If no blogs are returned, use fallback static data
+          if (blogs && blogs.length > 0) {
+            // Get the first 3 blogs to display
+            setRecentBlogs(blogs.slice(0, 3));
+          } else {
+            // Fallback data if no blogs are available
+            setRecentBlogs([
+              {
+                id: "fallback-1",
+                title: "10 Hidden Beaches in Goa You Can Only Reach With a Car",
+                slug: "hidden-beaches-in-goa",
+                description: "Discover secluded beaches in Goa that are away from the tourist crowds.",
+                content: "# 10 Hidden Beaches in Goa\n\nGoa is famous for its beautiful beaches...",
+                cover_image: "https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg",
+                date: "2023-04-15",
+                author: "Priya Nayak",
+                category: "Travel"
+              },
+              {
+                id: "fallback-2",
+                title: "The Complete Guide to Driving in Goa",
+                slug: "guide-to-driving-in-goa",
+                description: "Everything you need to know about road rules and navigation in Goa.",
+                content: "# The Complete Guide to Driving in Goa\n\nExploring Goa with your own vehicle...",
+                cover_image: "https://images.pexels.com/photos/7876379/pexels-photo-7876379.jpeg",
+                date: "2023-07-05",
+                author: "Anjali Menon",
+                category: "Travel Tips"
+              },
+              {
+                id: "fallback-3",
+                title: "5 Scenic Drives in Goa You Shouldn't Miss",
+                slug: "scenic-drives-in-goa",
+                description: "Explore the most beautiful routes for a road trip in Goa.",
+                content: "# 5 Scenic Drives in Goa\n\nWith its winding coastal roads and lush landscapes...",
+                cover_image: "https://images.pexels.com/photos/1252500/pexels-photo-1252500.jpeg",
+                date: "2023-08-12",
+                author: "Rahul Sharma",
+                category: "Travel"
+              }
+            ]);
+          }
+          setLoading(false);
+        }
       } catch (error) {
         console.error('Error fetching blogs:', error);
-      } finally {
-        setLoading(false);
+        if (isMounted) {
+          // Use fallback data on error
+          setRecentBlogs([
+            {
+              id: "fallback-1",
+              title: "10 Hidden Beaches in Goa You Can Only Reach With a Car",
+              slug: "hidden-beaches-in-goa",
+              description: "Discover secluded beaches in Goa that are away from the tourist crowds.",
+              content: "# 10 Hidden Beaches in Goa\n\nGoa is famous for its beautiful beaches...",
+              cover_image: "https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg",
+              date: "2023-04-15",
+              author: "Priya Nayak",
+              category: "Travel"
+            },
+            {
+              id: "fallback-2",
+              title: "The Complete Guide to Driving in Goa",
+              slug: "guide-to-driving-in-goa",
+              description: "Everything you need to know about road rules and navigation in Goa.",
+              content: "# The Complete Guide to Driving in Goa\n\nExploring Goa with your own vehicle...",
+              cover_image: "https://images.pexels.com/photos/7876379/pexels-photo-7876379.jpeg",
+              date: "2023-07-05",
+              author: "Anjali Menon",
+              category: "Travel Tips"
+            }
+          ]);
+          setLoading(false);
+        }
       }
     }
 
     fetchBlogs();
+    
+    // Cleanup function to prevent memory leaks
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
