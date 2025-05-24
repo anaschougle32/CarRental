@@ -63,7 +63,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[600px] md:h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[600px] md:h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20">
       {/* Structured Data for SEO */}
       <HeroStructuredData />
       
@@ -173,16 +173,17 @@ const Hero = () => {
           </Button>
         </div>
         
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-          <Button size="lg" asChild>
+        {/* Added more spacing above the buttons */}
+        <div className="flex flex-row items-center justify-center gap-4 mt-16 md:mt-20">
+          <Button size="lg" className="bg-blue-600 hover:bg-blue-700" asChild>
             <Link href="/cars" className="group">
               Browse All Cars
               <ChevronRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
           
-          <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-gray-900" asChild>
-            <Link href="tel:+918888888888">
+          <Button size="lg" variant="outline" className="border-white bg-black/80 text-white hover:bg-black hover:text-white" asChild>
+            <Link href="tel:+919082888912">
               Call Us Now
             </Link>
           </Button>

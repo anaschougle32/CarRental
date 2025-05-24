@@ -21,7 +21,7 @@ const CarCard = ({ car, showCategory = false }: CarCardProps) => {
   
   // Create WhatsApp message with car details
   const whatsappMessage = encodeURIComponent(`Hi, I'm interested in renting the ${car.brand} ${car.name}. Could you provide more information?`);
-  const whatsappLink = `https://wa.me/919867975473?text=${whatsappMessage}`;
+  const whatsappLink = `https://wa.me/917977288350?text=${whatsappMessage}`;
   
   return (
     <Card className="overflow-hidden group h-full flex flex-col transition-all hover:shadow-lg">
@@ -90,7 +90,7 @@ const CarCard = ({ car, showCategory = false }: CarCardProps) => {
           
           <div className="flex gap-2">
             <Button variant="outline" className="flex-1" asChild>
-              <a href={`tel:919867975473`}>
+              <a href={`tel:+919082888912`}>
                 <Phone size={16} className="mr-2" />
                 Call
               </a>

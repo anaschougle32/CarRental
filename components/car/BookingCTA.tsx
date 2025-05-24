@@ -66,7 +66,7 @@ const BookingCTA = ({ car }: BookingCTAProps) => {
   };
 
   const whatsappText = `Hi, I'm interested in renting the ${car.brand} ${car.name} from ${startDate ? format(startDate, 'dd MMM yyyy') : ''} to ${endDate ? format(endDate, 'dd MMM yyyy') : ''}. Please provide more information.`;
-  const whatsappLink = `https://wa.me/918888888888?text=${encodeURIComponent(whatsappText)}`;
+  const whatsappLink = `https://wa.me/917977288350?text=${encodeURIComponent(whatsappText)}`;
 
   return (
     <Card className="sticky top-24">

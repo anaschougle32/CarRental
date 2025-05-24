@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 const FloatingCTA = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const whatsappLink = "https://wa.me/918888888888?text=Hi,%20I'm%20interested%20in%20renting%20a%20car.";
+  const whatsappLink = "https://wa.me/917977288350?text=Hi,%20I'm%20interested%20in%20renting%20a%20car.";
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col space-y-3">
