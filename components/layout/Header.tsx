@@ -13,13 +13,7 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const whatsappLink = "https://wa.me/917977288350?text=Hi,%20I'm%20interested%20in%20renting%20a%20car.";
 
-  // Get current date for real-time display
-  const currentDate = new Date();
-  const formattedTime = currentDate.toLocaleTimeString('en-IN', {
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: true
-  });
+  // No longer using time display
 
   useEffect(() => {
     const handleScroll = () => {
@@ -101,10 +95,7 @@ const Header = () => {
           </Link>
         </nav>
 
-        <div className="hidden md:flex items-center space-x-3">
-          <div className="text-right text-xs mr-2">
-            <p className="text-gray-600 dark:text-gray-300">{formattedTime}</p>
-          </div>
+        <div className="hidden md:flex items-center">
           <Button 
             variant="default" 
             size="sm" 
@@ -116,18 +107,6 @@ const Header = () => {
               <span className="hidden lg:inline">+91 90828 88912</span>
               <span className="lg:hidden">Call</span>
             </Link>
-          </Button>
-          <Button 
-            variant="outline" 
-            size="sm" 
-            className="border-green-500 text-green-600 hover:bg-green-50 dark:hover:bg-green-900/20 rounded-full px-3 lg:px-4 text-xs lg:text-sm" 
-            asChild
-          >
-            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 lg:gap-2">
-              <MessageCircle size={14} />
-              <span className="hidden lg:inline">+91 79-77288350</span>
-              <span className="lg:hidden">WhatsApp</span>
-            </a>
           </Button>
         </div>
 

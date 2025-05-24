@@ -85,6 +85,7 @@ async function mapSupabaseCarToAppCar(carData: SupabaseCar): Promise<Car> {
     transmission: carData.transmission as any,
     min_days: 1, // Default minimum days
     main_image: carData.main_image || "/images/car-placeholder.jpg",
+    mileage: carData.mileage || undefined,
     category: carData.seats <= 5 
       ? carData.seats <= 4 ? "Hatchback" : "Sedan" 
       : carData.seats <= 7 ? "SUV" : "Premium"

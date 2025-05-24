@@ -34,7 +34,7 @@ const FloatingCTA = () => {
 
       {/* Call Button */}
       <Link
-        href="tel:+918888888888"
+        href="tel:+919082888912"
         className="group relative bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition-all flex items-center justify-center animate-pulse"
         aria-label="Call us"
         onMouseEnter={() => setIsExpanded(true)}

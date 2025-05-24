@@ -65,6 +65,7 @@ interface Car {
   description: string;
   features: string[];
   main_image: string;
+  mileage?: number;
 }
 
 export default function AdminCars() {
@@ -84,6 +85,7 @@ export default function AdminCars() {
     fuel_type: "Petrol",
     seats: 5,
     luggage: 2,
+    mileage: 15,
     description: "",
     features: [],
   });
@@ -152,6 +154,7 @@ export default function AdminCars() {
       fuel_type: "Petrol",
       seats: 5,
       luggage: 2,
+      mileage: 15,
       description: "",
       features: [],
     });
@@ -171,6 +174,7 @@ export default function AdminCars() {
       fuel_type: car.fuel_type,
       seats: car.seats,
       luggage: car.luggage,
+      mileage: car.mileage || 15,
       description: car.description,
       features: car.features || [],
     });
@@ -402,7 +406,8 @@ export default function AdminCars() {
         slug,
         price_per_day: Number(formData.price_per_day),
         seats: Number(formData.seats),
-        luggage: Number(formData.luggage)
+        luggage: Number(formData.luggage),
+        mileage: Number(formData.mileage)
       };
       
       let imageUrl = "";
@@ -445,6 +450,7 @@ export default function AdminCars() {
             fuel_type: numericFormData.fuel_type,
             seats: numericFormData.seats,
             luggage: numericFormData.luggage,
+            mileage: numericFormData.mileage,
             description: numericFormData.description,
             features: numericFormData.features,
             main_image: imageUrl
@@ -520,6 +526,7 @@ export default function AdminCars() {
             fuel_type: numericFormData.fuel_type,
             seats: numericFormData.seats,
             luggage: numericFormData.luggage,
+            mileage: numericFormData.mileage,
             description: numericFormData.description,
             features: numericFormData.features,
             main_image: imageUrl
@@ -855,6 +862,20 @@ export default function AdminCars() {
                   type="number"
                   min="0"
                   value={formData.luggage}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              
+              <div className="space-y-2">
+                <Label htmlFor="mileage">Mileage (km/l)</Label>
+                <Input
+                  id="mileage"
+                  name="mileage"
+                  type="number"
+                  min="0"
+                  step="0.1"
+                  value={formData.mileage}
                   onChange={handleInputChange}
                   required
                 />

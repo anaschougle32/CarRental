@@ -18,6 +18,7 @@ export interface Car {
   main_image?: string;
   images?: string[];
   category: 'Hatchback' | 'Sedan' | 'SUV' | 'Luxury' | 'Premium';
+  mileage?: number; // Vehicle mileage in kilometers per liter
 }
 
 // Testimonial Types

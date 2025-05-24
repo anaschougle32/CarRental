@@ -34,6 +34,7 @@ export type Car = {
   features: string[];
   main_image?: string;
   images?: string[];
+  mileage?: number;
   created_at: string;
 };
 

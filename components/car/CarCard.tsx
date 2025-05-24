@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { Car } from "@/lib/types";
-import { Star, Fuel, Settings, Phone, MessageCircle } from "lucide-react";
+import { Star, Fuel, Settings, Phone, MessageCircle, Gauge } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import PlaceholderImage from "@/components/ui/placeholder-image";
@@ -73,6 +73,12 @@ const CarCard = ({ car, showCategory = false }: CarCardProps) => {
             <Settings size={16} className="mr-1 text-blue-600" />
             <span>{car.transmission}</span>
           </div>
+          {car.mileage && (
+            <div className="flex items-center">
+              <Gauge size={16} className="mr-1 text-blue-600" />
+              <span>{car.mileage} km/l</span>
+            </div>
+          )}
         </div>
       </CardContent>
       

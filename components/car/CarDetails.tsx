@@ -1,4 +1,4 @@
-import { Fuel, Settings, Calendar, Users } from "lucide-react";
+import { Fuel, Settings, Calendar, Users, Gauge } from "lucide-react";
 import { Car } from "@/lib/types";
 import { Badge } from "@/components/ui/badge";
 
@@ -31,6 +31,18 @@ const CarDetails = ({ car }: CarDetailsProps) => {
             <p className="font-medium">{car.transmission}</p>
           </div>
         </div>
+        
+        {car.mileage && (
+          <div className="flex items-center space-x-4">
+            <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-full">
+              <Gauge className="h-6 w-6 text-blue-600" />
+            </div>
+            <div>
+              <p className="text-sm text-gray-500 dark:text-gray-400">Mileage</p>
+              <p className="font-medium">{car.mileage} km/l</p>
+            </div>
+          </div>
+        )}
         
         <div className="flex items-center space-x-4">
           <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-full">
