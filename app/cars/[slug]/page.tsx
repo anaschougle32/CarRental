@@ -44,11 +44,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const brand = brands.find(b => b.id === carData.brand_id);
     const brandName = brand ? brand.name : "Unknown";
     
+    // Ensure we have a valid image URL for OpenGraph
+    const imageUrl = carData.main_image || '/images/car-placeholder.jpg';
+    
     return {
       title: `Rent ${brandName} ${carData.name} in Goa | Affordable Self Drive`,
       description: `Rent a ${brandName} ${carData.name} in Goa with unlimited kilometers starting at ₹${carData.price_per_day}/day. Book now!`,
       openGraph: {
-        images: [carData.main_image],
+        images: [{ url: imageUrl }],
       },
     };
   } catch (error) {

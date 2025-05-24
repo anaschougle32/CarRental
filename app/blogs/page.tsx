@@ -18,6 +18,11 @@ export default async function BlogsPage() {
   // Fetch blogs from Supabase
   const blogs = await getBlogs();
   
+  // Get featured blog (first blog)
+  const featuredBlog = blogs.length > 0 ? blogs[0] : null;
+  // Get remaining blogs
+  const remainingBlogs = blogs.length > 0 ? blogs.slice(1) : [];
+  
   // Get current date for display
   const currentDate = new Date();
   const formattedDate = currentDate.toLocaleDateString('en-IN', {
@@ -27,43 +32,106 @@ export default async function BlogsPage() {
   });
   
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      {/* Hero Banner */}
-      <div className="relative h-[40vh] min-h-[300px] max-h-[400px]">
-        <div 
-          className="absolute inset-0 bg-cover bg-center" 
-          style={{ backgroundImage: `url('/images/blog-banner.jpg')` }}
-        />
-        <div className="absolute inset-0 bg-blue-900/60" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="container mx-auto px-4 md:px-6 text-center text-white">
-            <h1 className="text-3xl md:text-5xl font-bold mb-4 drop-shadow-md">
-              Our Travel Blog
+    <div className="min-h-screen bg-white dark:bg-gray-900">
+      {/* Header with search */}
+      <div className="bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 sticky top-0 z-10 pt-24 pb-4">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4 md:mb-0">
+              GoDrive Blog
             </h1>
-            <p className="text-lg md:text-xl max-w-3xl mx-auto drop-shadow-md">
-              Discover travel tips, driving guides, and recommendations for making the most of your Goan adventure.
-            </p>
+            <div className="relative w-full md:w-64">
+              <input 
+                type="text" 
+                placeholder="Search articles..." 
+                className="w-full px-4 py-2 rounded-full border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
           </div>
         </div>
       </div>
       
-      {/* Blog Content */}
-      <div className="container mx-auto px-4 md:px-6 py-12">
-        {/* Date Display */}
-        <div className="text-right text-gray-500 mb-8">
-          <p>{formattedDate}</p>
+      <div className="container mx-auto px-4 md:px-6 py-8">
+        {/* Featured Post */}
+        {featuredBlog && (
+          <div className="mb-16">
+            <div className="flex items-center text-sm text-blue-600 dark:text-blue-400 font-medium mb-4">
+              <span className="mr-2">✦</span>
+              <span>FEATURED POST</span>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              <div className="relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden">
+                <Image 
+                  src={featuredBlog.cover_image} 
+                  alt={featuredBlog.title}
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="flex flex-col">
+                <div className="mb-4">
+                  <span className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-300 text-xs font-medium px-3 py-1 rounded-full">
+                    {featuredBlog.category}
+                  </span>
+                </div>
+                <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white">
+                  {featuredBlog.title}
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300 mb-6 line-clamp-3">
+                  {featuredBlog.description}
+                </p>
+                <div className="flex items-center mb-6">
+                  <div className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 mr-3"></div>
+                  <div>
+                    <p className="font-medium text-gray-900 dark:text-white">{featuredBlog.author}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">{featuredBlog.date}</p>
+                  </div>
+                </div>
+                <Link 
+                  href={`/blogs/${featuredBlog.slug}`}
+                  className="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium hover:underline"
+                >
+                  Read Article
+                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {/* Category Tabs */}
+        <div className="flex overflow-x-auto pb-4 mb-8 scrollbar-hide">
+          <button className="px-4 py-2 mr-2 text-sm font-medium text-white bg-blue-600 rounded-full whitespace-nowrap">
+            All Posts
+          </button>
+          <button className="px-4 py-2 mr-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 whitespace-nowrap">
+            Travel Tips
+          </button>
+          <button className="px-4 py-2 mr-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 whitespace-nowrap">
+            Driving Guides
+          </button>
+          <button className="px-4 py-2 mr-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 whitespace-nowrap">
+            Goa Attractions
+          </button>
+          <button className="px-4 py-2 mr-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 whitespace-nowrap">
+            Car Maintenance
+          </button>
         </div>
         
         {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogs.length > 0 ? (
-            blogs.map(blog => (
+          {remainingBlogs.length > 0 ? (
+            remainingBlogs.map(blog => (
               <BlogCard key={blog.id} blog={blog} />
             ))
           ) : (
-            <div className="col-span-3 text-center py-10">
-              <p className="text-gray-500 dark:text-gray-400">No blog posts found.</p>
-            </div>
+            featuredBlog ? null : (
+              <div className="col-span-3 text-center py-10">
+                <p className="text-gray-500 dark:text-gray-400">No blog posts found.</p>
+              </div>
+            )
           )}
         </div>
       </div>
@@ -73,29 +141,34 @@ export default async function BlogsPage() {
 
 function BlogCard({ blog }: { blog: BlogPost }) {
   return (
-    <Link href={`/blogs/${blog.slug}`} className="group">
-      <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
-        <div className="relative h-56 overflow-hidden">
+    <Link href={`/blogs/${blog.slug}`} className="group block">
+      <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+        <div className="relative h-52 overflow-hidden">
           <Image 
             src={blog.cover_image} 
             alt={blog.title}
             fill
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
           />
-          <div className="absolute top-3 right-3 bg-blue-600 text-white text-xs font-semibold px-2 py-1 rounded-full">
-            {blog.category}
-          </div>
         </div>
-        <div className="p-5 flex flex-col flex-grow">
-          <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors duration-300">
+        <div className="p-6 flex flex-col flex-grow">
+          <div className="mb-3">
+            <span className="inline-block bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-medium px-2.5 py-0.5 rounded-full">
+              {blog.category}
+            </span>
+          </div>
+          <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
             {blog.title}
           </h3>
-          <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3">
+          <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2">
             {blog.description}
           </p>
-          <div className="mt-auto flex items-center justify-between">
-            <span className="text-gray-500 dark:text-gray-400 text-sm">{blog.date}</span>
-            <span className="text-blue-600 font-medium text-sm group-hover:underline">Read More</span>
+          <div className="mt-auto flex items-center">
+            <div className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 mr-3"></div>
+            <div className="flex-1">
+              <p className="text-sm font-medium text-gray-900 dark:text-white">{blog.author}</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">{blog.date}</p>
+            </div>
           </div>
         </div>
       </div>

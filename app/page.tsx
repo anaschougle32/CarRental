@@ -26,6 +26,10 @@ const CtaBanner = dynamic(() => import("@/components/home/CtaBanner"), {
   loading: () => <div className="h-40 bg-blue-50 dark:bg-blue-900/20 animate-pulse"></div>,
 });
 
+const Faqs = dynamic(() => import("@/components/home/Faqs"), {
+  loading: () => <div className="h-96 bg-gray-50 dark:bg-gray-900 animate-pulse"></div>,
+});
+
 export const metadata: Metadata = {
   title: "GoDrive - Self Drive Car Rentals in Goa | Unlimited KM",
   description:
@@ -41,6 +45,7 @@ export default function Home() {
       <HowItWorks />
       <Testimonials />
       <BlogPreview />
+      <Faqs />
       <CtaBanner />
     </div>
   );
