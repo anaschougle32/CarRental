@@ -32,8 +32,8 @@ export type Car = {
   luggage: number;
   description: string;
   features: string[];
-  main_image: string;
-  images: string[];
+  main_image?: string;
+  images?: string[];
   created_at: string;
 };
 

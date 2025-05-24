@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import PlaceholderImage from "@/components/ui/placeholder-image";
 
 interface CarGalleryProps {
-  main_image: string;
+  main_image?: string;
   alt: string;
 }
 
