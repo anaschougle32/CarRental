@@ -40,6 +40,7 @@ const BlogPreview = () => {
                 content: "# 10 Hidden Beaches in Goa\n\nGoa is famous for its beautiful beaches...",
                 cover_image: "https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg",
                 date: "2023-04-15",
+                created_at: "2023-04-15T10:30:00Z",
                 author: "Priya Nayak",
                 category: "Travel"
               },
@@ -51,6 +52,7 @@ const BlogPreview = () => {
                 content: "# The Complete Guide to Driving in Goa\n\nExploring Goa with your own vehicle...",
                 cover_image: "https://images.pexels.com/photos/7876379/pexels-photo-7876379.jpeg",
                 date: "2023-07-05",
+                created_at: "2023-07-05T14:15:00Z",
                 author: "Anjali Menon",
                 category: "Travel Tips"
               },
@@ -62,6 +64,7 @@ const BlogPreview = () => {
                 content: "# 5 Scenic Drives in Goa\n\nWith its winding coastal roads and lush landscapes...",
                 cover_image: "https://images.pexels.com/photos/1252500/pexels-photo-1252500.jpeg",
                 date: "2023-08-12",
+                created_at: "2023-08-12T09:45:00Z",
                 author: "Rahul Sharma",
                 category: "Travel"
               }
@@ -82,6 +85,7 @@ const BlogPreview = () => {
               content: "# 10 Hidden Beaches in Goa\n\nGoa is famous for its beautiful beaches...",
               cover_image: "https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg",
               date: "2023-04-15",
+              created_at: "2023-04-15T10:30:00Z",
               author: "Priya Nayak",
               category: "Travel"
             },
@@ -93,6 +97,7 @@ const BlogPreview = () => {
               content: "# The Complete Guide to Driving in Goa\n\nExploring Goa with your own vehicle...",
               cover_image: "https://images.pexels.com/photos/7876379/pexels-photo-7876379.jpeg",
               date: "2023-07-05",
+              created_at: "2023-07-05T14:15:00Z",
               author: "Anjali Menon",
               category: "Travel Tips"
             }

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { CalendarDays } from "lucide-react";
-import { formatDistance, parseISO } from "date-fns";
+import { formatDistance } from "date-fns";
 import { BlogPost } from "@/lib/types";
 import { Blog } from "@/lib/supabase";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
@@ -11,20 +11,18 @@ interface BlogCardProps {
 }
 
 const BlogCard = ({ blog }: BlogCardProps) => {
-  // Get the date for time calculation
-  const getPostDate = () => {
-    if ('date' in blog && blog.date) {
-      return new Date(blog.date);
-    } else if ('created_at' in blog && blog.created_at) {
-      return new Date(blog.created_at);
-    } else {
-      return new Date(); // Fallback to current date if no date is available
-    }
-  };
-
+  // Determine the date to use for time calculation
+  let dateString = new Date().toISOString(); // Default fallback
+  
+  if ('date' in blog && typeof blog.date === 'string') {
+    dateString = blog.date;
+  } else if ('created_at' in blog && typeof blog.created_at === 'string') {
+    dateString = blog.created_at;
+  }
+  
   // Calculate how long ago the post was published
   const timeAgo = formatDistance(
-    getPostDate(),
+    new Date(dateString),
     new Date(),
     { addSuffix: true }
   );
