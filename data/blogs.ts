@@ -43,6 +43,7 @@ Known as a turtle nesting site, this protected beach requires driving through th
     cover_image:
       "https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg",
     date: "2023-04-15",
+    created_at: "2023-04-15T10:30:00Z",
     author: "Priya Nayak",
     category: "Travel",
   },
@@ -255,6 +256,7 @@ By following these practical tips, you can enjoy the freedom of having your own 
     cover_image:
       "https://images.pexels.com/photos/7876379/pexels-photo-7876379.jpeg",
     date: "2023-07-05",
+    created_at: "2023-07-05T14:15:00Z",
     author: "Anjali Menon",
     category: "Travel Tips",
   },
