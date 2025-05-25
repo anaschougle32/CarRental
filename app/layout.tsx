@@ -6,17 +6,17 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import FloatingCTA from '@/components/common/FloatingCTA';
 
-// Optimize font loading with stronger implementation
+// Configure Poppins font with basic settings
 const poppins = Poppins({ 
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
   variable: '--font-poppins',
-  display: 'swap', // Ensure text remains visible during font loading
+  display: 'swap',
   preload: true,
-  fallback: ['system-ui', 'Arial', 'sans-serif'], // Fallback fonts
 });
 
-// Satoshi font is imported via CSS in globals.css
+// Apply font family to HTML element
+const fontClass = `${poppins.variable} font-sans`;
 
 export const metadata: Metadata = {
   title: {
@@ -68,19 +68,26 @@ export const metadata: Metadata = {
   },
 };
 
+// Add font class to the body instead of html
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html 
-      lang="en" 
-      suppressHydrationWarning 
-      className={poppins.variable}
-    >
+    <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Preload critical assets */}
+        {/* Preconnect to external domains */}
+        <link 
+          rel="preconnect" 
+          href="https://fonts.googleapis.com" 
+          crossOrigin="anonymous"
+        />
+        <link 
+          rel="preconnect" 
+          href="https://fonts.gstatic.com" 
+          crossOrigin="anonymous"
+        />
         <link 
           rel="preconnect" 
           href="https://images.pexels.com" 
@@ -90,14 +97,14 @@ export default function RootLayout({
           rel="dns-prefetch" 
           href="https://images.pexels.com" 
         />
-        {/* Preload Satoshi font */}
+        {/* Preload fonts */}
         <link
           rel="preconnect"
           href="https://api.fontshare.com"
           crossOrigin="anonymous"
         />
       </head>
-      <body className={poppins.className}>
+      <body className={`${poppins.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

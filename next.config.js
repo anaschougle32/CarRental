@@ -11,6 +11,15 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
+  async redirects() {
+    return [
+      {
+        source: '/admin',
+        destination: '/admin/dashboard',
+        permanent: true,
+      },
+    ];
+  },
   webpack: (config) => {
     // Ignore WebSocket optional dependencies warnings
     config.ignoreWarnings = [

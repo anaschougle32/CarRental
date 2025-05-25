@@ -1,5 +1,8 @@
-@import url('https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,300,400&display=swap');
+/* Import Poppins with display swap */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Import Satoshi font */
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,300,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -9,8 +12,13 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  --font-poppins: 'Poppins', system-ui, sans-serif;
-  --font-satoshi: 'Satoshi', system-ui, sans-serif;
+  --font-poppins: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-satoshi: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Apply Poppins to all elements */
+html {
+  font-family: var(--font-poppins);
 }
 
 @media (prefers-color-scheme: dark) {
