@@ -11,9 +11,20 @@ interface BlogCardProps {
 }
 
 const BlogCard = ({ blog }: BlogCardProps) => {
+  // Get the date for time calculation
+  const getPostDate = () => {
+    if ('date' in blog && blog.date) {
+      return new Date(blog.date);
+    } else if ('created_at' in blog && blog.created_at) {
+      return new Date(blog.created_at);
+    } else {
+      return new Date(); // Fallback to current date if no date is available
+    }
+  };
+
   // Calculate how long ago the post was published
   const timeAgo = formatDistance(
-    new Date('date' in blog ? blog.date : blog.created_at),
+    getPostDate(),
     new Date(),
     { addSuffix: true }
   );
