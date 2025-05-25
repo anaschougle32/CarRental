@@ -2,8 +2,9 @@ import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Hero from "@/components/home/Hero";
 
-// Critical section loaded immediately
+// Critical sections loaded immediately
 import PopularCars from "@/components/home/PopularCars";
+import Services from "@/components/home/Services";
 
 // Non-critical sections loaded dynamically
 const WhyChooseUs = dynamic(() => import("@/components/home/WhyChooseUs"), {
@@ -31,9 +32,23 @@ const Faqs = dynamic(() => import("@/components/home/Faqs"), {
 });
 
 export const metadata: Metadata = {
-  title: "GoDrive - Self Drive Car Rentals in Goa | Unlimited KM",
+  title: "ZoiCarRentals - Best Car Rental Service in Goa | Airport Pickup | 24/7 Support",
   description:
-    "Premium self-drive car rentals in Goa with unlimited kilometers, airport pickup, and 24/7 roadside assistance. Book online or call now!",
+    "Premium car rentals in Goa with airport transfers, unlimited kilometers, and 24/7 roadside assistance. Explore North & South Goa with our reliable vehicles. Book online or call now!",
+  keywords: "car rental Goa, self drive cars Goa, airport pickup Goa, car hire Calangute, Anjuna car rental, Baga car rental, North Goa car rental, South Goa car rental",
+  openGraph: {
+    title: "ZoiCarRentals - Best Car Rental Service in Goa | Airport Pickup | 24/7 Support",
+    description: "Premium car rentals in Goa with airport transfers, unlimited kilometers, and 24/7 roadside assistance. Explore North & South Goa with our reliable vehicles.",
+    images: ['/images/og-image.jpg'],
+    type: 'website',
+    locale: 'en_IN',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "ZoiCarRentals - Best Car Rental Service in Goa",
+    description: "Premium car rentals in Goa with airport transfers and 24/7 support",
+    images: ['/images/twitter-image.jpg'],
+  },
 };
 
 export default function Home() {
@@ -41,6 +56,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <Hero />
       <PopularCars />
+      <Services />
       <WhyChooseUs />
       <HowItWorks />
       <Testimonials />

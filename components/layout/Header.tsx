@@ -76,6 +76,12 @@ const Header = () => {
             Cars
           </Link>
           <Link
+            href="/locations"
+            className="nav-link font-medium text-gray-900 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 transition-colors text-sm lg:text-base"
+          >
+            Locations
+          </Link>
+          <Link
             href="/blogs"
             className="nav-link font-medium text-gray-900 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 transition-colors text-sm lg:text-base"
           >

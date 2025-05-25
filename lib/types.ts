@@ -37,9 +37,13 @@ export interface BlogPost {
   title: string;
   slug: string;
   description: string;
+  excerpt?: string; // Short excerpt for previews
   content: string;
   cover_image: string;
-  date: string;
-  author: string;
-  category: string;
+  date?: string; // Legacy date field
+  created_at: string; // ISO date string when the blog was created
+  updated_at?: string; // ISO date string when the blog was last updated
+  published?: boolean; // Whether the blog is published
+  author?: string; // Author name
+  category?: string; // Blog category
 }

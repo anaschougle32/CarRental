@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, MessageCircle } from "lucide-react";
+import LocationLinks from "./LocationLinks";
 
 const Footer = () => {
   // Get current date for real-time display
@@ -16,6 +17,8 @@ const Footer = () => {
   const whatsappLink = "https://wa.me/917977288350?text=Hi,%20I'm%20interested%20in%20renting%20a%20car.";
 
   return (
+    <>
+    <LocationLinks />
     <footer className="bg-gray-900 text-white pt-12 md:pt-16 pb-6 md:pb-8 w-full">
       <div className="container mx-auto px-4 md:px-6">
         {/* Date display */}
@@ -199,6 +202,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
+    </>
   );
 };
 

@@ -85,6 +85,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
               {[
                 { name: "Home", href: "/" },
                 { name: "Cars", href: "/cars" },
+                { name: "Locations", href: "/locations" },
                 { name: "Blog", href: "/blogs" },
                 { name: "About", href: "/about" },
                 { name: "Testimonials", href: "/testimonials" },
