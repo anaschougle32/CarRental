@@ -691,7 +691,7 @@ export default function AdminBlogs() {
                       {blog.created_at ? (
                         <div className="flex items-center">
                           <Calendar className="h-4 w-4 mr-1 text-gray-500" />
-                          <span>{new Date(blog.created_at).toLocaleDateString()}</span>
+                          <span>{blog.created_at ? new Date(blog.created_at).toLocaleDateString() : 'No date'}</span>
                         </div>
                       ) : (
                         "N/A"

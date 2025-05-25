@@ -145,11 +145,11 @@ export default function AdminLayout({
 
       {/* Main content */}
       <div className="lg:pl-64">
-        <div className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white dark:bg-gray-800 shadow">
+        <div className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white dark:bg-gray-800 shadow lg:hidden">
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden px-4"
+            className="px-4"
             onClick={() => setSidebarOpen(true)}
           >
             <Menu className="h-6 w-6" />

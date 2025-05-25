@@ -146,7 +146,11 @@ export default async function BlogsPage() {
                   <div>
                     <p className="font-medium text-gray-900 dark:text-white">{featuredBlog.author || 'ZoiCarRentals Team'}</p>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
-                      {new Date(featuredBlog.created_at).toLocaleDateString('en-IN', {
+                      {featuredBlog.created_at ? new Date(featuredBlog.created_at).toLocaleDateString('en-IN', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                      }) : new Date().toLocaleDateString('en-IN', {
                         year: 'numeric',
                         month: 'long',
                         day: 'numeric'
