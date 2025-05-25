@@ -16,44 +16,10 @@ interface BlogDB {
 }
 
 /**
- * Returns fallback blog data when database fetch fails
+ * Returns empty array when database fetch fails
  */
-function getFallbackBlogs(): BlogPost[] {
-  return [
-    {
-      id: "fallback-1",
-      title: "10 Hidden Beaches in Goa You Can Only Reach With a Car",
-      slug: "hidden-beaches-in-goa",
-      description: "Discover secluded beaches in Goa that are away from the tourist crowds.",
-      content: "# 10 Hidden Beaches in Goa\n\nGoa is famous for its beautiful beaches...",
-      cover_image: "https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg",
-      date: "2023-04-15",
-      author: "Priya Nayak",
-      category: "Travel"
-    },
-    {
-      id: "fallback-2",
-      title: "The Complete Guide to Driving in Goa",
-      slug: "guide-to-driving-in-goa",
-      description: "Everything you need to know about road rules and navigation in Goa.",
-      content: "# The Complete Guide to Driving in Goa\n\nExploring Goa with your own vehicle...",
-      cover_image: "https://images.pexels.com/photos/7876379/pexels-photo-7876379.jpeg",
-      date: "2023-07-05",
-      author: "Anjali Menon",
-      category: "Travel Tips"
-    },
-    {
-      id: "fallback-3",
-      title: "5 Scenic Drives in Goa You Shouldn't Miss",
-      slug: "scenic-drives-in-goa",
-      description: "Explore the most beautiful routes for a road trip in Goa.",
-      content: "# 5 Scenic Drives in Goa\n\nWith its winding coastal roads and lush landscapes...",
-      cover_image: "https://images.pexels.com/photos/1252500/pexels-photo-1252500.jpeg",
-      date: "2023-08-12",
-      author: "Rahul Sharma",
-      category: "Travel"
-    }
-  ];
+function getEmptyBlogArray(): BlogPost[] {
+  return [];
 }
 
 /**
@@ -71,13 +37,13 @@ export async function getBlogs(): Promise<BlogPost[]> {
       
     if (error) {
       console.error('Error fetching blogs:', error);
-      // Return fallback data instead of empty array
-      return getFallbackBlogs();
+      // Return empty array instead of fallback data
+      return getEmptyBlogArray();
     }
     
     if (!data || data.length === 0) {
-      console.log('No blogs found in database, using fallback data');
-      return getFallbackBlogs();
+      console.log('No blogs found in database');
+      return getEmptyBlogArray();
     }
     
     console.log('Successfully fetched', data.length, 'blogs from database');
@@ -91,12 +57,13 @@ export async function getBlogs(): Promise<BlogPost[]> {
       content: blog.content as string,
       cover_image: (blog.cover_image as string) || 'https://images.pexels.com/photos/1252500/pexels-photo-1252500.jpeg',
       date: blog.created_at ? new Date(blog.created_at as string).toISOString().split('T')[0] : new Date().toISOString().split('T')[0],
+      created_at: blog.created_at as string,
       author: (blog.author as string) || 'Admin',
       category: (blog.category as string) || 'Travel',
     }));
   } catch (error) {
     console.error('Error fetching blogs:', error);
-    return getFallbackBlogs();
+    return getEmptyBlogArray();
   }
 }
 
@@ -147,7 +114,8 @@ export async function getBlogBySlug(slug: string): Promise<BlogPost | null> {
       description: blogData.excerpt as string,
       content: blogData.content as string,
       cover_image: blogData.cover_image as string,
-      date: new Date(blogData.created_at as string).toISOString().split('T')[0],
+      date: blogData.created_at ? new Date(blogData.created_at as string).toISOString().split('T')[0] : new Date().toISOString().split('T')[0],
+      created_at: blogData.created_at as string,
       author: (blogData.author as string) || 'Admin',
       category: (blogData.category as string) || 'Travel',
     };
@@ -168,7 +136,7 @@ export async function getRelatedBlogs(currentSlug: string, count = 2): Promise<B
     // First get the current blog to find its category
     const currentBlog = await getBlogBySlug(currentSlug);
     
-    if (!currentBlog) {
+    if (!currentBlog || !currentBlog.category) {
       return [];
     }
     
@@ -198,7 +166,8 @@ export async function getRelatedBlogs(currentSlug: string, count = 2): Promise<B
       description: blog.excerpt as string,
       content: blog.content as string,
       cover_image: blog.cover_image as string,
-      date: new Date(blog.created_at as string).toISOString().split('T')[0],
+      date: blog.created_at ? new Date(blog.created_at as string).toISOString().split('T')[0] : new Date().toISOString().split('T')[0],
+      created_at: blog.created_at as string,
       author: (blog.author as string) || 'Admin',
       category: (blog.category as string) || 'Travel',
     }));
