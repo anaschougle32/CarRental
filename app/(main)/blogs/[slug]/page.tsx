@@ -26,14 +26,60 @@ export default async function BlogPost({ params }: { params: { slug: string } })
 
   const post = postData as BlogPost;
 
+  // Define the expected shape of a blog post from Supabase
+  interface SupabaseBlogPost {
+    id: string;
+    title: string | null;
+    slug: string | null;
+    content: string | null;
+    excerpt: string | null;
+    description?: string | null;
+    cover_image: string | null;
+    created_at: string | null;
+    updated_at?: string | null;
+    published: boolean | null;
+    author: string | null;
+    category: string | null;
+  }
+
   // Fetch all blog posts for related articles
-  const { data: allPosts } = await supabase
+  const { data: allPosts, error: postsError } = await supabase
     .from('blogs')
     .select('*')
     .eq('published', true)
     .order('created_at', { ascending: false });
     
-  const relatedPosts = (allPosts || []) as BlogPost[];
+  // Safely cast and filter posts
+  const relatedPosts: BlogPost[] = [];
+  
+  if (allPosts && Array.isArray(allPosts)) {
+    const now = new Date().toISOString();
+    
+    allPosts.forEach((item: unknown) => {
+      const postItem = item as SupabaseBlogPost;
+      
+      // Skip if this is the current post or missing required fields
+      if (!postItem.id || postItem.id === post.id) return;
+      
+      // Create a properly typed BlogPost object
+      const relatedPost: BlogPost = {
+        id: String(postItem.id),
+        title: String(postItem.title || 'Untitled Post'),
+        slug: String(postItem.slug || `post-${Date.now()}`),
+        description: String(postItem.description || postItem.excerpt || ''),
+        excerpt: String(postItem.excerpt || postItem.description || ''),
+        content: String(postItem.content || ''),
+        cover_image: String(postItem.cover_image || ''),
+        created_at: String(postItem.created_at || now),
+        updated_at: String(postItem.updated_at || postItem.created_at || now),
+        published: Boolean(postItem.published || false),
+        author: postItem.author ? String(postItem.author) : null,
+        category: postItem.category ? String(postItem.category) : null,
+      };
+      
+      relatedPosts.push(relatedPost);
+    });
+  }
 
   // Update view count
   if (post.id) {

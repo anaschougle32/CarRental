@@ -1,5 +1,5 @@
 import { createClient } from './supabase/client';
-import { BlogPost } from '@/lib/types';
+import { BlogPost } from '@/types/blog';
 
 // Define the Blog type from the database
 interface BlogDB {
@@ -10,7 +10,8 @@ interface BlogDB {
   excerpt: string;
   cover_image: string;
   created_at: string;
-  published_at: string | null;
+  updated_at?: string;
+  published?: boolean;
   author: string | null;
   category: string | null;
 }
@@ -49,18 +50,25 @@ export async function getBlogs(): Promise<BlogPost[]> {
     console.log('Successfully fetched', data.length, 'blogs from database');
     
     // Map the database fields to the BlogPost type with proper type safety
-    return data.map((blog) => ({
-      id: blog.id as string,
-      title: blog.title as string,
-      slug: blog.slug as string,
-      description: blog.excerpt as string,
-      content: blog.content as string,
-      cover_image: (blog.cover_image as string) || 'https://images.pexels.com/photos/1252500/pexels-photo-1252500.jpeg',
-      date: blog.created_at ? new Date(blog.created_at as string).toISOString().split('T')[0] : new Date().toISOString().split('T')[0],
-      created_at: blog.created_at as string,
-      author: (blog.author as string) || 'Admin',
-      category: (blog.category as string) || 'Travel',
-    }));
+    return data.map((blog) => {
+      const updatedAt = blog.updated_at || blog.created_at || new Date().toISOString();
+      const createdAt = blog.created_at || new Date().toISOString();
+      
+      return {
+        id: blog.id,
+        title: blog.title || 'Untitled Post',
+        slug: blog.slug || `post-${Date.now()}`,
+        description: blog.excerpt || '',
+        excerpt: blog.excerpt || '',
+        content: blog.content || '',
+        cover_image: blog.cover_image || '/images/blog-placeholder.jpg',
+        created_at: createdAt,
+        updated_at: updatedAt,
+        published: blog.published ?? true,
+        author: blog.author || null,
+        category: blog.category || null,
+      } as BlogPost;
+    });
   } catch (error) {
     console.error('Error fetching blogs:', error);
     return getEmptyBlogArray();
@@ -83,15 +91,27 @@ export async function getBlogBySlug(slug: string): Promise<BlogPost | null> {
     
     let blogData: any = null;
     
-    // Try direct query with no-cache option
+    // Try direct query first (case-sensitive)
     const { data: directData, error: directError } = await supabase
       .from('blogs')
       .select('*')
       .eq('slug', slug)
-      .single();
-      
+      .single<{
+        id: string;
+        title: string;
+        slug: string;
+        content: string;
+        excerpt: string;
+        cover_image: string | null;
+        created_at: string;
+        updated_at?: string;
+        published?: boolean;
+        author: string | null;
+        category: string | null;
+      }>();
+
     if (directError) {
-      console.error('Error fetching blog by slug:', directError);
+      console.error('Error fetching blog by slug (direct):', directError);
       return null;
     }
     
@@ -107,18 +127,28 @@ export async function getBlogBySlug(slug: string): Promise<BlogPost | null> {
     console.log('Blog content preview:', blogData.content?.substring(0, 100) + '...');
     
     // Map the database fields to the BlogPost type with proper type safety
-    return {
-      id: blogData.id as string,
-      title: blogData.title as string,
-      slug: blogData.slug as string,
-      description: blogData.excerpt as string,
-      content: blogData.content as string,
-      cover_image: blogData.cover_image as string,
-      date: blogData.created_at ? new Date(blogData.created_at as string).toISOString().split('T')[0] : new Date().toISOString().split('T')[0],
-      created_at: blogData.created_at as string,
-      author: (blogData.author as string) || 'Admin',
-      category: (blogData.category as string) || 'Travel',
-    };
+    if (directData) {
+      const updatedAt = directData.updated_at || directData.created_at || new Date().toISOString();
+      const createdAt = directData.created_at || new Date().toISOString();
+      
+      const blogPost: BlogPost = {
+        id: directData.id,
+        title: directData.title || 'Untitled Post',
+        slug: directData.slug || `post-${Date.now()}`,
+        description: directData.excerpt || '',
+        excerpt: directData.excerpt || '',
+        content: directData.content || '',
+        cover_image: directData.cover_image,
+        created_at: directData.created_at,
+        updated_at: directData.updated_at,
+        published: directData.published ?? true,
+        author: directData.author,
+        category: directData.category,
+      };
+      console.log('Found blog with direct query:', blogPost);
+      return blogPost;
+    }
+    return null;
   } catch (error) {
     console.error('Error fetching blog by slug:', error);
     return null;
@@ -130,18 +160,19 @@ export async function getBlogBySlug(slug: string): Promise<BlogPost | null> {
  */
 export async function getRelatedBlogs(currentSlug: string, count = 2): Promise<BlogPost[]> {
   try {
-    // Force a new connection to ensure fresh data
     const supabase = createClient();
     
-    // First get the current blog to find its category
-    const currentBlog = await getBlogBySlug(currentSlug);
+    // First get the current blog to find related posts by category
+    const { data: currentBlog } = await supabase
+      .from('blogs')
+      .select('category')
+      .eq('slug', currentSlug)
+      .single<{ category: string | null }>();
+      
+    if (!currentBlog || !currentBlog.category) return [];
     
-    if (!currentBlog || !currentBlog.category) {
-      return [];
-    }
-    
-    // Then get blogs with the same category
-    const { data, error } = await supabase
+    // Get related blogs from the same category, excluding the current one
+    const { data: relatedBlogs, error } = await supabase
       .from('blogs')
       .select('*')
       .eq('category', currentBlog.category)
@@ -154,25 +185,35 @@ export async function getRelatedBlogs(currentSlug: string, count = 2): Promise<B
       return [];
     }
     
-    if (!data || data.length === 0) {
-      return [];
+    if (!relatedBlogs || relatedBlogs.length === 0) {
+      // If no related blogs found, return some recent blogs instead
+      const allBlogs = await getBlogs();
+      return allBlogs
+        .filter(blog => blog.slug !== currentSlug)
+        .slice(0, count);
     }
     
-    // Map the database fields to the BlogPost type with proper type safety
-    return data.map((blog) => ({
-      id: blog.id as string,
-      title: blog.title as string,
-      slug: blog.slug as string,
-      description: blog.excerpt as string,
-      content: blog.content as string,
-      cover_image: blog.cover_image as string,
-      date: blog.created_at ? new Date(blog.created_at as string).toISOString().split('T')[0] : new Date().toISOString().split('T')[0],
-      created_at: blog.created_at as string,
-      author: (blog.author as string) || 'Admin',
-      category: (blog.category as string) || 'Travel',
-    }));
+    return relatedBlogs.map(blog => {
+      const updatedAt = blog.updated_at || blog.created_at || new Date().toISOString();
+      const createdAt = blog.created_at || new Date().toISOString();
+      
+      return {
+        id: blog.id,
+        title: blog.title || 'Untitled Post',
+        slug: blog.slug || `post-${Date.now()}`,
+        description: blog.excerpt || '',
+        excerpt: blog.excerpt || '',
+        content: blog.content || '',
+        cover_image: blog.cover_image || '/images/blog-placeholder.jpg',
+        created_at: createdAt,
+        updated_at: updatedAt,
+        published: blog.published ?? true,
+        author: blog.author || null,
+        category: blog.category || null,
+      } as BlogPost;
+    });
   } catch (error) {
-    console.error('Error fetching related blogs:', error);
+    console.error('Error in getRelatedBlogs:', error);
     return [];
   }
 }

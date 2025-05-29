@@ -5,7 +5,7 @@ import { ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import BlogCard from "@/components/blog/BlogCard";
 import { getBlogs } from "@/lib/blogs";
-import { BlogPost } from "@/lib/types";
+import { BlogPost } from "@/types/blog";
 import { useEffect, useState } from "react";
 
 // Fallback blog data for when database is empty
@@ -15,10 +15,12 @@ const fallbackBlogs: BlogPost[] = [
     title: "10 Hidden Beaches in Goa You Can Only Reach With a Car",
     slug: "hidden-beaches-in-goa",
     description: "Discover secluded beaches in Goa that are away from the tourist crowds.",
+    excerpt: "Discover secluded beaches in Goa that are away from the tourist crowds.",
     content: "# 10 Hidden Beaches in Goa\n\nGoa is famous for its beautiful beaches...",
     cover_image: "https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg",
-    date: "2023-04-15",
     created_at: "2023-04-15T10:30:00Z",
+    updated_at: "2023-04-15T10:30:00Z",
+    published: true,
     author: "Priya Nayak",
     category: "Travel"
   },
@@ -27,10 +29,12 @@ const fallbackBlogs: BlogPost[] = [
     title: "The Complete Guide to Driving in Goa",
     slug: "guide-to-driving-in-goa",
     description: "Everything you need to know about road rules and navigation in Goa.",
+    excerpt: "Everything you need to know about road rules and navigation in Goa.",
     content: "# The Complete Guide to Driving in Goa\n\nExploring Goa with your own vehicle...",
     cover_image: "https://images.pexels.com/photos/7876379/pexels-photo-7876379.jpeg",
-    date: "2023-07-05",
     created_at: "2023-07-05T14:15:00Z",
+    updated_at: "2023-07-05T14:15:00Z",
+    published: true,
     author: "Anjali Menon",
     category: "Travel Tips"
   },
@@ -39,10 +43,12 @@ const fallbackBlogs: BlogPost[] = [
     title: "5 Scenic Drives in Goa You Shouldn't Miss",
     slug: "scenic-drives-in-goa",
     description: "Explore the most beautiful routes for a road trip in Goa.",
+    excerpt: "Explore the most beautiful routes for a road trip in Goa.",
     content: "# 5 Scenic Drives in Goa\n\nWith its winding coastal roads and lush landscapes...",
     cover_image: "https://images.pexels.com/photos/1252500/pexels-photo-1252500.jpeg",
-    date: "2023-08-12",
     created_at: "2023-08-12T09:45:00Z",
+    updated_at: "2023-08-12T09:45:00Z",
+    published: true,
     author: "Rahul Sharma",
     category: "Travel"
   }
@@ -114,7 +120,7 @@ const BlogPreview = () => {
         ) : recentBlogs.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
             {recentBlogs.map((blog) => (
-              <BlogCard key={blog.id} blog={blog} />
+              <BlogCard key={blog.id} post={blog} />
             ))}
           </div>
         ) : (

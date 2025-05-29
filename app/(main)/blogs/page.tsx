@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { getBlogs } from "@/lib/blogs";
-import { BlogPost } from "@/lib/types";
+import { BlogPost } from "@/types/blog";
 
 // Disable caching for this route
 export const dynamic = 'force-dynamic';

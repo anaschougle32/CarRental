@@ -33,7 +33,7 @@ const BlogCard = ({ post }: BlogCardProps) => {
     excerpt = '', 
     title = 'Untitled Post', 
     slug = '', 
-    cover_image = '/images/blog-placeholder.jpg' 
+    cover_image 
   } = post;
 
   // Calculate how long ago the post was published
@@ -42,7 +42,7 @@ const BlogCard = ({ post }: BlogCardProps) => {
     : 'Recently';
     
   const description = excerpt;
-  const coverImage = cover_image;
+  const coverImage = cover_image || '/images/blog-placeholder.jpg';
 
   return (
     <Card className="overflow-hidden h-full flex flex-col hover:shadow-lg transition-shadow">
@@ -53,6 +53,7 @@ const BlogCard = ({ post }: BlogCardProps) => {
           fill
           className="object-cover transition-transform duration-500 hover:scale-105"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority={false}
           onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
             // Fallback to placeholder if image fails to load
             const target = e.target as HTMLImageElement;

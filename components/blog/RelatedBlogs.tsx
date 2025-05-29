@@ -1,7 +1,7 @@
 import { getRelatedBlogs } from "@/lib/blogs";
 import Link from "next/link";
 import Image from "next/image";
-import { BlogPost } from "@/lib/types";
+import { BlogPost } from "@/types/blog";
 import { ArrowRight } from "lucide-react";
 
 interface RelatedBlogsProps {
@@ -43,12 +43,14 @@ const RelatedBlogCard = ({ blog }: { blog: BlogPost }) => {
     <Link href={`/blogs/${blog.slug}`} className="group">
       <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
         <div className="relative h-48 overflow-hidden">
-          <Image 
-            src={blog.cover_image} 
-            alt={blog.title}
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
-          />
+          {blog.cover_image && (
+            <Image 
+              src={blog.cover_image} 
+              alt={blog.title}
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+          )}
           {blog.category && (
             <div className="absolute top-3 right-3 bg-blue-600 text-white text-xs font-semibold px-2 py-1 rounded-full">
               {blog.category}
@@ -63,7 +65,9 @@ const RelatedBlogCard = ({ blog }: { blog: BlogPost }) => {
             {blog.description}
           </p>
           <div className="mt-auto flex items-center justify-between">
-            <span className="text-gray-500 dark:text-gray-400 text-xs">{blog.date}</span>
+            <span className="text-gray-500 dark:text-gray-400 text-xs">
+              {new Date(blog.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </span>
             <span className="text-blue-600 font-medium text-sm group-hover:underline">Read more</span>
           </div>
         </div>
