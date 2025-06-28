@@ -9,31 +9,31 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 export const metadata: Metadata = {
-  title: "Goa Travel Tips, Driving Guides & Car Rental Advice | ZoiCarRentals Blog",
+  title: "Goa Travel Tips, Driving Guides & Car Rental Advice | ZioCarRentals Blog",
   description: "Discover expert travel tips for Goa, driving guides, beach recommendations, and car rental advice to make the most of your Goa vacation. Updated regularly with local insights.",
   keywords: "car rental blog Goa, Goa travel tips, driving in Goa, self drive advice, Goa beaches, Goa attractions, best places to visit in Goa, North Goa guide, South Goa guide, car rental tips, Goa road trips, Goa travel blog",
   openGraph: {
-    title: "Goa Travel Tips & Car Rental Advice | ZoiCarRentals Blog",
+    title: "Goa Travel Tips & Car Rental Advice | ZioCarRentals Blog",
     description: "Expert travel guides, driving tips, and local recommendations for your perfect Goa vacation. Find the best beaches, attractions, and car rental advice.",
-    url: "https://zoicarrentals.com/blogs",
-    siteName: "ZoiCarRentals",
+    url: "https://ziocarrentals.com/blogs",
+    siteName: "ZioCarRentals",
     locale: "en_IN",
     type: "website",
     images: [{
       url: "/images/blog/og-image.jpg",
       width: 1200,
       height: 630,
-      alt: "ZoiCarRentals Blog - Goa Travel Tips and Guides"
+      alt: "ZioCarRentals Blog - Goa Travel Tips and Guides"
     }]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Goa Travel Tips & Car Rental Advice | ZoiCarRentals",
+    title: "Goa Travel Tips & Car Rental Advice | ZioCarRentals",
     description: "Expert travel guides and local recommendations for your perfect Goa vacation.",
     images: ["/images/blog/twitter-image.jpg"],
   },
   alternates: {
-    canonical: "https://zoicarrentals.com/blogs",
+    canonical: "https://ziocarrentals.com/blogs",
   },
   robots: {
     index: true,
@@ -81,7 +81,7 @@ export default async function BlogsPage() {
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
         <div className="container mx-auto px-4 md:px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">The ZoiCarRentals Blog</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">The ZioCarRentals Blog</h1>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto">
             Discover the best travel tips, driving guides, and local insights for your perfect Goa vacation.
           </p>
@@ -158,7 +158,7 @@ export default async function BlogsPage() {
                       </div>
                       <div>
                         <p className="font-medium text-gray-900 dark:text-white">
-                          {featuredBlog.author || 'ZoiCarRentals Team'}
+                          {featuredBlog.author || 'ZioCarRentals Team'}
                         </p>
                         <p className="text-sm text-gray-500 dark:text-gray-400">
                           {featuredBlog.created_at ? new Date(featuredBlog.created_at).toLocaleDateString('en-IN', {
@@ -256,7 +256,7 @@ function BlogCard({ blog }: { blog: BlogPost }) {
             </div>
             <div>
               <p className="text-sm font-medium text-gray-900 dark:text-white">
-                {blog.author || 'ZoiCarRentals Team'}
+                                        {blog.author || 'ZioCarRentals Team'}
               </p>
               <p className="text-xs text-gray-500 dark:text-gray-400">
                 {blog.author ? 'Author' : 'Team Member'}
