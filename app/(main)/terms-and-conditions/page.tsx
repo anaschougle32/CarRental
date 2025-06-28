@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms and Conditions | GoDrive Car Rentals",
-  description: "Read the terms and conditions for renting cars from GoDrive in Goa, including booking policies, rental requirements, and usage guidelines.",
+  title: "Terms and Conditions | ZioCarRentals",
+  description: "Read the terms and conditions for renting cars from ZioCarRentals in Goa, including booking policies, rental requirements, and usage guidelines.",
 };
 
 export default function TermsPage() {
@@ -17,13 +17,13 @@ export default function TermsPage() {
           </p>
           
           <p>
-            These Terms and Conditions ("Terms") govern your use of GoDrive Car Rentals' services, including car rentals, reservations, and related services. By making a reservation or renting a vehicle from GoDrive, you agree to these Terms.
+            These Terms and Conditions ("Terms") govern your use of ZioCarRentals' services, including car rentals, reservations, and related services. By making a reservation or renting a vehicle from ZioCarRentals, you agree to these Terms.
           </p>
           
           <h2>1. Rental Eligibility</h2>
           
           <p>
-            To rent a vehicle from GoDrive, you must:
+            To rent a vehicle from ZioCarRentals, you must:
           </p>
           
           <ul>
@@ -58,7 +58,7 @@ export default function TermsPage() {
           <h2>4. Vehicle Usage</h2>
           
           <p>
-            When renting a vehicle from GoDrive, you agree to:
+            When renting a vehicle from ZioCarRentals, you agree to:
           </p>
           
           <ul>
@@ -121,7 +121,7 @@ export default function TermsPage() {
           <p className="mb-4">
             If you have any questions about these Terms, please contact us:
           </p>
-          <p className="mb-1">Email: info@godrive.com</p>
+                      <p className="mb-1">Email: info@ziocarrentals.com</p>
           <p className="mb-4">Phone: +919867975473</p>
         </div>
       </div>

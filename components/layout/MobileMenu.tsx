@@ -53,7 +53,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
           <Link href="/" className="flex items-center space-x-2 text-primary">
             <Logo className="h-8 w-8" />
             <span className="font-satoshi font-bold text-xl">
-              Go<span className="text-blue-600">Drive</span>
+              Zio<span className="text-blue-600">CarRentals</span>
             </span>
           </Link>
           
@@ -84,11 +84,10 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             <div className="space-y-1">
               {[
                 { name: "Home", href: "/" },
+                { name: "About", href: "/about" },
                 { name: "Cars", href: "/cars" },
                 { name: "Locations", href: "/locations" },
-                { name: "Blog", href: "/blogs" },
-                { name: "About", href: "/about" },
-                { name: "Testimonials", href: "/testimonials" },
+                { name: "Blogs", href: "/blogs" },
                 { name: "Contact", href: "/contact" }
               ].map((item) => (
                 <Link

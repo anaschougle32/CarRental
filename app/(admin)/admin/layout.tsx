@@ -14,6 +14,8 @@ import {
   Users,
   X,
   MapPin,
+  MessageSquare,
+  Calendar,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -22,6 +24,8 @@ const navigation = [
   { name: "Dashboard", href: "/admin/dashboard", icon: Settings },
   { name: "Cars", href: "/admin/cars", icon: Car },
   { name: "Locations", href: "/admin/locations", icon: MapPin },
+  { name: "Booking Inquiries", href: "/admin/booking-inquiries", icon: Calendar },
+  { name: "Contact Messages", href: "/admin/contact-messages", icon: MessageSquare },
   { name: "Blogs", href: "/admin/blogs", icon: FileText },
   { name: "Users", href: "/admin/users", icon: Users },
 ];

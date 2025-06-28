@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronRight } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { ChevronRight, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
@@ -12,6 +13,8 @@ import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
+import { toast } from "sonner";
+import { submitBookingInquiry } from "@/lib/supabase/index";
 
 // Optimize images by using smaller high-quality images
 const heroImages = [
@@ -29,7 +32,7 @@ export function HeroStructuredData() {
         __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "RentalCarCompany",
-          "name": "GoDrive Car Rentals",
+          "name": "ZioCarRentals",
           "image": heroImages[0],
           "priceRange": "₹₹",
           "address": {
@@ -48,7 +51,20 @@ export function HeroStructuredData() {
 }
 
 const Hero = () => {
+  const router = useRouter();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  // Form state
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    pickupLocation: "",
+    dropLocation: "",
+    pickupTime: "10:00",
+    dropTime: "10:00"
+  });
+  
   const [pickupDate, setPickupDate] = useState<Date | undefined>(new Date());
   const [returnDate, setReturnDate] = useState<Date | undefined>(
     new Date(new Date().setDate(new Date().getDate() + 3))
@@ -61,6 +77,77 @@ const Hero = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validate required fields
+    if (!formData.name.trim()) {
+      toast.error("Please enter your name");
+      return;
+    }
+    
+    if (!formData.phone.trim()) {
+      toast.error("Please enter your phone number");
+      return;
+    }
+    
+    if (!formData.pickupLocation.trim()) {
+      toast.error("Please enter pickup location");
+      return;
+    }
+    
+    if (!formData.dropLocation.trim()) {
+      toast.error("Please enter drop location");
+      return;
+    }
+    
+    if (!pickupDate) {
+      toast.error("Please select pickup date");
+      return;
+    }
+    
+    if (!returnDate) {
+      toast.error("Please select drop date");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const result = await submitBookingInquiry({
+        name: formData.name,
+        phone: formData.phone,
+        pickup_location: formData.pickupLocation,
+        drop_location: formData.dropLocation,
+        pickup_date: format(pickupDate, "yyyy-MM-dd"),
+        pickup_time: formData.pickupTime,
+        drop_date: format(returnDate, "yyyy-MM-dd"),
+        drop_time: formData.dropTime
+      });
+
+      if (result.success) {
+        toast.success("Booking inquiry submitted! Redirecting to available cars...");
+        // Redirect to cars page after successful submission
+        router.push("/cars");
+      } else {
+        toast.error("Failed to submit booking inquiry. Please try again.");
+        console.error("Booking submission error:", result.error);
+      }
+    } catch (error) {
+      toast.error("Something went wrong. Please try again later.");
+      console.error("Booking submission error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section className="relative min-h-[600px] md:h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20">
@@ -79,7 +166,7 @@ const Hero = () => {
         >
           <Image 
             src={image} 
-            alt={`GoDrive Car Rental in Goa - Image ${index + 1}`}
+            alt={`ZioCarRentals Car Rental in Goa - Image ${index + 1}`}
             fill
             sizes="100vw"
             priority={index === 0}
@@ -104,74 +191,142 @@ const Hero = () => {
           airport pickup, and 24/7 roadside assistance.
         </p>
         
-        {/* Quick Search Form */}
-        <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 md:p-6 max-w-4xl mx-auto mt-6 md:mt-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* Enhanced Booking Form */}
+        <form onSubmit={handleFormSubmit} className="bg-white/10 backdrop-blur-sm rounded-lg p-4 md:p-6 max-w-5xl mx-auto mt-6 md:mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {/* Name Field */}
             <div>
-              <Label htmlFor="location" className="text-white mb-1 block">Pickup Location</Label>
+              <Label htmlFor="name" className="text-white mb-1 block">Name</Label>
               <Input 
-                id="location" 
-                placeholder="Airport, Calangute, Panjim..." 
+                id="name" 
+                value={formData.name}
+                onChange={(e) => handleInputChange("name", e.target.value)}
+                placeholder="Your full name" 
                 className="bg-white/20 text-white placeholder:text-white/70 border-white/30"
+                required
+              />
+            </div>
+
+            {/* Phone Number Field */}
+            <div>
+              <Label htmlFor="phone" className="text-white mb-1 block">Phone Number</Label>
+              <Input 
+                id="phone" 
+                value={formData.phone}
+                onChange={(e) => handleInputChange("phone", e.target.value)}
+                placeholder="+91 98765 43210" 
+                className="bg-white/20 text-white placeholder:text-white/70 border-white/30"
+                required
               />
             </div>
             
+            {/* Pickup Location */}
             <div>
-              <Label htmlFor="pickup-date" className="text-white mb-1 block">Pickup Date</Label>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <Button
-                    id="pickup-date"
-                    variant="outline"
-                    className="w-full bg-white/20 text-white border-white/30 justify-start text-left font-normal"
-                  >
-                    <CalendarIcon className="mr-2 h-4 w-4" />
-                    {pickupDate ? format(pickupDate, "PPP") : <span>Pick a date</span>}
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
-                  <Calendar
-                    mode="single"
-                    selected={pickupDate}
-                    onSelect={setPickupDate}
-                    initialFocus
-                  />
-                </PopoverContent>
-              </Popover>
+              <Label htmlFor="pickup-location" className="text-white mb-1 block">Pickup Location</Label>
+              <Input 
+                id="pickup-location" 
+                value={formData.pickupLocation}
+                onChange={(e) => handleInputChange("pickupLocation", e.target.value)}
+                placeholder="Airport, Calangute, Panjim..." 
+                className="bg-white/20 text-white placeholder:text-white/70 border-white/30"
+                required
+              />
+            </div>
+
+            {/* Drop Location */}
+            <div>
+              <Label htmlFor="drop-location" className="text-white mb-1 block">Drop Location</Label>
+              <Input 
+                id="drop-location" 
+                value={formData.dropLocation}
+                onChange={(e) => handleInputChange("dropLocation", e.target.value)}
+                placeholder="Same as pickup or different..." 
+                className="bg-white/20 text-white placeholder:text-white/70 border-white/30"
+                required
+              />
             </div>
             
+            {/* Pickup Date & Time */}
             <div>
-              <Label htmlFor="return-date" className="text-white mb-1 block">Return Date</Label>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <Button
-                    id="return-date"
-                    variant="outline"
-                    className="w-full bg-white/20 text-white border-white/30 justify-start text-left font-normal"
-                  >
-                    <CalendarIcon className="mr-2 h-4 w-4" />
-                    {returnDate ? format(returnDate, "PPP") : <span>Pick a date</span>}
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="end">
-                  <Calendar
-                    mode="single"
-                    selected={returnDate}
-                    onSelect={setReturnDate}
-                    initialFocus
-                    disabled={(date: Date) => date < (pickupDate || new Date())}
-                  />
-                </PopoverContent>
-              </Popover>
+              <Label htmlFor="pickup-datetime" className="text-white mb-1 block">Pickup Date & Time</Label>
+              <div className="flex gap-2">
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      id="pickup-datetime"
+                      variant="outline"
+                      className="flex-1 bg-white/20 text-white border-white/30 justify-start text-left font-normal"
+                    >
+                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      {pickupDate ? format(pickupDate, "dd/MM") : <span>Date</span>}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={pickupDate}
+                      onSelect={setPickupDate}
+                      initialFocus
+                    />
+                  </PopoverContent>
+                </Popover>
+                <Input 
+                  type="time"
+                  value={formData.pickupTime}
+                  onChange={(e) => handleInputChange("pickupTime", e.target.value)}
+                  className="flex-1 bg-white/20 text-white border-white/30"
+                />
+              </div>
+            </div>
+            
+            {/* Drop Date & Time */}
+            <div>
+              <Label htmlFor="drop-datetime" className="text-white mb-1 block">Drop Date & Time</Label>
+              <div className="flex gap-2">
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      id="drop-datetime"
+                      variant="outline"
+                      className="flex-1 bg-white/20 text-white border-white/30 justify-start text-left font-normal"
+                    >
+                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      {returnDate ? format(returnDate, "dd/MM") : <span>Date</span>}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="end">
+                    <Calendar
+                      mode="single"
+                      selected={returnDate}
+                      onSelect={setReturnDate}
+                      initialFocus
+                      disabled={(date: Date) => date < (pickupDate || new Date())}
+                    />
+                  </PopoverContent>
+                </Popover>
+                <Input 
+                  type="time"
+                  value={formData.dropTime}
+                  onChange={(e) => handleInputChange("dropTime", e.target.value)}
+                  className="flex-1 bg-white/20 text-white border-white/30"
+                />
+              </div>
             </div>
           </div>
           
-          <Button size="lg" className="w-full mt-4" asChild>
-            <Link href="/cars">
-              Search Available Cars <ChevronRight size={18} className="ml-2" />
-            </Link>
+          <Button type="submit" size="lg" className="w-full mt-6" disabled={isSubmitting}>
+            {isSubmitting ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Submitting...
+              </>
+            ) : (
+              <>
+                Search Available Cars <ChevronRight size={18} className="ml-2" />
+              </>
+            )}
           </Button>
-        </div>
+        </form>
         
         {/* Added more spacing above the buttons */}
         <div className="flex flex-row items-center justify-center gap-4 mt-16 md:mt-20">

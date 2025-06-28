@@ -20,20 +20,20 @@ const fontClass = `${poppins.variable} font-sans`;
 
 export const metadata: Metadata = {
   title: {
-    default: 'GoDrive - Self Drive Car Rentals in Goa | Unlimited KM',
-    template: '%s | GoDrive Car Rentals Goa',
+    default: 'ZioCarRentals - Self Drive Car Rentals in Goa | Unlimited KM',
+    template: '%s | ZioCarRentals Goa',
   },
   description: 'Premium self-drive car rentals in Goa with unlimited kilometers, airport pickup, and 24/7 roadside assistance. Book online or call now!',
   keywords: 'car rental, self drive, Goa, rent a car, holiday car, unlimited km, airport pickup, car hire, SUV rental, budget car, affordable car rental',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://godrive.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://ziocarrentals.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'GoDrive - Self Drive Car Rentals in Goa | Unlimited KM',
+    title: 'ZioCarRentals - Self Drive Car Rentals in Goa | Unlimited KM',
     description: 'Premium self-drive car rentals in Goa with unlimited kilometers, airport pickup, and 24/7 roadside assistance. Book online or call now!',
-    url: 'https://godrive.com',
-    siteName: 'GoDrive Car Rentals',
+    url: 'https://ziocarrentals.com',
+    siteName: 'ZioCarRentals',
     locale: 'en_US',
     type: 'website',
     images: [
@@ -41,13 +41,13 @@ export const metadata: Metadata = {
         url: 'https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&dpr=1',
         width: 1200,
         height: 630,
-        alt: 'GoDrive Car Rentals in Goa',
+        alt: 'ZioCarRentals in Goa',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GoDrive - Self Drive Car Rentals in Goa | Unlimited KM',
+    title: 'ZioCarRentals - Self Drive Car Rentals in Goa | Unlimited KM',
     description: 'Premium self-drive car rentals in Goa with unlimited kilometers, airport pickup, and 24/7 roadside assistance. Book online or call now!',
     images: ['https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&dpr=1'],
   },
@@ -65,6 +65,11 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
   },
 };
 

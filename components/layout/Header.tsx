@@ -58,7 +58,7 @@ const Header = () => {
         <Link href="/" className="flex items-center space-x-2 text-primary">
           <Logo className="h-8 w-8 md:h-10 md:w-10" />
           <span className="font-satoshi font-bold text-xl md:text-2xl">
-            Go<span className="text-blue-600">Drive</span>
+            Zio<span className="text-blue-600">CarRentals</span>
           </span>
         </Link>
 
@@ -68,6 +68,12 @@ const Header = () => {
             className="nav-link font-medium text-gray-900 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 transition-colors text-sm lg:text-base"
           >
             Home
+          </Link>
+          <Link
+            href="/about"
+            className="nav-link font-medium text-gray-900 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 transition-colors text-sm lg:text-base"
+          >
+            About
           </Link>
           <Link
             href="/cars"
@@ -85,13 +91,7 @@ const Header = () => {
             href="/blogs"
             className="nav-link font-medium text-gray-900 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 transition-colors text-sm lg:text-base"
           >
-            Blog
-          </Link>
-          <Link
-            href="/about"
-            className="nav-link font-medium text-gray-900 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 transition-colors text-sm lg:text-base"
-          >
-            About
+            Blogs
           </Link>
           <Link
             href="/contact"

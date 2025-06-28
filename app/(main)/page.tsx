@@ -32,12 +32,12 @@ const Faqs = dynamic(() => import("@/components/home/Faqs"), {
 });
 
 export const metadata: Metadata = {
-  title: "ZoiCarRentals - Best Car Rental Service in Goa | Airport Pickup | 24/7 Support",
+  title: "ZioCarRentals - Best Car Rental Service in Goa | Airport Pickup | 24/7 Support",
   description:
     "Premium car rentals in Goa with airport transfers, unlimited kilometers, and 24/7 roadside assistance. Explore North & South Goa with our reliable vehicles. Book online or call now!",
   keywords: "car rental Goa, self drive cars Goa, airport pickup Goa, car hire Calangute, Anjuna car rental, Baga car rental, North Goa car rental, South Goa car rental",
   openGraph: {
-    title: "ZoiCarRentals - Best Car Rental Service in Goa | Airport Pickup | 24/7 Support",
+    title: "ZioCarRentals - Best Car Rental Service in Goa | Airport Pickup | 24/7 Support",
     description: "Premium car rentals in Goa with airport transfers, unlimited kilometers, and 24/7 roadside assistance. Explore North & South Goa with our reliable vehicles.",
     images: ['/images/og-image.jpg'],
     type: 'website',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "ZoiCarRentals - Best Car Rental Service in Goa",
+    title: "ZioCarRentals - Best Car Rental Service in Goa",
     description: "Premium car rentals in Goa with airport transfers and 24/7 support",
     images: ['/images/twitter-image.jpg'],
   },

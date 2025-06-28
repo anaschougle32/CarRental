@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | GoDrive Car Rentals",
-  description: "Read GoDrive's privacy policy to understand how we collect, use, and protect your personal information when you use our car rental services in Goa.",
+  title: "Privacy Policy | ZioCarRentals",
+  description: "Read ZioCarRentals' privacy policy to understand how we collect, use, and protect your personal information when you use our car rental services in Goa.",
 };
 
 export default function PrivacyPolicyPage() {
@@ -17,7 +17,7 @@ export default function PrivacyPolicyPage() {
           </p>
           
           <p>
-            At GoDrive Car Rentals ("we," "our," or "us"), we value your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our car rental services, visit our website, or interact with us in any way.
+            At ZioCarRentals ("we," "our," or "us"), we value your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our car rental services, visit our website, or interact with us in any way.
           </p>
           
           <h2>Information We Collect</h2>
@@ -113,8 +113,8 @@ export default function PrivacyPolicyPage() {
           <p className="mb-4">
             If you have any questions about this Privacy Policy, please contact us:
           </p>
-          <p className="mb-1">Email: info@godrive.com</p>
-          <p className="mb-4">Phone: +919867975473</p>
+          <p className="mb-1">Email: info@ziocarrentals.com</p>
+          <p className="mb-4">Phone: +91 90828 88912</p>
         </div>
       </div>
     </div>

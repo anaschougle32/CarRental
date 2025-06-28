@@ -1,4 +1,4 @@
 # Supabase credentials
 NEXT_PUBLIC_SUPABASE_URL=https://idghdvapzklhijftyico.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlkZ2hkdmFwemtsaGlqZnR5aWNvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc0Mjk2MDQsImV4cCI6MjA2MzAwNTYwNH0.0gDjU8gJOEJ4aUACyupsKgJEmJk2Yo6Xw_ZSh5RraU4
-NEXT_PUBLIC_BASE_URL=https://godrive.com 
+NEXT_PUBLIC_BASE_URL=https://ziocarrentals.com 

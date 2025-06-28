@@ -3,31 +3,31 @@ import Image from "next/image";
 import { Check, Users, Award, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About ZoiCarRentals | Leading Car Rental Service in Goa Since 2018",
-  description: "Learn about ZoiCarRentals, Goa's premier car rental service. Discover our story, mission, and commitment to providing exceptional rental experiences across North and South Goa.",
-  keywords: "car rental Goa, about ZoiCarRentals, car hire company Goa, best car rental service Goa, ZoiCarRentals history, car rental team Goa, reliable car rental Goa",
+  title: "About ZioCarRentals | Leading Car Rental Service in Goa Since 2018",
+  description: "Learn about ZioCarRentals, Goa's premier car rental service. Discover our story, mission, and commitment to providing exceptional rental experiences across North and South Goa.",
+  keywords: "car rental Goa, about ZioCarRentals, car hire company Goa, best car rental service Goa, ZioCarRentals history, car rental team Goa, reliable car rental Goa",
   openGraph: {
-    title: "About ZoiCarRentals | Leading Car Rental Service in Goa",
+    title: "About ZioCarRentals | Leading Car Rental Service in Goa",
     description: "Discover the story behind Goa's most trusted car rental service. Learn about our mission, values, and the team that makes your perfect Goa trip possible.",
-    url: "https://zoicarrentals.com/about",
-    siteName: "ZoiCarRentals",
+    url: "https://ziocarrentals.com/about",
+    siteName: "ZioCarRentals",
     locale: "en_IN",
     type: "website",
     images: [{
       url: "/images/about/team-photo.jpg",
       width: 1200,
       height: 630,
-      alt: "ZoiCarRentals Team - Car Rental Experts in Goa"
+      alt: "ZioCarRentals Team - Car Rental Experts in Goa"
     }]
   },
   twitter: {
     card: "summary_large_image",
-    title: "About ZoiCarRentals | Leading Car Rental Service in Goa",
+    title: "About ZioCarRentals | Leading Car Rental Service in Goa",
     description: "Discover the story behind Goa's most trusted car rental service.",
     images: ["/images/about/team-photo.jpg"],
   },
   alternates: {
-    canonical: "https://zoicarrentals.com/about",
+    canonical: "https://ziocarrentals.com/about",
   },
 };
 
@@ -58,12 +58,12 @@ export default function AboutPage() {
               "url(https://images.pexels.com/photos/2382696/pexels-photo-2382696.jpeg)",
           }}
           role="img"
-          aria-label="ZoiCarRentals fleet of cars in Goa"
+          aria-label="ZioCarRentals fleet of cars in Goa"
         />
         <div className="absolute inset-0 bg-black/50" />
         
         <div className="relative z-10 container mx-auto px-4 md:px-6 text-center text-white">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">About ZoiCarRentals</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">About ZioCarRentals</h1>
           <p className="text-xl max-w-3xl mx-auto">
             Goa's premier car rental service since 2018 | Serving North & South Goa
           </p>
@@ -77,7 +77,7 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold mb-6">Our Story</h2>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                ZoiCarRentals was founded in 2018 with a simple mission: to provide travelers with the freedom to explore Goa on their own terms. We started with just 5 cars and a passion for service excellence in the beautiful coastal state of Goa.
+                ZioCarRentals was founded in 2018 with a simple mission: to provide travelers with the freedom to explore Goa on their own terms. We started with just 5 cars and a passion for service excellence in the beautiful coastal state of Goa.
               </p>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
                 As locals who know every corner of Goa, from the bustling beaches of North Goa like Calangute and Anjuna to the serene shores of South Goa such as Palolem and Agonda, we understood that the true beauty of our state often lies off the beaten path, in places not easily accessible by public transport or traditional tours.
@@ -89,7 +89,7 @@ export default function AboutPage() {
             <div className="relative h-96 rounded-lg overflow-hidden">
               <img
                 src="https://images.pexels.com/photos/70912/pexels-photo-70912.jpeg"
-                alt="ZoiCarRentals team with our fleet of cars in Goa"
+                alt="ZioCarRentals team with our fleet of cars in Goa"
                 className="w-full h-full object-cover"
                 loading="lazy"
                 width="600"
@@ -105,7 +105,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 md:px-6">
           <h2 className="text-3xl font-bold mb-4 text-center">Our Values</h2>
           <p className="text-center text-gray-700 dark:text-gray-300 mb-12 max-w-3xl mx-auto">
-            These core principles guide everything we do at GoDrive
+            These core principles guide everything we do at ZioCarRentals
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -154,7 +154,7 @@ export default function AboutPage() {
               />
             </div>
             <div className="order-1 lg:order-2">
-              <h2 className="text-3xl font-bold mb-6">Why Choose GoDrive?</h2>
+              <h2 className="text-3xl font-bold mb-6">Why Choose ZioCarRentals?</h2>
               
               <div className="space-y-4">
                 <div className="flex items-start">
@@ -215,7 +215,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 md:px-6">
           <h2 className="text-3xl font-bold mb-4 text-center">Meet Our Team</h2>
           <p className="text-center text-gray-700 dark:text-gray-300 mb-12 max-w-3xl mx-auto">
-            The dedicated professionals behind ZoiCarRentals who make your Goa car rental experience memorable
+            The dedicated professionals behind ZioCarRentals who make your Goa car rental experience memorable
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -230,7 +230,7 @@ export default function AboutPage() {
               <h3 className="font-bold text-lg">Rahul Naik</h3>
               <p className="text-blue-600 dark:text-blue-400 mb-2">Founder & CEO</p>
               <p className="text-gray-600 dark:text-gray-400 text-sm">
-                With over 15 years in the Goa travel industry, Rahul brings a wealth of experience and a passion for authentic Goan hospitality to ZoiCarRentals.
+                With over 15 years in the Goa travel industry, Rahul brings a wealth of experience and a passion for authentic Goan hospitality to ZioCarRentals.
               </p>
             </div>
             
@@ -287,7 +287,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 md:px-6">
           <h2 className="text-3xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
           <p className="text-center text-gray-700 dark:text-gray-300 mb-12 max-w-3xl mx-auto">
-            Common questions about ZoiCarRentals and our services in Goa
+            Common questions about ZioCarRentals and our services in Goa
           </p>
           
           <div className="max-w-3xl mx-auto space-y-6">
@@ -317,7 +317,7 @@ export default function AboutPage() {
             </div>
             
             <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-              <h3 className="font-bold text-lg mb-2">What makes ZoiCarRentals different from other car rental services in Goa?</h3>
+              <h3 className="font-bold text-lg mb-2">What makes ZioCarRentals different from other car rental services in Goa?</h3>
               <p className="text-gray-700 dark:text-gray-300">
                 What sets us apart is our deep local knowledge of Goa, our commitment to customer service, and our well-maintained fleet. 
                 We offer 24/7 roadside assistance, unlimited kilometers, flexible pickup and drop-off options, and personalized recommendations 
@@ -333,7 +333,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 md:px-6">
           <h2 className="text-3xl font-bold mb-4 text-center">What Our Customers Say</h2>
           <p className="text-center text-gray-700 dark:text-gray-300 mb-12 max-w-3xl mx-auto">
-            Hear from travelers who have explored Goa with ZoiCarRentals
+            Hear from travelers who have explored Goa with ZioCarRentals
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -348,7 +348,7 @@ export default function AboutPage() {
                 </div>
               </div>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                "We rented a car from ZoiCarRentals for our week-long trip to Goa and it was the best decision. The car was in excellent condition, 
+                "We rented a car from ZioCarRentals for our week-long trip to Goa and it was the best decision. The car was in excellent condition, 
                 and the team's recommendations for places to visit in South Goa were spot on. Will definitely use their services again!"
               </p>
               <div className="font-medium">Priya Sharma, Delhi</div>
@@ -366,7 +366,7 @@ export default function AboutPage() {
                 </div>
               </div>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                "The airport pickup service was seamless! Our flight was delayed but the ZoiCarRentals team waited patiently. The car was clean, 
+                "The airport pickup service was seamless! Our flight was delayed but the ZioCarRentals team waited patiently. The car was clean, 
                 well-maintained and perfect for navigating the narrow roads of North Goa. Their 24/7 support gave us peace of mind."
               </p>
               <div className="font-medium">Raj Malhotra, Mumbai</div>
@@ -384,7 +384,7 @@ export default function AboutPage() {
                 </div>
               </div>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                "As international tourists, we were initially nervous about renting a car in Goa, but ZoiCarRentals made it so easy. The unlimited 
+                "As international tourists, we were initially nervous about renting a car in Goa, but ZioCarRentals made it so easy. The unlimited 
                 kilometers option allowed us to explore from Arambol in the north to Palolem in the south without worrying about extra charges."
               </p>
               <div className="font-medium">John & Sarah Williams, UK</div>

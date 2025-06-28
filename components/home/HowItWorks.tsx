@@ -29,9 +29,9 @@ const HowItWorks = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             How It Works
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Renting a car with GoDrive is quick and easy. Follow these simple steps:
-          </p>
+                  <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          Renting a car with ZioCarRentals is quick and easy. Follow these simple steps:
+        </p>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 mt-10">

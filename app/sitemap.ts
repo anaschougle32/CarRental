@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { getCars } from '@/lib/supabase';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://godrive.com';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://ziocarrentals.com';
   
   // Get all car data for dynamic routes
   const cars = await getCars();

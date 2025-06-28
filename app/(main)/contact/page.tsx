@@ -3,8 +3,8 @@ import ContactForm from "@/components/common/ContactForm";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact Us | GoDrive Car Rentals in Goa",
-  description: "Get in touch with GoDrive Car Rentals. We're available 24/7 for bookings, queries, and roadside assistance. Call, WhatsApp, or visit us in Goa.",
+  title: "Contact Us | ZioCarRentals in Goa",
+  description: "Get in touch with ZioCarRentals. We're available 24/7 for bookings, queries, and roadside assistance. Call, WhatsApp, or visit us in Goa.",
 };
 
 export default function ContactPage() {
@@ -79,17 +79,17 @@ export default function ContactPage() {
                     <h3 className="font-semibold text-lg mb-1">Email Us</h3>
                     <p className="text-gray-700 dark:text-gray-300">
                       <a
-                        href="mailto:info@godrive.com"
+                        href="mailto:info@ziocarrentals.com"
                         className="hover:text-blue-600 transition-colors"
                       >
-                        info@godrive.com
+                        info@ziocarrentals.com
                       </a>
                       <br />
                       <a
-                        href="mailto:bookings@godrive.com"
+                        href="mailto:bookings@ziocarrentals.com"
                         className="hover:text-blue-600 transition-colors"
                       >
-                        bookings@godrive.com
+                        bookings@ziocarrentals.com
                       </a>
                     </p>
                   </div>
@@ -130,7 +130,7 @@ export default function ContactPage() {
           <div className="h-96 rounded-lg overflow-hidden shadow-md">
             <img
               src="https://images.pexels.com/photos/4450334/pexels-photo-4450334.jpeg"
-              alt="Map location of GoDrive office in Calangute, Goa"
+              alt="Map location of ZioCarRentals office in Calangute, Goa"
               className="w-full h-full object-cover"
             />
           </div>

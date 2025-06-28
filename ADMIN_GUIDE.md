@@ -1,6 +1,6 @@
-# Admin Guide for GoDrive Car Rental Website
+# Admin Guide for ZioCarRentals Website
 
-This guide explains how to manage the content on the GoDrive Car Rental website, including adding new cars and blog posts.
+This guide explains how to manage the content on the ZioCarRentals website, including adding new cars and blog posts.
 
 ## Prerequisites
 
@@ -158,4 +158,4 @@ VALUES (
 
 ## Technical Support
 
-For technical issues or questions, please contact the development team at dev@godrive.com or open an issue in the project's GitHub repository. 
+For technical issues or questions, please contact the development team at dev@ziocarrentals.com or open an issue in the project's GitHub repository. 

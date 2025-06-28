@@ -1,28 +1,8 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import Link from "next/link";
-import { getLocations } from "@/lib/supabase";
-import { Location } from "@/lib/supabase";
 
 const LocationLinks = () => {
-  const [locations, setLocations] = useState<Location[]>([]);
-
-  useEffect(() => {
-    const fetchLocations = async () => {
-      try {
-        const locationsData = await getLocations();
-        setLocations(locationsData);
-      } catch (error) {
-        console.error("Error fetching locations:", error);
-      }
-    };
-
-    fetchLocations();
-  }, []);
-
-  // Comprehensive list of locations for SEO
-  const additionalLocations = [
+  // Static list of locations for SEO (prevents hydration issues)
+  const staticLocations = [
     // North Goa Locations
     { name: "Anjuna", slug: "anjuna" },
     { name: "Calangute", slug: "calangute" },
@@ -81,24 +61,8 @@ const LocationLinks = () => {
     { name: "Sanguem", slug: "sanguem" }
   ];
 
-  // Combine database locations with additional static locations
-  // Filter out duplicates by slug
-  const allLocations = [...locations];
-  
-  // Add static locations that don't exist in the database
-  additionalLocations.forEach(loc => {
-    if (!allLocations.some(dbLoc => dbLoc.slug === loc.slug)) {
-      allLocations.push({
-        id: `static-${loc.slug}`,
-        name: loc.name,
-        slug: loc.slug,
-        headline: `Car Rental in ${loc.name}, Goa`,
-        content: `Find the best car rental deals in ${loc.name}, Goa with ZoiCarRentals.`,
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString()
-      });
-    }
-  });
+  // Use static locations to prevent hydration issues
+  const allLocations = staticLocations;
 
   return (
     <div className="w-full bg-gray-900 text-white py-6 border-t border-gray-800">
@@ -109,7 +73,7 @@ const LocationLinks = () => {
         <div className="flex flex-wrap gap-y-1 mt-4">
           {allLocations.map((location, index) => (
             <Link
-              key={location.id}
+              key={location.slug}
               href={`/locations/${location.slug}`}
               className="text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base"
             >

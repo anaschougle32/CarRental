@@ -6,7 +6,7 @@ export const testimonials: Testimonial[] = [
     name: "Rahul Sharma",
     city: "Delhi",
     message:
-      "Had an amazing experience with GoDrive in Goa. The car was in pristine condition, and the unlimited kilometers was a real bonus as we explored all corners of Goa! Highly recommend for family trips.",
+      "Had an amazing experience with ZioCarRentals in Goa. The car was in pristine condition, and the unlimited kilometers was a real bonus as we explored all corners of Goa! Highly recommend for family trips.",
     stars: 5,
     image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
   },
@@ -15,7 +15,7 @@ export const testimonials: Testimonial[] = [
     name: "Priya Patel",
     city: "Mumbai",
     message:
-      "The process was seamless from booking to return. They delivered the car to our hotel in North Goa and the staff was extremely helpful in explaining all the features. Will definitely use GoDrive again!",
+      "The process was seamless from booking to return. They delivered the car to our hotel in North Goa and the staff was extremely helpful in explaining all the features. Will definitely use ZioCarRentals again!",
     stars: 5,
     image: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg",
   },
@@ -24,7 +24,7 @@ export const testimonials: Testimonial[] = [
     name: "Akash Malhotra",
     city: "Bangalore",
     message:
-      "Having our own car made our Goa trip so much more convenient. We could visit secluded beaches and restaurants without worrying about transportation. GoDrive's rates were reasonable and their customer service was excellent.",
+      "Having our own car made our Goa trip so much more convenient. We could visit secluded beaches and restaurants without worrying about transportation. ZioCarRentals' rates were reasonable and their customer service was excellent.",
     stars: 4,
     image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg",
   },
@@ -42,7 +42,7 @@ export const testimonials: Testimonial[] = [
     name: "Karan Singh",
     city: "Chandigarh",
     message:
-      "GoDrive's quick response and flexibility with pickup/drop locations made our trip hassle-free. The car was fuel-efficient and comfortable for long drives along the coastal roads of Goa.",
+      "ZioCarRentals' quick response and flexibility with pickup/drop locations made our trip hassle-free. The car was fuel-efficient and comfortable for long drives along the coastal roads of Goa.",
     stars: 4,
     image: "https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg",
   },

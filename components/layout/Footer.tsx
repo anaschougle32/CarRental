@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, MessageCircle } from "lucide-react";
+import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, MessageCircle, Youtube } from "lucide-react";
+import { FaPinterest } from "react-icons/fa";
 import LocationLinks from "./LocationLinks";
 
 const Footer = () => {
@@ -30,7 +31,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="mb-8 md:mb-0">
             <h3 className="text-xl font-bold mb-4 flex items-center">
-              Zoi<span className="text-blue-500">CarRentals</span>
+              Zio<span className="text-blue-500">CarRentals</span>
             </h3>
             <p className="text-gray-300 mb-6 max-w-xs text-sm md:text-base">
               Premium self-drive car rentals in Goa with unlimited kilometers,
@@ -38,7 +39,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/ziocarrentals"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-blue-400 transition-colors bg-gray-800/50 p-2 rounded-full"
@@ -47,7 +48,7 @@ const Footer = () => {
                 <Facebook size={18} />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/zio_car_rental_"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-blue-400 transition-colors bg-gray-800/50 p-2 rounded-full"
@@ -56,13 +57,31 @@ const Footer = () => {
                 <Instagram size={18} />
               </a>
               <a
-                href="https://twitter.com"
+                href="https://twitter.com/ziocarrentals"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-blue-400 transition-colors bg-gray-800/50 p-2 rounded-full"
                 aria-label="Twitter"
               >
                 <Twitter size={18} />
+              </a>
+              <a
+                href="https://www.pinterest.com/ziocarrentals"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-blue-400 transition-colors bg-gray-800/50 p-2 rounded-full"
+                aria-label="Pinterest"
+              >
+                <FaPinterest size={18} />
+              </a>
+              <a
+                href="https://www.youtube.com/@ziocarrentals"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-blue-400 transition-colors bg-gray-800/50 p-2 rounded-full"
+                aria-label="YouTube"
+              >
+                <Youtube size={18} />
               </a>
             </div>
           </div>
@@ -170,10 +189,10 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <Mail className="text-blue-500 flex-shrink-0" size={18} />
                 <a
-                  href="mailto:info@zoicarrentals.com"
+                  href="mailto:info@ziocarrentals.com"
                   className="text-gray-300 hover:text-blue-400 transition-colors"
                 >
-                  info@zoicarrentals.com
+                  info@ziocarrentals.com
                 </a>
               </div>
             </div>
@@ -183,21 +202,21 @@ const Footer = () => {
         {/* Google Map */}
         <div className="mt-10 md:mt-12 rounded-lg overflow-hidden shadow-lg">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3846.2959335844787!2d73.9731813!3d15.2754913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfb8f61bc69b3f%3A0x592c1cb201848c40!2sZoiCarRentals!5e0!3m2!1sen!2sin!4v1621000000000!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25155.870809170843!2d73.95091347875199!3d15.266892013288974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfb3f4b670aaed%3A0xbf05105f66003bfe!2sZio%20Car%20Rentals!5e0!3m2!1sen!2sin!4v1749562513743!5m2!1sen!2sin"
             width="100%"
             height="250"
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Google Map of ZoiCarRentals, Goa"
+            title="Google Map of ZioCarRentals, Goa"
             className="w-full md:h-[300px]"
           ></iframe>
         </div>
 
         <div className="border-t border-gray-800 mt-10 md:mt-12 pt-6 md:pt-8">
           <p className="text-gray-400 text-center text-xs md:text-sm">
-            © {currentYear} ZoiCarRentals. All rights reserved.
+            © {currentYear} ZioCarRentals. All rights reserved.
           </p>
         </div>
       </div>
