@@ -47,7 +47,7 @@ export default function AdminLayout({
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 font-poppins admin-panel">
       {/* Mobile sidebar */}
       <div
         className={cn(

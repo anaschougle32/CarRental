@@ -13,7 +13,11 @@
   background-color: #111827;
 }
 
-/* Admin body text styling with Poppins */
-body {
-  font-family: var(--font-poppins), 'Poppins', sans-serif;
+/* Ensure all admin content uses Poppins consistently */
+.admin-panel {
+  font-family: var(--font-poppins) !important;
+}
+
+.admin-panel * {
+  font-family: inherit !important;
 } 
