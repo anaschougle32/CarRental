@@ -37,9 +37,9 @@ const Testimonials = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             What Our Customers Say
           </h2>
-                  <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
           Don't just take our word for it. Here's what some of our happy customers have to say about their experience with ZioCarRentals.
-        </p>
+          </p>
         </div>
 
         <div className="relative max-w-4xl mx-auto">

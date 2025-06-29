@@ -1,0 +1,19 @@
+/* Admin-specific styles */
+.admin-layout {
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+/* Ensure admin pages have clean styling */
+.admin-container {
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+.dark .admin-container {
+  background-color: #111827;
+}
+
+/* Admin body text styling with Poppins */
+body {
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+} 

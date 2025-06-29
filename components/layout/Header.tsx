@@ -56,10 +56,7 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2 text-primary">
-          <Logo className="h-8 w-8 md:h-10 md:w-10" />
-          <span className="font-satoshi font-bold text-xl md:text-2xl">
-            Zio<span className="text-blue-600">CarRentals</span>
-          </span>
+          <Logo />
         </Link>
 
         <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">

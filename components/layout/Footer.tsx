@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, MessageCircle, Youtube } from "lucide-react";
-import { FaPinterest } from "react-icons/fa";
+import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, Youtube } from "lucide-react";
+import { FaWhatsapp, FaPinterest } from "react-icons/fa";
 import LocationLinks from "./LocationLinks";
 
 const Footer = () => {
@@ -176,7 +176,7 @@ const Footer = () => {
                 </a>
               </div>
               <div className="flex items-center space-x-3">
-                <MessageCircle className="text-green-500 flex-shrink-0" size={18} />
+                <FaWhatsapp className="text-green-500 flex-shrink-0" size={18} />
                 <a
                   href={whatsappLink}
                   target="_blank"

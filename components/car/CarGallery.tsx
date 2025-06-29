@@ -34,7 +34,7 @@ const CarGallery = ({ main_image, alt }: CarGalleryProps) => {
             alt={alt}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover"
+            className="object-cover object-right"
             priority
             onError={() => setHasImageError(true)}
           />

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import dynamic from "next/dynamic";
+import dynamicImport from "next/dynamic";
 import CarDetails from "@/components/car/CarDetails";
 import CarFeatures from "@/components/car/CarFeatures";
 import RelatedCars from "@/components/car/RelatedCars";
@@ -10,23 +10,21 @@ import { getCarBySlug, getCars, getBrands } from "@/lib/supabase";
 import { Car as SupabaseCar } from "@/lib/supabase";
 import { Car } from "@/lib/types";
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 // Dynamically import the client component
-const CarGallery = dynamic(() => import("@/components/car/CarGallery"), { ssr: false });
+const CarGallery = dynamicImport(() => import("@/components/car/CarGallery"), { ssr: false });
 
 type Props = {
   params: { slug: string };
 };
 
 export async function generateStaticParams() {
-  try {
-    const cars = await getCars();
-    return cars.map((car) => ({
-      slug: car.slug,
-    }));
-  } catch (error) {
-    console.error("Error generating static params:", error);
-    return [];
-  }
+  // Return empty array to disable static generation for car pages
+  // This ensures all car pages are generated dynamically at request time
+  return [];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

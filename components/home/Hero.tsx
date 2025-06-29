@@ -18,9 +18,10 @@ import { submitBookingInquiry } from "@/lib/supabase/index";
 
 // Optimize images by using smaller high-quality images
 const heroImages = [
+  "https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&dpr=1",
+  "https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&dpr=1",
+  "https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&dpr=1",
   "https://images.pexels.com/photos/3608542/pexels-photo-3608542.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&dpr=1",
-  "https://images.pexels.com/photos/3757052/pexels-photo-3757052.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&dpr=1",
-  "https://images.pexels.com/photos/3290068/pexels-photo-3290068.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&dpr=1",
 ];
 
 // Add structured data for SEO
@@ -250,26 +251,26 @@ const Hero = () => {
             <div>
               <Label htmlFor="pickup-datetime" className="text-white mb-1 block">Pickup Date & Time</Label>
               <div className="flex gap-2">
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <Button
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button
                       id="pickup-datetime"
-                      variant="outline"
+                    variant="outline"
                       className="flex-1 bg-white/20 text-white border-white/30 justify-start text-left font-normal"
-                    >
-                      <CalendarIcon className="mr-2 h-4 w-4" />
+                  >
+                    <CalendarIcon className="mr-2 h-4 w-4" />
                       {pickupDate ? format(pickupDate, "dd/MM") : <span>Date</span>}
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-auto p-0" align="start">
-                    <Calendar
-                      mode="single"
-                      selected={pickupDate}
-                      onSelect={setPickupDate}
-                      initialFocus
-                    />
-                  </PopoverContent>
-                </Popover>
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0" align="start">
+                  <Calendar
+                    mode="single"
+                    selected={pickupDate}
+                    onSelect={setPickupDate}
+                    initialFocus
+                  />
+                </PopoverContent>
+              </Popover>
                 <Input 
                   type="time"
                   value={formData.pickupTime}
@@ -283,27 +284,27 @@ const Hero = () => {
             <div>
               <Label htmlFor="drop-datetime" className="text-white mb-1 block">Drop Date & Time</Label>
               <div className="flex gap-2">
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <Button
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button
                       id="drop-datetime"
-                      variant="outline"
+                    variant="outline"
                       className="flex-1 bg-white/20 text-white border-white/30 justify-start text-left font-normal"
-                    >
-                      <CalendarIcon className="mr-2 h-4 w-4" />
+                  >
+                    <CalendarIcon className="mr-2 h-4 w-4" />
                       {returnDate ? format(returnDate, "dd/MM") : <span>Date</span>}
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-auto p-0" align="end">
-                    <Calendar
-                      mode="single"
-                      selected={returnDate}
-                      onSelect={setReturnDate}
-                      initialFocus
-                      disabled={(date: Date) => date < (pickupDate || new Date())}
-                    />
-                  </PopoverContent>
-                </Popover>
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0" align="end">
+                  <Calendar
+                    mode="single"
+                    selected={returnDate}
+                    onSelect={setReturnDate}
+                    initialFocus
+                    disabled={(date: Date) => date < (pickupDate || new Date())}
+                  />
+                </PopoverContent>
+              </Popover>
                 <Input 
                   type="time"
                   value={formData.dropTime}
@@ -322,7 +323,7 @@ const Hero = () => {
               </>
             ) : (
               <>
-                Search Available Cars <ChevronRight size={18} className="ml-2" />
+              Search Available Cars <ChevronRight size={18} className="ml-2" />
               </>
             )}
           </Button>

@@ -4,7 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { Car } from "@/lib/types";
-import { Star, Fuel, Settings, Phone, MessageCircle, Gauge } from "lucide-react";
+import { Star, Fuel, Settings, Phone, Gauge } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import PlaceholderImage from "@/components/ui/placeholder-image";
@@ -33,7 +34,7 @@ const CarCard = ({ car, showCategory = false }: CarCardProps) => {
               alt={`${car.brand} ${car.name}`}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              className="object-cover object-right transition-transform duration-500 group-hover:scale-105"
               onError={() => setHasImageError(true)}
             />
           </div>
@@ -103,7 +104,7 @@ const CarCard = ({ car, showCategory = false }: CarCardProps) => {
             </Button>
             <Button variant="outline" className="flex-1" asChild>
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                <MessageCircle size={16} className="mr-2" />
+                <FaWhatsapp size={16} className="mr-2" />
                 WhatsApp
               </a>
             </Button>

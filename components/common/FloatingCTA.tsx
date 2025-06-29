@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Phone, MessageCircle } from "lucide-react";
+import { Phone } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { cn } from "@/lib/utils";
 
 const FloatingCTA = () => {
@@ -22,7 +23,7 @@ const FloatingCTA = () => {
         onMouseEnter={() => setIsExpanded(true)}
         onMouseLeave={() => setIsExpanded(false)}
       >
-        <MessageCircle size={26} className="flex-shrink-0" />
+        <FaWhatsapp size={26} className="flex-shrink-0" />
         <span className={cn(
           "absolute right-12 bg-black/80 text-white whitespace-nowrap rounded-lg px-3 py-1 text-sm",
           "opacity-0 group-hover:opacity-100 transition-opacity duration-200",

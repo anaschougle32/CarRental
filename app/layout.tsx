@@ -2,9 +2,9 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import { ThemeProvider } from '@/components/providers/theme-provider';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
-import FloatingCTA from '@/components/common/FloatingCTA';
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
+import { ConditionalLayout } from '@/components/layout/ConditionalLayout';
 
 // Configure Poppins font with basic settings
 const poppins = Poppins({ 
@@ -116,10 +116,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-          <main className="min-h-[calc(100vh-80px)]">{children}</main>
-          <Footer />
-          <FloatingCTA />
+          <ConditionalLayout>
+            {children}
+          </ConditionalLayout>
+          <SpeedInsights />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
