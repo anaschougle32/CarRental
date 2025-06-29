@@ -1,11 +1,15 @@
 import Link from "next/link";
 import { Car } from "lucide-react";
 
-const Logo = () => {
+interface LogoProps {
+  className?: string;
+}
+
+const Logo = ({ className }: LogoProps = {}) => {
   return (
     <Link href="/" className="flex items-center space-x-2 group">
       <div className="bg-blue-600 p-2 rounded-lg group-hover:bg-blue-700 transition-colors">
-        <Car className="h-6 w-6 text-white" />
+        <Car className={`h-6 w-6 text-white ${className || ''}`} />
       </div>
       <div className="flex flex-col">
         <span className="text-xl font-bold text-gray-900 dark:text-white">
