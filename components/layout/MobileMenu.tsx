@@ -14,9 +14,17 @@ interface MobileMenuProps {
 const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
   // Track if the header is scrolled to match its styling
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  // Ensure component is mounted before using browser APIs
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Update scrolled state to match header
   useEffect(() => {
+    if (!mounted) return;
+    
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -26,10 +34,12 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
     
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [mounted]);
   
   // Prevent scrolling when menu is open
   useEffect(() => {
+    if (!mounted) return;
+    
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -38,7 +48,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
     return () => {
       document.body.style.overflow = '';
     };
-  }, [isOpen]);
+  }, [isOpen, mounted]);
 
   return (
     <>

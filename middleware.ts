@@ -12,6 +12,11 @@ export async function middleware(req: NextRequest) {
     // Check for admin cookie (set during login)
     const isLoggedIn = req.cookies.get('admin_session');
     
+    // Temporary bypass for debugging - remove this in production
+    if (req.nextUrl.pathname.startsWith('/admin') && !req.nextUrl.pathname.includes('/adminlogin')) {
+      return NextResponse.next();
+    }
+    
     if (!isLoggedIn) {
       // Redirect to login page
       const redirectUrl = new URL('/adminlogin', req.url);

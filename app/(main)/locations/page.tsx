@@ -1,35 +1,6 @@
 import { Metadata } from "next";
-import Link from "next/link";
-import dynamic from "next/dynamic";
-import { getLocations, Location } from "@/lib/supabase";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { MapPin } from "lucide-react";
-
-// Import home page components
-import PopularCars from "@/components/home/PopularCars";
-import Services from "@/components/home/Services";
-
-// Dynamic imports for non-critical sections
-const WhyChooseUs = dynamic(() => import("@/components/home/WhyChooseUs"), {
-  loading: () => <div className="h-96 bg-gray-50 dark:bg-gray-900 animate-pulse"></div>,
-});
-
-const HowItWorks = dynamic(() => import("@/components/home/HowItWorks"), {
-  loading: () => <div className="h-96 bg-gray-50 dark:bg-gray-900 animate-pulse"></div>,
-});
-
-const Testimonials = dynamic(() => import("@/components/home/Testimonials"), {
-  loading: () => <div className="h-96 bg-gray-50 dark:bg-gray-900 animate-pulse"></div>,
-});
-
-const CtaBanner = dynamic(() => import("@/components/home/CtaBanner"), {
-  loading: () => <div className="h-40 bg-blue-50 dark:bg-blue-900/20 animate-pulse"></div>,
-});
-
-const Faqs = dynamic(() => import("@/components/home/Faqs"), {
-  loading: () => <div className="h-96 bg-gray-50 dark:bg-gray-900 animate-pulse"></div>,
-});
+import { getLocations } from "@/lib/supabase";
+import LocationsPageContent from "@/components/pages/LocationsPageContent";
 
 export const metadata: Metadata = {
   title: "Car Rental Locations in Goa | ZoiCarRentals",
@@ -242,54 +213,5 @@ export default async function LocationsPage() {
   // Sort locations alphabetically
   displayLocations.sort((a, b) => a.name.localeCompare(b.name));
 
-  return (
-    <div className="flex flex-col min-h-screen">
-      {/* Locations Header Section */}
-      <div className="container mx-auto px-4 md:px-6 py-10 pt-24 md:pt-32">
-        <div className="text-center mb-10">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">
-            Car Rental Locations in Goa
-          </h1>
-          <div className="text-lg text-blue-600 font-medium mb-4">
-            Find the Best Car Rental Services Across Goa | ZoiCarRentals
-          </div>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Discover our convenient car rental locations throughout Goa. We offer pickup and drop services in North Goa, South Goa, and all major airports with flexible rental options to suit your travel needs.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {displayLocations.map((location) => (
-            <Card key={location.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-              <CardContent className="p-6">
-                <div className="mb-3">
-                  <div className="flex items-center gap-2">
-                    <MapPin className="h-5 w-5 text-blue-600 flex-shrink-0" />
-                    <h2 className="text-xl font-bold">Car Rental in {location.name}</h2>
-                  </div>
-                </div>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  {location.headline}
-                </p>
-                <Link href={`/locations/${location.slug}`}>
-                  <Button variant="outline" className="w-full">
-                    View Cars & Details
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
-
-      {/* Home Page Components */}
-      <PopularCars />
-      <Services />
-      <WhyChooseUs />
-      <HowItWorks />
-      <Testimonials />
-      <Faqs />
-      <CtaBanner />
-    </div>
-  );
+  return <LocationsPageContent initialLocations={displayLocations} />;
 }

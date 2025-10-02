@@ -6,6 +6,7 @@ import { Car } from "@/lib/types";
 import { Separator } from "@/components/ui/separator";
 import { MapPin } from "lucide-react";
 import CarCard from "@/components/car/CarCard";
+import BookingForm from "@/components/common/BookingForm";
 import Head from "next/head";
 
 type Props = {
@@ -338,6 +339,19 @@ export default async function LocationPage({ params }: Props) {
           </ol>
         </nav>
         
+        {/* Booking Form Section - At Top */}
+        <div className="mb-16 -mx-4 md:-mx-6">
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 py-12">
+            <div className="container mx-auto px-4 md:px-6">
+              <BookingForm 
+                title={`Book Your Car Rental in ${location.name}`}
+                subtitle={`Get instant quotes and check availability for car rentals in ${location.name}. Fill out the form below to start your booking.`}
+                className="bg-white rounded-lg shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
+        
         <div className="mb-10">
           <div className="flex items-center mb-2">
             <MapPin className="h-5 w-5 text-blue-600 mr-2" />
@@ -408,6 +422,7 @@ export default async function LocationPage({ params }: Props) {
             </div>
           </div>
         </div>
+        
         
         <div className="mb-10">
           <h2 className="text-2xl font-bold mb-6">Cars Available for Rent in {location.name}, Goa</h2>

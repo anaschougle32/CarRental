@@ -7,6 +7,7 @@ import BlogContent from '@/components/blog/BlogContent';
 import ShareButtons from '@/components/blog/ShareButtons';
 import ContactInfo from '@/components/blog/ContactInfo';
 import RelatedArticles from '@/components/blog/RelatedArticles';
+import BookingFormPopup from '@/components/common/BookingFormPopup';
 import type { BlogPost } from '@/types/blog';
 import { calculateReadingTime } from '@/lib/utils/reading-time';
 
@@ -259,6 +260,31 @@ export default async function BlogPost({ params }: { params: { slug: string } })
               </div>
             </div>
           </aside>
+        </div>
+        
+        {/* Call to Action Section with Booking Popup */}
+        <div className="mt-20 mb-16 text-center">
+          <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-8 md:p-12 text-white">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Explore Goa?</h2>
+            <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
+              After reading about these amazing places, book your car rental now and start your Goa adventure!
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <BookingFormPopup 
+                triggerText="Book Your Car Now"
+                triggerClassName="bg-white text-blue-600 hover:bg-gray-100 shadow-xl font-semibold px-8 py-3 rounded-lg transition-all duration-300"
+              />
+              <a 
+                href="/cars"
+                className="inline-flex items-center bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 font-semibold px-8 py-3 rounded-lg transition-all duration-300"
+              >
+                Browse All Cars
+                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
         
         {/* Related Articles */}

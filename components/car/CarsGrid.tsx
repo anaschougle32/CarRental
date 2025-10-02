@@ -13,10 +13,18 @@ const CarsGrid = () => {
   const [allCars, setAllCars] = useState<Car[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
   const searchParams = useSearchParams();
+
+  // Ensure component is mounted before accessing search params
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Fetch all cars on component mount
   useEffect(() => {
+    if (!mounted) return;
+    
     const fetchCars = async () => {
       try {
         setLoading(true);
@@ -74,10 +82,12 @@ const CarsGrid = () => {
     };
     
     fetchCars();
-  }, []);
+  }, [mounted]);
 
   // Apply filters when search parameters change
   useEffect(() => {
+    if (!mounted) return;
+    
     // Apply filters
     let filtered = [...allCars];
     
@@ -119,7 +129,7 @@ const CarsGrid = () => {
     }
     
     setFilteredCars(filtered);
-  }, [searchParams, allCars]);
+  }, [searchParams, allCars, mounted]);
 
   if (loading) {
     return (

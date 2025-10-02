@@ -11,7 +11,6 @@ import {
   LogOut,
   Menu,
   Settings,
-  Users,
   X,
   MapPin,
   MessageSquare,
@@ -27,7 +26,6 @@ const navigation = [
   { name: "Booking Inquiries", href: "/admin/booking-inquiries", icon: Calendar },
   { name: "Contact Messages", href: "/admin/contact-messages", icon: MessageSquare },
   { name: "Blogs", href: "/admin/blogs", icon: FileText },
-  { name: "Users", href: "/admin/users", icon: Users },
 ];
 
 export default function AdminLayout({

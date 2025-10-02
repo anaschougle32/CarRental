@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/components/providers/theme-provider';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { ConditionalLayout } from '@/components/layout/ConditionalLayout';
+import { Toaster } from '@/components/ui/sonner';
 
 // Configure Poppins font with basic settings
 const poppins = Poppins({ 
@@ -119,6 +120,7 @@ export default function RootLayout({
           <ConditionalLayout>
             {children}
           </ConditionalLayout>
+          <Toaster />
           <SpeedInsights />
           <Analytics />
         </ThemeProvider>
