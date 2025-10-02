@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { getLocations } from "@/lib/supabase";
+import { getLocations, Location as LocationType } from "@/lib/supabase";
 import LocationsPageContent from "@/components/pages/LocationsPageContent";
 
 export const metadata: Metadata = {
@@ -189,7 +189,7 @@ export default async function LocationsPage() {
   ];
   
   // Fetch locations from the database
-  let dbLocations: Location[] = [];
+  let dbLocations: LocationType[] = [];
   try {
     dbLocations = await getLocations();
     console.log('Locations data from DB:', JSON.stringify(dbLocations));

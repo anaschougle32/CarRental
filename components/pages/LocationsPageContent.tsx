@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin } from "lucide-react";
+import { Location as LocationType } from "@/lib/supabase";
 
 // Dynamic imports with proper error handling
 const Services = dynamic(() => import("@/components/home/Services"), {
@@ -43,23 +44,13 @@ const Faqs = dynamic(() => import("@/components/home/Faqs"), {
   loading: () => <div className="h-96 bg-gray-50 dark:bg-gray-900 animate-pulse rounded-lg"></div>,
 });
 
-interface Location {
-  id: string;
-  name: string;
-  slug: string;
-  headline: string;
-  content?: string;
-  created_at: string;
-  updated_at: string;
-}
-
 interface LocationsPageContentProps {
-  initialLocations: Location[];
+  initialLocations: LocationType[];
 }
 
 const LocationsPageContent = ({ initialLocations }: LocationsPageContentProps) => {
   const [mounted, setMounted] = useState(false);
-  const [locations] = useState<Location[]>(initialLocations);
+  const [locations] = useState<LocationType[]>(initialLocations);
 
   useEffect(() => {
     setMounted(true);
@@ -107,7 +98,7 @@ const LocationsPageContent = ({ initialLocations }: LocationsPageContentProps) =
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {locations.map((location) => (
             <Card key={location.id} className="hover:shadow-lg transition-shadow duration-300">
               <CardContent className="p-6">
