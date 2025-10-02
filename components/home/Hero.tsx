@@ -197,72 +197,72 @@ const Hero = () => {
         </p>
         
         {/* Enhanced Booking Form */}
-        <form onSubmit={handleFormSubmit} className="bg-white/10 backdrop-blur-sm rounded-lg p-4 md:p-6 max-w-5xl mx-auto mt-6 md:mt-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <form onSubmit={handleFormSubmit} className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 md:p-6 max-w-5xl mx-auto mt-6 md:mt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             {/* Name Field */}
-            <div>
-              <Label htmlFor="name" className="text-white mb-1 block">Name</Label>
+            <div className="sm:col-span-2 lg:col-span-1">
+              <Label htmlFor="name" className="text-white mb-1 block text-sm">Name</Label>
               <Input 
                 id="name" 
                 value={formData.name}
                 onChange={(e) => handleInputChange("name", e.target.value)}
                 placeholder="Your full name" 
-                className="bg-white/20 text-white placeholder:text-white/70 border-white/30"
+                className="bg-white/20 text-white placeholder:text-white/70 border-white/30 h-10 sm:h-11"
                 required
               />
             </div>
 
             {/* Phone Number Field */}
-            <div>
-              <Label htmlFor="phone" className="text-white mb-1 block">Phone Number</Label>
+            <div className="sm:col-span-2 lg:col-span-1">
+              <Label htmlFor="phone" className="text-white mb-1 block text-sm">Phone Number</Label>
               <Input 
                 id="phone" 
                 value={formData.phone}
                 onChange={(e) => handleInputChange("phone", e.target.value)}
                 placeholder="+91 98765 43210" 
-                className="bg-white/20 text-white placeholder:text-white/70 border-white/30"
+                className="bg-white/20 text-white placeholder:text-white/70 border-white/30 h-10 sm:h-11"
                 required
               />
             </div>
             
             {/* Pickup Location */}
-            <div>
-              <Label htmlFor="pickup-location" className="text-white mb-1 block">Pickup Location</Label>
+            <div className="sm:col-span-1 lg:col-span-1">
+              <Label htmlFor="pickup-location" className="text-white mb-1 block text-sm">Pickup Location</Label>
               <Input 
                 id="pickup-location" 
                 value={formData.pickupLocation}
                 onChange={(e) => handleInputChange("pickupLocation", e.target.value)}
                 placeholder="Airport, Calangute, Panjim..." 
-                className="bg-white/20 text-white placeholder:text-white/70 border-white/30"
+                className="bg-white/20 text-white placeholder:text-white/70 border-white/30 h-10 sm:h-11"
                 required
               />
             </div>
 
             {/* Drop Location */}
-            <div>
-              <Label htmlFor="drop-location" className="text-white mb-1 block">Drop Location</Label>
+            <div className="sm:col-span-1 lg:col-span-1">
+              <Label htmlFor="drop-location" className="text-white mb-1 block text-sm">Drop Location</Label>
               <Input 
                 id="drop-location" 
                 value={formData.dropLocation}
                 onChange={(e) => handleInputChange("dropLocation", e.target.value)}
                 placeholder="Same as pickup or different..." 
-                className="bg-white/20 text-white placeholder:text-white/70 border-white/30"
+                className="bg-white/20 text-white placeholder:text-white/70 border-white/30 h-10 sm:h-11"
                 required
               />
             </div>
             
             {/* Pickup Date & Time */}
-            <div>
-              <Label htmlFor="pickup-datetime" className="text-white mb-1 block">Pickup Date & Time</Label>
-              <div className="flex gap-2">
+            <div className="sm:col-span-2 lg:col-span-1">
+              <Label htmlFor="pickup-datetime" className="text-white mb-1 block text-sm">Pickup Date & Time</Label>
+              <div className="flex gap-1 sm:gap-2">
               <Popover>
                 <PopoverTrigger asChild>
                   <Button
                       id="pickup-datetime"
                     variant="outline"
-                      className="flex-1 bg-white/20 text-white border-white/30 justify-start text-left font-normal"
+                      className="flex-1 bg-white/20 text-white border-white/30 justify-start text-left font-normal h-10 sm:h-11 text-xs sm:text-sm"
                   >
-                    <CalendarIcon className="mr-2 h-4 w-4" />
+                    <CalendarIcon className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
                       {pickupDate ? format(pickupDate, "dd/MM") : <span>Date</span>}
                   </Button>
                 </PopoverTrigger>
@@ -279,23 +279,23 @@ const Hero = () => {
                   type="time"
                   value={formData.pickupTime}
                   onChange={(e) => handleInputChange("pickupTime", e.target.value)}
-                  className="flex-1 bg-white/20 text-white border-white/30"
+                  className="flex-1 bg-white/20 text-white border-white/30 h-10 sm:h-11 text-xs sm:text-sm"
                 />
               </div>
             </div>
             
             {/* Drop Date & Time */}
-            <div>
-              <Label htmlFor="drop-datetime" className="text-white mb-1 block">Drop Date & Time</Label>
-              <div className="flex gap-2">
+            <div className="sm:col-span-2 lg:col-span-1">
+              <Label htmlFor="drop-datetime" className="text-white mb-1 block text-sm">Drop Date & Time</Label>
+              <div className="flex gap-1 sm:gap-2">
               <Popover>
                 <PopoverTrigger asChild>
                   <Button
                       id="drop-datetime"
                     variant="outline"
-                      className="flex-1 bg-white/20 text-white border-white/30 justify-start text-left font-normal"
+                      className="flex-1 bg-white/20 text-white border-white/30 justify-start text-left font-normal h-10 sm:h-11 text-xs sm:text-sm"
                   >
-                    <CalendarIcon className="mr-2 h-4 w-4" />
+                    <CalendarIcon className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
                       {returnDate ? format(returnDate, "dd/MM") : <span>Date</span>}
                   </Button>
                 </PopoverTrigger>
@@ -313,36 +313,40 @@ const Hero = () => {
                   type="time"
                   value={formData.dropTime}
                   onChange={(e) => handleInputChange("dropTime", e.target.value)}
-                  className="flex-1 bg-white/20 text-white border-white/30"
+                  className="flex-1 bg-white/20 text-white border-white/30 h-10 sm:h-11 text-xs sm:text-sm"
                 />
               </div>
             </div>
           </div>
           
-          <Button type="submit" size="lg" className="w-full mt-6" disabled={isSubmitting}>
+          <Button type="submit" size="lg" className="w-full mt-4 sm:mt-6 h-11 sm:h-12 text-sm sm:text-base" disabled={isSubmitting}>
             {isSubmitting ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Submitting...
+                <span className="hidden sm:inline">Submitting...</span>
+                <span className="sm:hidden">Loading...</span>
               </>
             ) : (
               <>
-              Search Available Cars <ChevronRight size={18} className="ml-2" />
+              <span className="hidden sm:inline">Search Available Cars</span>
+              <span className="sm:hidden">Search Cars</span>
+              <ChevronRight size={16} className="ml-2" />
               </>
             )}
           </Button>
         </form>
         
         {/* Added more spacing above the buttons */}
-        <div className="flex flex-row items-center justify-center gap-4 mt-16 md:mt-20">
-          <Button size="lg" className="bg-blue-600 hover:bg-blue-700" asChild>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-12 sm:mt-16 md:mt-20">
+          <Button size="lg" className="bg-blue-600 hover:bg-blue-700 w-full sm:w-auto" asChild>
             <Link href="/cars" className="group">
-              Browse All Cars
-              <ChevronRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
+              <span className="hidden sm:inline">Browse All Cars</span>
+              <span className="sm:hidden">Browse Cars</span>
+              <ChevronRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
           
-          <Button size="lg" variant="outline" className="border-white bg-black/80 text-white hover:bg-black hover:text-white" asChild>
+          <Button size="lg" variant="outline" className="border-white bg-black/80 text-white hover:bg-black hover:text-white w-full sm:w-auto" asChild>
             <Link href="tel:+919082888912">
               Call Us Now
             </Link>
