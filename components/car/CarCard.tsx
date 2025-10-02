@@ -90,9 +90,9 @@ const CarCard = ({ car, showCategory = false }: CarCardProps) => {
               <p className="text-sm text-gray-500">Price per day</p>
               <p className="text-xl font-bold">₹{car.price_per_day}</p>
             </div>
-            <Link href={`/cars/${car.slug}`}>
-              <Button variant="outline">View Details</Button>
-            </Link>
+            <Button variant="outline" asChild>
+              <Link href={`/cars/${car.slug}`}>View Details</Link>
+            </Button>
           </div>
           
           <div className="flex gap-2">

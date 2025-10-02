@@ -112,3 +112,47 @@ html {
     @apply relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full;
   }
 }
+
+/* Mobile optimizations */
+@layer utilities {
+  /* Ensure proper mobile viewport handling */
+  @media (max-width: 768px) {
+    .container {
+      @apply px-4;
+    }
+    
+    /* Fix text sizing on mobile */
+    h1 {
+      @apply text-2xl sm:text-3xl;
+    }
+    
+    h2 {
+      @apply text-xl sm:text-2xl;
+    }
+    
+    /* Improve button sizing on mobile */
+    .mobile-friendly-btn {
+      @apply min-h-[44px] min-w-[44px] text-base;
+    }
+    
+    /* Better spacing on mobile */
+    .mobile-section {
+      @apply py-8 sm:py-12;
+    }
+  }
+  
+  /* Prevent horizontal scroll */
+  body {
+    @apply overflow-x-hidden;
+  }
+  
+  /* Ensure buttons are clickable */
+  button, a {
+    @apply cursor-pointer;
+  }
+  
+  /* Fix any potential z-index issues */
+  .mobile-menu-container {
+    @apply relative z-50;
+  }
+}

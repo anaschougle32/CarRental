@@ -55,10 +55,18 @@ const fallbackBlogs: BlogPost[] = [
 ];
 
 const BlogPreview = () => {
-  const [recentBlogs, setRecentBlogs] = useState<BlogPost[]>([]);
+  const [recentBlogs, setRecentBlogs] = useState<BlogPost[]>(fallbackBlogs);
   const [loading, setLoading] = useState(true);
+  const [mounted, setMounted] = useState(false);
+  
+  // Ensure component is mounted before making API calls
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
+    if (!mounted) return;
+    
     let isMounted = true;
 
     const fetchBlogs = async () => {
@@ -99,7 +107,7 @@ const BlogPreview = () => {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [mounted]);
 
   return (
     <section className="py-20 bg-white dark:bg-gray-900">

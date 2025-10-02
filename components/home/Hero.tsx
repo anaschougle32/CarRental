@@ -66,10 +66,14 @@ const Hero = () => {
     dropTime: "10:00"
   });
   
-  const [pickupDate, setPickupDate] = useState<Date | undefined>(new Date());
-  const [returnDate, setReturnDate] = useState<Date | undefined>(
-    new Date(new Date().setDate(new Date().getDate() + 3))
-  );
+  const [pickupDate, setPickupDate] = useState<Date | undefined>(undefined);
+  const [returnDate, setReturnDate] = useState<Date | undefined>(undefined);
+  
+  // Initialize dates on client side only
+  useEffect(() => {
+    setPickupDate(new Date());
+    setReturnDate(new Date(new Date().setDate(new Date().getDate() + 3)));
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {

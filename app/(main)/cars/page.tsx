@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import CarsGrid from "@/components/car/CarsGrid";
-import CarFilters from "@/components/car/CarFilters";
 import { Suspense } from "react";
 import { Loader2 } from "lucide-react";
 
@@ -31,16 +30,9 @@ export default function CarsPage() {
         </p>
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-8">
-        <div className="lg:w-1/4">
-          <CarFilters />
-        </div>
-        <div className="lg:w-3/4">
-          <Suspense fallback={<LoadingCars />}>
-            <CarsGrid />
-          </Suspense>
-        </div>
-      </div>
+      <Suspense fallback={<LoadingCars />}>
+        <CarsGrid />
+      </Suspense>
     </div>
   );
 }

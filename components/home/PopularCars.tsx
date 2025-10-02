@@ -11,8 +11,16 @@ import { Car } from "@/lib/types";
 const PopularCars = () => {
   const [popularCars, setPopularCars] = useState<Car[]>([]);
   const [loading, setLoading] = useState(true);
+  const [mounted, setMounted] = useState(false);
+  
+  // Ensure component is mounted before making API calls
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   
   useEffect(() => {
+    if (!mounted) return;
+    
     const fetchCars = async () => {
       try {
         setLoading(true);
@@ -64,7 +72,7 @@ const PopularCars = () => {
     };
     
     fetchCars();
-  }, []);
+  }, [mounted]);
 
   if (loading) {
     return (

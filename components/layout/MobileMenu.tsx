@@ -45,20 +45,15 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
       {/* Fixed Navbar */}
       <div 
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-xl shadow-sm md:hidden",
-          isScrolled ? "bg-white/60 dark:bg-gray-900/70 py-2" : "bg-white/40 dark:bg-gray-900/50 py-3"
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 shadow-sm md:hidden",
+          isScrolled ? "bg-white dark:bg-gray-900 py-2" : "bg-white dark:bg-gray-900 py-3"
         )}
       >
         <div className="container mx-auto px-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2 text-primary">
-            <Logo className="h-8 w-8" />
-            <span className="font-satoshi font-bold text-xl">
-              Zio<span className="text-blue-600">CarRentals</span>
-            </span>
-          </Link>
+          <Logo />
           
           <button
-            className="text-gray-900 dark:text-white p-2 rounded-lg bg-white/30 hover:bg-white/50 backdrop-blur-sm transition-all duration-300 mobile-menu-button shadow-sm"
+            className="text-gray-900 dark:text-white p-2 rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition-all duration-300 mobile-menu-button shadow-sm"
             onClick={onClose}
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
@@ -70,14 +65,14 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
       {/* Dropdown Menu */}
       <div
         className={cn(
-          "fixed top-[60px] left-0 right-0 z-40 transition-all duration-300 ease-in-out md:hidden overflow-hidden",
+          "fixed top-[60px] left-0 right-0 z-40 transition-all duration-300 ease-in-out md:hidden overflow-hidden mobile-menu-container",
           isOpen ? "max-h-[calc(100vh-60px)] opacity-100" : "max-h-0 opacity-0"
         )}
       >
         <div 
           className={cn(
-            "w-full backdrop-blur-xl rounded-b-xl shadow-lg transition-all duration-300",
-            isScrolled ? "bg-white/60 dark:bg-gray-900/70" : "bg-white/40 dark:bg-gray-900/50"
+            "w-full rounded-b-xl shadow-lg transition-all duration-300",
+            "bg-white dark:bg-gray-900"
           )}
         >
           <nav className="container mx-auto px-4 py-2">
@@ -93,7 +88,15 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                 <Link
                   key={item.name}
                   href={item.href}
-                  onClick={onClose}
+                  onClick={(e) => {
+                    onClose();
+                    // Small delay to ensure menu closes before navigation
+                    setTimeout(() => {
+                      if (item.href.startsWith('tel:') || item.href.startsWith('mailto:')) {
+                        window.location.href = item.href;
+                      }
+                    }, 100);
+                  }}
                   className="flex items-center justify-between w-full p-3 rounded-lg text-gray-900 dark:text-white font-medium hover:bg-white/40 dark:hover:bg-gray-800/40 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200"
                 >
                   <span>{item.name}</span>
@@ -104,14 +107,14 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             
             <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
               <div className="flex flex-col space-y-2">
-                <Link 
+                <a 
                   href="tel:+919082888912"
                   className="flex items-center justify-center gap-2 p-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors duration-200 shadow-md"
                   onClick={onClose}
                 >
                   Call Us Now: +91 90828 88912
-                </Link>
-                <Link 
+                </a>
+                <a 
                   href="https://wa.me/917977288350?text=Hi,%20I'm%20interested%20in%20renting%20a%20car."
                   className="flex items-center justify-center gap-2 p-3 rounded-lg bg-green-600 hover:bg-green-700 text-white font-medium transition-colors duration-200 shadow-md"
                   onClick={onClose}
@@ -119,7 +122,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                   rel="noopener noreferrer"
                 >
                   WhatsApp: +91 79-77288350
-                </Link>
+                </a>
               </div>
             </div>
           </nav>
@@ -129,7 +132,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
       {/* Overlay */}
       {isOpen && (
         <div 
-          className="fixed inset-0 z-30 bg-black/30 backdrop-blur-[3px] md:hidden" 
+          className="fixed inset-0 z-30 bg-black/50 backdrop-blur-[3px] md:hidden" 
           onClick={onClose}
           aria-hidden="true"
         />
