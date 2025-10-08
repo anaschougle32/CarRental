@@ -337,25 +337,21 @@ const Hero = () => {
         </form>
         
         {/* Added more spacing above the buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-12 sm:mt-16 md:mt-20">
-          <Button size="lg" className="bg-blue-600 hover:bg-blue-700 w-full sm:w-auto" asChild>
-            <Link href="/cars" className="group">
-              <span className="hidden sm:inline">Browse All Cars</span>
-              <span className="sm:hidden">Browse Cars</span>
-              <ChevronRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </Button>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-12 sm:mt-16 md:mt-20 mb-20 md:mb-24">
+          <Link href="/cars" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-blue-600 text-white hover:bg-blue-700 h-11 px-8 w-full sm:w-auto group">
+            <span className="hidden sm:inline">Browse All Cars</span>
+            <span className="sm:hidden">Browse Cars</span>
+            <ChevronRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
+          </Link>
           
-          <Button size="lg" variant="outline" className="border-white bg-black/80 text-white hover:bg-black hover:text-white w-full sm:w-auto" asChild>
-            <Link href="tel:+919082888912">
-              Call Us Now
-            </Link>
-          </Button>
+          <a href="tel:+919082888912" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-white bg-black/80 text-white hover:bg-black hover:text-white h-11 px-8 w-full sm:w-auto">
+            Call Us Now
+          </a>
         </div>
       </div>
 
-      {/* Scroll Indicator - Hide on mobile */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:flex flex-col items-center">
+      {/* Scroll Indicator - Hide on mobile, with better spacing */}
+      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 hidden md:flex flex-col items-center">
         <div className="w-8 h-12 border-2 border-white rounded-full flex justify-center mb-2">
           <div className="w-1 h-3 bg-white rounded-full mt-2 animate-bounce" />
         </div>

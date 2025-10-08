@@ -90,24 +90,20 @@ const CarCard = ({ car, showCategory = false }: CarCardProps) => {
               <p className="text-xs sm:text-sm text-gray-500">Price per day</p>
               <p className="text-lg sm:text-xl font-bold">₹{car.price_per_day}</p>
             </div>
-            <Button variant="outline" size="sm" asChild>
-              <Link href={`/cars/${car.slug}`} className="text-xs sm:text-sm">View Details</Link>
-            </Button>
+            <Link href={`/cars/${car.slug}`} className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-xs sm:text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3">
+              View Details
+            </Link>
           </div>
           
           <div className="flex gap-1 sm:gap-2">
-            <Button variant="outline" size="sm" className="flex-1 text-xs sm:text-sm px-2 sm:px-3" asChild>
-              <a href={`tel:+919082888912`}>
-                <Phone size={14} className="mr-1 sm:mr-2" />
-                <span>Call</span>
-              </a>
-            </Button>
-            <Button variant="outline" size="sm" className="flex-1 text-xs sm:text-sm px-2 sm:px-3" asChild>
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                <FaWhatsapp size={14} className="mr-1 sm:mr-2" />
-                <span>WhatsApp</span>
-              </a>
-            </Button>
+            <a href={`tel:+919082888912`} className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-xs sm:text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-2 sm:px-3 flex-1">
+              <Phone size={14} className="mr-1 sm:mr-2" />
+              <span>Call</span>
+            </a>
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-xs sm:text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-2 sm:px-3 flex-1">
+              <FaWhatsapp size={14} className="mr-1 sm:mr-2" />
+              <span>WhatsApp</span>
+            </a>
           </div>
         </div>
       </CardFooter>

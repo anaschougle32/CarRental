@@ -163,19 +163,15 @@ const BookingCTA = ({ car }: BookingCTAProps) => {
       </CardContent>
       
       <CardFooter className="flex flex-col gap-3">
-        <Button className="w-full" asChild>
-          <Link href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-            <MessageSquare size={18} />
-            Book on WhatsApp
-          </Link>
-        </Button>
+        <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full gap-2">
+          <MessageSquare size={18} />
+          Book on WhatsApp
+        </a>
         
-        <Button variant="outline" className="w-full" asChild>
-          <Link href="tel:+918888888888" className="flex items-center justify-center gap-2">
-            <PhoneCall size={18} />
-            Call to Book
-          </Link>
-        </Button>
+        <a href="tel:+918888888888" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full gap-2">
+          <PhoneCall size={18} />
+          Call to Book
+        </a>
       </CardFooter>
     </Card>
   );

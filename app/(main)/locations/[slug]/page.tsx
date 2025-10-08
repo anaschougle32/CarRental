@@ -318,27 +318,6 @@ export default async function LocationPage({ params }: Props) {
     
     return (
       <div className="container mx-auto px-4 md:px-6 py-10 pt-24 md:pt-32">
-        {/* Breadcrumbs for SEO and navigation */}
-        <nav className="text-sm mb-6" aria-label="Breadcrumb">
-          <ol className="list-none p-0 inline-flex">
-            <li className="flex items-center">
-              <a href="/" className="text-blue-600 hover:text-blue-800">Home</a>
-              <svg className="fill-current w-3 h-3 mx-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                <path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path>
-              </svg>
-            </li>
-            <li className="flex items-center">
-              <a href="/locations" className="text-blue-600 hover:text-blue-800">Locations</a>
-              <svg className="fill-current w-3 h-3 mx-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                <path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path>
-              </svg>
-            </li>
-            <li>
-              <span className="text-gray-500" aria-current="page">{location.name}</span>
-            </li>
-          </ol>
-        </nav>
-        
         {/* Booking Form Section - At Top */}
         <div className="mb-16 -mx-4 md:-mx-6">
           <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 py-12">

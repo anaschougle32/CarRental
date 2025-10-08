@@ -74,9 +74,7 @@ const BlogCard = ({ post }: BlogCardProps) => {
         </div>
         
         <h3 className="text-xl font-semibold mb-2 line-clamp-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-          <Link href={`/blogs/${slug}`}>
-            {title}
-          </Link>
+          {title}
         </h3>
         
         {description && (
@@ -87,9 +85,9 @@ const BlogCard = ({ post }: BlogCardProps) => {
       </CardContent>
       
       <CardFooter className="pt-2">
-        <Button asChild className="w-full">
-          <Link href={`/blogs/${slug}`}>Read More</Link>
-        </Button>
+        <Link href={`/blogs/${slug}`} className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full">
+          Read More
+        </Link>
       </CardFooter>
     </Card>
   );

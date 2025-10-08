@@ -59,8 +59,10 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
           isScrolled ? "bg-white dark:bg-gray-900 py-2" : "bg-white dark:bg-gray-900 py-3"
         )}
       >
-        <div className="container mx-auto px-4 flex items-center justify-between">
-          <Logo />
+        <div className="container mx-auto px-4 flex items-center justify-between h-16">
+          <Link href="/" onClick={onClose}>
+            <Logo />
+          </Link>
           
           <button
             className="text-gray-900 dark:text-white p-2 rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition-all duration-300 mobile-menu-button shadow-sm"
@@ -101,11 +103,13 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                   onClick={(e) => {
                     onClose();
                     // Small delay to ensure menu closes before navigation
-                    setTimeout(() => {
-                      if (item.href.startsWith('tel:') || item.href.startsWith('mailto:')) {
-                        window.location.href = item.href;
-                      }
-                    }, 100);
+                    if (mounted) {
+                      setTimeout(() => {
+                        if (item.href.startsWith('tel:') || item.href.startsWith('mailto:')) {
+                          window.location.href = item.href;
+                        }
+                      }, 100);
+                    }
                   }}
                   className="flex items-center justify-between w-full p-3 rounded-lg text-gray-900 dark:text-white font-medium hover:bg-white/40 dark:hover:bg-gray-800/40 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200"
                 >

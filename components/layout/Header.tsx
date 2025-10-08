@@ -62,10 +62,12 @@ const Header = () => {
           : "bg-white/50 dark:bg-gray-900/60 py-3"
       )}
     >
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2 text-primary">
-          <Logo />
-        </Link>
+      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between h-16">
+        <div className="flex items-center">
+          <Link href="/" className="flex items-center">
+            <Logo />
+          </Link>
+        </div>
 
         <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
           <Link
@@ -107,18 +109,14 @@ const Header = () => {
         </nav>
 
         <div className="hidden md:flex items-center">
-          <Button 
-            variant="default" 
-            size="sm" 
-            className="bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full px-3 lg:px-4 shadow-md text-xs lg:text-sm" 
-            asChild
+          <a 
+            href="tel:+919082888912" 
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-full text-xs lg:text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-blue-600 text-white hover:bg-blue-700 h-9 px-3 lg:px-4 shadow-md gap-1 lg:gap-2"
           >
-            <Link href="tel:+919082888912" className="flex items-center gap-1 lg:gap-2">
-              <Phone size={14} />
-              <span className="hidden lg:inline">+91 90828 88912</span>
-              <span className="lg:hidden">Call</span>
-            </Link>
-          </Button>
+            <Phone size={14} />
+            <span className="hidden lg:inline">+91 90828 88912</span>
+            <span className="lg:hidden">Call</span>
+          </a>
         </div>
 
         <button

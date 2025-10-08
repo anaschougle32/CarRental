@@ -22,6 +22,7 @@ export default function BookingFormPopup({
 }: BookingFormPopupProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -95,8 +96,15 @@ export default function BookingFormPopup({
     }
   };
 
+  // Ensure component is mounted before using Date
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   // Set default dates when component mounts
   useEffect(() => {
+    if (!mounted) return;
+    
     const today = new Date();
     const tomorrow = new Date(today);
     tomorrow.setDate(tomorrow.getDate() + 1);
@@ -108,7 +116,7 @@ export default function BookingFormPopup({
       pickupDate: tomorrow.toISOString().split('T')[0],
       returnDate: returnDate.toISOString().split('T')[0]
     }));
-  }, []);
+  }, [mounted]);
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>

@@ -7,7 +7,7 @@ interface LogoProps {
 
 const Logo = ({ className }: LogoProps = {}) => {
   return (
-    <Link href="/" className="flex items-center space-x-2 group">
+    <div className="flex items-center space-x-2 group">
       <div className="bg-blue-600 p-2 rounded-lg group-hover:bg-blue-700 transition-colors">
         <Car className={`h-6 w-6 text-white ${className || ''}`} />
       </div>
@@ -19,7 +19,7 @@ const Logo = ({ className }: LogoProps = {}) => {
           Goa Car Rentals
         </span>
       </div>
-    </Link>
+    </div>
   );
 };
 

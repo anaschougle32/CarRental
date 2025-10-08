@@ -6,14 +6,8 @@ import { FaWhatsapp, FaPinterest } from "react-icons/fa";
 import LocationLinks from "./LocationLinks";
 
 const Footer = () => {
-  // Get current date for real-time display
-  const currentDate = new Date();
-  const currentYear = currentDate.getFullYear();
-  const formattedDate = currentDate.toLocaleDateString('en-IN', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
+  // Get current year for copyright
+  const currentYear = new Date().getFullYear();
   
   const whatsappLink = "https://wa.me/917977288350?text=Hi,%20I'm%20interested%20in%20renting%20a%20car.";
 
@@ -22,11 +16,6 @@ const Footer = () => {
     <LocationLinks />
     <footer className="bg-gray-900 text-white pt-12 md:pt-16 pb-6 md:pb-8 w-full">
       <div className="container mx-auto px-4 md:px-6">
-        {/* Date display */}
-        <div className="text-right text-gray-400 text-sm mb-6">
-          <p>{formattedDate}</p>
-        </div>
-        
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="mb-8 md:mb-0">

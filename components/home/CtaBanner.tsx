@@ -27,19 +27,15 @@ const CtaBanner = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8">
-          <Button size="lg" className="bg-white text-blue-900 hover:bg-gray-100" asChild>
-            <Link href="/cars" className="inline-flex items-center gap-2">
-              <MapPin size={20} />
-              Browse Our Cars
-            </Link>
-          </Button>
+          <Link href="/cars" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-white text-blue-900 hover:bg-gray-100 h-11 px-8 gap-2">
+            <MapPin size={20} />
+            Browse Our Cars
+          </Link>
           
-          <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/20" asChild>
-            <Link href="tel:+918888888888" className="inline-flex items-center gap-2">
-              <PhoneCall size={20} />
-              Call Us Now
-            </Link>
-          </Button>
+          <a href="tel:+918888888888" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-white text-white hover:bg-white/20 h-11 px-8 gap-2">
+            <PhoneCall size={20} />
+            Call Us Now
+          </a>
         </div>
       </div>
     </section>

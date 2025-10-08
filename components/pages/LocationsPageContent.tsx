@@ -111,11 +111,9 @@ const LocationsPageContent = ({ initialLocations }: LocationsPageContentProps) =
                 <p className="text-gray-600 dark:text-gray-400 mb-4">
                   {location.headline}
                 </p>
-                <Button variant="outline" className="w-full" asChild>
-                  <Link href={`/locations/${location.slug}`}>
-                    View Cars & Details
-                  </Link>
-                </Button>
+                <Link href={`/locations/${location.slug}`} className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full">
+                  View Cars & Details
+                </Link>
               </CardContent>
             </Card>
           ))}
