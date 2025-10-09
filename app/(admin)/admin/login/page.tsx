@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import Cookies from "js-cookie";
+// Removed js-cookie import - using document.cookie directly
 
 // This is just for demo purposes - in a real app, you would use Supabase Auth
 const ADMIN_CREDENTIALS = {
@@ -32,12 +32,9 @@ export default function AdminLogin() {
       // Simple hardcoded check (for demo only)
       if (email === ADMIN_CREDENTIALS.email && password === ADMIN_CREDENTIALS.password) {
         // Set a cookie for authentication
-        Cookies.set("admin_session", "true", { 
-          expires: 1, // Expires in 1 day
-          path: "/",
-          secure: process.env.NODE_ENV === "production",
-          sameSite: "strict"
-        });
+        const expires = new Date();
+        expires.setDate(expires.getDate() + 1); // Expires in 1 day
+        document.cookie = `admin_session=true; expires=${expires.toUTCString()}; path=/; ${process.env.NODE_ENV === "production" ? "secure; " : ""}samesite=strict`;
         
         // Redirect to admin dashboard
         router.push("/admin/dashboard");

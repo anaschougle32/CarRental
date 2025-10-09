@@ -10,7 +10,7 @@ import BookingForm from "@/components/common/BookingForm";
 import Head from "next/head";
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

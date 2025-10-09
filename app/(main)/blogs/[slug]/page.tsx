@@ -11,7 +11,11 @@ import BookingFormPopup from '@/components/common/BookingFormPopup';
 import type { BlogPost } from '@/types/blog';
 import { calculateReadingTime } from '@/lib/utils/reading-time';
 
-export default async function BlogPost({ params }: { params: { slug: string } }) {
+interface Props {
+  params: Promise<{ slug: string }>;
+}
+
+export default async function BlogPost({ params }: Props) {
   const { slug } = await params;
   const supabase = createClient();
   

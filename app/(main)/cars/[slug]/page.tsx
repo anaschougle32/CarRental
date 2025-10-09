@@ -15,7 +15,7 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateStaticParams() {

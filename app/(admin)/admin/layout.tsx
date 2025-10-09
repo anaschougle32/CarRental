@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
-import Cookies from "js-cookie";
+// Removed js-cookie import - using document.cookie directly
 import {
   Car,
   FileText,
@@ -39,7 +39,7 @@ export default function AdminLayout({
 
   const handleSignOut = async () => {
     // Remove the admin session cookie
-    Cookies.remove("admin_session", { path: "/" });
+    document.cookie = "admin_session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     // Redirect to login page
     router.push("/adminlogin");
   };
