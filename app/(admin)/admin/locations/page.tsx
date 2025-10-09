@@ -290,13 +290,13 @@ export default function AdminLocations() {
       </Card>
 
       {notification.show && (
-        <div className={`p-4 mb-4 rounded-md ${
+        <div className={`fixed top-4 right-4 z-50 p-4 rounded-md shadow-md transition-opacity duration-300 ${
           notification.type === "success" 
-            ? "bg-green-50 text-green-700 border border-green-200" 
+            ? "bg-green-100 text-green-800" 
             : notification.type === "info"
-            ? "bg-blue-50 text-blue-700 border border-blue-200"
-            : "bg-red-50 text-red-700 border border-red-200"
-        }`}>
+            ? "bg-blue-100 text-blue-800"
+            : "bg-red-100 text-red-800"
+        }`} style={{ minWidth: '300px', maxWidth: '500px' }}>
           <div className="flex items-center">
             {notification.type === "success" ? (
               <CheckCircle className="h-5 w-5 mr-2" />
@@ -307,7 +307,7 @@ export default function AdminLocations() {
             ) : (
               <AlertCircle className="h-5 w-5 mr-2" />
             )}
-            <p>{notification.message}</p>
+            <span>{notification.message}</span>
           </div>
         </div>
       )}

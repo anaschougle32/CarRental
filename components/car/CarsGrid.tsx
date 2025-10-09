@@ -62,7 +62,7 @@ const CarsGrid = () => {
             transmission: car.transmission as any,
             min_days: 1,
             mileage: car.mileage, // Add mileage field from database
-            main_image: car.main_image || "/images/car-placeholder.jpg",
+            main_image: car.main_image || "/images/cars/car-placeholder.jpg",
             category: car.seats <= 5 
               ? car.seats <= 4 ? "Hatchback" : "Sedan" 
               : car.seats <= 7 ? "SUV" : "Premium"

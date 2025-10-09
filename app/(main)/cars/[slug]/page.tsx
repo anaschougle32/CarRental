@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import dynamicImport from "next/dynamic";
 import CarDetails from "@/components/car/CarDetails";
 import CarFeatures from "@/components/car/CarFeatures";
 import RelatedCars from "@/components/car/RelatedCars";
 import BookingCTA from "@/components/car/BookingCTA";
+import CarGalleryWrapper from "@/components/car/CarGalleryWrapper";
 import { Separator } from "@/components/ui/separator";
 import { getCarBySlug, getCars, getBrands } from "@/lib/supabase";
 import { Car as SupabaseCar } from "@/lib/supabase";
@@ -13,9 +13,6 @@ import { Car } from "@/lib/types";
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
-
-// Dynamically import the client component
-const CarGallery = dynamicImport(() => import("@/components/car/CarGallery"), { ssr: false });
 
 type Props = {
   params: { slug: string };
@@ -29,7 +26,8 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
-    const carData = await getCarBySlug(params.slug);
+    const { slug } = await params;
+    const carData = await getCarBySlug(slug);
     
     if (!carData) {
       return {
@@ -49,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       : carData.seats <= 7 ? "SUV" : "Premium";
     
     // Ensure we have a valid image URL for OpenGraph
-    const imageUrl = carData.main_image || '/images/car-placeholder.jpg';
+    const imageUrl = carData.main_image || '/images/cars/car-placeholder.jpg';
     
     // Create SEO-optimized title and description
     const title = `Rent ${brandName} ${carData.name} in Goa | ₹${carData.price_per_day}/day | ZoiCarRentals`;
@@ -78,7 +76,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       openGraph: {
         title,
         description,
-        url: `https://zoicarrentals.com/cars/${params.slug}`,
+        url: `https://zoicarrentals.com/cars/${slug}`,
         siteName: 'ZoiCarRentals',
         locale: 'en_IN',
         type: 'website',
@@ -96,7 +94,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         images: [imageUrl],
       },
       alternates: {
-        canonical: `https://zoicarrentals.com/cars/${params.slug}`,
+        canonical: `https://zoicarrentals.com/cars/${slug}`,
       },
       robots: {
         index: true,
@@ -140,7 +138,7 @@ async function mapSupabaseCarToAppCar(carData: SupabaseCar): Promise<Car> {
     fuel_type: carData.fuel_type as any,
     transmission: carData.transmission as any,
     min_days: 1, // Default minimum days
-    main_image: carData.main_image || "/images/car-placeholder.jpg",
+    main_image: carData.main_image || "/images/cars/car-placeholder.jpg",
     mileage: carData.mileage || undefined,
     category: carData.seats <= 5 
       ? carData.seats <= 4 ? "Hatchback" : "Sedan" 
@@ -150,7 +148,8 @@ async function mapSupabaseCarToAppCar(carData: SupabaseCar): Promise<Car> {
 
 export default async function CarPage({ params }: Props) {
   try {
-    const carData = await getCarBySlug(params.slug);
+    const { slug } = await params;
+    const carData = await getCarBySlug(slug);
     
     if (!carData) {
       notFound();
@@ -169,7 +168,7 @@ export default async function CarPage({ params }: Props) {
               Self Drive {car.category} | {car.fuel_type} | {car.transmission} | ₹{car.price_per_day}/day
             </p>
             
-            <CarGallery main_image={car.main_image} alt={`${car.brand} ${car.name} Car Rental in Goa`} />
+            <CarGalleryWrapper main_image={car.main_image} alt={`${car.brand} ${car.name} Car Rental in Goa`} />
             
             <Separator className="my-8" />
             

@@ -12,13 +12,14 @@ import type { BlogPost } from '@/types/blog';
 import { calculateReadingTime } from '@/lib/utils/reading-time';
 
 export default async function BlogPost({ params }: { params: { slug: string } }) {
+  const { slug } = await params;
   const supabase = createClient();
   
   // Fetch the blog post by slug
   const { data: postData, error } = await supabase
     .from('blogs')
     .select('*')
-    .eq('slug', params.slug)
+    .eq('slug', slug)
     .single<BlogPost>();
 
   if (error || !postData) {

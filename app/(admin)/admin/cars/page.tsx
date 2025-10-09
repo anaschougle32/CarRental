@@ -93,6 +93,7 @@ export default function AdminCars() {
   const [imagePreview, setImagePreview] = useState("");
   const [featureInput, setFeatureInput] = useState("");
   const [notification, setNotification] = useState({ show: false, message: "", type: "" });
+  const [notificationQueue, setNotificationQueue] = useState<Array<{id: string, message: string, type: string}>>([]);
 
   const router = useRouter();
   const supabase = createClient(
@@ -163,6 +164,25 @@ export default function AdminCars() {
     setIsDialogOpen(true);
   };
 
+  const clearForm = () => {
+    setFormData({
+      name: "",
+      slug: "",
+      brand_id: "",
+      price_per_day: 0,
+      transmission: "Manual",
+      fuel_type: "Petrol",
+      seats: 5,
+      luggage: 2,
+      mileage: 15,
+      description: "",
+      features: [],
+    });
+    setImageFile(null);
+    setImagePreview("");
+    setSelectedCar(null);
+  };
+
   const handleEditCar = (car: Car) => {
     setSelectedCar(car);
     setFormData({
@@ -195,7 +215,7 @@ export default function AdminCars() {
       console.log("Deleting car with ID:", selectedCar.id);
       
       // Check if the car has an image in Supabase Storage
-      if (selectedCar.main_image && selectedCar.main_image.includes('car-images')) {
+      if (selectedCar.main_image && (selectedCar.main_image.includes('blog-images') || selectedCar.main_image.includes('car-images'))) {
         try {
           // Extract the filename from the URL
           const url = new URL(selectedCar.main_image);
@@ -204,9 +224,12 @@ export default function AdminCars() {
           
           console.log("Attempting to delete image:", filename);
           
+          // Determine bucket name
+          const bucketName = selectedCar.main_image.includes('blog-images') ? 'blog-images' : 'car-images';
+          
           // Delete the image from storage
           const { error: storageError } = await supabase.storage
-            .from('car-images')
+            .from(bucketName)
             .remove([filename]);
           
           if (storageError) {
@@ -350,18 +373,21 @@ export default function AdminCars() {
     showNotification("Uploading image to storage...", "info");
     
     try {
-      // Create a unique filename with timestamp and random string
+      // Create a unique filename with timestamp and random string (same as blog images)
       const extension = imageFile.name.split(".").pop()?.toLowerCase() || "jpg";
       const timestamp = new Date().getTime();
       const randomString = Math.random().toString(36).substring(2, 10);
       const filename = `car_${timestamp}_${randomString}.${extension}`;
       
-      // Upload to Supabase Storage
+      console.log(`Uploading car image to 'blog-images/${filename}'`);
+      
+      // Upload to the existing blog-images bucket (since car-images bucket doesn't exist)
       const { data, error } = await supabase.storage
-        .from('car-images')
+        .from('blog-images')
         .upload(filename, imageFile, {
           cacheControl: '3600',
-          upsert: true // Use upsert to overwrite if file exists
+          upsert: true,
+          contentType: imageFile.type
         });
       
       if (error) {
@@ -371,13 +397,14 @@ export default function AdminCars() {
       
       // Get the public URL
       const { data: publicUrlData } = supabase.storage
-        .from('car-images')
+        .from('blog-images')
         .getPublicUrl(filename);
       
       if (!publicUrlData || !publicUrlData.publicUrl) {
         throw new Error("Failed to get public URL for uploaded image");
       }
       
+      console.log("Successfully uploaded car image:", publicUrlData.publicUrl);
       showNotification("Image uploaded successfully", "success");
       return publicUrlData.publicUrl;
     } catch (error) {
@@ -389,6 +416,11 @@ export default function AdminCars() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    console.log("Form submission started...");
+    console.log("Form data:", formData);
+    console.log("Image file:", imageFile);
+    console.log("Selected car:", selectedCar);
     
     try {
       // Validate required fields
@@ -415,16 +447,20 @@ export default function AdminCars() {
       // Upload image if we have a file
       if (imageFile) {
         try {
+          console.log("Starting image upload...");
           imageUrl = await uploadImage();
           console.log("Uploaded image URL:", imageUrl);
         } catch (error) {
           console.error("Image upload error:", error);
+          showNotification(`Image upload failed: ${error instanceof Error ? error.message : 'Unknown error'}`, "error");
+          
           // Continue with the form submission even if image upload fails
           if (selectedCar?.main_image) {
             imageUrl = selectedCar.main_image;
-            console.log("Using existing image URL:", imageUrl);
+            console.log("Using existing image URL after upload failure:", imageUrl);
+            showNotification("Using existing image due to upload failure", "info");
           } else {
-            showNotification("Image upload failed. Please try again.", "error");
+            showNotification("Image upload failed and no existing image available. Please try again.", "error");
             return;
           }
         }
@@ -496,15 +532,12 @@ export default function AdminCars() {
             );
           }
           
-          // Show success notification and redirect to cars list
+          // Show success notification
           showNotification("Car updated successfully", "success");
           
-          // Close dialog and redirect after a short delay
+          // Close dialog and refresh data without page reload
           setIsDialogOpen(false);
-          setTimeout(() => {
-            // Refresh the current page to show updated data
-            window.location.reload();
-          }, 1500);
+          fetchCars(); // Refresh the cars list
         } catch (updateError) {
           console.error("Error updating car:", updateError);
           showNotification(
@@ -551,12 +584,9 @@ export default function AdminCars() {
             setCars([...cars, data[0]]);
             showNotification("Car added successfully", "success");
             
-            // Close dialog and redirect after a short delay
+            // Close dialog and refresh data without page reload
             setIsDialogOpen(false);
-            setTimeout(() => {
-              // Refresh the current page to show updated data
-              window.location.reload();
-            }, 1500);
+            fetchCars(); // Refresh the cars list
           }
         } catch (insertError) {
           console.error("Error adding car:", insertError);
@@ -572,56 +602,22 @@ export default function AdminCars() {
         `Error ${selectedCar ? "updating" : "adding"} car: ${error instanceof Error ? error.message : 'Unknown error'}`,
         "error"
       );
+    } finally {
+      // Reset form state
+      clearForm();
     }
   };
 
-  const showNotification = (message: string, type: string) => {
-    // Set notification state
-    setNotification({ show: true, message, type });
+  const showNotification = (message: string, type: "success" | "error" | "info") => {
+    const id = `${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
+    const newNotification = { id, message, type };
     
-    // Create a toast-like notification that appears at the top-right corner of the screen
-    const toast = document.createElement('div');
-    toast.className = `fixed top-4 right-4 z-50 p-4 rounded-md shadow-md ${type === 'success' ? 'bg-green-100 text-green-800' : type === 'error' ? 'bg-red-100 text-red-800' : 'bg-blue-100 text-blue-800'}`;
-    toast.style.minWidth = '300px';
-    toast.style.maxWidth = '500px';
+    setNotificationQueue(prev => [...prev, newNotification]);
     
-    const content = document.createElement('div');
-    content.className = 'flex items-center';
-    content.innerHTML = `
-      <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        ${type === 'success' 
-          ? '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>'
-          : type === 'error'
-          ? '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>'
-          : '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>'
-        }
-      </svg>
-      <p>${message}</p>
-    `;
-    
-    toast.appendChild(content);
-    document.body.appendChild(toast);
-    
-    // Animate in
-    toast.style.opacity = '0';
-    toast.style.transform = 'translateY(-20px)';
-    toast.style.transition = 'all 0.3s ease';
-    
+    // Auto-remove after 5 seconds
     setTimeout(() => {
-      toast.style.opacity = '1';
-      toast.style.transform = 'translateY(0)';
-    }, 10);
-    
-    // Remove after delay
-    setTimeout(() => {
-      toast.style.opacity = '0';
-      toast.style.transform = 'translateY(-20px)';
-      
-      setTimeout(() => {
-        document.body.removeChild(toast);
-        setNotification({ show: false, message: "", type: "" });
-      }, 300);
-    }, 3000);
+      setNotificationQueue(prev => prev.filter(n => n.id !== id));
+    }, 5000);
   };
 
   // Filter cars based on search query
@@ -652,28 +648,40 @@ export default function AdminCars() {
         </CardContent>
       </Card>
 
-      {notification.show && (
-        <div className={`p-4 mb-4 rounded-md ${
-          notification.type === "success" 
-            ? "bg-green-50 text-green-700 border border-green-200" 
-            : notification.type === "info"
-            ? "bg-blue-50 text-blue-700 border border-blue-200"
-            : "bg-red-50 text-red-700 border border-red-200"
-        }`}>
-          <div className="flex items-center">
-            {notification.type === "success" ? (
-              <CheckCircle className="h-5 w-5 mr-2" />
-            ) : notification.type === "info" ? (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            ) : (
-              <AlertCircle className="h-5 w-5 mr-2" />
-            )}
-            <p>{notification.message}</p>
+      {/* Notification Queue - Stacked vertically */}
+      <div className="fixed top-4 right-4 z-50 space-y-2">
+        {notificationQueue.map((notification, index) => (
+          <div
+            key={notification.id}
+            className={`p-4 rounded-md shadow-md transition-all duration-300 ${
+              notification.type === "success" 
+                ? "bg-green-100 text-green-800 border border-green-200" 
+                : notification.type === "info"
+                ? "bg-blue-100 text-blue-800 border border-blue-200"
+                : "bg-red-100 text-red-800 border border-red-200"
+            }`}
+            style={{ 
+              minWidth: '300px', 
+              maxWidth: '500px',
+              transform: `translateY(${index * 10}px)`,
+              zIndex: 1000 - index
+            }}
+          >
+            <div className="flex items-center">
+              {notification.type === "success" ? (
+                <CheckCircle className="h-5 w-5 mr-2" />
+              ) : notification.type === "info" ? (
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              ) : (
+                <AlertCircle className="h-5 w-5 mr-2" />
+              )}
+              <span>{notification.message}</span>
+            </div>
           </div>
-        </div>
-      )}
+        ))}
+      </div>
 
       {isLoading ? (
         <div className="text-center py-10">Loading cars...</div>
@@ -709,7 +717,7 @@ export default function AdminCars() {
                             alt={car.name}
                             className="object-cover w-full h-full"
                             onError={(e) => {
-                              (e.target as HTMLImageElement).src = "/images/car-placeholder.jpg";
+                              (e.target as HTMLImageElement).src = "/images/cars/car-placeholder.jpg";
                             }}
                           />
                         </div>

@@ -15,7 +15,8 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
-    const location = await getLocationBySlug(params.slug);
+    const { slug } = await params;
+    const location = await getLocationBySlug(slug);
     
     if (!location) {
       return {
@@ -51,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       openGraph: {
         title,
         description,
-        url: `https://zoicarrentals.com/locations/${params.slug}`,
+        url: `https://zoicarrentals.com/locations/${slug}`,
         siteName: 'ZoiCarRentals',
         locale: 'en_IN',
         type: 'website',
@@ -68,10 +69,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         card: 'summary_large_image',
         title: `Car Rental in ${location.name} | ZoiCarRentals`,
         description: location.headline,
-        images: [`/images/locations/${params.slug}.jpg`, '/images/locations/default.jpg'],
+        images: [`/images/locations/${slug}.jpg`, '/images/locations/default.jpg'],
       },
       alternates: {
-        canonical: `https://zoicarrentals.com/locations/${params.slug}`,
+        canonical: `https://zoicarrentals.com/locations/${slug}`,
       },
       robots: {
         index: true,
@@ -112,7 +113,7 @@ async function mapSupabaseCarToAppCar(carData: SupabaseCar): Promise<Car> {
     fuel_type: carData.fuel_type as any,
     transmission: carData.transmission as any,
     min_days: 1, // Default minimum days
-    main_image: carData.main_image || "/images/car-placeholder.jpg",
+    main_image: carData.main_image || "/images/cars/car-placeholder.jpg",
     mileage: carData.mileage || undefined,
     category: carData.seats <= 5 
       ? carData.seats <= 4 ? "Hatchback" : "Sedan" 
@@ -122,12 +123,14 @@ async function mapSupabaseCarToAppCar(carData: SupabaseCar): Promise<Car> {
 
 export default async function LocationPage({ params }: Props) {
   try {
+    const { slug } = await params;
+    
     // Attempt to get location from database
-    let location = await getLocationBySlug(params.slug);
+    let location = await getLocationBySlug(slug);
     
     // If location not found in database, use a default location
     if (!location) {
-      console.log(`Location not found for slug: ${params.slug}, using fallback`);
+      console.log(`Location not found for slug: ${slug}, using fallback`);
       
       // Create a fallback location based on the slug
       const fallbackLocations = {
@@ -301,12 +304,12 @@ export default async function LocationPage({ params }: Props) {
       };
       
       // Use the fallback location if it exists, otherwise create a generic one
-      location = fallbackLocations[params.slug as keyof typeof fallbackLocations] || {
-        id: `default-${params.slug}`,
-        name: params.slug.charAt(0).toUpperCase() + params.slug.slice(1).replace(/-/g, ' '),
-        slug: params.slug,
-        headline: `Car Rental Service in ${params.slug.charAt(0).toUpperCase() + params.slug.slice(1).replace(/-/g, ' ')}, Goa`,
-        content: `Find the best car rental deals in ${params.slug.charAt(0).toUpperCase() + params.slug.slice(1).replace(/-/g, ' ')}, Goa with ZoiCarRentals.`,
+      location = fallbackLocations[slug as keyof typeof fallbackLocations] || {
+        id: `default-${slug}`,
+        name: slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, ' '),
+        slug: slug,
+        headline: `Car Rental Service in ${slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, ' ')}, Goa`,
+        content: `Find the best car rental deals in ${slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, ' ')}, Goa with ZoiCarRentals.`,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString()
       };

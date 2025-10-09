@@ -1,9 +1,6 @@
-import dynamic from "next/dynamic";
 import { getCars, getBrands } from "@/lib/supabase";
 import { Car } from "@/lib/types";
-
-// Dynamically import the client component
-const CarCard = dynamic(() => import("@/components/car/CarCard"), { ssr: false });
+import RelatedCarsWrapper from "./RelatedCarsWrapper";
 
 interface RelatedCarsProps {
   currentSlug: string;
@@ -43,7 +40,7 @@ async function getRelatedCarsFromSupabase(currentSlug: string) {
         fuel_type: car.fuel_type as any,
         transmission: car.transmission as any,
         min_days: 1, // Default value
-        main_image: car.main_image || "/images/car-placeholder.jpg",
+            main_image: car.main_image || "/images/cars/car-placeholder.jpg",
         category: car.seats <= 5 
           ? car.seats <= 4 ? "Hatchback" : "Sedan" 
           : car.seats <= 7 ? "SUV" : "Premium"
@@ -60,19 +57,5 @@ async function getRelatedCarsFromSupabase(currentSlug: string) {
 export default async function RelatedCars({ currentSlug }: RelatedCarsProps) {
   const relatedCars = await getRelatedCarsFromSupabase(currentSlug);
 
-  if (!relatedCars || relatedCars.length === 0) {
-    return null;
-  }
-
-  return (
-    <section>
-      <h2 className="text-2xl font-bold mb-6">Similar Cars You Might Like</h2>
-      
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {relatedCars.map(car => (
-          <CarCard key={car.id} car={car} />
-        ))}
-      </div>
-    </section>
-  );
+  return <RelatedCarsWrapper relatedCars={relatedCars} />;
 }
