@@ -128,11 +128,17 @@ export default function ContactPage() {
           <h2 className="text-2xl font-bold mb-8 text-center">Find Us Here</h2>
           
           <div className="h-96 rounded-lg overflow-hidden shadow-md">
-            <img
-              src="https://images.pexels.com/photos/4450334/pexels-photo-4450334.jpeg"
-              alt="Map location of ZioCarRentals office in Calangute, Goa"
-              className="w-full h-full object-cover"
-            />
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25155.870809170843!2d73.95091347875199!3d15.266892013288974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfb3f4b670aaed%3A0xbf05105f66003bfe!2sZio%20Car%20Rentals!5e0!3m2!1sen!2sin!4v1749562513743!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Google Map of ZioCarRentals, Goa"
+              className="w-full h-full"
+            ></iframe>
           </div>
         </div>
       </section>

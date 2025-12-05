@@ -141,6 +141,29 @@ html {
     }
   }
   
+  /* Desktop and Tablet: Set max-width to 80% to prevent overlapping */
+  @media (min-width: 769px) {
+    .container {
+      max-width: 80% !important;
+      width: 100%;
+    }
+    
+    /* Ensure main content areas respect the 80% width */
+    main > div {
+      max-width: 100%;
+    }
+    
+    /* Prevent header from overflowing */
+    header .container {
+      max-width: 80% !important;
+    }
+    
+    /* Prevent footer from overflowing */
+    footer .container {
+      max-width: 80% !important;
+    }
+  }
+  
   /* Prevent horizontal scroll */
   body {
     @apply overflow-x-hidden;

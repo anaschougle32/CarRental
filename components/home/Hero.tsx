@@ -186,7 +186,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/50" />
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-12 md:py-0 text-center text-white">
+      <div className="relative z-10 container mx-auto px-4 py-12 md:py-0 text-center text-white w-full md:max-w-[80%]">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 animate-fade-in">
           Freedom to Explore Goa,{" "}
           <span className="text-blue-400">Your Way</span>
@@ -197,7 +197,7 @@ const Hero = () => {
         </p>
         
         {/* Enhanced Booking Form */}
-        <form onSubmit={handleFormSubmit} className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 md:p-6 max-w-5xl mx-auto mt-6 md:mt-8">
+        <form onSubmit={handleFormSubmit} className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 md:p-6 max-w-5xl mx-auto mt-6 md:mt-8 w-full">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             {/* Name Field */}
             <div className="sm:col-span-2 lg:col-span-1">
