@@ -38,7 +38,11 @@ export function ConditionalLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Header />
-      <main className="min-h-[calc(100vh-80px)]">{children}</main>
+      <main className="min-h-[calc(100vh-80px)]">
+        <div className="w-full md:max-w-[80%] md:mx-auto">
+          {children}
+        </div>
+      </main>
       <Footer />
       <FloatingCTA />
     </>

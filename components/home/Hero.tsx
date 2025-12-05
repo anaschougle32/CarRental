@@ -186,7 +186,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/50" />
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-12 md:py-0 text-center text-white w-full md:max-w-[80%]">
+      <div className="relative z-10 mx-auto px-4 py-12 md:py-0 text-center text-white w-full md:max-w-[80%] md:mx-auto">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 animate-fade-in">
           Freedom to Explore Goa,{" "}
           <span className="text-blue-400">Your Way</span>

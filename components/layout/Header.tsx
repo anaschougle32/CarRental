@@ -62,7 +62,7 @@ const Header = () => {
           : "bg-white/50 dark:bg-gray-900/60 py-3"
       )}
     >
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between h-16 w-full md:max-w-[80%]">
+      <div className="mx-auto px-4 md:px-6 flex items-center justify-between h-16 w-full md:max-w-[80%] md:mx-auto">
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
             <Logo />

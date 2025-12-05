@@ -143,38 +143,49 @@ html {
   
   /* Desktop and Tablet: Set max-width to 80% to prevent overlapping */
   @media (min-width: 769px) {
-    .container {
+    /* Direct wrapper approach - more reliable in production */
+    main > div {
       max-width: 80% !important;
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
+      width: 100% !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
     }
     
-    /* Ensure main content areas respect the 80% width */
-    main > div {
-      max-width: 100%;
+    .container {
+      max-width: 80% !important;
+      width: 100% !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
     }
     
     /* Prevent header from overflowing */
+    header > div,
     header .container {
       max-width: 80% !important;
+      width: 100% !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
     }
     
     /* Prevent footer from overflowing */
+    footer > div,
     footer .container {
       max-width: 80% !important;
+      width: 100% !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
     }
     
     /* Prevent form elements from overflowing */
     form {
       max-width: 100% !important;
-      box-sizing: border-box;
+      box-sizing: border-box !important;
     }
     
     /* Ensure grid items don't overflow */
     .grid {
-      max-width: 100%;
-      box-sizing: border-box;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
     }
   }
   
