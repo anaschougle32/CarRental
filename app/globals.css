@@ -146,6 +146,8 @@ html {
     .container {
       max-width: 80% !important;
       width: 100%;
+      margin-left: auto;
+      margin-right: auto;
     }
     
     /* Ensure main content areas respect the 80% width */
@@ -161,6 +163,18 @@ html {
     /* Prevent footer from overflowing */
     footer .container {
       max-width: 80% !important;
+    }
+    
+    /* Prevent form elements from overflowing */
+    form {
+      max-width: 100% !important;
+      box-sizing: border-box;
+    }
+    
+    /* Ensure grid items don't overflow */
+    .grid {
+      max-width: 100%;
+      box-sizing: border-box;
     }
   }
   

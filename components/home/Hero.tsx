@@ -197,64 +197,64 @@ const Hero = () => {
         </p>
         
         {/* Enhanced Booking Form */}
-        <form onSubmit={handleFormSubmit} className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 md:p-6 max-w-5xl mx-auto mt-6 md:mt-8 w-full">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+        <form onSubmit={handleFormSubmit} className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 md:p-6 max-w-full mx-auto mt-6 md:mt-8 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 w-full">
             {/* Name Field */}
-            <div className="sm:col-span-2 lg:col-span-1">
+            <div className="sm:col-span-2 lg:col-span-1 w-full">
               <Label htmlFor="name" className="text-white mb-1 block text-sm">Name</Label>
               <Input 
                 id="name" 
                 value={formData.name}
                 onChange={(e) => handleInputChange("name", e.target.value)}
                 placeholder="Your full name" 
-                className="bg-white/20 text-white placeholder:text-white/70 border-white/30 h-10 sm:h-11"
+                className="bg-white/20 text-white placeholder:text-white/70 border-white/30 h-10 sm:h-11 w-full"
                 required
               />
             </div>
 
             {/* Phone Number Field */}
-            <div className="sm:col-span-2 lg:col-span-1">
+            <div className="sm:col-span-2 lg:col-span-1 w-full">
               <Label htmlFor="phone" className="text-white mb-1 block text-sm">Phone Number</Label>
               <Input 
                 id="phone" 
                 value={formData.phone}
                 onChange={(e) => handleInputChange("phone", e.target.value)}
                 placeholder="+91 98765 43210" 
-                className="bg-white/20 text-white placeholder:text-white/70 border-white/30 h-10 sm:h-11"
+                className="bg-white/20 text-white placeholder:text-white/70 border-white/30 h-10 sm:h-11 w-full"
                 required
               />
             </div>
             
             {/* Pickup Location */}
-            <div className="sm:col-span-1 lg:col-span-1">
+            <div className="sm:col-span-1 lg:col-span-1 w-full">
               <Label htmlFor="pickup-location" className="text-white mb-1 block text-sm">Pickup Location</Label>
               <Input 
                 id="pickup-location" 
                 value={formData.pickupLocation}
                 onChange={(e) => handleInputChange("pickupLocation", e.target.value)}
                 placeholder="Airport, Calangute, Panjim..." 
-                className="bg-white/20 text-white placeholder:text-white/70 border-white/30 h-10 sm:h-11"
+                className="bg-white/20 text-white placeholder:text-white/70 border-white/30 h-10 sm:h-11 w-full"
                 required
               />
             </div>
 
             {/* Drop Location */}
-            <div className="sm:col-span-1 lg:col-span-1">
+            <div className="sm:col-span-1 lg:col-span-1 w-full">
               <Label htmlFor="drop-location" className="text-white mb-1 block text-sm">Drop Location</Label>
               <Input 
                 id="drop-location" 
                 value={formData.dropLocation}
                 onChange={(e) => handleInputChange("dropLocation", e.target.value)}
                 placeholder="Same as pickup or different..." 
-                className="bg-white/20 text-white placeholder:text-white/70 border-white/30 h-10 sm:h-11"
+                className="bg-white/20 text-white placeholder:text-white/70 border-white/30 h-10 sm:h-11 w-full"
                 required
               />
             </div>
             
             {/* Pickup Date & Time */}
-            <div className="sm:col-span-2 lg:col-span-1">
+            <div className="sm:col-span-2 lg:col-span-1 w-full">
               <Label htmlFor="pickup-datetime" className="text-white mb-1 block text-sm">Pickup Date & Time</Label>
-              <div className="flex gap-1 sm:gap-2">
+              <div className="flex gap-1 sm:gap-2 w-full">
               <Popover>
                 <PopoverTrigger asChild>
                   <Button
@@ -285,9 +285,9 @@ const Hero = () => {
             </div>
             
             {/* Drop Date & Time */}
-            <div className="sm:col-span-2 lg:col-span-1">
+            <div className="sm:col-span-2 lg:col-span-1 w-full">
               <Label htmlFor="drop-datetime" className="text-white mb-1 block text-sm">Drop Date & Time</Label>
-              <div className="flex gap-1 sm:gap-2">
+              <div className="flex gap-1 sm:gap-2 w-full">
               <Popover>
                 <PopoverTrigger asChild>
                   <Button
