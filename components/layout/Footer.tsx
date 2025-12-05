@@ -152,7 +152,7 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="text-blue-500 mt-1 flex-shrink-0" size={18} />
                 <p className="text-gray-300">
-                  123 Beach Road, Calangute, <br /> North Goa, 403516
+                  Shop no. 1, Mini Max Apartment, <br /> ND Naik Rd, Madgaon, Goa 403601
                 </p>
               </div>
               <div className="flex items-center space-x-3">
@@ -191,14 +191,14 @@ const Footer = () => {
         {/* Google Map */}
         <div className="mt-10 md:mt-12 rounded-lg overflow-hidden shadow-lg">
           <iframe
-            src="https://www.google.com/maps?q=Zio+Car+Rentals,+123+Beach+Road,+Calangute,+North+Goa,+403516&output=embed&hl=en"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3483.0556040277565!2d73.9706294745849!3d15.27314771025846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfb3d41dfadb93%3A0x575b1e5b00c0ea93!2sZio%20Car%20%26%20Bike%20Rentals!5e1!3m2!1sen!2sin!4v1764955984518!5m2!1sen!2sin"
             width="100%"
             height="250"
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="ZioCarRentals - 123 Beach Road, Calangute, North Goa, 403516"
+            title="Zio Car & Bike Rentals - Shop no. 1, Mini Max Apartment, ND Naik Rd, Madgaon, Goa 403601"
             className="w-full md:h-[300px]"
           ></iframe>
         </div>

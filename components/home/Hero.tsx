@@ -38,9 +38,9 @@ export function HeroStructuredData() {
           "priceRange": "₹₹",
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "123 Beach Road, Calangute",
-            "addressLocality": "North Goa",
-            "postalCode": "403516",
+            "streetAddress": "Shop no. 1, Mini Max Apartment, ND Naik Rd",
+            "addressLocality": "Madgaon, Goa",
+            "postalCode": "403601",
             "addressCountry": "IN"
           },
           "telephone": "+918888888888",
