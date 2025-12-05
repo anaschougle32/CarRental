@@ -191,7 +191,7 @@ const Footer = () => {
         {/* Google Map */}
         <div className="mt-10 md:mt-12 rounded-lg overflow-hidden shadow-lg">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25155.870809170843!2d73.95091347875199!3d15.266892013288974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfb3f4b670aaed%3A0xbf05105f66003bfe!2sZio%20Car%20Rentals!5e0!3m2!1sen!2sin!4v1749562513743!5m2!1sen!2sin&q=123+Beach+Road,+Calangute,+North+Goa,+403516"
+            src="https://www.google.com/maps?q=Zio+Car+Rentals,+123+Beach+Road,+Calangute,+North+Goa,+403516&output=embed&hl=en"
             width="100%"
             height="250"
             style={{ border: 0 }}
