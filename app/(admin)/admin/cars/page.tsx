@@ -362,10 +362,10 @@ export default function AdminCars() {
     
     // Validate file type
     const fileType = imageFile.type.toLowerCase();
-    const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+    const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/avif'];
     
     if (!validTypes.includes(fileType)) {
-      showNotification("Invalid file type. Please upload JPG, JPEG, PNG, or WEBP images only.", "error");
+      showNotification("Invalid file type. Please upload JPG, JPEG, PNG, WEBP, or AVIF images only.", "error");
       throw new Error("Invalid file type");
     }
     

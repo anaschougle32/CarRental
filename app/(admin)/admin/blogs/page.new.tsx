@@ -244,9 +244,9 @@ export default function AdminBlogs() {
     
     // Validate file type
     const fileType = file.type.toLowerCase();
-    const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+    const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/avif'];
     if (!validTypes.includes(fileType)) {
-      showNotification("Please select a valid image file (JPEG, PNG, WebP)", "error");
+      showNotification("Please select a valid image file (JPEG, PNG, WebP, AVIF)", "error");
       return;
     }
     
@@ -692,13 +692,13 @@ export default function AdminBlogs() {
                     id="cover_image"
                     onChange={handleImageChange}
                     className="absolute inset-0 opacity-0 cursor-pointer z-10"
-                    accept="image/jpeg,image/png,image/webp,image/jpg"
+                    accept="image/jpeg,image/png,image/webp,image/jpg,image/avif"
                   />
                   {!imagePreview ? (
                     <div className="absolute inset-0 flex flex-col items-center justify-center">
                       <Upload className="h-8 w-8 text-gray-400" />
                       <span className="text-sm text-gray-500 mt-1">Upload Cover Image</span>
-                      <span className="text-xs text-gray-400 mt-1">(JPEG, PNG, WebP - Max 5MB)</span>
+                      <span className="text-xs text-gray-400 mt-1">(JPEG, PNG, WebP, AVIF - Max 5MB)</span>
                     </div>
                   ) : (
                     <div className="relative w-full h-full">
