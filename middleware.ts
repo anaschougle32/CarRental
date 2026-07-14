@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server';
 
 export async function middleware(req: NextRequest) {
   // Allow access to login page
-  if (req.nextUrl.pathname === '/adminlogin') {
+  if (req.nextUrl.pathname === '/adminlogin' || req.nextUrl.pathname === '/admin/login') {
     return NextResponse.next();
   }
   
@@ -11,11 +11,6 @@ export async function middleware(req: NextRequest) {
   if (req.nextUrl.pathname.startsWith('/admin')) {
     // Check for admin cookie (set during login)
     const isLoggedIn = req.cookies.get('admin_session');
-    
-    // Temporary bypass for debugging - remove this in production
-    if (req.nextUrl.pathname.startsWith('/admin') && !req.nextUrl.pathname.includes('/adminlogin')) {
-      return NextResponse.next();
-    }
     
     if (!isLoggedIn) {
       // Redirect to login page
