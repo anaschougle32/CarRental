@@ -2,11 +2,11 @@ import { createClient } from '@supabase/supabase-js';
 
 // Get environment variables
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || '';
 
 // Validate environment variables
 if (!supabaseUrl || !supabaseAnonKey) {
-  console.error('Supabase URL or Anon Key is missing in environment variables');
+  console.error('Supabase URL or Anon Key (Publishable Key) is missing in environment variables');
 }
 
 // Create Supabase client with minimal configuration

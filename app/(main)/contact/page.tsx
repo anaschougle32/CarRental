@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import ContactForm from "@/components/common/ContactForm";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Container, Section } from "@/components/common/LayoutComponents";
 
 export const metadata: Metadata = {
   title: "Contact Us | ZioCarRentals in Goa",
@@ -11,7 +12,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Contact Hero */}
-      <section className="relative h-[30vh] min-h-[250px] flex items-center justify-center">
+      <section className="relative h-[30vh] min-h-[250px] flex items-center justify-center w-full">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -21,17 +22,17 @@ export default function ContactPage() {
         />
         <div className="absolute inset-0 bg-black/60" />
         
-        <div className="relative z-10 container mx-auto px-4 md:px-6 text-center text-white">
+        <Container className="relative z-10 text-center text-white">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
           <p className="text-xl max-w-3xl mx-auto">
             We're available 24/7 to assist you with bookings and inquiries
           </p>
-        </div>
+        </Container>
       </section>
       
       {/* Contact Info + Form */}
-      <section className="py-20 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-4 md:px-6">
+      <Section className="bg-white dark:bg-gray-900" size="lg">
+        <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div>
@@ -119,15 +120,15 @@ export default function ContactPage() {
               <ContactForm />
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
       
       {/* Map Section */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
-        <div className="container mx-auto px-4 md:px-6">
+      <Section className="bg-gray-50 dark:bg-gray-800" size="lg">
+        <Container>
           <h2 className="text-2xl font-bold mb-8 text-center">Find Us Here</h2>
           
-          <div className="h-96 rounded-lg overflow-hidden shadow-md">
+          <div className="h-96 rounded-lg overflow-hidden shadow-md w-full">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3483.0556040277565!2d73.9706294745849!3d15.27314771025846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfb3d41dfadb93%3A0x575b1e5b00c0ea93!2sZio%20Car%20%26%20Bike%20Rentals!5e1!3m2!1sen!2sin!4v1764955984518!5m2!1sen!2sin"
               width="100%"
@@ -140,8 +141,8 @@ export default function ContactPage() {
               className="w-full h-full"
             ></iframe>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
     </>
   );
 }

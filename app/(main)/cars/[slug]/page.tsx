@@ -9,6 +9,7 @@ import { Separator } from "@/components/ui/separator";
 import { getCarBySlug, getCars, getBrands } from "@/lib/supabase";
 import { Car as SupabaseCar } from "@/lib/supabase";
 import { Car } from "@/lib/types";
+import { Container, Section } from "@/components/common/LayoutComponents";
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
@@ -158,8 +159,9 @@ export default async function CarPage({ params }: Props) {
     const car = await mapSupabaseCarToAppCar(carData);
     
     return (
-      <div className="container mx-auto px-4 md:px-6 py-10 pt-24 md:pt-32">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <Section className="bg-white dark:bg-gray-900 py-6" size="sm">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
             <h1 className="text-2xl md:text-3xl font-bold mb-2">
               {car.brand} {car.name} Car Rental in Goa
@@ -252,7 +254,8 @@ export default async function CarPage({ params }: Props) {
         <Separator className="my-12" />
         
         <RelatedCars currentSlug={car.slug} />
-      </div>
+        </Container>
+      </Section>
     );
   } catch (error) {
     console.error("Error in car page:", error);

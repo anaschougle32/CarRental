@@ -1,4 +1,5 @@
 import { Check, Shield, Clock, MapPin, Car, BadgeDollarSign } from "lucide-react";
+import { Section, Container } from "../common/LayoutComponents";
 
 const features = [
   {
@@ -35,12 +36,12 @@ const features = [
 
 const WhyChooseUs = () => {
   return (
-    <section className="py-20 bg-gray-50 dark:bg-gray-800">
-      <div className="container mx-auto px-4 md:px-6">
+    <Section className="bg-gray-50 dark:bg-gray-800">
+      <Container>
         <div className="text-center mb-12">
-                  <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          Why Choose ZioCarRentals?
-        </h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Why Choose ZioCarRentals?
+          </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             We're committed to providing you with the best self-drive car rental experience in Goa.
           </p>
@@ -62,8 +63,8 @@ const WhyChooseUs = () => {
             </div>
           ))}
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };
 

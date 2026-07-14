@@ -22,10 +22,10 @@ export default function Error({
       <AlertTriangle className="h-16 w-16 text-red-500 mb-6" />
       <h2 className="text-3xl font-bold mb-4">Oops! Car Details Unavailable</h2>
       <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-lg">
-        We couldn't load the details for this car. This could be due to a temporary connectivity issue or the car may no longer be available.
+        We couldn&apos;t load the details for this car. This could be due to a temporary connectivity issue or the car may no longer be available.
       </p>
       <div className="flex gap-4">
-        <Button variant="default" onClick={() => reset()}>
+        <Button variant="default" onClick={() => typeof reset === 'function' ? reset() : window.location.reload()}>
           Try again
         </Button>
         <Button variant="outline" asChild>

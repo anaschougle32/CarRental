@@ -21,10 +21,10 @@ export default function Error({
       <AlertTriangle className="h-16 w-16 text-red-500 mb-6" />
       <h2 className="text-3xl font-bold mb-4">Something went wrong!</h2>
       <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-lg">
-        We couldn't load the cars listing. This could be due to a temporary connectivity issue or server error.
+        We couldn&apos;t load the cars listing. This could be due to a temporary connectivity issue or server error.
       </p>
       <div className="flex gap-4">
-        <Button variant="default" onClick={() => reset()}>
+        <Button variant="default" onClick={() => typeof reset === 'function' ? reset() : window.location.reload()}>
           Try again
         </Button>
         <Button variant="outline" onClick={() => window.location.href = '/'}>

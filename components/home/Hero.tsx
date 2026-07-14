@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { ChevronRight, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { Container } from "../common/LayoutComponents";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Calendar } from "@/components/ui/calendar";
@@ -155,7 +156,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-[600px] md:h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20">
+    <section className="relative min-h-[calc(100vh-var(--navbar-height))] w-full overflow-hidden">
       {/* Structured Data for SEO */}
       <HeroStructuredData />
       
@@ -175,7 +176,7 @@ const Hero = () => {
             fill
             sizes="100vw"
             priority={index === 0}
-            className="object-cover"
+            className="object-cover object-[center_35%]"
             quality={index === 0 ? 85 : 75}
             loading={index === 0 ? "eager" : "lazy"}
           />
@@ -183,21 +184,22 @@ const Hero = () => {
       ))}
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-black/55" />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto px-4 py-12 md:py-0 text-center text-white w-full md:max-w-[80%] md:mx-auto">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 animate-fade-in">
-          Freedom to Explore Goa,{" "}
-          <span className="text-blue-400">Your Way</span>
-        </h1>
-        <p className="text-lg sm:text-xl md:text-2xl mb-6 md:mb-8 max-w-3xl mx-auto">
-          Premium self-drive car rentals with unlimited kilometers,
-          airport pickup, and 24/7 roadside assistance.
-        </p>
-        
-        {/* Enhanced Booking Form */}
-        <form onSubmit={handleFormSubmit} className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 md:p-6 max-w-full mx-auto mt-6 md:mt-8 w-full">
+      <Container className="relative z-10 text-center text-white">
+        <div className="w-full flex flex-col items-center justify-center min-h-[calc(100vh-var(--navbar-height))] pt-10 md:pt-14 lg:pt-16 pb-12 md:pb-16">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 animate-fade-in">
+            Freedom to Explore Goa,{" "}
+            <span className="text-blue-400">Your Way</span>
+          </h1>
+          <p className="text-lg sm:text-xl md:text-2xl mb-4 md:mb-6 max-w-3xl mx-auto">
+            Premium self-drive car rentals with unlimited kilometers,
+            airport pickup, and 24/7 roadside assistance.
+          </p>
+          
+          {/* Enhanced Booking Form */}
+          <form onSubmit={handleFormSubmit} className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 md:p-6 max-w-full mx-auto mt-4 md:mt-6 w-full">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 w-full">
             {/* Name Field */}
             <div className="sm:col-span-2 lg:col-span-1 w-full">
@@ -337,7 +339,7 @@ const Hero = () => {
         </form>
         
         {/* Added more spacing above the buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-12 sm:mt-16 md:mt-20 mb-20 md:mb-24">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-12 sm:mt-16 md:mt-20">
           <Link href="/cars" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-blue-600 text-white hover:bg-blue-700 h-11 px-8 w-full sm:w-auto group">
             <span className="hidden sm:inline">Browse All Cars</span>
             <span className="sm:hidden">Browse Cars</span>
@@ -349,6 +351,7 @@ const Hero = () => {
           </a>
         </div>
       </div>
+    </Container>
 
       {/* Scroll Indicator - Hide on mobile, with better spacing */}
       <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 hidden md:flex flex-col items-center">

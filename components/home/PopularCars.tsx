@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { getCars, getBrands } from "@/lib/supabase";
 import { Car } from "@/lib/types";
 
+import { Section, Container } from "../common/LayoutComponents";
+
 const PopularCars = () => {
   const [popularCars, setPopularCars] = useState<Car[]>([]);
   const [loading, setLoading] = useState(true);
@@ -76,8 +78,8 @@ const PopularCars = () => {
 
   if (loading) {
     return (
-      <section className="py-20 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-4 md:px-6">
+      <Section className="bg-white dark:bg-gray-900">
+        <Container>
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Our Most Popular Cars
@@ -89,14 +91,14 @@ const PopularCars = () => {
           <div className="flex justify-center items-center h-40">
             <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
     );
   }
 
   return (
-    <section className="py-20 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-4 md:px-6">
+    <Section className="bg-white dark:bg-gray-900">
+      <Container>
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Our Most Popular Cars
@@ -106,7 +108,7 @@ const PopularCars = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mt-10">
+        <div className="grid grid-cols-1 min-[375px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-10">
           {popularCars.map((car) => (
             <CarCard key={car.id} car={car} showCategory={true} />
           ))}
@@ -117,8 +119,8 @@ const PopularCars = () => {
             View All Cars <ChevronRight size={16} />
           </Link>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };
 

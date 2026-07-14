@@ -24,10 +24,10 @@ export default function GlobalError({
             <AlertCircle className="h-16 w-16 text-red-500 mx-auto mb-6" />
             <h1 className="text-4xl font-bold mb-4">Something went wrong!</h1>
             <p className="text-lg text-gray-600 mb-8">
-              The application encountered a critical error. We've been notified and are working to fix it.
+              The application encountered a critical error. We&apos;ve been notified and are working to fix it.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button onClick={() => reset()} size="lg">
+              <Button onClick={() => typeof reset === 'function' ? reset() : window.location.reload()} size="lg">
                 Try again
               </Button>
               <Button variant="outline" onClick={() => window.location.href = '/'} size="lg">

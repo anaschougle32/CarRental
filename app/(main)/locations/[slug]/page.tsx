@@ -8,6 +8,7 @@ import { MapPin } from "lucide-react";
 import CarCard from "@/components/car/CarCard";
 import BookingForm from "@/components/common/BookingForm";
 import Head from "next/head";
+import { Container, Section } from "@/components/common/LayoutComponents";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -320,19 +321,20 @@ export default async function LocationPage({ params }: Props) {
     const cars = await Promise.all(carsData.map(car => mapSupabaseCarToAppCar(car)));
     
     return (
-      <div className="container mx-auto px-4 md:px-6 py-10 pt-24 md:pt-32">
+      <>
         {/* Booking Form Section - At Top */}
-        <div className="mb-16 -mx-4 md:-mx-6">
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 py-12">
-            <div className="container mx-auto px-4 md:px-6">
-              <BookingForm 
-                title={`Book Your Car Rental in ${location.name}`}
-                subtitle={`Get instant quotes and check availability for car rentals in ${location.name}. Fill out the form below to start your booking.`}
-                className="bg-white rounded-lg shadow-lg"
-              />
-            </div>
-          </div>
-        </div>
+        <Section className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 py-12 w-full" size="none">
+          <Container>
+            <BookingForm 
+              title={`Book Your Car Rental in ${location.name}`}
+              subtitle={`Get instant quotes and check availability for car rentals in ${location.name}. Fill out the form below to start your booking.`}
+              className="bg-white rounded-lg shadow-lg"
+            />
+          </Container>
+        </Section>
+        
+        <Section className="bg-white dark:bg-gray-900 py-10" size="sm">
+          <Container>
         
         <div className="mb-10">
           <div className="flex items-center mb-2">
@@ -410,7 +412,7 @@ export default async function LocationPage({ params }: Props) {
           <h2 className="text-2xl font-bold mb-6">Cars Available for Rent in {location.name}, Goa</h2>
           
           {cars.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 min-[375px]:grid-cols-2 lg:grid-cols-3 gap-4">
               {cars.map(car => (
                 <CarCard key={car.id} car={car} showCategory={true} />
               ))}
@@ -459,7 +461,9 @@ export default async function LocationPage({ params }: Props) {
             </div>
           </div>
         </div>
-      </div>
+          </Container>
+        </Section>
+      </>
     );
   } catch (error) {
     console.error("Error in location page:", error);

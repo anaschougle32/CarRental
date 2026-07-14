@@ -54,6 +54,8 @@ const fallbackBlogs: BlogPost[] = [
   }
 ];
 
+import { Section, Container } from "../common/LayoutComponents";
+
 const BlogPreview = () => {
   const [recentBlogs, setRecentBlogs] = useState<BlogPost[]>(fallbackBlogs);
   const [loading, setLoading] = useState(true);
@@ -68,7 +70,7 @@ const BlogPreview = () => {
     if (!mounted) return;
     
     let isMounted = true;
-
+ 
     const fetchBlogs = async () => {
       try {
         setLoading(true);
@@ -110,8 +112,8 @@ const BlogPreview = () => {
   }, [mounted]);
 
   return (
-    <section className="py-20 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-4 md:px-6">
+    <Section className="bg-white dark:bg-gray-900">
+      <Container>
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Travel Tips & Guides
@@ -140,15 +142,15 @@ const BlogPreview = () => {
         )}
 
         <div className="text-center mt-12">
-          <Link href="/blog">
+          <Link href="/blogs">
             <Button variant="outline" className="group">
               View All Blog Posts
               <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };
 

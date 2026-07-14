@@ -10,6 +10,7 @@ import RelatedArticles from '@/components/blog/RelatedArticles';
 import BookingFormPopup from '@/components/common/BookingFormPopup';
 import type { BlogPost } from '@/types/blog';
 import { calculateReadingTime } from '@/lib/utils/reading-time';
+import { Container, Section } from "@/components/common/LayoutComponents";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -99,8 +100,8 @@ export default async function BlogPost({ params }: Props) {
   const readingTime = post.content ? calculateReadingTime(post.content) : 5;
 
   return (
-    <div className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 min-h-screen">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-24">
+    <Section className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800" size="sm">
+      <Container className="max-w-4xl">
         <div className="mb-8">
           <Link 
             href="/blogs" 
@@ -326,7 +327,7 @@ export default async function BlogPost({ params }: Props) {
         <div className="mt-24">
           <ContactInfo />
         </div>
-      </div>
-    </div>
+      </Container>
+    </Section>
   )
 }

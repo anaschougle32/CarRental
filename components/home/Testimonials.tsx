@@ -6,6 +6,8 @@ import { testimonials } from "@/data/testimonials";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+import { Section, Container } from "../common/LayoutComponents";
+
 const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
@@ -31,14 +33,14 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-50 dark:bg-gray-800 overflow-hidden">
-      <div className="container mx-auto px-4 md:px-6">
+    <Section className="bg-gray-50 dark:bg-gray-800 overflow-hidden">
+      <Container>
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             What Our Customers Say
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-          Don't just take our word for it. Here's what some of our happy customers have to say about their experience with ZioCarRentals.
+            Don't just take our word for it. Here's what some of our happy customers have to say about their experience with ZioCarRentals.
           </p>
         </div>
 
@@ -135,8 +137,8 @@ const Testimonials = () => {
             ))}
           </div>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };
 

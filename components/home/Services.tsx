@@ -1,9 +1,10 @@
 import React from 'react';
+import { Section, Container } from "../common/LayoutComponents";
 
 export default function Services() {
   return (
-    <section className="py-12 bg-white" id="services">
-      <div className="container mx-auto px-4 md:px-6">
+    <Section className="bg-white" id="services">
+      <Container>
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
             Our Premium Services
@@ -122,7 +123,7 @@ export default function Services() {
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

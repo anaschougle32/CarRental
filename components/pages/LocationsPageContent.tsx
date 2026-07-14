@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin } from "lucide-react";
 import { Location as LocationType } from "@/lib/supabase";
+import { Container, Section } from "@/components/common/LayoutComponents";
 
 // Dynamic imports with proper error handling
 const Services = dynamic(() => import("@/components/home/Services"), {
@@ -58,8 +59,8 @@ const LocationsPageContent = ({ initialLocations }: LocationsPageContentProps) =
 
   if (!mounted) {
     return (
-      <div className="min-h-screen bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-4 md:px-6 py-10 pt-24 md:pt-32">
+      <Section className="bg-white dark:bg-gray-900" size="lg">
+        <Container>
           <div className="text-center mb-12">
             <div className="h-12 bg-gray-200 dark:bg-gray-700 rounded animate-pulse mb-4"></div>
             <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded animate-pulse max-w-2xl mx-auto"></div>
@@ -69,16 +70,16 @@ const LocationsPageContent = ({ initialLocations }: LocationsPageContentProps) =
               <div key={i} className="h-48 bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse"></div>
             ))}
           </div>
-        </div>
-      </div>
+        </Container>
+      </Section>
     );
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="bg-white dark:bg-gray-900">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
-        <div className="container mx-auto px-4 md:px-6 text-center">
+      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 w-full">
+        <Container className="text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Car Rental Locations in Goa
           </h1>
@@ -86,39 +87,41 @@ const LocationsPageContent = ({ initialLocations }: LocationsPageContentProps) =
             Find our convenient pickup and drop locations across North Goa, South Goa, and major airports. 
             We're here to serve you wherever you are in Goa.
           </p>
-        </div>
+        </Container>
       </div>
 
       {/* Locations Grid */}
-      <div className="container mx-auto px-4 md:px-6 py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Our Service Locations</h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Choose from our wide network of locations for convenient car pickup and drop-off services.
-          </p>
-        </div>
+      <Section className="bg-white dark:bg-gray-900" size="lg">
+        <Container>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Our Service Locations</h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              Choose from our wide network of locations for convenient car pickup and drop-off services.
+            </p>
+          </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {locations.map((location) => (
-            <Card key={location.id} className="hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center">
-                    <MapPin className="h-6 w-6 text-blue-600 mr-2 flex-shrink-0" />
-                    <h3 className="text-xl font-semibold">{location.name}</h3>
+          <div className="grid grid-cols-1 min-[375px]:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            {locations.map((location) => (
+              <Card key={location.id} className="hover:shadow-lg transition-shadow duration-300">
+                <CardContent className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center">
+                      <MapPin className="h-6 w-6 text-blue-600 mr-2 flex-shrink-0" />
+                      <h3 className="text-xl font-semibold">{location.name}</h3>
+                    </div>
                   </div>
-                </div>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  {location.headline}
-                </p>
-                <Link href={`/locations/${location.slug}`} className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full">
-                  View Cars & Details
-                </Link>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
+                  <p className="text-gray-600 dark:text-gray-400 mb-4">
+                    {location.headline}
+                  </p>
+                  <Link href={`/locations/${location.slug}`} className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full">
+                    View Cars & Details
+                  </Link>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </Container>
+      </Section>
 
       {/* Popular Cars Section */}
       <PopularCars />

@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import CarsGrid from "@/components/car/CarsGrid";
 import { Suspense } from "react";
 import { Loader2 } from "lucide-react";
+import { Container, Section } from "@/components/common/LayoutComponents";
 
 export const metadata: Metadata = {
   title: "Available Self Drive Cars in Goa – Book Online",
@@ -20,19 +21,21 @@ function LoadingCars() {
 
 export default function CarsPage() {
   return (
-    <div className="container mx-auto px-4 md:px-6 py-10 pt-24 md:pt-32">
-      <div className="text-center mb-10">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4">
-          Our Fleet of Rental Cars
-        </h1>
-        <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-          Choose from our wide selection of well-maintained vehicles. All cars come with unlimited kilometers and 24/7 roadside assistance.
-        </p>
-      </div>
+    <Section className="bg-white dark:bg-gray-900" size="lg">
+      <Container>
+        <div className="text-center mb-10">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            Our Fleet of Rental Cars
+          </h1>
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            Choose from our wide selection of well-maintained vehicles. All cars come with unlimited kilometers and 24/7 roadside assistance.
+          </p>
+        </div>
 
-      <Suspense fallback={<LoadingCars />}>
-        <CarsGrid />
-      </Suspense>
-    </div>
+        <Suspense fallback={<LoadingCars />}>
+          <CarsGrid />
+        </Suspense>
+      </Container>
+    </Section>
   );
 }

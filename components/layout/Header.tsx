@@ -56,13 +56,13 @@ const Header = () => {
   return (
     <header
       className={cn(
-        "fixed w-full top-0 z-50 transition-all duration-300 backdrop-blur-md",
+        "fixed w-full top-0 z-50 transition-all duration-300 backdrop-blur-md border-b border-gray-200/50 dark:border-gray-800/50",
         isScrolled
-          ? "bg-white/80 dark:bg-gray-900/90 shadow-md py-2"
-          : "bg-white/50 dark:bg-gray-900/60 py-3"
+          ? "bg-white/90 dark:bg-gray-900/95 shadow-md py-2"
+          : "bg-white/80 dark:bg-gray-900/90 py-3"
       )}
     >
-      <div className="mx-auto px-4 md:px-6 flex items-center justify-between h-16 w-full md:max-w-[80%] md:mx-auto">
+      <div className="w-full max-w-[var(--container-max)] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
             <Logo />
@@ -131,6 +131,6 @@ const Header = () => {
       <MobileMenu isOpen={isMobileMenuOpen} onClose={toggleMobileMenu} />
     </header>
   );
-}
+};
 
 export default Header;

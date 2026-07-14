@@ -39,6 +39,8 @@ const faqs = [
   }
 ];
 
+import { Section, Container } from "../common/LayoutComponents";
+
 export default function Faqs() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -47,8 +49,8 @@ export default function Faqs() {
   };
 
   return (
-    <section className="py-16 bg-gray-50 dark:bg-gray-900">
-      <div className="container mx-auto px-4 md:px-6">
+    <Section className="bg-gray-50 dark:bg-gray-900">
+      <Container>
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Frequently Asked Questions
@@ -97,7 +99,7 @@ export default function Faqs() {
             </div>
           ))}
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

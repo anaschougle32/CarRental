@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import { Check, Users, Award, Clock } from "lucide-react";
+import { Container, Section } from "@/components/common/LayoutComponents";
 
 export const metadata: Metadata = {
   title: "About ZioCarRentals | Leading Car Rental Service in Goa Since 2018",
@@ -35,7 +36,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Breadcrumbs for SEO */}
-      <nav className="container mx-auto px-4 md:px-6 pt-24 pb-2 text-sm" aria-label="Breadcrumb">
+      <Container className="py-4 text-sm" as="nav" aria-label="Breadcrumb">
         <ol className="list-none p-0 inline-flex">
           <li className="flex items-center">
             <a href="/" className="text-blue-600 hover:text-blue-800">Home</a>
@@ -47,10 +48,10 @@ export default function AboutPage() {
             <span className="text-gray-500" aria-current="page">About Us</span>
           </li>
         </ol>
-      </nav>
+      </Container>
       
       {/* Hero Section */}
-      <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center">
+      <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center w-full">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -62,17 +63,17 @@ export default function AboutPage() {
         />
         <div className="absolute inset-0 bg-black/50" />
         
-        <div className="relative z-10 container mx-auto px-4 md:px-6 text-center text-white">
+        <Container className="relative z-10 text-center text-white">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">About ZioCarRentals</h1>
           <p className="text-xl max-w-3xl mx-auto">
             Goa's premier car rental service since 2018 | Serving North & South Goa
           </p>
-        </div>
+        </Container>
       </section>
       
       {/* Our Story */}
-      <section className="py-20 bg-white dark:bg-gray-900" id="our-story">
-        <div className="container mx-auto px-4 md:px-6">
+      <Section className="bg-white dark:bg-gray-900" id="our-story" size="lg">
+        <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold mb-6">Our Story</h2>
@@ -86,7 +87,7 @@ export default function AboutPage() {
                 Today, we've grown to a fleet of over 50 well-maintained vehicles serving all major locations in Goa including Panjim, Madgaon, and both Dabolim and Mopa airports. Our core values remain the same - providing reliable, affordable, and hassle-free rental experiences to our customers throughout their Goa journey.
               </p>
             </div>
-            <div className="relative h-96 rounded-lg overflow-hidden">
+            <div className="relative h-96 rounded-lg overflow-hidden w-full">
               <img
                 src="https://images.pexels.com/photos/70912/pexels-photo-70912.jpeg"
                 alt="ZioCarRentals team with our fleet of cars in Goa"
@@ -97,12 +98,12 @@ export default function AboutPage() {
               />
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
       
       {/* Our Values */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
-        <div className="container mx-auto px-4 md:px-6">
+      <Section className="bg-gray-50 dark:bg-gray-800" size="lg">
+        <Container>
           <h2 className="text-3xl font-bold mb-4 text-center">Our Values</h2>
           <p className="text-center text-gray-700 dark:text-gray-300 mb-12 max-w-3xl mx-auto">
             These core principles guide everything we do at ZioCarRentals
@@ -139,14 +140,14 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
       
       {/* Why Choose Us */}
-      <section className="py-20 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-4 md:px-6">
+      <Section className="bg-white dark:bg-gray-900" size="lg">
+        <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1 relative h-96 rounded-lg overflow-hidden">
+            <div className="order-2 lg:order-1 relative h-96 rounded-lg overflow-hidden w-full">
               <img
                 src="https://images.pexels.com/photos/3786091/pexels-photo-3786091.jpeg"
                 alt="Happy customers with rental car"
@@ -207,12 +208,12 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
       
       {/* Team Section */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800" id="our-team">
-        <div className="container mx-auto px-4 md:px-6">
+      <Section className="bg-gray-50 dark:bg-gray-800" id="our-team" size="lg">
+        <Container>
           <h2 className="text-3xl font-bold mb-4 text-center">Meet Our Team</h2>
           <p className="text-center text-gray-700 dark:text-gray-300 mb-12 max-w-3xl mx-auto">
             The dedicated professionals behind ZioCarRentals who make your Goa car rental experience memorable
@@ -279,12 +280,12 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
       
       {/* FAQ Section for SEO */}
-      <section className="py-20 bg-white dark:bg-gray-900" id="faqs">
-        <div className="container mx-auto px-4 md:px-6">
+      <Section className="bg-white dark:bg-gray-900" id="faqs" size="lg">
+        <Container>
           <h2 className="text-3xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
           <p className="text-center text-gray-700 dark:text-gray-300 mb-12 max-w-3xl mx-auto">
             Common questions about ZioCarRentals and our services in Goa
@@ -325,12 +326,12 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
       
       {/* Testimonials for Social Proof */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
-        <div className="container mx-auto px-4 md:px-6">
+      <Section className="bg-gray-50 dark:bg-gray-800" size="lg">
+        <Container>
           <h2 className="text-3xl font-bold mb-4 text-center">What Our Customers Say</h2>
           <p className="text-center text-gray-700 dark:text-gray-300 mb-12 max-w-3xl mx-auto">
             Hear from travelers who have explored Goa with ZioCarRentals
@@ -391,8 +392,8 @@ export default function AboutPage() {
               <div className="text-sm text-gray-500">Visited February 2025</div>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
     </>
   );
 }

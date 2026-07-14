@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Container, Section } from "@/components/common/LayoutComponents";
 
 export const metadata: Metadata = {
   title: "Terms and Conditions | ZioCarRentals",
@@ -7,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <div className="container mx-auto px-4 md:px-6 py-10 pt-24 md:pt-32">
-      <div className="max-w-3xl mx-auto">
+    <Section className="bg-white dark:bg-gray-900" size="lg">
+      <Container className="max-w-3xl">
         <h1 className="text-3xl md:text-4xl font-bold mb-6">Terms and Conditions</h1>
         
         <div className="prose dark:prose-invert max-w-none">
@@ -121,10 +122,10 @@ export default function TermsPage() {
           <p className="mb-4">
             If you have any questions about these Terms, please contact us:
           </p>
-                      <p className="mb-1">Email: info@ziocarrentals.com</p>
-          <p className="mb-4">Phone: +919867975473</p>
+          <p className="mb-1">Email: info@ziocarrentals.com</p>
+          <p className="mb-4">Phone: +91 90828 88912</p>
         </div>
-      </div>
-    </div>
+      </Container>
+    </Section>
   );
 }

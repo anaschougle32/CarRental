@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getBlogs } from "@/lib/blogs";
 import { BlogPost } from "@/types/blog";
+import { Container, Section } from "@/components/common/LayoutComponents";
 
 // Disable caching for this route
 export const dynamic = 'force-dynamic';
@@ -62,9 +63,9 @@ export default async function BlogsPage() {
   const categories = ['All', 'Travel Tips', 'Driving Guides', 'Goa Attractions', 'Car Maintenance'];
   
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="bg-white dark:bg-gray-900">
       {/* Breadcrumbs for SEO */}
-      <nav className="container mx-auto px-4 md:px-6 pt-24 pb-2 text-sm" aria-label="Breadcrumb">
+      <Container className="py-4 text-sm" as="nav" aria-label="Breadcrumb">
         <ol className="list-none p-0 inline-flex">
           <li className="flex items-center">
             <a href="/" className="text-blue-600 hover:text-blue-800">Home</a>
@@ -76,11 +77,11 @@ export default async function BlogsPage() {
             <span className="text-gray-500" aria-current="page">Blog</span>
           </li>
         </ol>
-      </nav>
+      </Container>
       
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
-        <div className="container mx-auto px-4 md:px-6 text-center">
+      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 w-full">
+        <Container className="text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">The ZioCarRentals Blog</h1>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto">
             Discover the best travel tips, driving guides, and local insights for your perfect Goa vacation.
@@ -96,114 +97,116 @@ export default async function BlogsPage() {
               Search
             </button>
           </div>
-        </div>
+        </Container>
       </div>
       
-      <div className="container mx-auto px-4 md:px-6 py-12">
-        {/* Category Tabs */}
-        <div className="flex flex-wrap gap-2 mb-12">
-          {categories.map((category) => (
-            <button 
-              key={category}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                category === 'All' 
-                  ? 'bg-blue-600 text-white' 
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-        
-        {/* Featured Post */}
-        {featuredBlog && (
-          <div className="mb-16 bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl">
-            <div className="relative">
-              <div className="absolute top-6 left-6 z-10">
-                <span className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold bg-blue-600 text-white">
-                  FEATURED
-                </span>
-              </div>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-                <div className="relative h-64 lg:h-[400px]">
-                  <Image 
-                    src={featuredBlog.cover_image || '/images/placeholder-blog.jpg'}
-                    alt={featuredBlog.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent lg:bg-gradient-to-r lg:from-black/60 lg:via-black/30 lg:to-transparent" />
+      <Section className="bg-white dark:bg-gray-900 py-12" size="none">
+        <Container>
+          {/* Category Tabs */}
+          <div className="flex flex-wrap gap-2 mb-12">
+            {categories.map((category) => (
+              <button 
+                key={category}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  category === 'All' 
+                    ? 'bg-blue-600 text-white' 
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+          
+          {/* Featured Post */}
+          {featuredBlog && (
+            <div className="mb-16 bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl">
+              <div className="relative">
+                <div className="absolute top-6 left-6 z-10">
+                  <span className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold bg-blue-600 text-white">
+                    FEATURED
+                  </span>
                 </div>
-                <div className="p-8 lg:p-12 flex flex-col justify-center bg-white dark:bg-gray-800">
-                  <div className="mb-4">
-                    <span className="inline-block bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 text-xs font-medium px-3 py-1 rounded-full">
-                      {featuredBlog.category || 'Travel Guide'}
-                    </span>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                  <div className="relative h-64 lg:h-[400px]">
+                    <Image 
+                      src={featuredBlog.cover_image || '/images/placeholder-blog.jpg'}
+                      alt={featuredBlog.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent lg:bg-gradient-to-r lg:from-black/60 lg:via-black/30 lg:to-transparent" />
                   </div>
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                    <Link href={`/blogs/${featuredBlog.slug}`} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                      {featuredBlog.title}
-                    </Link>
-                  </h2>
-                  <p className="text-gray-600 dark:text-gray-300 text-lg mb-6 line-clamp-3">
-                    {featuredBlog.excerpt || featuredBlog.description}
-                  </p>
-                  <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-                    <div className="flex items-center">
-                      <div className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 mr-3 flex items-center justify-center text-gray-600 dark:text-gray-300 font-medium">
-                        {(featuredBlog.author || 'ZT').charAt(0).toUpperCase()}
-                      </div>
-                      <div>
-                        <p className="font-medium text-gray-900 dark:text-white">
-                          {featuredBlog.author || 'ZioCarRentals Team'}
-                        </p>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
-                          {featuredBlog.created_at ? new Date(featuredBlog.created_at).toLocaleDateString('en-IN', {
-                            year: 'numeric',
-                            month: 'short',
-                            day: 'numeric'
-                          }) : 'Recent'}
-                        </p>
-                      </div>
+                  <div className="p-8 lg:p-12 flex flex-col justify-center bg-white dark:bg-gray-800">
+                    <div className="mb-4">
+                      <span className="inline-block bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 text-xs font-medium px-3 py-1 rounded-full">
+                        {featuredBlog.category || 'Travel Guide'}
+                      </span>
                     </div>
-                    <Link 
-                      href={`/blogs/${featuredBlog.slug}`}
-                      className="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
-                      aria-label={`Read full article: ${featuredBlog.title}`}
-                    >
-                      Read Full Story
-                      <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
-                    </Link>
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                      <Link href={`/blogs/${featuredBlog.slug}`} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                        {featuredBlog.title}
+                      </Link>
+                    </h2>
+                    <p className="text-gray-600 dark:text-gray-300 text-lg mb-6 line-clamp-3">
+                      {featuredBlog.excerpt || featuredBlog.description}
+                    </p>
+                    <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+                      <div className="flex items-center">
+                        <div className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 mr-3 flex items-center justify-center text-gray-600 dark:text-gray-300 font-medium">
+                          {(featuredBlog.author || 'ZT').charAt(0).toUpperCase()}
+                        </div>
+                        <div>
+                          <p className="font-medium text-gray-900 dark:text-white">
+                            {featuredBlog.author || 'ZioCarRentals Team'}
+                          </p>
+                          <p className="text-sm text-gray-500 dark:text-gray-400">
+                            {featuredBlog.created_at ? new Date(featuredBlog.created_at).toLocaleDateString('en-IN', {
+                              year: 'numeric',
+                              month: 'short',
+                              day: 'numeric'
+                            }) : 'Recent'}
+                          </p>
+                        </div>
+                      </div>
+                      <Link 
+                        href={`/blogs/${featuredBlog.slug}`}
+                        className="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
+                        aria-label={`Read full article: ${featuredBlog.title}`}
+                      >
+                        Read Full Story
+                        <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        )}
-        
-        {/* Section Title */}
-        <h2 className="text-2xl font-bold mb-8 text-gray-900 dark:text-white">Latest Articles</h2>
-        
-        {/* Blog Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {remainingBlogs.length > 0 ? (
-            remainingBlogs.map(blog => (
-              <BlogCard key={blog.id} blog={blog} />
-            ))
-          ) : (
-            featuredBlog ? null : (
-              <div className="col-span-3 text-center py-10">
-                <p className="text-gray-500 dark:text-gray-400">No blog posts found.</p>
-              </div>
-            )
           )}
-        </div>
-      </div>
+          
+          {/* Section Title */}
+          <h2 className="text-2xl font-bold mb-8 text-gray-900 dark:text-white">Latest Articles</h2>
+          
+          {/* Blog Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {remainingBlogs.length > 0 ? (
+              remainingBlogs.map(blog => (
+                <BlogCard key={blog.id} blog={blog} />
+              ))
+            ) : (
+              featuredBlog ? null : (
+                <div className="col-span-3 text-center py-10">
+                  <p className="text-gray-500 dark:text-gray-400">No blog posts found.</p>
+                </div>
+              )
+            )}
+          </div>
+        </Container>
+      </Section>
     </div>
   );
 }
@@ -256,7 +259,7 @@ function BlogCard({ blog }: { blog: BlogPost }) {
             </div>
             <div>
               <p className="text-sm font-medium text-gray-900 dark:text-white">
-                                        {blog.author || 'ZioCarRentals Team'}
+                {blog.author || 'ZioCarRentals Team'}
               </p>
               <p className="text-xs text-gray-500 dark:text-gray-400">
                 {blog.author ? 'Author' : 'Team Member'}

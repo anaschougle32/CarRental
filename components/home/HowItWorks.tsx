@@ -1,4 +1,5 @@
 import { MousePointer, CalendarCheck, Car } from "lucide-react";
+import { Section, Container } from "../common/LayoutComponents";
 
 const steps = [
   {
@@ -23,18 +24,18 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section className="py-20 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-4 md:px-6">
+    <Section className="bg-white dark:bg-gray-900">
+      <Container>
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             How It Works
           </h2>
-                  <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-          Renting a car with ZioCarRentals is quick and easy. Follow these simple steps:
-        </p>
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            Renting a car with ZioCarRentals is quick and easy. Follow these simple steps:
+          </p>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 mt-10">
+        <div className="flex flex-col md:flex-row justify-between items-stretch gap-8 mt-10">
           {steps.map((step, index) => (
             <div
               key={index}
@@ -60,7 +61,7 @@ const HowItWorks = () => {
 
               {/* Connector (except for last item) */}
               {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2">
+                <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
                   <svg
                     width="40"
                     height="20"
@@ -80,8 +81,8 @@ const HowItWorks = () => {
             </div>
           ))}
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };
 

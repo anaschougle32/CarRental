@@ -21,10 +21,10 @@ export default function Error({
       <AlertTriangle className="h-16 w-16 text-red-500 mb-6" />
       <h2 className="text-3xl font-bold mb-4">Something went wrong!</h2>
       <p className="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-lg">
-        An unexpected error occurred. We've been notified and are working to fix the issue.
+        An unexpected error occurred. We&apos;ve been notified and are working to fix the issue.
       </p>
       <div className="flex gap-4 flex-wrap justify-center">
-        <Button variant="default" onClick={() => reset()}>
+        <Button variant="default" onClick={() => typeof reset === 'function' ? reset() : window.location.reload()}>
           Try again
         </Button>
         <Button variant="outline" onClick={() => window.location.href = '/'}>

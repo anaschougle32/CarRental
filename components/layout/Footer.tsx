@@ -15,7 +15,7 @@ const Footer = () => {
     <>
     <LocationLinks />
     <footer className="bg-gray-900 text-white pt-12 md:pt-16 pb-6 md:pb-8 w-full">
-      <div className="mx-auto px-4 md:px-6 w-full md:max-w-[80%] md:mx-auto">
+      <div className="w-full max-w-[var(--container-max)] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="mb-8 md:mb-0">
@@ -108,15 +108,15 @@ const Footer = () => {
                   href="/contact"
                   className="text-gray-300 hover:text-blue-400 transition-colors block py-1"
                 >
-                  Contact
+                  Contact Us
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Legal */}
+          {/* Legal / Policy Links */}
           <div className="mb-8 md:mb-0">
-            <h3 className="text-lg font-bold mb-4 text-blue-400">Legal</h3>
+            <h3 className="text-lg font-bold mb-4 text-blue-400">Policies</h3>
             <ul className="space-y-2 text-sm md:text-base">
               <li>
                 <Link
@@ -145,10 +145,10 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Information */}
+          {/* Contact Details */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-blue-400">Contact Us</h3>
-            <div className="space-y-4 text-sm md:text-base">
+            <h3 className="text-lg font-bold mb-4 text-blue-400">Contact Info</h3>
+            <div className="space-y-3 text-sm md:text-base">
               <div className="flex items-start space-x-3">
                 <MapPin className="text-blue-500 mt-1 flex-shrink-0" size={18} />
                 <p className="text-gray-300">

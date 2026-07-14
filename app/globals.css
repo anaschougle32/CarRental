@@ -14,6 +14,11 @@
   --background-end-rgb: 255, 255, 255;
   --font-poppins: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-satoshi: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --navbar-height: 88px;
+  --section-y-sm: 2.5rem; /* py-10 */
+  --section-y-md: 4rem;   /* py-16 */
+  --section-y-lg: 5rem;   /* py-20 */
+  --container-max: 80rem; /* max-w-7xl */
 }
 
 /* Apply Poppins to all elements */
@@ -141,59 +146,33 @@ html {
     }
   }
   
-  /* Desktop and Tablet: Set max-width to 80% to prevent overlapping */
-  @media (min-width: 769px) {
-    /* Direct wrapper approach - more reliable in production */
-    main > div {
-      max-width: 80% !important;
-      width: 100% !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-    }
-    
-    .container {
-      max-width: 80% !important;
-      width: 100% !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-    }
-    
-    /* Prevent header from overflowing */
-    header > div,
-    header .container {
-      max-width: 80% !important;
-      width: 100% !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-    }
-    
-    /* Prevent footer from overflowing */
-    footer > div,
-    footer .container {
-      max-width: 80% !important;
-      width: 100% !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-    }
-    
-    /* Prevent form elements from overflowing */
-    form {
-      max-width: 100% !important;
-      box-sizing: border-box !important;
-    }
-    
-    /* Ensure grid items don't overflow */
-    .grid {
-      max-width: 100% !important;
-      box-sizing: border-box !important;
-    }
-  }
-  
-  /* Prevent horizontal scroll */
+  /* Global CSS resets for box-sizing and responsive layouts */
+  html,
   body {
-    @apply overflow-x-hidden;
+    width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
   }
   
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  img,
+  video,
+  canvas,
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Prevent horizontal scroll on container elements */
+  .w-screen, .vw-100 {
+    max-width: 100%;
+  }
+
   /* Ensure buttons are clickable */
   button, a {
     @apply cursor-pointer;
