@@ -20,8 +20,8 @@ interface BookingFormProps {
 }
 
 const BookingForm = ({ 
-  title = "Book Your Car Rental", 
-  subtitle = "Fill out the form below to check availability and get instant quotes",
+  title = "Book Your Self-Drive Car in Goa Today", 
+  subtitle = "Fill out the form to check availability and book your preferred self-drive car. Enjoy quick booking, affordable prices, and a hassle-free travel experience across Goa.",
   className = ""
 }: BookingFormProps) => {
   const router = useRouter();
@@ -259,8 +259,7 @@ const BookingForm = ({
                 </>
               ) : (
                 <>
-                <span className="hidden sm:inline">Search Available Cars</span>
-                <span className="sm:hidden">Search Cars</span>
+                <span>Check Availability</span>
                 <ChevronRight size={16} className="ml-2" />
                 </>
               )}

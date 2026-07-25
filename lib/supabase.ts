@@ -19,6 +19,22 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   },
 });
 
+/**
+ * Supabase error objects are NOT plain JS Errors — they have custom fields
+ * that don't serialize with console.error('msg', error) → prints as {}.
+ * Always use this helper to log them readably.
+ */
+function logSupabaseError(context: string, error: { message?: string; code?: string; details?: string; hint?: string } | null) {
+  if (!error) return;
+  console.error(
+    `[Supabase] ${context}\n`,
+    `  message : ${error.message ?? '—'}\n`,
+    `  code    : ${error.code ?? '—'}\n`,
+    `  details : ${error.details ?? '—'}\n`,
+    `  hint    : ${error.hint ?? '—'}`,
+  );
+}
+
 // Database types
 export type Car = {
   id: string;
@@ -93,7 +109,7 @@ export async function getCars() {
     .order('created_at', { ascending: false });
   
   if (error) {
-    console.error('Error fetching cars:', error);
+    logSupabaseError('getCars', error);
     return [];
   }
   
@@ -108,7 +124,7 @@ export async function getCarBySlug(slug: string) {
     .single();
   
   if (error) {
-    console.error('Error fetching car:', error);
+    logSupabaseError('getCarBySlug', error);
     return null;
   }
   
@@ -122,7 +138,7 @@ export async function getBrands() {
     .order('name');
   
   if (error) {
-    console.error('Error fetching brands:', error);
+    logSupabaseError('getBrands', error);
     return [];
   }
   

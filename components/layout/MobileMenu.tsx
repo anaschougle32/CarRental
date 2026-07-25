@@ -91,11 +91,11 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             <div className="space-y-1">
               {[
                 { name: "Home", href: "/" },
-                { name: "About", href: "/about" },
+                { name: "About Us", href: "/about-us" },
                 { name: "Cars", href: "/cars" },
-                { name: "Locations", href: "/locations" },
+                { name: "Listing", href: "/locations" },
                 { name: "Blogs", href: "/blogs" },
-                { name: "Contact", href: "/contact" }
+                { name: "Contact Us", href: "/contact-us" }
               ].map((item) => (
                 <Link
                   key={item.name}

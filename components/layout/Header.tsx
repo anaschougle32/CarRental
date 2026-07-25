@@ -77,10 +77,10 @@ const Header = () => {
             Home
           </Link>
           <Link
-            href="/about"
+            href="/about-us"
             className="nav-link font-medium text-gray-900 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 transition-colors text-sm lg:text-base"
           >
-            About
+            About Us
           </Link>
           <Link
             href="/cars"
@@ -92,7 +92,7 @@ const Header = () => {
             href="/locations"
             className="nav-link font-medium text-gray-900 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 transition-colors text-sm lg:text-base"
           >
-            Locations
+            Listing
           </Link>
           <Link
             href="/blogs"
@@ -101,10 +101,10 @@ const Header = () => {
             Blogs
           </Link>
           <Link
-            href="/contact"
+            href="/contact-us"
             className="nav-link font-medium text-gray-900 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 transition-colors text-sm lg:text-base"
           >
-            Contact
+            Contact Us
           </Link>
         </nav>
 

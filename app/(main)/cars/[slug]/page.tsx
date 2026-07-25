@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const imageUrl = carData.main_image || '/images/cars/car-placeholder.jpg';
     
     // Create SEO-optimized title and description
-    const title = `Rent ${brandName} ${carData.name} in Goa | ₹${carData.price_per_day}/day | ZoiCarRentals`;
+    const title = `Rent ${brandName} ${carData.name} in Goa | ₹${carData.price_per_day}/day | ZioCarRentals`;
     const description = `Rent a ${brandName} ${carData.name} in Goa with unlimited kilometers starting at ₹${carData.price_per_day}/day. ${category} with ${carData.fuel_type} fuel and ${carData.transmission} transmission. Free delivery across Goa. Book now!`;
     
     // Create comprehensive keywords
@@ -63,7 +63,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       `${carData.transmission} car rental Goa`,
       `self drive ${brandName} Goa`,
       `cheap ${category} rental Goa`,
-      `ZoiCarRentals ${brandName}`,
+      `ZioCarRentals ${brandName}`,
       `${brandName} car hire Goa`,
       `rent ${category} Goa`,
       `best car rental deals Goa`,
@@ -77,8 +77,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       openGraph: {
         title,
         description,
-        url: `https://zoicarrentals.com/cars/${slug}`,
-        siteName: 'ZoiCarRentals',
+        url: `https://ziocarrentals.com/cars/${slug}`,
+        siteName: 'ZioCarRentals',
         locale: 'en_IN',
         type: 'website',
         images: [{
@@ -90,12 +90,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
       twitter: {
         card: 'summary_large_image',
-        title: `Rent ${brandName} ${carData.name} in Goa | ZoiCarRentals`,
+        title: `Rent ${brandName} ${carData.name} in Goa | ZioCarRentals`,
         description: `${category} with ${carData.fuel_type} fuel and ${carData.transmission} transmission. Book now from ₹${carData.price_per_day}/day!`,
         images: [imageUrl],
       },
       alternates: {
-        canonical: `https://zoicarrentals.com/cars/${slug}`,
+        canonical: `https://ziocarrentals.com/cars/${slug}`,
       },
       robots: {
         index: true,
@@ -181,7 +181,7 @@ export default async function CarPage({ params }: Props) {
                 With its {car.fuel_type.toLowerCase()} engine and {car.transmission.toLowerCase()} transmission, this vehicle offers {car.transmission === 'Automatic' ? 'effortless driving' : 'complete control'} and excellent fuel efficiency.
               </p>
               <p className="text-gray-700">
-                Rent the {car.brand} {car.name} from ZoiCarRentals for a comfortable and reliable driving experience in Goa. 
+                Rent the {car.brand} {car.name} from ZioCarRentals for a comfortable and reliable driving experience in Goa. 
                 Our rental includes unlimited kilometers, 24/7 roadside assistance, and free delivery to your location.
               </p>
             </div>

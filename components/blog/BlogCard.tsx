@@ -55,8 +55,10 @@ const BlogCard = ({ post }: BlogCardProps) => {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           priority={false}
           onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
-            // Fallback to placeholder if image fails to load
-            const target = e.target as HTMLImageElement;
+            // Null out the handler first to prevent infinite error loop
+            // if the placeholder itself ever fails to load
+            const target = e.currentTarget;
+            target.onerror = null;
             target.src = '/images/blog-placeholder.jpg';
           }}
         />

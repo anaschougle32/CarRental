@@ -1,64 +1,20 @@
 import Link from "next/link";
 
 const LocationLinks = () => {
-  // Static list of locations for SEO (prevents hydration issues)
+  // Static list of requested footer locations for SEO
   const staticLocations = [
-    // North Goa Locations
-    { name: "Anjuna", slug: "anjuna" },
     { name: "Calangute", slug: "calangute" },
-    { name: "Baga", slug: "baga" },
-    { name: "Candolim", slug: "candolim" },
     { name: "Panjim", slug: "panjim" },
-    { name: "Vagator", slug: "vagator" },
-    { name: "Morjim", slug: "morjim" },
-    { name: "Arambol", slug: "arambol" },
-    { name: "Mandrem", slug: "mandrem" },
-    { name: "Ashwem", slug: "ashwem" },
-    { name: "Sinquerim", slug: "sinquerim" },
-    { name: "Dona Paula", slug: "dona-paula" },
-    { name: "Arpora", slug: "arpora" },
-    { name: "Chapora", slug: "chapora" },
-    { name: "Siolim", slug: "siolim" },
-    { name: "Assagao", slug: "assagao" },
-    { name: "North Goa", slug: "north-goa" },
-    
-    // South Goa Locations
-    { name: "Colva", slug: "colva" },
-    { name: "Palolem", slug: "palolem" },
-    { name: "Benaulim", slug: "benaulim" },
-    { name: "Varca", slug: "varca" },
-    { name: "Margao", slug: "margao" },
-    { name: "Agonda", slug: "agonda" },
-    { name: "Cavelossim", slug: "cavelossim" },
-    { name: "Mobor", slug: "mobor" },
-    { name: "Majorda", slug: "majorda" },
-    { name: "Betalbatim", slug: "betalbatim" },
-    { name: "Canacona", slug: "canacona" },
-    { name: "Bogmalo", slug: "bogmalo" },
-    { name: "Vasco Da Gama", slug: "vasco-da-gama" },
-    { name: "Cansaulim", slug: "cansaulim" },
-    { name: "Arossim", slug: "arossim" },
-    { name: "South Goa", slug: "south-goa" },
-    
-    // Transportation Hubs
     { name: "Goa Airport", slug: "goa-airport" },
-    { name: "Mopa Airport", slug: "mopa-airport" },
+    { name: "Vasco Da Gama", slug: "vasco-da-gama" },
     { name: "Madgaon Railway Station", slug: "madgaon-railway" },
     { name: "Thivim Railway Station", slug: "thivim-railway" },
     { name: "Karmali Railway Station", slug: "karmali-railway" },
-    { name: "Vasco Railway Station", slug: "vasco-railway" },
-    
-    // Cities and Towns
-    { name: "Madgaon", slug: "madgaon" },
-    { name: "Mapusa", slug: "mapusa" },
-    { name: "Porvorim", slug: "porvorim" },
-    { name: "Bicholim", slug: "bicholim" },
-    { name: "Ponda", slug: "ponda" },
-    { name: "Curchorem", slug: "curchorem" },
-    { name: "Sanquelim", slug: "sanquelim" },
-    { name: "Quepem", slug: "quepem" },
-    { name: "Cuncolim", slug: "cuncolim" },
-    { name: "Sanguem", slug: "sanguem" }
+    { name: "South Goa", slug: "south-goa" },
+    { name: "North Goa", slug: "north-goa" },
+    { name: "Mumbai", slug: "mumbai" },
+    { name: "Hyderabad", slug: "hyderabad" },
+    { name: "Bangalore", slug: "bangalore" }
   ];
 
   // Use static locations to prevent hydration issues

@@ -14,9 +14,10 @@ import { cn } from "@/lib/utils";
 interface CarCardProps {
   car: Car;
   showCategory?: boolean;
+  showDescription?: boolean;
 }
 
-const CarCard = ({ car, showCategory = false }: CarCardProps) => {
+const CarCard = ({ car, showCategory = false, showDescription = true }: CarCardProps) => {
   // State to track if image has error
   const [hasImageError, setHasImageError] = useState(false);
   
@@ -61,9 +62,11 @@ const CarCard = ({ car, showCategory = false }: CarCardProps) => {
           </div>
         </div>
         
-        <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm mb-2 sm:mb-4 line-clamp-2 hidden sm:block">
-          {car.description?.split('.')[0] || `Experience the ${car.name} for your next adventure.`}
-        </p>
+        {showDescription && (
+          <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm mb-2 sm:mb-4 line-clamp-2 hidden sm:block">
+            {car.description?.split('.')[0] || `Experience the ${car.name} for your next adventure.`}
+          </p>
+        )}
         
         <div className="flex items-center space-x-2 sm:space-x-4 text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-2 sm:mb-3">
           <div className="flex items-center">

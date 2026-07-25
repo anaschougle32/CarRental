@@ -3,14 +3,14 @@ import { getLocations, Location as LocationType } from "@/lib/supabase";
 import LocationsPageContent from "@/components/pages/LocationsPageContent";
 
 export const metadata: Metadata = {
-  title: "Car Rental Locations in Goa | ZoiCarRentals",
+  title: "Car Rental Locations in Goa | ZioCarRentals",
   description: "Find our car rental services across Goa. We offer convenient pickup and drop locations in North Goa, South Goa, and major airports. Book your car rental today!",
   keywords: "car rental locations Goa, car hire Goa, rent a car Goa, Calangute car rental, Panjim car rental, Madgaon car rental, Mopa Airport car rental, Dabolim Airport car rental, North Goa car rental, South Goa car rental",
   openGraph: {
-    title: "Car Rental Locations in Goa | ZoiCarRentals",
+    title: "Car Rental Locations in Goa | ZioCarRentals",
     description: "Find our car rental services across Goa. We offer convenient pickup and drop locations in North Goa, South Goa, and major airports.",
-    url: "https://zoicarrentals.com/locations",
-    siteName: "ZoiCarRentals",
+    url: "https://ziocarrentals.com/locations",
+    siteName: "ZioCarRentals",
     locale: "en_US",
     type: "website",
   },
@@ -25,7 +25,7 @@ export default async function LocationsPage() {
       name: 'Calangute',
       slug: 'calangute',
       headline: 'Premium Car Rental Service in Calangute, Goa',
-      content: 'Find the best car rental deals in Calangute, Goa with ZoiCarRentals. We offer a wide range of vehicles from economy to luxury cars.',
+      content: 'Find the best car rental deals in Calangute, Goa with ZioCarRentals. We offer a wide range of vehicles from economy to luxury cars.',
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString()
     },

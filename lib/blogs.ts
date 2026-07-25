@@ -1,6 +1,21 @@
 import { createClient } from './supabase/client';
 import { BlogPost } from '@/types/blog';
 
+/**
+ * Supabase error objects have custom fields that don't serialize with
+ * console.error('msg', error) — they print as {}. Use this helper.
+ */
+function logSupabaseError(context: string, error: { message?: string; code?: string; details?: string; hint?: string } | null) {
+  if (!error) return;
+  console.error(
+    `[Supabase] ${context}\n`,
+    `  message : ${error.message ?? '—'}\n`,
+    `  code    : ${error.code ?? '—'}\n`,
+    `  details : ${error.details ?? '—'}\n`,
+    `  hint    : ${error.hint ?? '—'}`,
+  );
+}
+
 // Define the Blog type from the database
 interface BlogDB {
   id: string;
@@ -37,8 +52,7 @@ export async function getBlogs(): Promise<BlogPost[]> {
       .order('created_at', { ascending: false });
       
     if (error) {
-      console.error('Error fetching blogs:', error);
-      // Return empty array instead of fallback data
+      logSupabaseError('getBlogs', error);
       return getEmptyBlogArray();
     }
     

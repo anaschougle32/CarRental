@@ -1,5 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Poppins } from 'next/font/google';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -68,9 +69,12 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon.png', type: 'image/png', sizes: '512x512' },
+    ],
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
   },
 };
 
@@ -124,6 +128,20 @@ export default function RootLayout({
           <SpeedInsights />
           <Analytics />
         </ThemeProvider>
+
+        {/* Google Ads Tag — loaded once globally */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-11098887425"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-11098887425');
+          `}
+        </Script>
       </body>
     </html>
   );

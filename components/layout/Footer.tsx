@@ -81,23 +81,23 @@ const Footer = () => {
             <ul className="space-y-2 text-sm md:text-base">
               <li>
                 <Link
-                  href="/cars"
-                  className="text-gray-300 hover:text-blue-400 transition-colors block py-1"
-                >
-                  Our Cars
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/blogs"
                   className="text-gray-300 hover:text-blue-400 transition-colors block py-1"
                 >
-                  Blog
+                  Blogs
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/about"
+                  href="/locations"
+                  className="text-gray-300 hover:text-blue-400 transition-colors block py-1"
+                >
+                  Car Listing
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about-us"
                   className="text-gray-300 hover:text-blue-400 transition-colors block py-1"
                 >
                   About Us
@@ -105,7 +105,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/contact-us"
                   className="text-gray-300 hover:text-blue-400 transition-colors block py-1"
                 >
                   Contact Us
@@ -131,7 +131,7 @@ const Footer = () => {
                   href="/terms-and-conditions"
                   className="text-gray-300 hover:text-blue-400 transition-colors block py-1"
                 >
-                  Terms & Conditions
+                  Term and Condition
                 </Link>
               </li>
               <li>

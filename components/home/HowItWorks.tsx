@@ -22,17 +22,27 @@ const steps = [
   },
 ];
 
-const HowItWorks = () => {
+interface HowItWorksProps {
+  title?: string;
+  subtitle?: string;
+}
+
+const HowItWorks = ({
+  title = "How It Works",
+  subtitle = "Renting a car with ZioCarRentals is quick and easy. Follow these simple steps:"
+}: HowItWorksProps = {}) => {
   return (
     <Section className="bg-white dark:bg-gray-900">
       <Container>
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            How It Works
+            {title}
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Renting a car with ZioCarRentals is quick and easy. Follow these simple steps:
-          </p>
+          {subtitle && (
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+              {subtitle}
+            </p>
+          )}
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-stretch gap-8 mt-10">

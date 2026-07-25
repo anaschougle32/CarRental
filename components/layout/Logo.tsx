@@ -15,8 +15,8 @@ const Logo = ({ className }: LogoProps = {}) => {
         <span className="text-xl font-bold text-gray-900 dark:text-white">
           Zio<span className="text-blue-600">CarRentals</span>
         </span>
-        <span className="text-xs text-gray-500 dark:text-gray-400 -mt-1">
-          Goa Car Rentals
+        <span className="text-xs text-gray-500 dark:text-gray-400 -mt-1 font-medium tracking-wide">
+          Freedom to Explore
         </span>
       </div>
     </div>
