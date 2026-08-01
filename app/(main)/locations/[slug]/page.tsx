@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // ── Special-case: high-priority Google Ads landing page ──
     if (slug === 'self-drive-car-rental-in-goa') {
       return {
-        title: 'Best Self Drive Car Rental in Goa | Affordable Car Hire From ₹999',
+        title: 'Best Self Drive Car Rental in Goa | Car Hire From ₹999',
         description:
           'Book self-drive cars in Goa for 2 days, weekly, or monthly rentals. Wide range of vehicles, competitive pricing, easy booking, and 24/7 customer support.',
         keywords:
@@ -50,6 +50,90 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         },
         alternates: {
           canonical: 'https://www.ziocarrentals.com/locations/self-drive-car-rental-in-goa',
+        },
+        robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+      };
+    }
+
+    // ── Special-case: Madgaon Landing Page ──
+    if (slug === 'self-drive-car-rental-madgaon') {
+      return {
+        title: 'Best Self Drive Car Rental in Madgaon Railway Station | From ₹999',
+        description: 'Hire a self-drive car at Madgaon Railway Station from ₹999/day. Explore Goa with affordable rates, multiple car options, easy booking, and hassle-free service.',
+        keywords: 'self drive car rental madgaon, car rental madgaon railway station, rent a car margao, car hire madgaon, self drive cars margao goa',
+        openGraph: {
+          title: 'Best Self Drive Car Rental in Madgaon Railway Station | From ₹999',
+          description: 'Hire a self-drive car at Madgaon Railway Station from ₹999/day. Explore Goa with affordable rates, multiple car options, easy booking, and hassle-free service.',
+          url: 'https://www.ziocarrentals.com/locations/self-drive-car-rental-madgaon',
+          siteName: 'ZioCarRentals',
+          locale: 'en_IN',
+          type: 'website',
+          images: [{ url: '/images/locations/og-image.jpg', width: 1200, height: 630, alt: 'Self Drive Car Rental Madgaon' }],
+        },
+        twitter: {
+          card: 'summary_large_image',
+          title: 'Best Self Drive Car Rental in Madgaon Railway Station | From ₹999',
+          description: 'Hire a self-drive car at Madgaon Railway Station from ₹999/day. Easy booking & 24/7 support.',
+          images: ['/images/locations/og-image.jpg'],
+        },
+        alternates: {
+          canonical: 'https://www.ziocarrentals.com/locations/self-drive-car-rental-madgaon',
+        },
+        robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+      };
+    }
+
+    // ── Special-case: Goa Airport Landing Page ──
+    if (slug === 'self-drive-car-rental-goa-airport' || slug === 'goa-airport') {
+      return {
+        title: 'Self Drive Car Rental at Goa Airport | Hire from Dabolim & Mopa Airport',
+        description: 'Book the best self drive car rental at Goa Airport. Pick up your car from Dabolim Airport (GOI) or Manohar International Airport (GOX). Affordable hatchbacks, sedans, SUVs, luxury cars, easy booking, airport pickup, and 24/7 customer support.',
+        keywords: 'self drive car rental goa airport, car rental dabolim airport, car rental mopa airport, rent a car goa airport, airport car hire goa',
+        openGraph: {
+          title: 'Self Drive Car Rental at Goa Airport | Hire from Dabolim & Mopa Airport',
+          description: 'Book the best self drive car rental at Goa Airport. Pick up your car from Dabolim Airport (GOI) or Manohar International Airport (GOX). Affordable hatchbacks, sedans, SUVs, luxury cars, easy booking, airport pickup, and 24/7 customer support.',
+          url: 'https://www.ziocarrentals.com/locations/self-drive-car-rental-goa-airport',
+          siteName: 'ZioCarRentals',
+          locale: 'en_IN',
+          type: 'website',
+          images: [{ url: '/images/locations/og-image.jpg', width: 1200, height: 630, alt: 'Self Drive Car Rental Goa Airport' }],
+        },
+        twitter: {
+          card: 'summary_large_image',
+          title: 'Self Drive Car Rental at Goa Airport | Hire from Dabolim & Mopa Airport',
+          description: 'Book the best self drive car rental at Goa Airport. Pick up your car from Dabolim Airport (GOI) or Mopa Airport (GOX). Easy booking & 24/7 support.',
+          images: ['/images/locations/og-image.jpg'],
+        },
+        alternates: {
+          canonical: 'https://www.ziocarrentals.com/locations/self-drive-car-rental-goa-airport',
+        },
+        robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+      };
+    }
+
+    // ── Special-case: Calangute Landing Page ──
+    if (slug === 'self-drive-car-rental-calangute' || slug === 'calangute') {
+      return {
+        title: 'Self Drive Car Rental in Calangute | Car Hire Near Calangute Beach',
+        description: 'Looking for the best self drive car rental in Calangute, Goa? Rent hatchbacks, sedans, SUVs, and luxury cars at affordable prices. Easy booking, sanitized vehicles, and 24/7 customer support near Calangute Beach.',
+        keywords: 'self drive car rental calangute, car hire near calangute beach, rent a car calangute, calangute car rental goa',
+        openGraph: {
+          title: 'Self Drive Car Rental in Calangute | Car Hire Near Calangute Beach',
+          description: 'Looking for the best self drive car rental in Calangute, Goa? Rent hatchbacks, sedans, SUVs, and luxury cars at affordable prices. Easy booking, sanitized vehicles, and 24/7 customer support near Calangute Beach.',
+          url: 'https://www.ziocarrentals.com/locations/self-drive-car-rental-calangute',
+          siteName: 'ZioCarRentals',
+          locale: 'en_IN',
+          type: 'website',
+          images: [{ url: '/images/locations/og-image.jpg', width: 1200, height: 630, alt: 'Self Drive Car Rental Calangute' }],
+        },
+        twitter: {
+          card: 'summary_large_image',
+          title: 'Self Drive Car Rental in Calangute | Car Hire Near Calangute Beach',
+          description: 'Looking for the best self drive car rental in Calangute, Goa? Rent hatchbacks, sedans, SUVs, and luxury cars at affordable prices.',
+          images: ['/images/locations/og-image.jpg'],
+        },
+        alternates: {
+          canonical: 'https://www.ziocarrentals.com/locations/self-drive-car-rental-calangute',
         },
         robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
       };
@@ -404,6 +488,750 @@ export default async function LocationPage({ params }: Props) {
 
           {/* 6. Frequently Asked Questions */}
           <Faqs items={customFaqs} />
+        </>
+      );
+    }
+
+    // ── Dedicated High-Converting Landing Page for Madgaon ──
+    if (slug === 'self-drive-car-rental-madgaon') {
+      const carsData = await getCars();
+      const cars = await Promise.all(carsData.map(car => mapSupabaseCarToAppCar(car)));
+
+      const whyChooseItemsMadgaon = [
+        {
+          title: "Affordable Rental Plans",
+          description: "We provide budget-friendly rental packages with no hidden charges, ensuring you get the best value for your money.",
+          icon: <BadgeDollarSign className="w-10 h-10 text-blue-600" />
+        },
+        {
+          title: "Wide Range of Vehicles",
+          description: "Select from hatchbacks, sedans, SUVs, and premium cars to suit solo trips, family vacations, or business travel.",
+          icon: <CarIcon className="w-10 h-10 text-blue-600" />
+        },
+        {
+          title: "Freedom to Explore Goa",
+          description: "Drive at your own pace and visit popular destinations like Colva Beach, Benaulim Beach, Cabo de Rama Fort, and Palolem.",
+          icon: <MapPin className="w-10 h-10 text-blue-600" />
+        },
+        {
+          title: "Easy Online Booking",
+          description: "Book your preferred car within minutes through our simple booking process with instant confirmation.",
+          icon: <Check className="w-10 h-10 text-blue-600" />
+        },
+        {
+          title: "Well-Maintained Car",
+          description: "Every vehicle is regularly serviced, cleaned, and inspected to ensure safety, comfort, and reliability.",
+          icon: <Shield className="w-10 h-10 text-blue-600" />
+        },
+        {
+          title: "Flexible Rental Duration",
+          description: "Whether you need a car for a 2 day, hours, a day, or several weeks, we offer flexible rental options.",
+          icon: <Clock className="w-10 h-10 text-blue-600" />
+        },
+        {
+          title: "Customer-Focused Service",
+          description: "We aim to provide reliable vehicles, clear communication, and a smooth rental experience from booking to return.",
+          icon: <Shield className="w-10 h-10 text-blue-600" />
+        }
+      ];
+
+      const customFaqsMadgaon = [
+        {
+          question: "What documents are required to rent a self-drive car in Margao?",
+          answer: "You generally need a valid driving license, a government-issued ID proof, and the required security deposit, depending on the rental policy."
+        },
+        {
+          question: "Can I book a self-drive car online?",
+          answer: "Yes, you can easily reserve your preferred vehicle online with instant booking confirmation."
+        },
+        {
+          question: "Are fuel charges included in the rental price?",
+          answer: "No. Fuel is typically not included, and the vehicle should usually be returned with the agreed fuel level as per the rental terms."
+        },
+        {
+          question: "Is there a minimum rental duration?",
+          answer: "Yes, the minimum rental duration depends on the vehicle and rental package. 2 days, and long-term options are available."
+        },
+        {
+          question: "What types of cars are available for rent in Margao, Goa?",
+          answer: "You can drive across most tourist destinations in Goa while following the rental agreement and local traffic regulations."
+        },
+        {
+          question: "How much does it cost to rent a car in Goa?",
+          answer: "Self Drive Car rental in Madgaon Goa starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
+        }
+      ];
+
+      return (
+        <>
+          <HeroStructuredData />
+          
+          {/* 1. Hero Section */}
+          <Hero 
+            title="Self Drive Car Rental in Madgaon,"
+            titleAccent="Goa"
+            subtitle="Hire a self-drive car at Madgaon Railway Station from ₹999/day with unlimited kilometers and 24/7 support."
+          />
+
+          {/* 2. Booking Form Section */}
+          <Section className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 py-12 w-full" size="none">
+            <Container>
+              <BookingForm 
+                title="Self Drive Car Rental in Margao"
+                subtitle="Fill out the form to check availability and book your preferred self-drive car. Enjoy quick booking, affordable prices, and a hassle-free travel experience across Goa."
+                className="bg-white rounded-lg shadow-lg"
+              />
+            </Container>
+          </Section>
+
+          {/* 3. Body: H1 Section */}
+          <Section className="bg-white dark:bg-gray-900 py-12" size="sm">
+            <Container>
+              <div className="max-w-4xl mx-auto space-y-4 text-center md:text-left">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight">
+                  Best Self Drive Car Rental in Madgaon, Goa
+                </h1>
+                <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed pt-2">
+                  Looking for a convenient and affordable self drive car rental in Madgaon? Whether you're visiting Goa for a vacation, business trip, or family holiday, renting a self-drive car gives you complete freedom to explore the city and nearby attractions at your own pace. Skip the hassle of waiting for taxis and enjoy a comfortable driving experience with a wide range of well-maintained vehicles.
+                </p>
+                <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
+                  Our self-drive cars are available for 2 Days, weekly, and long-term rentals, making them suitable for every travel requirement. From compact hatchbacks to spacious SUVs, we offer vehicles that fit your budget and travel needs.
+                </p>
+                <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
+                  With transparent pricing, easy online booking, and excellent customer service, we make car rentals in Margao simple, safe, and affordable.
+                </p>
+              </div>
+            </Container>
+          </Section>
+
+          {/* 4. Car Listing (No Description in Car Listing) */}
+          <Section className="bg-gray-50 dark:bg-gray-800 py-12" size="sm">
+            <Container>
+              <div className="text-center max-w-3xl mx-auto mb-10">
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                  Find the Perfect Car on Rent in Margao
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg">
+                  Browse our wide selection of well-maintained self-drive rental cars designed to suit every travel need and budget. From fuel-efficient hatchbacks for city drives to spacious SUVs for family trips and premium sedans for business travel, we have the perfect vehicle for your journey. Each car is regularly serviced, thoroughly cleaned, and equipped with modern features to ensure a safe, comfortable, and hassle-free driving experience. Choose your preferred car, select your rental dates, and book online in just a few simple steps.
+                </p>
+              </div>
+
+              {cars.length > 0 ? (
+                <div className="grid grid-cols-1 min-[375px]:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {cars.map(car => (
+                    <CarCard key={car.id} car={car} showCategory={true} showDescription={false} />
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-10 bg-white rounded-lg">
+                  <p className="text-lg text-gray-500">No cars available currently. Please check back soon or contact us for assistance.</p>
+                </div>
+              )}
+            </Container>
+          </Section>
+
+          {/* 5. Services: Our Premium Service */}
+          <Section className="bg-white dark:bg-gray-900 py-12" size="sm">
+            <Container>
+              <div className="text-center mb-12">
+                <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                  Our Premium Service
+                </h3>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* Airport Transfer */}
+                <div className="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow p-6 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center mb-4">
+                      <div className="p-3 bg-red-50 dark:bg-red-900/20 rounded-lg text-red-600 dark:text-red-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                        </svg>
+                      </div>
+                      <h4 className="text-xl font-bold ml-3 text-gray-900 dark:text-white">Airport Transfer</h4>
+                    </div>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm mb-6">
+                      Seamless airport pickup and drop-off services at Dabolim and Mopa airports. Start your Goa vacation the moment you land with our comfortable vehicles and professional drivers.
+                    </p>
+                  </div>
+                  <ul className="space-y-2 pt-4 border-t border-gray-100 dark:border-gray-700 text-xs font-semibold text-gray-700 dark:text-gray-300">
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>On-time pickup</li>
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>Flight tracking</li>
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>No waiting charges</li>
+                  </ul>
+                </div>
+
+                {/* Pick and Drop */}
+                <div className="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow p-6 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center mb-4">
+                      <div className="p-3 bg-red-50 dark:bg-red-900/20 rounded-lg text-red-600 dark:text-red-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                        </svg>
+                      </div>
+                      <h4 className="text-xl font-bold ml-3 text-gray-900 dark:text-white">Pick and Drop</h4>
+                    </div>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm mb-6">
+                      Flexible pick-up and drop-off services at your convenience. We'll meet you at your hotel, resort, or any location of your choice throughout Goa.
+                    </p>
+                  </div>
+                  <ul className="space-y-2 pt-4 border-t border-gray-100 dark:border-gray-700 text-xs font-semibold text-gray-700 dark:text-gray-300">
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>Door-to-door service</li>
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>Flexible scheduling</li>
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>No hidden charges</li>
+                  </ul>
+                </div>
+
+                {/* 24/7 Availability */}
+                <div className="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow p-6 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center mb-4">
+                      <div className="p-3 bg-red-50 dark:bg-red-900/20 rounded-lg text-red-600 dark:text-red-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                      <h4 className="text-xl font-bold ml-3 text-gray-900 dark:text-white">24/7 Availability</h4>
+                    </div>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm mb-6">
+                      Our services are available round the clock. Whether it's an early morning flight or a late-night arrival, we've got you covered throughout your Goa trip.
+                    </p>
+                  </div>
+                  <ul className="space-y-2 pt-4 border-t border-gray-100 dark:border-gray-700 text-xs font-semibold text-gray-700 dark:text-gray-300">
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>Round-the-clock support</li>
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>Emergency assistance</li>
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>Immediate response</li>
+                  </ul>
+                </div>
+              </div>
+            </Container>
+          </Section>
+
+          {/* 6. What documents / Advantages section */}
+          <Section className="bg-gray-50 dark:bg-gray-800 py-12" size="sm">
+            <Container>
+              <div className="text-center mb-12">
+                <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                  Why Choose Self Drive Car Rental in Margao?
+                </h3>
+                <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                  Choosing a self-drive car rental in Margao offers several advantages for travelers and locals alike.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+                {whyChooseItemsMadgaon.map((item, index) => (
+                  <div 
+                    key={index} 
+                    className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center border border-gray-100 dark:border-gray-800"
+                  >
+                    <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-full">
+                      {item.icon}
+                    </div>
+                    <h4 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">{item.title}</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </Container>
+          </Section>
+
+          {/* 7. How It Works? */}
+          <HowItWorks 
+            title="Rent a Car in Madgaon Goa in 3 Easy Steps" 
+          />
+
+          {/* 8. Frequently Asked Questions */}
+          <Faqs items={customFaqsMadgaon} />
+        </>
+      );
+    }
+
+    // ── Dedicated High-Converting Landing Page for Goa Airport ──
+    if (slug === 'self-drive-car-rental-goa-airport' || slug === 'goa-airport') {
+      const carsData = await getCars();
+      const cars = await Promise.all(carsData.map(car => mapSupabaseCarToAppCar(car)));
+
+      const whyChooseItemsGoaAirport = [
+        {
+          title: "Airport Pickup & Drop",
+          description: "Convenient pickup and return services from both Dabolim (GOI) and Mopa (GOX) airports.",
+          icon: <MapPin className="w-10 h-10 text-blue-600" />
+        },
+        {
+          title: "Wide Range of Vehicles",
+          description: "Choose from hatchbacks, sedans, SUVs, automatic, and luxury cars.",
+          icon: <CarIcon className="w-10 h-10 text-blue-600" />
+        },
+        {
+          title: "Affordable & Transparent Pricing",
+          description: "Competitive rates with no hidden charges.",
+          icon: <BadgeDollarSign className="w-10 h-10 text-blue-600" />
+        },
+        {
+          title: "Clean, Sanitized & Well-Maintained Cars",
+          description: "Every vehicle is professionally cleaned, sanitized, and inspected before every booking.",
+          icon: <Shield className="w-10 h-10 text-blue-600" />
+        },
+        {
+          title: "Fast Booking & Quick Documentation",
+          description: "Easy booking process with minimal paperwork and quick confirmation.",
+          icon: <Check className="w-10 h-10 text-blue-600" />
+        },
+        {
+          title: "Customer-Focused Service",
+          description: "We aim to provide reliable vehicles, clear communication, and a smooth rental experience from booking to return.",
+          icon: <Clock className="w-10 h-10 text-blue-600" />
+        }
+      ];
+
+      const customFaqsGoaAirport = [
+        {
+          question: "Can I pick up my self-drive car directly from Goa Airport?",
+          answer: "Yes. We offer pickup services from both Goa International Airport (Dabolim - GOI) and Manohar International Airport (Mopa - GOX)."
+        },
+        {
+          question: "What documents are required to rent a self-drive car from goa airport?",
+          answer: "You need a valid driving licence, a government-issued photo ID (such as Aadhaar or Passport), and any other documents required by the rental policy."
+        },
+        {
+          question: "Is there a refundable security deposit?",
+          answer: "Yes. A refundable security deposit is applicable depending on the vehicle category."
+        },
+        {
+          question: "Can I return the car at a different location in Goa?",
+          answer: "Depending on availability and rental terms, one-way drop-off may be available. Please confirm this at the time of booking."
+        },
+        {
+          question: "Can I book the car before my flight arrives?",
+          answer: "Yes. We recommend booking in advance so your vehicle is ready when you land."
+        },
+        {
+          question: "How much does it cost to rent a car in Goa Airport?",
+          answer: "Self Drive Car rental in Goa Airport starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
+        }
+      ];
+
+      return (
+        <>
+          <HeroStructuredData />
+          
+          {/* 1. Hero Section */}
+          <Hero 
+            title="Self Drive Car Rental at Goa Airport,"
+            titleAccent="Dabolim & Mopa"
+            subtitle="Book self-drive cars directly at Dabolim (GOI) & Mopa (GOX) airports with unlimited kilometers and 24/7 assistance."
+          />
+
+          {/* 2. Booking Form Section */}
+          <Section className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 py-12 w-full" size="none">
+            <Container>
+              <BookingForm 
+                title="Book Self Drive Car Rental at Goa Airport Today"
+                subtitle="Fill out the form to check availability and book your preferred self-drive car. Enjoy quick booking, affordable prices, and a hassle-free travel experience across Goa."
+                className="bg-white rounded-lg shadow-lg"
+              />
+            </Container>
+          </Section>
+
+          {/* 3. Body: H1 Section */}
+          <Section className="bg-white dark:bg-gray-900 py-12" size="sm">
+            <Container>
+              <div className="max-w-4xl mx-auto space-y-4 text-center md:text-left">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight">
+                  Self Drive Car Rental at Goa Airport
+                </h1>
+                <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed pt-2">
+                  Looking for a Self Drive Car Rental at Goa Airport? Start your Goa journey the moment you land with our reliable, affordable, and hassle-free airport car rental service. We provide self-drive cars directly from Goa International Airport (Dabolim - GOI) and Manohar International Airport (Mopa - GOX), making it easy for tourists, business travelers, families, and couples to explore Goa at their own pace. Whether you're heading to Calangute, Baga, Candolim, Panjim, Margao, Colva, Palolem, Anjuna, Vagator, or South Goa, our airport pickup service allows you to begin your trip without waiting for public transport.
+                </p>
+              </div>
+            </Container>
+          </Section>
+
+          {/* 4. Car Listing (No Description in Car Listing) */}
+          <Section className="bg-gray-50 dark:bg-gray-800 py-12" size="sm">
+            <Container>
+              <div className="text-center max-w-3xl mx-auto mb-10">
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                  Find the Perfect Car on Rent in Goa Airport
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg">
+                  We offer transparent pricing, flexible rental durations, quick documentation, and dedicated customer support to make your travel experience smooth and stress-free.
+                </p>
+              </div>
+
+              {cars.length > 0 ? (
+                <div className="grid grid-cols-1 min-[375px]:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {cars.map(car => (
+                    <CarCard key={car.id} car={car} showCategory={true} showDescription={false} />
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-10 bg-white rounded-lg">
+                  <p className="text-lg text-gray-500">No cars available currently. Please check back soon or contact us for assistance.</p>
+                </div>
+              )}
+            </Container>
+          </Section>
+
+          {/* 5. Services: Our Premium Service */}
+          <Section className="bg-white dark:bg-gray-900 py-12" size="sm">
+            <Container>
+              <div className="text-center mb-12">
+                <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                  Our Premium Service
+                </h3>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* Airport Transfer */}
+                <div className="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow p-6 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center mb-4">
+                      <div className="p-3 bg-red-50 dark:bg-red-900/20 rounded-lg text-red-600 dark:text-red-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                        </svg>
+                      </div>
+                      <h4 className="text-xl font-bold ml-3 text-gray-900 dark:text-white">Airport Transfer</h4>
+                    </div>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm mb-6">
+                      Seamless airport pickup and drop-off services at Dabolim and Mopa airports. Start your Goa vacation the moment you land with our comfortable vehicles and professional drivers.
+                    </p>
+                  </div>
+                  <ul className="space-y-2 pt-4 border-t border-gray-100 dark:border-gray-700 text-xs font-semibold text-gray-700 dark:text-gray-300">
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>On-time pickup</li>
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>Flight tracking</li>
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>No waiting charges</li>
+                  </ul>
+                </div>
+
+                {/* Pick and Drop */}
+                <div className="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow p-6 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center mb-4">
+                      <div className="p-3 bg-red-50 dark:bg-red-900/20 rounded-lg text-red-600 dark:text-red-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                        </svg>
+                      </div>
+                      <h4 className="text-xl font-bold ml-3 text-gray-900 dark:text-white">Pick and Drop</h4>
+                    </div>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm mb-6">
+                      Flexible pick-up and drop-off services at your convenience. We'll meet you at your hotel, resort, or any location of your choice throughout Goa.
+                    </p>
+                  </div>
+                  <ul className="space-y-2 pt-4 border-t border-gray-100 dark:border-gray-700 text-xs font-semibold text-gray-700 dark:text-gray-300">
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>Door-to-door service</li>
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>Flexible scheduling</li>
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>No hidden charges</li>
+                  </ul>
+                </div>
+
+                {/* 24/7 Availability */}
+                <div className="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow p-6 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center mb-4">
+                      <div className="p-3 bg-red-50 dark:bg-red-900/20 rounded-lg text-red-600 dark:text-red-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                      <h4 className="text-xl font-bold ml-3 text-gray-900 dark:text-white">24/7 Availability</h4>
+                    </div>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm mb-6">
+                      Our services are available round the clock. Whether it's an early morning flight or a late-night arrival, we've got you covered throughout your Goa trip.
+                    </p>
+                  </div>
+                  <ul className="space-y-2 pt-4 border-t border-gray-100 dark:border-gray-700 text-xs font-semibold text-gray-700 dark:text-gray-300">
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>Round-the-clock support</li>
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>Emergency assistance</li>
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>Immediate response</li>
+                  </ul>
+                </div>
+              </div>
+            </Container>
+          </Section>
+
+          {/* 6. Why Choose section */}
+          <Section className="bg-gray-50 dark:bg-gray-800 py-12" size="sm">
+            <Container>
+              <div className="text-center mb-12">
+                <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                  Why Choose Our Goa Airport Car Rental?
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+                {whyChooseItemsGoaAirport.map((item, index) => (
+                  <div 
+                    key={index} 
+                    className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center border border-gray-100 dark:border-gray-800"
+                  >
+                    <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-full">
+                      {item.icon}
+                    </div>
+                    <h4 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">{item.title}</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </Container>
+          </Section>
+
+          {/* 7. How It Works? */}
+          <HowItWorks 
+            title="Rent a Car in Goa Airport in 3 Easy Steps" 
+          />
+
+          {/* 8. Frequently Asked Questions */}
+          <Faqs items={customFaqsGoaAirport} />
+        </>
+      );
+    }
+
+    // ── Dedicated High-Converting Landing Page for Calangute ──
+    if (slug === 'self-drive-car-rental-calangute' || slug === 'calangute') {
+      const carsData = await getCars();
+      const cars = await Promise.all(carsData.map(car => mapSupabaseCarToAppCar(car)));
+
+      const whyChooseItemsCalangute = [
+        {
+          title: "Wide Selection of Cars",
+          description: "Choose from hatchbacks, sedans, SUVs, automatic, and luxury cars to suit every travel style and budget.",
+          icon: <CarIcon className="w-10 h-10 text-blue-600" />
+        },
+        {
+          title: "Close to Calangute Beach",
+          description: "Convenient car pickup near Calangute Beach, making it easy to begin your Goa trip immediately.",
+          icon: <MapPin className="w-10 h-10 text-blue-600" />
+        },
+        {
+          title: "Affordable & Transparent Pricing",
+          description: "Enjoy competitive rental rates with no hidden charges and flexible rental packages.",
+          icon: <BadgeDollarSign className="w-10 h-10 text-blue-600" />
+        },
+        {
+          title: "Quick Booking & Easy Documentation",
+          description: "Book your car in minutes with minimal paperwork and fast confirmation.",
+          icon: <Check className="w-10 h-10 text-blue-600" />
+        },
+        {
+          title: "Customer-Focused Service",
+          description: "We aim to provide reliable vehicles, clear communication, and a smooth rental experience from booking to return.",
+          icon: <Clock className="w-10 h-10 text-blue-600" />
+        }
+      ];
+
+      const customFaqsCalangute = [
+        {
+          question: "What documents are required to rent a self-drive car in Calangute?",
+          answer: "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
+        },
+        {
+          question: "Can tourists rent a self-drive car in Calangute?",
+          answer: "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
+        },
+        {
+          question: "Is there a refundable security deposit?",
+          answer: "Yes. A refundable security deposit is applicable depending on the vehicle category."
+        },
+        {
+          question: "Can I drive anywhere in Goa with the rental car?",
+          answer: "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
+        },
+        {
+          question: "Can you deliver the car to my hotel in Calangute?",
+          answer: "Yes. Hotel and resort delivery is available in many areas of Calangute, subject to availability and prior confirmation."
+        },
+        {
+          question: "How much does it cost to rent a car in Calangute ?",
+          answer: "Self Drive Car rental in Calangute starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
+        }
+      ];
+
+      return (
+        <>
+          <HeroStructuredData />
+          
+          {/* 1. Hero Section */}
+          <Hero 
+            title="Self Drive Car Rental in Calangute,"
+            titleAccent="Goa"
+            subtitle="Rent hatchbacks, sedans, SUVs & luxury cars near Calangute Beach from ₹999/day with unlimited kilometers."
+          />
+
+          {/* 2. Booking Form Section */}
+          <Section className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 py-12 w-full" size="none">
+            <Container>
+              <BookingForm 
+                title="Self Drive Car Rental in Calangute Today"
+                subtitle="Fill out the form to check availability and book your preferred self-drive car. Enjoy quick booking, affordable prices, and a hassle-free travel experience across Goa."
+                className="bg-white rounded-lg shadow-lg"
+              />
+            </Container>
+          </Section>
+
+          {/* 3. Body: H1 Section */}
+          <Section className="bg-white dark:bg-gray-900 py-12" size="sm">
+            <Container>
+              <div className="max-w-4xl mx-auto space-y-4 text-center md:text-left">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight">
+                  Best Self Drive Car Rental in Calangute, Goa
+                </h1>
+                <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed pt-2">
+                  Planning a trip to Goa? Book the best Self Drive Car Rental in Calangute, Goa and enjoy the freedom to explore one of India's most popular beach destinations at your own pace. Whether you're on a family vacation, honeymoon, weekend getaway, or business trip, our reliable self-drive cars offer comfort, convenience, and complete privacy. Calangute, known as the "Queen of Beaches," is the perfect destination to begin your Goa adventure. With a self-drive car, you can easily visit Baga Beach, Candolim, Anjuna, Vagator, Fort Aguada, SinQ Night Club, Tito's Lane, Chapora Fort, and Panjim without depending on taxis or public transport.
+                </p>
+              </div>
+            </Container>
+          </Section>
+
+          {/* 4. Car Listing (No Description in Car Listing) */}
+          <Section className="bg-gray-50 dark:bg-gray-800 py-12" size="sm">
+            <Container>
+              <div className="text-center max-w-3xl mx-auto mb-10">
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                  Find the Perfect Car on Rent in Calangute
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg">
+                  We provide a wide range of well-maintained rental cars, including hatchbacks, sedans, SUVs, automatic cars, and luxury vehicles. Every car is regularly serviced, professionally sanitized, and thoroughly inspected to ensure a safe and comfortable journey.
+                </p>
+              </div>
+
+              {cars.length > 0 ? (
+                <div className="grid grid-cols-1 min-[375px]:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {cars.map(car => (
+                    <CarCard key={car.id} car={car} showCategory={true} showDescription={false} />
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-10 bg-white rounded-lg">
+                  <p className="text-lg text-gray-500">No cars available currently. Please check back soon or contact us for assistance.</p>
+                </div>
+              )}
+            </Container>
+          </Section>
+
+          {/* 5. Services: Our Premium Service */}
+          <Section className="bg-white dark:bg-gray-900 py-12" size="sm">
+            <Container>
+              <div className="text-center mb-12">
+                <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                  Our Premium Service
+                </h3>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* Airport Transfer */}
+                <div className="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow p-6 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center mb-4">
+                      <div className="p-3 bg-red-50 dark:bg-red-900/20 rounded-lg text-red-600 dark:text-red-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                        </svg>
+                      </div>
+                      <h4 className="text-xl font-bold ml-3 text-gray-900 dark:text-white">Airport Transfer</h4>
+                    </div>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm mb-6">
+                      Seamless airport pickup and drop-off services at Dabolim and Mopa airports. Start your Goa vacation the moment you land with our comfortable vehicles and professional drivers.
+                    </p>
+                  </div>
+                  <ul className="space-y-2 pt-4 border-t border-gray-100 dark:border-gray-700 text-xs font-semibold text-gray-700 dark:text-gray-300">
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>On-time pickup</li>
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>Flight tracking</li>
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>No waiting charges</li>
+                  </ul>
+                </div>
+
+                {/* Pick and Drop */}
+                <div className="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow p-6 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center mb-4">
+                      <div className="p-3 bg-red-50 dark:bg-red-900/20 rounded-lg text-red-600 dark:text-red-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                        </svg>
+                      </div>
+                      <h4 className="text-xl font-bold ml-3 text-gray-900 dark:text-white">Pick and Drop</h4>
+                    </div>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm mb-6">
+                      Flexible pick-up and drop-off services at your convenience. We'll meet you at your hotel, resort, or any location of your choice throughout Goa.
+                    </p>
+                  </div>
+                  <ul className="space-y-2 pt-4 border-t border-gray-100 dark:border-gray-700 text-xs font-semibold text-gray-700 dark:text-gray-300">
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>Door-to-door service</li>
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>Flexible scheduling</li>
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>No hidden charges</li>
+                  </ul>
+                </div>
+
+                {/* 24/7 Availability */}
+                <div className="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow p-6 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center mb-4">
+                      <div className="p-3 bg-red-50 dark:bg-red-900/20 rounded-lg text-red-600 dark:text-red-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                      <h4 className="text-xl font-bold ml-3 text-gray-900 dark:text-white">24/7 Availability</h4>
+                    </div>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm mb-6">
+                      Our services are available round the clock. Whether it's an early morning flight or a late-night arrival, we've got you covered throughout your Goa trip.
+                    </p>
+                  </div>
+                  <ul className="space-y-2 pt-4 border-t border-gray-100 dark:border-gray-700 text-xs font-semibold text-gray-700 dark:text-gray-300">
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>Round-the-clock support</li>
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>Emergency assistance</li>
+                    <li className="flex items-center"><span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>Immediate response</li>
+                  </ul>
+                </div>
+              </div>
+            </Container>
+          </Section>
+
+          {/* 6. Why Choose section */}
+          <Section className="bg-gray-50 dark:bg-gray-800 py-12" size="sm">
+            <Container>
+              <div className="text-center mb-12">
+                <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                  Why Choose Our Calangute Car Rental?
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+                {whyChooseItemsCalangute.map((item, index) => (
+                  <div 
+                    key={index} 
+                    className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center border border-gray-100 dark:border-gray-800"
+                  >
+                    <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-full">
+                      {item.icon}
+                    </div>
+                    <h4 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">{item.title}</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </Container>
+          </Section>
+
+          {/* 7. How It Works? */}
+          <HowItWorks 
+            title="Rent a Car in Calangute in 3 Easy Steps" 
+          />
+
+          {/* 8. Frequently Asked Questions */}
+          <Faqs items={customFaqsCalangute} />
         </>
       );
     }

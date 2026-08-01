@@ -207,6 +207,8 @@ const BookingForm = ({
                   </PopoverContent>
                 </Popover>
                   <Input 
+                    id="booking-pickup-time"
+                    aria-label="Pickup Time"
                     type="time"
                     value={formData.pickupTime}
                     onChange={(e) => handleInputChange("pickupTime", e.target.value)}
@@ -241,6 +243,8 @@ const BookingForm = ({
                   </PopoverContent>
                 </Popover>
                   <Input 
+                    id="booking-drop-time"
+                    aria-label="Drop Time"
                     type="time"
                     value={formData.dropTime}
                     onChange={(e) => handleInputChange("dropTime", e.target.value)}

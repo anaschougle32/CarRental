@@ -78,16 +78,97 @@ export const metadata: Metadata = {
   },
 };
 
-// Add font class to the body instead of html
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const identitySchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.ziocarrentals.com/#organization",
+        "name": "Zio Car Rentals",
+        "url": "https://www.ziocarrentals.com",
+        "logo": "https://www.ziocarrentals.com/favicon.png",
+        "slogan": "Freedom to Explore",
+        "description": "Premium self-drive car rentals in Goa with unlimited kilometers, airport pickup, and 24/7 roadside assistance.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Shop no. 1, Mini Max Apartment, ND Naik Rd",
+          "addressLocality": "Madgaon",
+          "addressRegion": "Goa",
+          "postalCode": "403601",
+          "addressCountry": "IN"
+        },
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+91 90828 88912",
+            "contactType": "customer service",
+            "areaServed": "IN",
+            "availableLanguage": ["English", "Hindi"]
+          }
+        ],
+        "sameAs": [
+          "https://www.ziocarrentals.com"
+        ]
+      },
+      {
+        "@type": "AutoRental",
+        "@id": "https://www.ziocarrentals.com/#autorental",
+        "name": "Zio Car Rentals",
+        "url": "https://www.ziocarrentals.com",
+        "logo": "https://www.ziocarrentals.com/favicon.png",
+        "image": "https://www.ziocarrentals.com/favicon.png",
+        "telephone": "+91 90828 88912",
+        "email": "info@ziocarrentals.com",
+        "priceRange": "₹999 - ₹15000",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Shop no. 1, Mini Max Apartment, ND Naik Rd",
+          "addressLocality": "Madgaon",
+          "addressRegion": "Goa",
+          "postalCode": "403601",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "15.2736",
+          "longitude": "73.9581"
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "00:00",
+          "closes": "23:59"
+        }
+      }
+    ]
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Preconnect to external domains */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+        <meta name="theme-color" content="#2563eb" />
+        
+        {/* Favicon references */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
+        <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+        {/* Preconnect to external domains for TTFB performance */}
         <link 
           rel="preconnect" 
           href="https://fonts.googleapis.com" 
@@ -107,11 +188,11 @@ export default function RootLayout({
           rel="dns-prefetch" 
           href="https://images.pexels.com" 
         />
-        {/* Preload fonts */}
-        <link
-          rel="preconnect"
-          href="https://api.fontshare.com"
-          crossOrigin="anonymous"
+
+        {/* Identity Schema Script */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(identitySchema) }}
         />
       </head>
       <body className={`${poppins.variable} font-sans antialiased`}>
@@ -129,17 +210,21 @@ export default function RootLayout({
           <Analytics />
         </ThemeProvider>
 
-        {/* Google Ads Tag — loaded once globally */}
+        {/* Google Ads Tag — loaded asynchronously after page becomes interactive */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-11098887425"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-ads" strategy="afterInteractive">
+        <Script id="google-ads" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
+
             gtag('config', 'AW-11098887425');
+            gtag('config', 'AW-11098887425/phone_conversion', {
+              'phone_conversion_number': '+91 90828 88912'
+            });
           `}
         </Script>
       </body>

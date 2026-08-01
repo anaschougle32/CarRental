@@ -187,7 +187,7 @@ export default function BookingFormPopup({
               Pickup Location *
             </Label>
             <Select value={formData.pickupLocation} onValueChange={(value) => handleInputChange("pickupLocation", value)}>
-              <SelectTrigger>
+              <SelectTrigger id="popup-location" aria-label="Pickup Location">
                 <SelectValue placeholder="Select pickup location" />
               </SelectTrigger>
               <SelectContent>
@@ -241,7 +241,7 @@ export default function BookingFormPopup({
               Preferred Car Type
             </Label>
             <Select value={formData.carType} onValueChange={(value) => handleInputChange("carType", value)}>
-              <SelectTrigger>
+              <SelectTrigger id="popup-car-type" aria-label="Preferred Car Type">
                 <SelectValue placeholder="Select car type (optional)" />
               </SelectTrigger>
               <SelectContent>

@@ -278,6 +278,8 @@ const Hero = () => {
                 </PopoverContent>
               </Popover>
                 <Input 
+                  id="hero-pickup-time"
+                  aria-label="Pickup Time"
                   type="time"
                   value={formData.pickupTime}
                   onChange={(e) => handleInputChange("pickupTime", e.target.value)}
@@ -312,6 +314,8 @@ const Hero = () => {
                 </PopoverContent>
               </Popover>
                 <Input 
+                  id="hero-drop-time"
+                  aria-label="Drop Time"
                   type="time"
                   value={formData.dropTime}
                   onChange={(e) => handleInputChange("dropTime", e.target.value)}

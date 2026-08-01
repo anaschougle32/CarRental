@@ -1,0 +1,35 @@
+# Zio Car Rentals - Self Drive Car Rental Service in Goa & India
+
+> Zio Car Rentals provides premium self-drive car rentals in Goa and across India with unlimited kilometers, airport pickup (Dabolim & Mopa), transparent pricing, and 24/7 roadside assistance.
+
+## Core Information
+- **Brand Name**: Zio Car Rentals
+- **Slogan**: Freedom to Explore
+- **Website**: https://www.ziocarrentals.com
+- **Phone / Call**: +91 90828 88912
+- **WhatsApp / Secondary Contact**: +91 7977288350
+- **Email**: info@ziocarrentals.com
+- **Address**: Shop no. 1, Mini Max Apartment, ND Naik Rd, Madgaon, Goa 403601
+- **Pricing**: Starting from ₹999/day for hatchbacks, ₹2,000/day for SUVs, and ₹15,000/day for luxury vehicles.
+
+## Key Services
+- **Airport Transfers**: Direct vehicle pickup and drop-off at Dabolim International Airport (GOI) and Manohar International Airport (Mopa - GOX).
+- **Pick and Drop**: Door-to-door vehicle delivery to hotels, resorts, or any location across Goa.
+- **24/7 Customer Support**: Round-the-clock roadside assistance and instant booking confirmation.
+- **Flexible Plans**: 2-day rentals, weekly packages, and long-term monthly rentals with zero hidden charges.
+
+## Main Pages & Locations
+- [Home Page](https://www.ziocarrentals.com/): Self Drive Car Rental in India
+- [Goa Landing Page](https://www.ziocarrentals.com/locations/self-drive-car-rental-in-goa): Best Self Drive Car Rental in Goa
+- [Madgaon Railway Station Page](https://www.ziocarrentals.com/locations/self-drive-car-rental-madgaon): Self Drive Car Rental in Madgaon Railway Station
+- [Goa Airport Page](https://www.ziocarrentals.com/locations/self-drive-car-rental-goa-airport): Self Drive Car Rental at Goa Airport (Dabolim & Mopa)
+- [Calangute Page](https://www.ziocarrentals.com/locations/self-drive-car-rental-calangute): Self Drive Car Rental in Calangute Beach
+- [Cars Fleet](https://www.ziocarrentals.com/cars): Hatchbacks, Sedans, SUVs, and Luxury Cars
+- [Blogs](https://www.ziocarrentals.com/blogs): Travel Tips & Goa Guides
+- [About Us](https://www.ziocarrentals.com/about-us): About Zio Car Rentals
+- [Contact Us](https://www.ziocarrentals.com/contact-us): Get in touch for bookings & inquiries
+
+## FAQs & Rental Policies
+- **Required Documents**: Valid Driving Licence, Government-issued Photo ID (Aadhaar / Passport / Voter ID).
+- **Security Deposit**: Refundable security deposit depending on car category.
+- **Fuel Policy**: Returned with the agreed fuel level as per rental terms.
