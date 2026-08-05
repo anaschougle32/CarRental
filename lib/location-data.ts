@@ -590,5 +590,62 @@ export const locationsData: Record<string, LocationPageConfig> = {
       { question: "Q1. Do you deliver cars to Morjim resorts?", answer: "Yes, free resort delivery is available across Morjim & Ashwem." },
       { question: "Q2. Can I drive to Mopa Airport from Morjim?", answer: "Yes, Morjim is close to Mopa (GOX) Airport and airport drop is supported." }
     ]
+  },
+
+  "self-drive-car-rental-mumbai": {
+    slug: "self-drive-car-rental-mumbai",
+    name: "Mumbai",
+    metaTitle: "Best Self Drive Car Rental in Mumbai | Zio Car Rentals",
+    metaDescription: "Book self drive car rental in Mumbai. Hatchbacks, sedans, SUVs, and luxury cars available with easy booking and 24/7 customer support.",
+    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-mumbai",
+    formHeading: "Book Self Drive Car Rental in Mumbai",
+    formContent: "Fill out the form to check availability and book your preferred self-drive car in Mumbai.",
+    h1: "Self Drive Car Rental in Mumbai",
+    p1: "Looking for a trusted Self Drive Car Rental in Mumbai? We provide affordable, safe, and well-maintained rental cars for city commutes, weekend road trips, and outstation travel with complete freedom.",
+    h2: "Find the Perfect Car on Rent in Mumbai",
+    p2: "Browse our wide selection of hatchbacks, sedans, SUVs, and luxury cars tailored for Mumbai city driving and road trips.",
+    whyChooseHeading: "Why Choose Our Mumbai Car Rental?",
+    whyChooseItems: [
+      { title: "Affordable Rental Plans", description: "Budget-friendly rates with transparent pricing and no hidden charges." },
+      { title: "Wide Range of Vehicles", description: "Hatchbacks, sedans, compact SUVs, and premium luxury cars." },
+      { title: "Freedom to Travel", description: "Drive at your own pace across Mumbai, Lonavala, Pune, and Goa." },
+      { title: "Easy Online Booking", description: "Quick reservation process with instant confirmation." },
+      { title: "Well-Maintained Cars", description: "Regularly serviced, sanitized, and safety-inspected vehicles." },
+      { title: "Flexible Duration", description: "Daily, weekly, or long-term rental packages available." }
+    ],
+    howItWorksHeading: "Rent a Car in Mumbai in 3 Easy Steps",
+    faqs: [
+      { question: "Q1. What documents are required to rent a self-drive car in Mumbai?", answer: "A valid original Driving Licence, Aadhaar Card / Passport, and a government ID proof." },
+      { question: "Q2. Can I take the self-drive car outside Mumbai?", answer: "Yes, our self-drive cars come with all-India tourist permits for interstate travel." },
+      { question: "Q3. Is there a security deposit?", answer: "Yes, a fully refundable security deposit is collected prior to vehicle pickup." }
+    ]
+  },
+
+  "mumbai": {
+    slug: "mumbai",
+    name: "Mumbai",
+    metaTitle: "Self Drive Car Rental in Mumbai | Zio Car Rentals",
+    metaDescription: "Hire self drive cars in Mumbai at low daily rates. Doorstep delivery, sanitized cars, and 24/7 roadside assistance.",
+    canonicalUrl: "https://www.ziocarrentals.com/locations/mumbai",
+    formHeading: "Book Self Drive Car Rental in Mumbai",
+    formContent: "Fill out the form to check availability and book your self-drive car in Mumbai.",
+    h1: "Self Drive Car Rental in Mumbai",
+    p1: "Looking for a trusted Self Drive Car Rental in Mumbai? We provide affordable, safe, and well-maintained rental cars for city commutes, weekend road trips, and outstation travel with complete freedom.",
+    h2: "Find the Perfect Car on Rent in Mumbai",
+    p2: "Browse our wide selection of hatchbacks, sedans, SUVs, and luxury cars tailored for Mumbai city driving and road trips.",
+    whyChooseHeading: "Why Choose Our Mumbai Car Rental?",
+    whyChooseItems: [
+      { title: "Affordable Rental Plans", description: "Budget-friendly rates with transparent pricing and no hidden charges." },
+      { title: "Wide Range of Vehicles", description: "Hatchbacks, sedans, compact SUVs, and premium luxury cars." },
+      { title: "Freedom to Travel", description: "Drive at your own pace across Mumbai, Lonavala, Pune, and Goa." },
+      { title: "Easy Online Booking", description: "Quick reservation process with instant confirmation." },
+      { title: "Well-Maintained Cars", description: "Regularly serviced, sanitized, and safety-inspected vehicles." },
+      { title: "Flexible Duration", description: "Daily, weekly, or long-term rental packages available." }
+    ],
+    howItWorksHeading: "Rent a Car in Mumbai in 3 Easy Steps",
+    faqs: [
+      { question: "Q1. What documents are required to rent a self-drive car in Mumbai?", answer: "A valid original Driving Licence, Aadhaar Card / Passport, and a government ID proof." },
+      { question: "Q2. Can I take the self-drive car outside Mumbai?", answer: "Yes, our self-drive cars come with all-India tourist permits for interstate travel." }
+    ]
   }
 };
