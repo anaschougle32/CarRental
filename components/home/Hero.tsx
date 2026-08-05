@@ -17,13 +17,8 @@ import { CalendarIcon } from "lucide-react";
 import { toast } from "sonner";
 import { submitBookingInquiry } from "@/lib/supabase/index";
 
-// Optimize images by using smaller high-quality images
-const heroImages = [
-  "https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&dpr=1",
-  "https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&dpr=1",
-  "https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&dpr=1",
-  "https://images.pexels.com/photos/3608542/pexels-photo-3608542.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&dpr=1",
-];
+// Single high-quality background image
+const heroImage = "https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&dpr=1";
 
 // Add structured data for SEO
 export function HeroStructuredData() {
@@ -35,7 +30,7 @@ export function HeroStructuredData() {
           "@context": "https://schema.org",
           "@type": "RentalCarCompany",
           "name": "ZioCarRentals",
-          "image": heroImages[0],
+          "image": heroImage,
           "priceRange": "₹₹",
           "address": {
             "@type": "PostalAddress",
@@ -64,7 +59,6 @@ const Hero = ({
   subtitle = "Fill out the form to get the best self-drive car rental deals with instant booking assistance today."
 }: HeroProps = {}) => {
   const router = useRouter();
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   
   // Form state
@@ -84,23 +78,6 @@ const Hero = ({
   useEffect(() => {
     setPickupDate(new Date());
     setReturnDate(new Date(new Date().setDate(new Date().getDate() + 3)));
-  }, []);
-
-  // Preload remaining images after initial render to avoid blocking LCP
-  useEffect(() => {
-    heroImages.slice(1).forEach((src) => {
-      const img = new globalThis.Image();
-      img.src = src;
-    });
-  }, []);
-
-  // Image slider effect
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
-    }, 5000); // Change image every 5 seconds
-
-    return () => clearInterval(timer);
   }, []);
 
   const handleInputChange = (field: string, value: string) => {
@@ -181,28 +158,18 @@ const Hero = ({
       {/* Structured Data for SEO */}
       <HeroStructuredData />
       
-      {/* Background Image Carousel */}
-      {heroImages.map((image, index) => (
-        <div
-          key={image}
-          className={cn(
-            "absolute inset-0 transition-opacity duration-1000 ease-in-out w-full h-full",
-            index === currentImageIndex ? "opacity-100 z-0" : "opacity-0 -z-10"
-          )}
-          aria-hidden="true"
-        >
-          <Image 
-            src={image} 
-            alt={`ZioCarRentals Car Rental in Goa - Image ${index + 1}`}
-            fill
-            sizes="100vw"
-            priority={index === 0}
-            className="object-cover object-[center_35%]"
-            quality={index === 0 ? 85 : 75}
-            loading={index === 0 ? "eager" : "lazy"}
-          />
-        </div>
-      ))}
+      {/* Single Background Image */}
+      <div className="absolute inset-0 w-full h-full z-0" aria-hidden="true">
+        <Image 
+          src={heroImage} 
+          alt="ZioCarRentals Self Drive Car Rental in Goa"
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover object-[center_35%]"
+          quality={85}
+        />
+      </div>
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/55 z-0" />
