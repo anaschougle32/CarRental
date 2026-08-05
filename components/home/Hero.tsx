@@ -52,7 +52,17 @@ export function HeroStructuredData() {
   );
 }
 
-const Hero = () => {
+interface HeroProps {
+  title?: string;
+  titleAccent?: string;
+  subtitle?: string;
+}
+
+const Hero = ({
+  title = "Freedom to Explore Goa,",
+  titleAccent = "Your Way",
+  subtitle = "Premium self-drive car rentals with unlimited kilometers, airport pickup, and 24/7 roadside assistance."
+}: HeroProps = {}) => {
   const router = useRouter();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -76,12 +86,21 @@ const Hero = () => {
     setReturnDate(new Date(new Date().setDate(new Date().getDate() + 3)));
   }, []);
 
+  // Preload remaining images after initial render to avoid blocking LCP
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
-    }, 5000);
+    heroImages.slice(1).forEach((src) => {
+      const img = new globalThis.Image();
+      img.src = src;
+    });
+  }, []);
 
-    return () => clearInterval(interval);
+  // Image slider effect
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(timer);
   }, []);
 
   const handleInputChange = (field: string, value: string) => {
@@ -142,7 +161,9 @@ const Hero = () => {
       if (result.success) {
         toast.success("Booking inquiry submitted! Redirecting to available cars...");
         // Redirect to cars page after successful submission
-        router.push("/cars");
+        setTimeout(() => {
+          router.push("/cars");
+        }, 1500);
       } else {
         toast.error("Failed to submit booking inquiry. Please try again.");
         console.error("Booking submission error:", result.error);
@@ -156,17 +177,17 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-[calc(100vh-var(--navbar-height))] w-full overflow-hidden">
+    <section className="relative min-h-[calc(100vh-var(--navbar-height))] -mt-[var(--navbar-height)] pt-[var(--navbar-height)] flex items-center justify-center overflow-hidden w-full max-w-full">
       {/* Structured Data for SEO */}
       <HeroStructuredData />
       
-      {/* Background Images with Fade Transition */}
+      {/* Background Image Carousel */}
       {heroImages.map((image, index) => (
         <div
           key={image}
           className={cn(
-            "absolute inset-0 w-full h-full transition-opacity duration-1000",
-            index === currentImageIndex ? "opacity-100" : "opacity-0"
+            "absolute inset-0 transition-opacity duration-1000 ease-in-out w-full h-full",
+            index === currentImageIndex ? "opacity-100 z-0" : "opacity-0 -z-10"
           )}
           aria-hidden="true"
         >
@@ -184,18 +205,17 @@ const Hero = () => {
       ))}
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/55" />
+      <div className="absolute inset-0 bg-black/55 z-0" />
 
       {/* Content */}
       <Container className="relative z-10 text-center text-white">
         <div className="w-full flex flex-col items-center justify-center min-h-[calc(100vh-var(--navbar-height))] pt-10 md:pt-14 lg:pt-16 pb-12 md:pb-16">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 animate-fade-in">
-            Freedom to Explore Goa,{" "}
-            <span className="text-blue-400">Your Way</span>
+            {title}{" "}
+            {titleAccent && <span className="text-blue-400">{titleAccent}</span>}
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl mb-4 md:mb-6 max-w-3xl mx-auto">
-            Premium self-drive car rentals with unlimited kilometers,
-            airport pickup, and 24/7 roadside assistance.
+            {subtitle}
           </p>
           
           {/* Enhanced Booking Form */}

@@ -51,8 +51,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const imageUrl = carData.main_image || '/images/cars/car-placeholder.jpg';
     
     // Create SEO-optimized title and description
-    const title = `Rent ${brandName} ${carData.name} in Goa | ₹${carData.price_per_day}/day | ZioCarRentals`;
-    const description = `Rent a ${brandName} ${carData.name} in Goa with unlimited kilometers starting at ₹${carData.price_per_day}/day. ${category} with ${carData.fuel_type} fuel and ${carData.transmission} transmission. Free delivery across Goa. Book now!`;
+    const title = `Rent ${brandName} ${carData.name} in Goa | ZioCarRentals`;
+    const description = `Rent a ${brandName} ${carData.name} in Goa with unlimited kilometers. ${category} with ${carData.fuel_type} fuel and ${carData.transmission} transmission. Free delivery across Goa. Book now!`;
     
     // Create comprehensive keywords
     const keywords = [
@@ -66,8 +66,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       `ZioCarRentals ${brandName}`,
       `${brandName} car hire Goa`,
       `rent ${category} Goa`,
-      `best car rental deals Goa`,
-      `${brandName} ${carData.name} price per day`
+      `best car rental deals Goa`
     ].join(', ');
     
     return {
@@ -91,7 +90,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       twitter: {
         card: 'summary_large_image',
         title: `Rent ${brandName} ${carData.name} in Goa | ZioCarRentals`,
-        description: `${category} with ${carData.fuel_type} fuel and ${carData.transmission} transmission. Book now from ₹${carData.price_per_day}/day!`,
+        description: `${category} with ${carData.fuel_type} fuel and ${carData.transmission} transmission. Book now!`,
         images: [imageUrl],
       },
       alternates: {
@@ -167,7 +166,7 @@ export default async function CarPage({ params }: Props) {
               {car.brand} {car.name} Car Rental in Goa
             </h1>
             <p className="text-lg text-blue-600 font-medium mb-4">
-              Self Drive {car.category} | {car.fuel_type} | {car.transmission} | ₹{car.price_per_day}/day
+              Self Drive {car.category} | {car.fuel_type} | {car.transmission}
             </p>
             
             <CarGalleryWrapper main_image={car.main_image || "/images/cars/car-placeholder.jpg"} alt={`${car.brand} ${car.name} Car Rental in Goa`} />

@@ -73,11 +73,8 @@ const BookingCTA = ({ car }: BookingCTAProps) => {
       <CardContent className="pt-6">
         <div className="flex justify-between items-center mb-6">
           <div>
-            <p className="text-sm text-gray-500 dark:text-gray-400">Price</p>
-            <p className="text-3xl font-bold">
-              ₹{car.price_per_day}
-              <span className="text-sm font-normal text-gray-500">/day</span>
-            </p>
+            <p className="text-lg font-bold text-gray-900 dark:text-white">{car.brand} {car.name}</p>
+            <p className="text-xs text-gray-500">{car.category} • {car.fuel_type} • {car.transmission}</p>
           </div>
           <div className="text-right">
             <p className="text-sm text-gray-500 dark:text-gray-400">Min. rental</p>
@@ -142,22 +139,6 @@ const BookingCTA = ({ car }: BookingCTAProps) => {
                 />
               </PopoverContent>
             </Popover>
-          </div>
-        </div>
-        
-        {/* Price Calculation */}
-        <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg mb-4">
-          <div className="flex justify-between mb-2">
-            <span>₹{car.price_per_day} x {totalDays} days</span>
-            <span>₹{totalPrice}</span>
-          </div>
-          <div className="flex justify-between mb-2 text-sm text-gray-500">
-            <span>Security Deposit (Refundable)</span>
-            <span>₹5,000</span>
-          </div>
-          <div className="border-t border-gray-200 dark:border-gray-700 pt-2 mt-2 flex justify-between font-bold">
-            <span>Total</span>
-            <span>₹{totalPrice + 5000}</span>
           </div>
         </div>
       </CardContent>
