@@ -129,6 +129,7 @@ function buildHeaders() {
 }
 
 const nextConfig = {
+  serverExternalPackages: ['@supabase/supabase-js'],
   eslint: {
     ignoreDuringBuilds: true,
   },
