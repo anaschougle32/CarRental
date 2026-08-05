@@ -285,22 +285,8 @@ export default async function LocationPage({ params }: Props) {
           <Hero 
             title={config.h1.includes(',') ? config.h1.split(',')[0] + ',' : config.h1}
             titleAccent={config.h1.includes(',') ? config.h1.split(',')[1] : ''}
-            subtitle={config.p1.slice(0, 150) + '...'}
+            subtitle={config.p1}
           />
-
-          {/* 3. Body: H1 Section */}
-          <Section className="bg-white dark:bg-gray-900 py-12" size="sm">
-            <Container>
-              <div className="max-w-4xl mx-auto space-y-4 text-center md:text-left">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight">
-                  {config.h1}
-                </h1>
-                <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed pt-2">
-                  {config.p1}
-                </p>
-              </div>
-            </Container>
-          </Section>
 
           {/* 4. Car Listing (No Description in Car Listing, No Price) */}
           <Section className="bg-gray-50 dark:bg-gray-800 py-12" size="sm">
@@ -453,21 +439,10 @@ export default async function LocationPage({ params }: Props) {
           <HeroStructuredData />
           
           {/* 1. Hero Section (Contains Banner Booking Form) */}
-          <Hero />
-
-          {/* 3. Body: H1 Section */}
-          <Section className="bg-white dark:bg-gray-900 py-12" size="sm">
-            <Container>
-              <div className="max-w-4xl mx-auto space-y-4 text-center md:text-left">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight">
-                  Explore Goa Your Way with the Best Self-Drive Car Rental in Goa
-                </h1>
-                <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed pt-2">
-                  Discover the beauty of Goa at your own pace with our reliable and affordable self-drive car rental service. From scenic beaches and lively markets to hidden waterfalls and historic forts, enjoy the freedom to travel wherever you want, whenever you want. Choose from a wide range of clean, well-maintained cars with flexible rental plans, transparent pricing, and hassle-free booking. Whether you're visiting for a holiday, business trip, or weekend getaway, we've got the perfect ride for every journey.
-                </p>
-              </div>
-            </Container>
-          </Section>
+          <Hero 
+            title="Explore Goa Your Way with the Best Self-Drive Car Rental in Goa"
+            subtitle="Discover the beauty of Goa at your own pace with our reliable and affordable self-drive car rental service. Choose from a wide range of clean, well-maintained cars with flexible rental plans and transparent pricing."
+          />
 
           {/* 4. Car Listing (No Description in Car Listing) */}
           <Section className="bg-gray-50 dark:bg-gray-800 py-12" size="sm">
