@@ -21,7 +21,7 @@ interface BookingFormProps {
 
 const BookingForm = ({ 
   title = "Book Your Self-Drive Car in Goa Today", 
-  subtitle = "Fill out the form to check availability and book your preferred self-drive car. Enjoy quick booking, affordable prices, and a hassle-free travel experience across Goa.",
+  subtitle = "Fill out the form to get the best self-drive car rental deals with instant booking assistance today.",
   className = ""
 }: BookingFormProps) => {
   const router = useRouter();

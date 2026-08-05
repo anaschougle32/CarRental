@@ -23,8 +23,7 @@ const Footer = () => {
               Zio<span className="text-blue-500">CarRentals</span>
             </h3>
             <p className="text-gray-300 mb-6 max-w-xs text-sm md:text-base">
-              Premium self-drive car rentals in Goa with unlimited kilometers,
-              airport pickup, and 24/7 roadside assistance.
+              Your trusted destination for self-drive car rentals, offering hatchbacks, sedans, SUVs, and luxury cars with flexible rental plans, transparent pricing, and reliable customer support.
             </p>
             <div className="flex space-x-4">
               <a
