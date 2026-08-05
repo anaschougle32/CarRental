@@ -1,8 +1,7 @@
 /* Import Poppins with display swap */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/* Import Satoshi font */
-@import url('https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,300,400&display=swap');
+/* Satoshi is self-hosted via next/font/local in app/layout.tsx */
 
 @tailwind base;
 @tailwind components;

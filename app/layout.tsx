@@ -2,13 +2,14 @@ import './globals.css';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { Poppins } from 'next/font/google';
+import localFont from 'next/font/local';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { ConditionalLayout } from '@/components/layout/ConditionalLayout';
 import { Toaster } from '@/components/ui/sonner';
 
-// Configure Poppins font with basic settings
+// Configure Poppins font (body text)
 const poppins = Poppins({ 
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
@@ -17,8 +18,18 @@ const poppins = Poppins({
   preload: true,
 });
 
-// Apply font family to HTML element
-const fontClass = `${poppins.variable} font-sans`;
+// Configure Satoshi font (headings & bold text) via Google Fonts CDN fallback
+const satoshi = localFont({
+  src: [
+    { path: '../public/fonts/Satoshi-Regular.woff2', weight: '400', style: 'normal' },
+    { path: '../public/fonts/Satoshi-Medium.woff2', weight: '500', style: 'normal' },
+    { path: '../public/fonts/Satoshi-Bold.woff2', weight: '700', style: 'normal' },
+    { path: '../public/fonts/Satoshi-Black.woff2', weight: '900', style: 'normal' },
+  ],
+  variable: '--font-satoshi',
+  display: 'swap',
+  fallback: ['system-ui', 'sans-serif'],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -195,7 +206,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(identitySchema) }}
         />
       </head>
-      <body className={`${poppins.variable} font-sans antialiased`}>
+      <body className={`${poppins.variable} ${satoshi.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
