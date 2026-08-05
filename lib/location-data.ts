@@ -97,9 +97,9 @@ export const locationsData: Record<string, LocationPageConfig> = {
     formHeading: "Book Self Drive Car Rental in Panjim Goa",
     formContent: "Fill out the form to check availability and book your preferred self-drive car in Panjim.",
     h1: "Self Drive Car Rental in Panjim, Goa",
-    p1: "Looking for a trusted Self Drive Car Rental in Panjim, Goa? We provide affordable, safe, and well-maintained rental cars for tourists, business travelers, and families. Whether visiting Miramar Beach, Dona Paula, Fontainhas, or Reis Magos Fort, explore at your own pace.",
+    p1: "Looking for a trusted Self Drive Car Rental in Panjim, Goa? We provide affordable, safe, and well-maintained rental cars for tourists, business travelers, and families.",
     h2: "Find the Perfect Car on Rent in Panjim",
-    p2: "We offer hatchbacks, sedans, compact SUVs, premium SUVs, and luxury cars. Every vehicle is thoroughly sanitized and inspected.",
+    p2: "We offer hatchbacks, sedans, compact SUVs, premium SUVs, and luxury cars.",
     whyChooseHeading: "Why Choose Our Panjim Car Rental?",
     whyChooseItems: [
       { title: "Affordable Rental Plans", description: "Budget-friendly rates with transparent pricing." },
@@ -112,8 +112,7 @@ export const locationsData: Record<string, LocationPageConfig> = {
     howItWorksHeading: "Rent a Car in Panjim in 3 Easy Steps",
     faqs: [
       { question: "Q1. What documents are required to rent a car in Panjim?", answer: "Valid Driving Licence, Aadhaar/Passport, and ID proof." },
-      { question: "Q2. Can tourists rent a self-drive car in Panjim?", answer: "Yes, both domestic and international tourists with valid licence can rent." },
-      { question: "Q3. Can I travel throughout Goa?", answer: "Yes, you can explore North and South Goa freely." }
+      { question: "Q2. Can tourists rent a self-drive car in Panjim?", answer: "Yes, both domestic and international tourists with valid licence can rent." }
     ]
   },
 
@@ -173,255 +172,423 @@ export const locationsData: Record<string, LocationPageConfig> = {
     ]
   },
 
-  "self-drive-car-rental-vasco": {
-    slug: "self-drive-car-rental-vasco",
-    name: "Vasco",
-    metaTitle: "Best Self Drive Car Rental in Vasco Da Gama Railway Station | Zio Car Rentals",
-    metaDescription: "Book a car rental in Vasco Railway Station with affordable self-drive cars, SUVs, and sedans. Easy booking, airport pickup, and 24/7 support.",
-    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-vasco",
-    formHeading: "Book your Self Drive Cars in Vasco Today",
-    formContent: "Fill out the form to check availability and book your preferred self-drive car across Vasco.",
-    h1: "Best Self Drive Car Rental in Vasco, Goa",
-    p1: "Looking for a trusted car rental service in Vasco? Conveniently located near Vasco city and Dabolim Airport, we provide smooth delivery and reliable cars.",
-    h2: "Find the Perfect Car on Rent in Vasco Da Gama",
-    p2: "Choose from hatchbacks, sedans, SUVs, and luxury vehicles.",
-    whyChooseHeading: "Why Choose Our Vasco Car Rental?",
+  "self-drive-car-rental-colva": {
+    slug: "self-drive-car-rental-colva",
+    name: "Colva",
+    metaTitle: "Best Self Drive Car Rental in Colva Goa | Zio Car Rentals",
+    metaDescription: "Book a self-drive car rental in Colva Goa with affordable hatchbacks, sedans, and SUVs. Easy booking, flexible rentals, and reliable service.",
+    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-colva",
+    formHeading: "Book your Self Drive Cars in Colva Today",
+    formContent: "Fill out the form to check availability and book your preferred self-drive car near Colva Beach.",
+    h1: "Best Self Drive Car Rental in Colva Goa",
+    p1: "Planning a holiday in South Goa? Make your trip more enjoyable with our Self Drive Car Rental in Colva Goa. Drive to Benaulim, Betalbatim, Varca, Cavelossim, and Palolem with complete freedom.",
+    h2: "Find the Perfect Car on Rent in Colva",
+    p2: "Economical hatchbacks, premium sedans, and spacious SUVs delivered near Colva Beach.",
+    whyChooseHeading: "Why Choose Our Colva Car Rental?",
     whyChooseItems: [
-      { title: "Wide Range of Vehicles", description: "Compact hatchbacks to premium SUVs." },
-      { title: "Affordable Rental Prices", description: "Competitive rates with transparent pricing." },
-      { title: "Well-Maintained Cars", description: "Serviced and sanitized before every trip." },
-      { title: "Easy Online Booking", description: "Fast reservation with instant confirmation." },
-      { title: "Near Dabolim Airport & Station", description: "Convenient location for rail and air travelers." },
-      { title: "Customer Satisfaction", description: "Dedicated 24/7 customer support." }
+      { title: "Near Colva Beach", description: "Convenient pickup and doorstep delivery across Colva." },
+      { title: "Wide Range of Vehicles", description: "Hatchbacks, sedans, SUVs, and luxury cars." },
+      { title: "Affordable Prices", description: "Transparent rates with zero hidden charges." },
+      { title: "Serviced & Cleaned", description: "Regularly maintained cars for safe road trips." },
+      { title: "Easy Online Reservation", description: "Quick booking confirmation." },
+      { title: "24/7 Assistance", description: "Round-the-clock customer support." }
     ],
-    howItWorksHeading: "Rent a Car in Vasco in 3 Easy Steps",
+    howItWorksHeading: "Rent a Car in Colva in 3 Easy Steps",
     faqs: [
-      { question: "Q1. What documents are required to rent a car in Vasco?", answer: "Valid driving license and government photo ID." },
-      { question: "Q2. Do you provide airport pickup in Vasco?", answer: "Yes, convenient pickup near Dabolim airport and Vasco railway station." }
+      { question: "Q1. Is self-drive car rental available near Colva Beach?", answer: "Yes, we provide delivery in Colva and surrounding resort areas." },
+      { question: "Q2. Can I drive across all of Goa?", answer: "Yes, you can freely explore North and South Goa." }
     ]
   },
 
-  "self-drive-car-rental-varca": {
-    slug: "self-drive-car-rental-varca",
-    name: "Varca",
-    metaTitle: "Best Self Drive Car Rental in Varca | Zio Car Rentals",
-    metaDescription: "Book a car rental in Varca with affordable self-drive cars, SUVs, and sedans. Enjoy easy booking, flexible rental plans, and reliable service.",
-    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-varca",
-    formHeading: "Book your Self Drive Cars in Varca Today",
-    formContent: "Fill out the form to check availability and book your car in Varca Beach.",
-    h1: "Best Self Drive Car Rental in Varca, Goa",
-    p1: "Enjoy the pristine white beaches of Varca with our comfortable self-drive rental cars. Travel to Benaulim, Cavelossim, Colva, and Margao effortlessly.",
-    h2: "Find the Perfect Car on Rent in Varca",
-    p2: "Wide selection of hatchbacks, sedans, and SUVs delivered directly to your resort in Varca.",
-    whyChooseHeading: "Why Choose Our Varca Car Rental?",
+  "self-drive-car-rental-karmali": {
+    slug: "self-drive-car-rental-karmali",
+    name: "Karmali",
+    metaTitle: "Best Self Drive Car Rental in Karmali Railway Station Goa | Zio Car Rentals",
+    metaDescription: "Book a self-drive car rental at Karmali Railway Station. Easy booking, flexible rentals, clean vehicles, and reliable service.",
+    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-karmali",
+    formHeading: "Book your Self Drive Cars in Karmali Today",
+    formContent: "Fill out the form to check availability for Karmali Railway Station pickup.",
+    h1: "Best Self Drive Car Rental at Karmali Railway Station",
+    p1: "Arriving by train at Karmali Station? Avoid taxi queues and start your trip immediately with our self-drive car rental service near Karmali Station.",
+    h2: "Find the Perfect Car on Rent in Karmali Goa",
+    p2: "Choose from hatchbacks, sedans, and SUVs ready at Karmali Railway Station.",
+    whyChooseHeading: "Why Choose Our Karmali Car Rental?",
     whyChooseItems: [
-      { title: "Wide Range of Self-Drive Cars", description: "Hatchbacks, sedans, SUVs, and luxury cars." },
-      { title: "Affordable Prices", description: "Transparent rates with no hidden costs." },
-      { title: "Sanitized & Serviced", description: "Inspected for maximum safety and comfort." },
-      { title: "Resort Delivery in Varca", description: "Doorstep delivery to Varca beach resorts." },
-      { title: "Flexible Duration", description: "Daily, weekly, and monthly options." },
-      { title: "24/7 Roadside Assistance", description: "Always here to assist during your drive." }
+      { title: "Station Pickup & Drop", description: "Convenient pickup right at Karmali Railway Station." },
+      { title: "Central Goa Access", description: "Ideal location to reach Panjim, Old Goa, and beaches." },
+      { title: "Affordable Pricing", description: "Clear pricing with zero hidden fees." },
+      { title: "Sanitized Vehicles", description: "Inspected and sanitized before key handover." },
+      { title: "Fast Booking", description: "Minimal paperwork for fast vehicle collection." },
+      { title: "24/7 Roadside Assistance", description: "Full customer support during your journey." }
     ],
-    howItWorksHeading: "Rent a Car in Varca in 3 Easy Steps",
+    howItWorksHeading: "Rent a Car in Karmali in 3 Easy Steps",
     faqs: [
-      { question: "Q1. Do you deliver cars to Varca resorts?", answer: "Yes, we offer doorstep resort delivery in Varca." },
-      { question: "Q2. Can I rent for a single week?", answer: "Yes, flexible weekly and monthly plans are available." }
+      { question: "Q1. Is self-drive car rental available at Karmali Station?", answer: "Yes, we deliver cars directly near Karmali Railway Station." },
+      { question: "Q2. Can I travel to both North & South Goa from Karmali?", answer: "Yes, Karmali is centrally located for exploring all of Goa." }
     ]
   },
 
-  "self-drive-car-rental-agonda": {
-    slug: "self-drive-car-rental-agonda",
-    name: "Agonda",
-    metaTitle: "Best Self Drive Car Rental in Agonda | Zio Car Rentals",
-    metaDescription: "Rent a car in Agonda with affordable self-drive cars, SUVs, and sedans. Enjoy easy booking, flexible rental plans, and reliable service across South Goa.",
-    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-agonda",
-    formHeading: "Book your Self Drive Cars in Agonda Today",
-    formContent: "Fill out the form to check availability and book your preferred self-drive car in Agonda.",
-    h1: "Best Self Drive Car Rental in Agonda, Goa",
-    p1: "Planning a trip to Agonda and looking for a convenient way to explore Goa? Drive comfortably to popular places like Agonda Beach, Palolem, Cola Beach, Cabo de Rama Fort, and Margao.",
-    h2: "Find the Perfect Car on Rent in Agonda",
-    p2: "Hatchbacks, sedans, SUVs, and premium cars for peaceful South Goa coastal travel.",
-    whyChooseHeading: "Why Choose Our Agonda Car Rental?",
+  "self-drive-car-rental-thivim": {
+    slug: "self-drive-car-rental-thivim",
+    name: "Thivim",
+    metaTitle: "Best Self Drive Car Rental at Thivim Railway Station Goa | Zio Car Rentals",
+    metaDescription: "Book a self-drive car rental at Thivim Railway Station. Easy booking, flexible rentals, clean cars, and reliable service for North Goa.",
+    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-thivim",
+    formHeading: "Book your Self Drive Cars in Thivim Today",
+    formContent: "Fill out the form to check availability for Thivim Railway Station pickup.",
+    h1: "Best Self Drive Car Rental at Thivim Railway Station",
+    p1: "Arriving in North Goa by train at Thivim Railway Station? Rent a self-drive car directly at Thivim Station and head to Calangute, Baga, Anjuna, or Morjim with total freedom.",
+    h2: "Find the Perfect Car on Rent in Thivim",
+    p2: "Hatchbacks, sedans, and SUVs available for pickup at Thivim Station.",
+    whyChooseHeading: "Why Choose Our Thivim Car Rental?",
     whyChooseItems: [
-      { title: "Wide Range of Cars", description: "Choose from hatchbacks, sedans, SUVs, and premium cars." },
-      { title: "Affordable Rental Rates", description: "Budget-friendly prices with zero hidden charges." },
-      { title: "Agonda Beach Delivery", description: "Doorstep delivery across Agonda and Palolem resorts." },
-      { title: "Easy Online Reservation", description: "Instant booking confirmation." },
-      { title: "Clean & Sanitized", description: "Thoroughly cleaned and inspected cars." },
-      { title: "24/7 Customer Support", description: "Support available whenever you need." }
-    ],
-    howItWorksHeading: "Rent a Car in Agonda in 3 Easy Steps",
-    faqs: [
-      { question: "Q1. What types of cars are available for rent in Agonda?", answer: "We offer hatchbacks, sedans, SUVs, MUVs, and premium cars." },
-      { question: "Q2. Can I rent a self-drive car in Agonda?", answer: "Yes, self-drive options are available for complete flexibility." }
-    ]
-  },
-
-  "self-drive-car-rental-north-goa": {
-    slug: "self-drive-car-rental-north-goa",
-    name: "North Goa",
-    metaTitle: "Best Self Drive Car Rental in North Goa | Zio Car Rentals",
-    metaDescription: "Book a self-drive car rental in North Goa with affordable cars, SUVs, and sedans. Enjoy flexible rentals, easy booking, clean vehicles, and hassle-free travel.",
-    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-north-goa",
-    formHeading: "Book your Self Drive Cars in North Goa Today",
-    formContent: "Fill out the form to check availability and book your self-drive car in North Goa.",
-    h1: "Best Self Drive Car Rental in North Goa",
-    p1: "Explore the bustling beaches, nightlife, markets, and historic forts of North Goa at your own pace. Visit Baga, Calangute, Anjuna, Vagator, Fort Aguada, and Chapora Fort comfortably.",
-    h2: "Find the Perfect Car on Rent in North Goa",
-    p2: "Well-maintained hatchbacks, sedans, SUVs, and luxury cars for North Goa exploration.",
-    whyChooseHeading: "Why Choose Our North Goa Car Rental?",
-    whyChooseItems: [
-      { title: "Wide Range of Self-Drive Cars", description: "Select from hatchbacks, sedans, SUVs, and luxury cars." },
-      { title: "Affordable Rental Prices", description: "Competitive rates with transparent pricing." },
-      { title: "Explore All North Goa Spots", description: "Freedom to visit Baga, Anjuna, Morjim, and Arambol." },
-      { title: "Easy Online Booking", description: "Instant booking confirmation." },
-      { title: "Well-Maintained Fleet", description: "Serviced and sanitized before every rental." },
-      { title: "24/7 Roadside Assistance", description: "Support available whenever you need." }
-    ],
-    howItWorksHeading: "Rent a Car in North Goa in 3 Easy Steps",
-    faqs: [
-      { question: "Q1. Can I drive from North Goa to South Goa?", answer: "Yes, you can freely travel across all parts of Goa." },
-      { question: "Q2. What documents are required?", answer: "Valid driving license and government photo ID." }
-    ]
-  },
-
-  "self-drive-car-rental-south-goa": {
-    slug: "self-drive-car-rental-south-goa",
-    name: "South Goa",
-    metaTitle: "Best Self Drive Car Rental in South Goa | Zio Car Rentals",
-    metaDescription: "Book a self-drive car rental in South Goa with affordable hatchbacks, SUVs, and sedans. Enjoy flexible rentals, easy booking, and smooth travel.",
-    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-south-goa",
-    formHeading: "Book your Self Drive Cars in South Goa Today",
-    formContent: "Fill out the form to check availability and book your self-drive car in South Goa.",
-    h1: "Best Self Drive Car Rental in South Goa",
-    p1: "Discover the tranquil beaches, heritage sites, and peaceful resorts of South Goa. Visit Palolem, Colva, Benaulim, Mobor, Agonda, and Cabo de Rama Fort with total comfort.",
-    h2: "Find the Perfect Car on Rent in South Goa",
-    p2: "Spacious SUVs, comfortable sedans, and economical hatchbacks perfect for South Goa scenic routes.",
-    whyChooseHeading: "Why Choose Our South Goa Car Rental?",
-    whyChooseItems: [
-      { title: "Ideal for Quiet Getaways", description: "Comfortable cars for peaceful South Goa road trips." },
-      { title: "Wide Vehicle Options", description: "Hatchbacks, SUVs, sedans, and luxury cars." },
-      { title: "Resort & Hotel Pickup", description: "Delivery across Margao, Colva, Varca, and Palolem." },
-      { title: "Transparent Pricing", description: "Clear pricing with zero hidden fees." },
-      { title: "Quick Documentation", description: "Minimal paperwork for fast key handover." },
-      { title: "24/7 Roadside Assistance", description: "Reliable support throughout your rental." }
-    ],
-    howItWorksHeading: "Rent a Car in South Goa in 3 Easy Steps",
-    faqs: [
-      { question: "Q1. Are your cars delivered to South Goa resorts?", answer: "Yes, we provide doorstep delivery across all major South Goa resorts." },
-      { question: "Q2. What documents do I need?", answer: "Valid driving licence and photo ID." }
-    ]
-  },
-
-  "self-drive-car-rental-anjuna": {
-    slug: "self-drive-car-rental-anjuna",
-    name: "Anjuna",
-    metaTitle: "Self Drive Car Rental in Anjuna Goa | Affordable Cars | Zio Car Rentals",
-    metaDescription: "Book a self-drive car rental in Anjuna Goa with affordable hatchbacks, SUVs, and sedans. Enjoy easy booking, flexible rentals, clean cars, and smooth travel.",
-    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-anjuna",
-    formHeading: "Book your Self Drive Cars in Anjuna Today",
-    formContent: "Fill out the form to check availability and book your preferred self-drive car in Anjuna Beach.",
-    h1: "Best Self Drive Car Rental in Anjuna, Goa",
-    p1: "Planning to explore the vibrant beaches, flea markets, and nightlife of Anjuna? Our self-drive cars offer complete freedom to explore Anjuna, Vagator, Baga, and Calangute.",
-    h2: "Find the Perfect Car on Rent in Anjuna",
-    p2: "Hatchbacks, sedans, SUVs, and luxury vehicles ready for your Anjuna trip.",
-    whyChooseHeading: "Why Choose Our Anjuna Car Rental?",
-    whyChooseItems: [
-      { title: "Wide Range of Self-Drive Cars", description: "Hatchbacks, sedans, SUVs, and luxury vehicles." },
-      { title: "Affordable Rental Prices", description: "Competitive rates with no hidden costs." },
-      { title: "Anjuna Beach & Hotel Pickup", description: "Convenient doorstep delivery across Anjuna." },
+      { title: "Direct Station Delivery", description: "Receive your car as soon as your train reaches Thivim." },
+      { title: "Quick Access to North Goa", description: "Fastest way to reach Calangute, Baga, and Vagator." },
+      { title: "Affordable & Transparent", description: "Budget rates with zero hidden charges." },
+      { title: "Well-Maintained Cars", description: "Cleaned and safety-checked before every trip." },
       { title: "Easy Reservation", description: "Quick online booking with instant confirmation." },
-      { title: "Sanitized Vehicles", description: "Cleaned and safety-checked before every trip." },
-      { title: "24/7 Customer Support", description: "Roadside assistance available 24 hours." }
+      { title: "24/7 Customer Support", description: "Always here to assist with any queries." }
     ],
-    howItWorksHeading: "Rent a Car in Anjuna in 3 Easy Steps",
+    howItWorksHeading: "Rent a Car in Thivim in 3 Easy Steps",
     faqs: [
-      { question: "Q1. Can I rent a car in Anjuna Goa for 2 days?", answer: "Yes, 2-day, multi-day, and weekly rentals are available." },
-      { question: "Q2. Do you deliver to Anjuna hotels?", answer: "Yes, free hotel delivery is available across Anjuna." }
+      { question: "Q1. Can I get the car delivered at Thivim Railway Station?", answer: "Yes, we provide direct station pickup and drop-off services." },
+      { question: "Q2. What documents are needed?", answer: "Valid driving licence and government-issued photo ID." }
     ]
   },
 
-  "self-drive-car-rental-arambol": {
-    slug: "self-drive-car-rental-arambol",
-    name: "Arambol",
-    metaTitle: "Best Self Drive Car Rental in Arambol Goa | Affordable Cars | Zio Car Rentals",
-    metaDescription: "Book a self-drive car rental in Arambol Goa with affordable hatchbacks, SUVs, and sedans. Enjoy flexible rentals, easy booking, clean vehicles, and smooth travel.",
-    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-arambol",
-    formHeading: "Book your Self Drive Cars in Arambol Today",
-    formContent: "Fill out the form to check availability and book your preferred self-drive car in Arambol Beach.",
-    h1: "Best Self Drive Car Rental in Arambol, Goa",
-    p1: "Explore the bohemian vibes, Sweet Water Lake, Querim, Mandrem, and Ashwem beaches of Arambol with our reliable self-drive cars.",
-    h2: "Find the Perfect Car on Rent in Arambol",
-    p2: "Well-maintained hatchbacks, sedans, and SUVs ready for North Goa coastal drives.",
-    whyChooseHeading: "Why Choose Our Arambol Car Rental?",
+  "self-drive-car-rental-mandrem": {
+    slug: "self-drive-car-rental-mandrem",
+    name: "Mandrem",
+    metaTitle: "Best Self Drive Car Rental in Mandrem Goa | Zio Car Rentals",
+    metaDescription: "Rent a self-drive car in Mandrem Goa with affordable hatchbacks, SUVs, and sedans. Easy booking, resort delivery, and clean vehicles.",
+    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-mandrem",
+    formHeading: "Book your Self Drive Cars in Mandrem Today",
+    formContent: "Fill out the form to check availability for Mandrem Beach rental cars.",
+    h1: "Best Self Drive Car Rental in Mandrem, Goa",
+    p1: "Explore the peaceful beaches, yoga retreats, Ashwem, Morjim, and Arambol from Mandrem with our clean and reliable self-drive cars.",
+    h2: "Find the Perfect Car on Rent in Mandrem",
+    p2: "Hatchbacks, SUVs, and sedans ready for Mandrem resort delivery.",
+    whyChooseHeading: "Why Choose Our Mandrem Car Rental?",
     whyChooseItems: [
-      { title: "Wide Selection", description: "Budget hatchbacks to spacious family SUVs." },
-      { title: "Competitive Rates", description: "Clear pricing with zero hidden fees." },
-      { title: "Arambol Beach Delivery", description: "Delivery to hotels and shacks across Arambol." },
-      { title: "Simple Booking", description: "Book via website or WhatsApp in minutes." },
-      { title: "Clean & Sanitized", description: "Thoroughly inspected vehicles for safety." },
-      { title: "24/7 Assistance", description: "Round-the-clock roadside assistance." }
+      { title: "Resort Delivery in Mandrem", description: "Doorstep delivery across Mandrem and Ashwem resorts." },
+      { title: "Wide Vehicle Fleet", description: "Select from compact hatchbacks to family SUVs." },
+      { title: "Transparent Pricing", description: "Clear rates with no hidden fees." },
+      { title: "Sanitized Vehicles", description: "Regularly serviced and cleaned cars." },
+      { title: "Easy Booking", description: "Fast reservation via website or WhatsApp." },
+      { title: "24/7 Roadside Assistance", description: "Complete support during your rental." }
     ],
-    howItWorksHeading: "Rent a Car in Arambol in 3 Easy Steps",
+    howItWorksHeading: "Rent a Car in Mandrem in 3 Easy Steps",
     faqs: [
-      { question: "Q1. Can I drive from Arambol to Mopa Airport?", answer: "Yes, Arambol is close to Mopa (GOX) Airport and airport drop-offs are available." },
+      { question: "Q1. Do you deliver cars to Mandrem resorts?", answer: "Yes, free resort delivery is available in Mandrem." },
+      { question: "Q2. Can I drive to Mopa Airport from Mandrem?", answer: "Yes, Mandrem is close to Mopa Airport and airport drop is supported." }
+    ]
+  },
+
+  "self-drive-car-rental-vagator": {
+    slug: "self-drive-car-rental-vagator",
+    name: "Vagator",
+    metaTitle: "Best Self Drive Car Rental in Vagator Beach Goa | Zio Car Rentals",
+    metaDescription: "Book a self-drive car rental in Vagator Beach Goa. Enjoy clean hatchbacks, sedans, SUVs, easy booking, and 24/7 support near Chapora Fort.",
+    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-vagator",
+    formHeading: "Book your Self Drive Cars in Vagator Today",
+    formContent: "Fill out the form to check availability for Vagator Beach self-drive cars.",
+    h1: "Best Self Drive Car Rental in Vagator, Goa",
+    p1: "Planning a trip to Vagator? Explore Chapora Fort, Little Vagator Beach, Ozran Beach, and vibrant beach clubs with our self-drive cars.",
+    h2: "Find the Perfect Car on Rent in Vagator",
+    p2: "Clean, sanitized hatchbacks, sedans, and SUVs ready for Vagator rentals.",
+    whyChooseHeading: "Why Choose Our Vagator Car Rental?",
+    whyChooseItems: [
+      { title: "Near Vagator Beach & Chapora Fort", description: "Convenient pickup close to major Vagator attractions." },
+      { title: "Wide Selection of Cars", description: "Economy hatchbacks to luxury SUVs." },
+      { title: "Affordable Rates", description: "Competitive rates with zero hidden charges." },
+      { title: "Doorstep Delivery", description: "Delivery to hotels and villas in Vagator." },
+      { title: "Quick Documentation", description: "Minimal paperwork for fast key handover." },
+      { title: "24/7 Customer Support", description: "Assistance available round the clock." }
+    ],
+    howItWorksHeading: "Rent a Car in Vagator in 3 Easy Steps",
+    faqs: [
+      { question: "Q1. Can you deliver the car to my villa in Vagator?", answer: "Yes, doorstep villa and hotel delivery is available across Vagator." },
       { question: "Q2. Are fuel charges included?", answer: "Fuel is not included; return with agreed fuel level." }
     ]
   },
 
-  "self-drive-car-rental-canacona": {
-    slug: "self-drive-car-rental-canacona",
-    name: "Canacona",
-    metaTitle: "Best Self Drive Car Rental in Canacona Goa | Zio Car Rentals",
-    metaDescription: "Book a self-drive car rental in Canacona Goa with affordable hatchbacks, SUVs, and sedans. Enjoy easy booking, flexible rentals, clean cars, and smooth travel.",
-    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-canacona",
-    formHeading: "Book your Self Drive Cars in Canacona Today",
-    formContent: "Fill out the form to check availability and book your preferred self-drive car in Canacona.",
-    h1: "Best Self Drive Car Rental in Canacona, Goa",
-    p1: "Explore Palolem, Patnem, Agonda, Rajbag, and Galgibaga beaches in Canacona with our reliable self-drive cars.",
-    h2: "Find the Perfect Car on Rent in Canacona",
-    p2: "Choose from hatchbacks, sedans, SUVs, and luxury vehicles.",
-    whyChooseHeading: "Why Choose Our Canacona Car Rental?",
+  "self-drive-car-rental-ponda": {
+    slug: "self-drive-car-rental-ponda",
+    name: "Ponda",
+    metaTitle: "Best Self Drive Car Rental in Ponda Goa | Zio Car Rentals",
+    metaDescription: "Book a self-drive car rental in Ponda Goa. Explore temples, spice plantations, and central Goa with clean hatchbacks, sedans, and SUVs.",
+    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-ponda",
+    formHeading: "Book your Self Drive Cars in Ponda Today",
+    formContent: "Fill out the form to check availability for self-drive cars in Ponda.",
+    h1: "Best Self Drive Car Rental in Ponda, Goa",
+    p1: "Explore the cultural heart of Goa in Ponda. Visit famous temples, spice plantations, Dudhsagar waterfalls access roads, and wildlife sanctuaries in comfort.",
+    h2: "Find the Perfect Car on Rent in Ponda",
+    p2: "Reliable hatchbacks, sedans, and SUVs perfect for Ponda and central Goa road trips.",
+    whyChooseHeading: "Why Choose Our Ponda Car Rental?",
     whyChooseItems: [
-      { title: "Wide Range of Self-Drive Cars", description: "Hatchbacks, sedans, SUVs, and luxury vehicles." },
-      { title: "Affordable Rental Prices", description: "Transparent rates with zero hidden charges." },
-      { title: "Resort Pickup in Canacona", description: "Doorstep delivery to Palolem & Patnem resorts." },
-      { title: "Fast Booking", description: "Simple reservation process with instant confirmation." },
-      { title: "Sanitized & Serviced", description: "Regularly inspected cars for maximum comfort." },
-      { title: "24/7 Customer Support", description: "Always ready to assist during your journey." }
+      { title: "Central Goa Coverage", description: "Ideal for visiting spice farms, temples, and Dudhsagar routes." },
+      { title: "Wide Fleet Selection", description: "Hatchbacks, sedans, SUVs, and family cars." },
+      { title: "Transparent Pricing", description: "No hidden charges; clear rental terms." },
+      { title: "Sanitized Vehicles", description: "Serviced and safety-checked before delivery." },
+      { title: "Easy Online Reservation", description: "Fast booking via website or WhatsApp." },
+      { title: "24/7 Roadside Assistance", description: "Full support during your journey." }
     ],
-    howItWorksHeading: "Rent a Car in Canacona in 3 Easy Steps",
+    howItWorksHeading: "Rent a Car in Ponda in 3 Easy Steps",
     faqs: [
-      { question: "Q1. What types of cars are available for rent in Canacona?", answer: "We offer hatchbacks, sedans, SUVs, MUVs, and luxury cars." },
-      { question: "Q2. Can I rent for a weekend?", answer: "Yes, flexible daily, weekend, and weekly options are available." }
+      { question: "Q1. Is self-drive car rental available in Ponda?", answer: "Yes, we offer car rental services across Ponda and central Goa." },
+      { question: "Q2. What documents are needed?", answer: "Valid driving licence and government photo ID." }
     ]
   },
 
-  "self-drive-car-rental-candolim": {
-    slug: "self-drive-car-rental-candolim",
-    name: "Candolim",
-    metaTitle: "Best Self Drive Car Rental in Candolim Goa | Zio Car Rentals",
-    metaDescription: "Book a self-drive car rental in Candolim Goa with affordable hatchbacks, SUVs, and sedans. Enjoy easy booking, flexible rentals, clean cars, and smooth travel.",
-    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-candolim",
-    formHeading: "Book your Self Drive Cars in Candolim Today",
-    formContent: "Fill out the form to check availability and book your preferred self-drive car in Candolim Beach.",
-    h1: "Best Self Drive Car Rental in Candolim Goa",
-    p1: "Explore Candolim Beach, Fort Aguada, Sinquerim, Calangute, and Baga with total convenience in a clean self-drive car.",
-    h2: "Find the Perfect Car on Rent in Candolim",
-    p2: "Spacious SUVs, automatic hatchbacks, and luxury sedans available for Candolim rentals.",
-    whyChooseHeading: "Why Choose Our Candolim Car Rental?",
+  "self-drive-car-rental-mapusa": {
+    slug: "self-drive-car-rental-mapusa",
+    name: "Mapusa",
+    metaTitle: "Best Self Drive Car Rental in Mapusa Goa | Zio Car Rentals",
+    metaDescription: "Rent a self-drive car in Mapusa Goa. Explore Mapusa market, Calangute, Anjuna, and North Goa beaches with clean, reliable cars.",
+    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-mapusa",
+    formHeading: "Book your Self Drive Cars in Mapusa Today",
+    formContent: "Fill out the form to check availability for self-drive cars in Mapusa.",
+    h1: "Best Self Drive Car Rental in Mapusa, Goa",
+    p1: "Located at the gateway to North Goa, Mapusa is perfect for starting your beach vacation. Explore Mapusa Friday Market, Calangute, Anjuna, and Vagator with ease.",
+    h2: "Find the Perfect Car on Rent in Mapusa",
+    p2: "Economical hatchbacks, comfortable sedans, and spacious SUVs for Mapusa rentals.",
+    whyChooseHeading: "Why Choose Our Mapusa Car Rental?",
     whyChooseItems: [
-      { title: "Near Candolim Beach", description: "Convenient pickup right near Candolim beach & resorts." },
-      { title: "Wide Vehicle Fleet", description: "Select from compact cars to luxury SUVs." },
-      { title: "Transparent Pricing", description: "Competitive rates with no hidden fees." },
-      { title: "Easy Online Reservation", description: "Instant booking confirmation via site or WhatsApp." },
-      { title: "Clean & Sanitized", description: "Thoroughly sanitized and safety-checked before key handover." },
+      { title: "Gateway to North Goa", description: "Quick access to all major North Goa beaches." },
+      { title: "Wide Vehicle Options", description: "Hatchbacks, sedans, SUVs, and luxury cars." },
+      { title: "Affordable Rates", description: "Budget-friendly prices with transparent terms." },
+      { title: "Doorstep Delivery", description: "Pickup and delivery across Mapusa town." },
+      { title: "Easy Online Booking", description: "Book in minutes with fast confirmation." },
+      { title: "24/7 Customer Support", description: "Support available whenever you need." }
+    ],
+    howItWorksHeading: "Rent a Car in Mapusa in 3 Easy Steps",
+    faqs: [
+      { question: "Q1. Can I get a car delivered near Mapusa Bus Stand?", answer: "Yes, we provide delivery near Mapusa Bus Stand and surrounding areas." },
+      { question: "Q2. Are unlimited kilometers included?", answer: "Yes, all rentals come with unlimited kilometers." }
+    ]
+  },
+
+  "self-drive-car-rental-siolim": {
+    slug: "self-drive-car-rental-siolim",
+    name: "Siolim",
+    metaTitle: "Best Self Drive Car Rental in Siolim Goa | Zio Car Rentals",
+    metaDescription: "Book a self-drive car rental in Siolim Goa. Explore Morjim, Vagator, Anjuna, and Chapora River with clean, well-maintained cars.",
+    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-siolim",
+    formHeading: "Book your Self Drive Cars in Siolim Today",
+    formContent: "Fill out the form to check availability for self-drive cars in Siolim.",
+    h1: "Best Self Drive Car Rental in Siolim, Goa",
+    p1: "Connecting Anjuna/Vagator with Morjim/Arambol, Siolim offers scenic river views and Portuguese heritage. Drive comfortably with our self-drive cars.",
+    h2: "Find the Perfect Car on Rent in Siolim",
+    p2: "Hatchbacks, sedans, and SUVs ready for Siolim villa and resort delivery.",
+    whyChooseHeading: "Why Choose Our Siolim Car Rental?",
+    whyChooseItems: [
+      { title: "Strategic North Goa Location", description: "Easy driving access to both Vagator and Morjim/Ashwem beaches." },
+      { title: "Wide Selection", description: "Compact hatchbacks to premium SUVs." },
+      { title: "Villa Delivery", description: "Doorstep delivery to villas and resorts in Siolim." },
+      { title: "Transparent Pricing", description: "No hidden charges; clear rental agreements." },
+      { title: "Sanitized Vehicles", description: "Serviced and cleaned before key handover." },
+      { title: "24/7 Assistance", description: "Round-the-clock roadside support." }
+    ],
+    howItWorksHeading: "Rent a Car in Siolim in 3 Easy Steps",
+    faqs: [
+      { question: "Q1. Do you deliver cars to Siolim villas?", answer: "Yes, free villa delivery is available in Siolim." },
+      { question: "Q2. What documents are required?", answer: "Valid driving licence and photo ID." }
+    ]
+  },
+
+  "self-drive-car-rental-arpora": {
+    slug: "self-drive-car-rental-arpora",
+    name: "Arpora",
+    metaTitle: "Best Self Drive Car Rental in Arpora Goa | Zio Car Rentals",
+    metaDescription: "Rent a self-drive car in Arpora Goa. Explore Saturday Night Market, Baga Beach, and Calangute with clean, affordable cars.",
+    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-arpora",
+    formHeading: "Book your Self Drive Cars in Arpora Today",
+    formContent: "Fill out the form to check availability for self-drive cars in Arpora.",
+    h1: "Best Self Drive Car Rental in Arpora, Goa",
+    p1: "Located right next to Baga and Calangute, Arpora is famous for night markets and luxury resorts. Enjoy total freedom with our self-drive cars.",
+    h2: "Find the Perfect Car on Rent in Arpora",
+    p2: "Choose from hatchbacks, sedans, SUVs, and luxury vehicles.",
+    whyChooseHeading: "Why Choose Our Arpora Car Rental?",
+    whyChooseItems: [
+      { title: "Minutes from Baga & Calangute", description: "Ideal location for beach hopping and nightlife." },
+      { title: "Wide Vehicle Range", description: "Economical cars to premium SUVs." },
+      { title: "Resort Delivery", description: "Doorstep delivery to hotels in Arpora." },
+      { title: "Transparent Rates", description: "Clear pricing with zero hidden fees." },
+      { title: "Fast Booking", description: "Simple reservation via site or phone." },
+      { title: "24/7 Support", description: "Roadside support whenever needed." }
+    ],
+    howItWorksHeading: "Rent a Car in Arpora in 3 Easy Steps",
+    faqs: [
+      { question: "Q1. Can you deliver the car to my hotel in Arpora?", answer: "Yes, hotel delivery is available across Arpora." },
+      { question: "Q2. Are unlimited kilometers included?", answer: "Yes, all rentals include unlimited kilometers." }
+    ]
+  },
+
+  "self-drive-car-rental-benaulim": {
+    slug: "self-drive-car-rental-benaulim",
+    name: "Benaulim",
+    metaTitle: "Best Self Drive Car Rental in Benaulim Beach Goa | Zio Car Rentals",
+    metaDescription: "Book a self-drive car rental in Benaulim Beach Goa. Enjoy peaceful South Goa beaches, Varca, Colva, and Margao with clean, comfortable cars.",
+    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-benaulim",
+    formHeading: "Book your Self Drive Cars in Benaulim Today",
+    formContent: "Fill out the form to check availability for self-drive cars in Benaulim.",
+    h1: "Best Self Drive Car Rental in Benaulim, Goa",
+    p1: "Enjoy the serene, white sands of Benaulim Beach with our well-maintained self-drive cars. Drive to Colva, Varca, Mobor, and Margao easily.",
+    h2: "Find the Perfect Car on Rent in Benaulim",
+    p2: "Hatchbacks, sedans, and SUVs ready for Benaulim resort delivery.",
+    whyChooseHeading: "Why Choose Our Benaulim Car Rental?",
+    whyChooseItems: [
+      { title: "Near Benaulim Beach", description: "Pickup and resort delivery close to Benaulim beach." },
+      { title: "Wide Vehicle Fleet", description: "Compact hatchbacks to family SUVs." },
+      { title: "Transparent Rates", description: "Budget-friendly prices with no hidden charges." },
+      { title: "Sanitized & Clean", description: "Serviced and sanitized before key handover." },
+      { title: "Quick Reservation", description: "Instant booking confirmation." },
+      { title: "24/7 Roadside Support", description: "Assistance available 24 hours." }
+    ],
+    howItWorksHeading: "Rent a Car in Benaulim in 3 Easy Steps",
+    faqs: [
+      { question: "Q1. Do you offer resort delivery in Benaulim?", answer: "Yes, free resort delivery is available across Benaulim." },
+      { question: "Q2. What documents are required?", answer: "Valid driving licence and photo ID." }
+    ]
+  },
+
+  "self-drive-car-rental-bambolim": {
+    slug: "self-drive-car-rental-bambolim",
+    name: "Bambolim",
+    metaTitle: "Best Self Drive Car Rental in Bambolim Goa | Zio Car Rentals",
+    metaDescription: "Rent a self-drive car in Bambolim Goa. Near Grand Hyatt Bambolim, Panjim, and Goa University with clean, reliable rental cars.",
+    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-bambolim",
+    formHeading: "Book your Self Drive Cars in Bambolim Today",
+    formContent: "Fill out the form to check availability for self-drive cars in Bambolim.",
+    h1: "Best Self Drive Car Rental in Bambolim, Goa",
+    p1: "Located between Panjim and Dabolim Airport, Bambolim offers peaceful bay views and luxury resorts. Explore Goa conveniently with our self-drive cars.",
+    h2: "Find the Perfect Car on Rent in Bambolim",
+    p2: "Premium sedans, hatchbacks, and SUVs ready for Bambolim resort delivery.",
+    whyChooseHeading: "Why Choose Our Bambolim Car Rental?",
+    whyChooseItems: [
+      { title: "Close to Panjim & Dabolim", description: "Strategic central location near Dabolim airport & Panjim." },
+      { title: "Wide Range of Vehicles", description: "Hatchbacks, sedans, SUVs, and luxury cars." },
+      { title: "Resort Delivery", description: "Doorstep delivery to Grand Hyatt & Bambolim hotels." },
+      { title: "Clear Pricing", description: "Competitive rates with zero hidden charges." },
+      { title: "Easy Reservation", description: "Book online or via WhatsApp in minutes." },
+      { title: "24/7 Customer Support", description: "Roadside assistance available round the clock." }
+    ],
+    howItWorksHeading: "Rent a Car in Bambolim in 3 Easy Steps",
+    faqs: [
+      { question: "Q1. Do you deliver cars to Grand Hyatt Bambolim?", answer: "Yes, we provide resort delivery to Grand Hyatt Bambolim." },
+      { question: "Q2. Can I drive to Dabolim Airport?", answer: "Yes, airport drop-off is supported." }
+    ]
+  },
+
+  "self-drive-car-rental-assagao": {
+    slug: "self-drive-car-rental-assagao",
+    name: "Assagao",
+    metaTitle: "Best Self Drive Car Rental in Assagao Goa | Zio Car Rentals",
+    metaDescription: "Book a self-drive car rental in Assagao Goa. Explore Assagao cafes, boutique villas, Vagator, and Anjuna with premium rental cars.",
+    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-assagao",
+    formHeading: "Book your Self Drive Cars in Assagao Today",
+    formContent: "Fill out the form to check availability for self-drive cars in Assagao.",
+    h1: "Best Self Drive Car Rental in Assagao, Goa",
+    p1: "Known as Goa's trendy village of boutique villas and fine dining cafes, Assagao is best explored with a stylish self-drive car.",
+    h2: "Find the Perfect Car on Rent in Assagao",
+    p2: "Premium hatchbacks, luxury sedans, and SUVs delivered to your villa in Assagao.",
+    whyChooseHeading: "Why Choose Our Assagao Car Rental?",
+    whyChooseItems: [
+      { title: "Villa Delivery in Assagao", description: "Doorstep delivery to private villas and boutique stays in Assagao." },
+      { title: "Wide Selection", description: "From compact hatchbacks to premium SUVs & Mini Coopers." },
+      { title: "Transparent Rates", description: "Clear pricing with no surprise fees." },
+      { title: "Sanitized & Serviced", description: "Inspected vehicles for maximum safety and comfort." },
+      { title: "Easy Booking", description: "Instant online confirmation." },
+      { title: "24/7 Roadside Assistance", description: "Full customer support during your stay." }
+    ],
+    howItWorksHeading: "Rent a Car in Assagao in 3 Easy Steps",
+    faqs: [
+      { question: "Q1. Do you deliver cars to Assagao private villas?", answer: "Yes, free villa delivery is available in Assagao." },
+      { question: "Q2. What documents are needed?", answer: "Valid driving licence and photo ID." }
+    ]
+  },
+
+  "self-drive-car-rental-majorda": {
+    slug: "self-drive-car-rental-majorda",
+    name: "Majorda",
+    metaTitle: "Best Self Drive Car Rental in Majorda Beach Goa | Zio Car Rentals",
+    metaDescription: "Rent a self-drive car in Majorda Beach Goa. Explore South Goa beaches, Utorda, Colva, and Betalbatim with clean, reliable cars.",
+    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-majorda",
+    formHeading: "Book your Self Drive Cars in Majorda Today",
+    formContent: "Fill out the form to check availability for self-drive cars in Majorda.",
+    h1: "Best Self Drive Car Rental in Majorda, Goa",
+    p1: "Explore the golden sands of Majorda Beach, bakery heritage, and quiet coastal drives of South Goa with our reliable self-drive cars.",
+    h2: "Find the Perfect Car on Rent in Majorda",
+    p2: "Choose from hatchbacks, sedans, and SUVs ready for Majorda resort delivery.",
+    whyChooseHeading: "Why Choose Our Majorda Car Rental?",
+    whyChooseItems: [
+      { title: "Near Majorda & Utorda Beach", description: "Pickup and delivery near Majorda resort areas." },
+      { title: "Wide Vehicle Selection", description: "Hatchbacks, sedans, SUVs, and luxury cars." },
+      { title: "Transparent Pricing", description: "Clear rates with zero hidden fees." },
+      { title: "Sanitized Vehicles", description: "Serviced and sanitized before delivery." },
+      { title: "Quick Booking", description: "Simple reservation process." },
+      { title: "24/7 Assistance", description: "Round-the-clock roadside support." }
+    ],
+    howItWorksHeading: "Rent a Car in Majorda in 3 Easy Steps",
+    faqs: [
+      { question: "Q1. Do you offer resort delivery in Majorda?", answer: "Yes, free resort delivery is available across Majorda & Utorda." },
+      { question: "Q2. Can I drive to Dabolim Airport?", answer: "Yes, Majorda is close to Dabolim Airport and airport drop is supported." }
+    ]
+  },
+
+  "self-drive-car-rental-bogmalo": {
+    slug: "self-drive-car-rental-bogmalo",
+    name: "Bogmalo",
+    metaTitle: "Best Self Drive Car Rental in Bogmalo Beach Goa | Zio Car Rentals",
+    metaDescription: "Book a self-drive car rental in Bogmalo Beach Goa near Dabolim Airport. Easy booking, clean hatchbacks, SUVs, and 24/7 support.",
+    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-bogmalo",
+    formHeading: "Book your Self Drive Cars in Bogmalo Today",
+    formContent: "Fill out the form to check availability for self-drive cars in Bogmalo.",
+    h1: "Best Self Drive Car Rental in Bogmalo, Goa",
+    p1: "Located just 10 minutes from Dabolim Airport, Bogmalo Beach is perfect for starting your Goa journey with a clean self-drive car.",
+    h2: "Find the Perfect Car on Rent in Bogmalo",
+    p2: "Hatchbacks, sedans, and SUVs ready for Bogmalo Beach & Dabolim Airport pickup.",
+    whyChooseHeading: "Why Choose Our Bogmalo Car Rental?",
+    whyChooseItems: [
+      { title: "10 Mins from Dabolim Airport", description: "Instant car pickup as soon as your flight lands." },
+      { title: "Wide Vehicle Options", description: "Economy hatchbacks to luxury SUVs." },
+      { title: "Transparent Pricing", description: "Competitive rates with zero hidden fees." },
+      { title: "Clean & Sanitized", description: "Inspected and sanitized before key handover." },
+      { title: "Easy Reservation", description: "Book online or via WhatsApp in minutes." },
+      { title: "24/7 Customer Support", description: "Roadside support available round the clock." }
+    ],
+    howItWorksHeading: "Rent a Car in Bogmalo in 3 Easy Steps",
+    faqs: [
+      { question: "Q1. Is Bogmalo close to Dabolim Airport?", answer: "Yes, Bogmalo Beach is just 5-10 minutes from Dabolim (GOI) Airport." },
+      { question: "Q2. Are fuel charges included?", answer: "Fuel is not included; return with agreed fuel level." }
+    ]
+  },
+
+  "self-drive-car-rental-morjim": {
+    slug: "self-drive-car-rental-morjim",
+    name: "Morjim",
+    metaTitle: "Best Self Drive Car Rental in Morjim Beach Goa | Zio Car Rentals",
+    metaDescription: "Book a self-drive car rental in Morjim Beach Goa. Explore Morjim, Ashwem, Mandrem, and Arambol with clean, reliable rental cars.",
+    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-morjim",
+    formHeading: "Book your Self Drive Cars in Morjim Today",
+    formContent: "Fill out the form to check availability for self-drive cars in Morjim Beach.",
+    h1: "Best Self Drive Car Rental in Morjim, Goa",
+    p1: "Explore the famous Olive Ridley turtle nesting beach, beach clubs, Ashwem, and Mandrem with our clean and reliable self-drive cars.",
+    h2: "Find the Perfect Car on Rent in Morjim",
+    p2: "Hatchbacks, sedans, and SUVs ready for Morjim resort delivery.",
+    whyChooseHeading: "Why Choose Our Morjim Car Rental?",
+    whyChooseItems: [
+      { title: "Near Morjim & Ashwem Beach", description: "Convenient pickup and resort delivery across Morjim." },
+      { title: "Wide Range of Vehicles", description: "Select from compact cars to spacious family SUVs." },
+      { title: "Transparent Pricing", description: "Clear pricing with no surprise fees." },
+      { title: "Sanitized & Clean", description: "Serviced and sanitized before every rental." },
+      { title: "Easy Online Booking", description: "Book in minutes via website or WhatsApp." },
       { title: "24/7 Roadside Assistance", description: "Support available whenever you need." }
     ],
-    howItWorksHeading: "Rent a Car in Candolim in 3 Easy Steps",
+    howItWorksHeading: "Rent a Car in Morjim in 3 Easy Steps",
     faqs: [
-      { question: "Q1. Can you deliver the car to my resort in Candolim?", answer: "Yes, free doorstep delivery is available across Candolim." },
-      { question: "Q2. What documents are required?", answer: "Valid driving licence and government photo ID." }
+      { question: "Q1. Do you deliver cars to Morjim resorts?", answer: "Yes, free resort delivery is available across Morjim & Ashwem." },
+      { question: "Q2. Can I drive to Mopa Airport from Morjim?", answer: "Yes, Morjim is close to Mopa (GOX) Airport and airport drop is supported." }
     ]
   }
 };
