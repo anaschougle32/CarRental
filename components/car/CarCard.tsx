@@ -87,8 +87,8 @@ const CarCard = ({ car, showCategory = false, showDescription = true }: CarCardP
       
       <CardFooter className="pt-0 px-3 sm:px-4 md:px-6 pb-3 sm:pb-4 md:pb-6">
         <div className="w-full">
-          <div className="flex justify-end items-center mb-2 sm:mb-4">
-            <Link href={`/cars/${car.slug}`} className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-xs sm:text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 w-full sm:w-auto">
+          <div className="w-full mb-2 sm:mb-3">
+            <Link href={`/cars/${car.slug}`} className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-xs sm:text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 w-full">
               View Details
             </Link>
           </div>

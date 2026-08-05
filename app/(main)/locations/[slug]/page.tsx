@@ -281,23 +281,12 @@ export default async function LocationPage({ params }: Props) {
         <>
           <HeroStructuredData />
           
-          {/* 1. Hero Section */}
+          {/* 1. Hero Section (Contains Banner Booking Form) */}
           <Hero 
             title={config.h1.includes(',') ? config.h1.split(',')[0] + ',' : config.h1}
             titleAccent={config.h1.includes(',') ? config.h1.split(',')[1] : ''}
             subtitle={config.p1.slice(0, 150) + '...'}
           />
-
-          {/* 2. Booking Form Section */}
-          <Section className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 py-12 w-full" size="none">
-            <Container>
-              <BookingForm 
-                title={config.formHeading}
-                subtitle={config.formContent}
-                className="bg-white rounded-lg shadow-lg"
-              />
-            </Container>
-          </Section>
 
           {/* 3. Body: H1 Section */}
           <Section className="bg-white dark:bg-gray-900 py-12" size="sm">
@@ -463,19 +452,8 @@ export default async function LocationPage({ params }: Props) {
         <>
           <HeroStructuredData />
           
-          {/* 1. Hero Section */}
+          {/* 1. Hero Section (Contains Banner Booking Form) */}
           <Hero />
-
-          {/* 2. Booking Form */}
-          <Section className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 py-12 w-full" size="none">
-            <Container>
-              <BookingForm 
-                title="Book Your Self-Drive Car in Goa Today"
-                subtitle="Fill out the form to check availability and book your preferred self-drive car. Enjoy quick booking, affordable prices, and a hassle-free travel experience across Goa."
-                className="bg-white rounded-lg shadow-lg"
-              />
-            </Container>
-          </Section>
 
           {/* 3. Body: H1 Section */}
           <Section className="bg-white dark:bg-gray-900 py-12" size="sm">
