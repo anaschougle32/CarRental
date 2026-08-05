@@ -174,7 +174,10 @@ const nextConfig = {
     ];
   },
 
-  webpack: (config) => {
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.externals = [...(config.externals || []), '@supabase/supabase-js'];
+    }
     // Ignore WebSocket optional dependencies warnings
     config.ignoreWarnings = [
       { module: /node_modules\/ws\/lib\/buffer-util\.js/ },
