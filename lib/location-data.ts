@@ -367,5 +367,61 @@ export const locationsData: Record<string, LocationPageConfig> = {
       { question: "Q1. Can I drive from Arambol to Mopa Airport?", answer: "Yes, Arambol is close to Mopa (GOX) Airport and airport drop-offs are available." },
       { question: "Q2. Are fuel charges included?", answer: "Fuel is not included; return with agreed fuel level." }
     ]
+  },
+
+  "self-drive-car-rental-canacona": {
+    slug: "self-drive-car-rental-canacona",
+    name: "Canacona",
+    metaTitle: "Best Self Drive Car Rental in Canacona Goa | Zio Car Rentals",
+    metaDescription: "Book a self-drive car rental in Canacona Goa with affordable hatchbacks, SUVs, and sedans. Enjoy easy booking, flexible rentals, clean cars, and smooth travel.",
+    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-canacona",
+    formHeading: "Book your Self Drive Cars in Canacona Today",
+    formContent: "Fill out the form to check availability and book your preferred self-drive car in Canacona.",
+    h1: "Best Self Drive Car Rental in Canacona, Goa",
+    p1: "Explore Palolem, Patnem, Agonda, Rajbag, and Galgibaga beaches in Canacona with our reliable self-drive cars.",
+    h2: "Find the Perfect Car on Rent in Canacona",
+    p2: "Choose from hatchbacks, sedans, SUVs, and luxury vehicles.",
+    whyChooseHeading: "Why Choose Our Canacona Car Rental?",
+    whyChooseItems: [
+      { title: "Wide Range of Self-Drive Cars", description: "Hatchbacks, sedans, SUVs, and luxury vehicles." },
+      { title: "Affordable Rental Prices", description: "Transparent rates with zero hidden charges." },
+      { title: "Resort Pickup in Canacona", description: "Doorstep delivery to Palolem & Patnem resorts." },
+      { title: "Fast Booking", description: "Simple reservation process with instant confirmation." },
+      { title: "Sanitized & Serviced", description: "Regularly inspected cars for maximum comfort." },
+      { title: "24/7 Customer Support", description: "Always ready to assist during your journey." }
+    ],
+    howItWorksHeading: "Rent a Car in Canacona in 3 Easy Steps",
+    faqs: [
+      { question: "Q1. What types of cars are available for rent in Canacona?", answer: "We offer hatchbacks, sedans, SUVs, MUVs, and luxury cars." },
+      { question: "Q2. Can I rent for a weekend?", answer: "Yes, flexible daily, weekend, and weekly options are available." }
+    ]
+  },
+
+  "self-drive-car-rental-candolim": {
+    slug: "self-drive-car-rental-candolim",
+    name: "Candolim",
+    metaTitle: "Best Self Drive Car Rental in Candolim Goa | Zio Car Rentals",
+    metaDescription: "Book a self-drive car rental in Candolim Goa with affordable hatchbacks, SUVs, and sedans. Enjoy easy booking, flexible rentals, clean cars, and smooth travel.",
+    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-candolim",
+    formHeading: "Book your Self Drive Cars in Candolim Today",
+    formContent: "Fill out the form to check availability and book your preferred self-drive car in Candolim Beach.",
+    h1: "Best Self Drive Car Rental in Candolim Goa",
+    p1: "Explore Candolim Beach, Fort Aguada, Sinquerim, Calangute, and Baga with total convenience in a clean self-drive car.",
+    h2: "Find the Perfect Car on Rent in Candolim",
+    p2: "Spacious SUVs, automatic hatchbacks, and luxury sedans available for Candolim rentals.",
+    whyChooseHeading: "Why Choose Our Candolim Car Rental?",
+    whyChooseItems: [
+      { title: "Near Candolim Beach", description: "Convenient pickup right near Candolim beach & resorts." },
+      { title: "Wide Vehicle Fleet", description: "Select from compact cars to luxury SUVs." },
+      { title: "Transparent Pricing", description: "Competitive rates with no hidden fees." },
+      { title: "Easy Online Reservation", description: "Instant booking confirmation via site or WhatsApp." },
+      { title: "Clean & Sanitized", description: "Thoroughly sanitized and safety-checked before key handover." },
+      { title: "24/7 Roadside Assistance", description: "Support available whenever you need." }
+    ],
+    howItWorksHeading: "Rent a Car in Candolim in 3 Easy Steps",
+    faqs: [
+      { question: "Q1. Can you deliver the car to my resort in Candolim?", answer: "Yes, free doorstep delivery is available across Candolim." },
+      { question: "Q2. What documents are required?", answer: "Valid driving licence and government photo ID." }
+    ]
   }
 };
