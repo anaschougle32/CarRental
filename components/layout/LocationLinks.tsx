@@ -1,20 +1,20 @@
 import Link from "next/link";
 
 const LocationLinks = () => {
-  // Static list of requested footer locations for SEO
+  // Static list of requested footer locations from website.txt
   const staticLocations = [
-    { name: "Calangute", slug: "calangute" },
-    { name: "Panjim", slug: "panjim" },
-    { name: "Goa Airport", slug: "goa-airport" },
-    { name: "Vasco Da Gama", slug: "vasco-da-gama" },
-    { name: "Madgaon Railway Station", slug: "madgaon-railway" },
-    { name: "Thivim Railway Station", slug: "thivim-railway" },
-    { name: "Karmali Railway Station", slug: "karmali-railway" },
-    { name: "South Goa", slug: "south-goa" },
-    { name: "North Goa", slug: "north-goa" },
-    { name: "Mumbai", slug: "mumbai" },
-    { name: "Hyderabad", slug: "hyderabad" },
-    { name: "Bangalore", slug: "bangalore" }
+    { name: "Goa Airport", slug: "self-drive-car-rental-goa-airport" },
+    { name: "Margao", slug: "self-drive-car-rental-madgaon" },
+    { name: "Panjim", slug: "self-drive-car-rental-panjim" },
+    { name: "Calangute", slug: "self-drive-car-rental-calangute" },
+    { name: "Goa", slug: "self-drive-car-rental-in-goa" },
+    { name: "Thivim Railway Station", slug: "self-drive-car-rental-thivim" },
+    { name: "Karmali Railway Station", slug: "self-drive-car-rental-karmali" },
+    { name: "South Goa", slug: "self-drive-car-rental-south-goa" },
+    { name: "North Goa", slug: "self-drive-car-rental-north-goa" },
+    { name: "Mumbai", slug: "self-drive-car-rental-mumbai" },
+    { name: "Hyderabad", slug: "self-drive-car-rental-hyderabad" },
+    { name: "Bangalore", slug: "self-drive-car-rental-bangalore" }
   ];
 
   // Use static locations to prevent hydration issues

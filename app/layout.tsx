@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     images: ['https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&dpr=1'],
   },
   verification: {
-    google: 'google-site-verification-code',
+    google: 'hxxJ81rt4J5g6CKbKIjrK__63B3fpdsv9LQbU0SA_GM',
   },
   category: 'travel',
   robots: {
