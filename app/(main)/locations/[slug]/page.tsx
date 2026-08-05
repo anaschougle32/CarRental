@@ -15,6 +15,7 @@ import Services from "@/components/home/Services";
 import PopularCars from "@/components/home/PopularCars";
 import Faqs from "@/components/home/Faqs";
 import HowItWorks from "@/components/home/HowItWorks";
+import { locationsData } from "@/lib/location-data";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -23,6 +24,31 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const { slug } = await params;
+
+    const configData = locationsData[slug];
+    if (configData) {
+      return {
+        title: configData.metaTitle,
+        description: configData.metaDescription,
+        alternates: {
+          canonical: configData.canonicalUrl,
+        },
+        openGraph: {
+          title: configData.metaTitle,
+          description: configData.metaDescription,
+          url: configData.canonicalUrl,
+          siteName: 'ZioCarRentals',
+          locale: 'en_IN',
+          type: 'website',
+        },
+        twitter: {
+          card: 'summary_large_image',
+          title: configData.metaTitle,
+          description: configData.metaDescription,
+        },
+        robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+      };
+    }
 
     // ── Special-case: high-priority Google Ads landing page ──
     if (slug === 'self-drive-car-rental-in-goa') {
@@ -242,6 +268,123 @@ async function mapSupabaseCarToAppCar(carData: SupabaseCar): Promise<Car> {
 export default async function LocationPage({ params }: Props) {
   try {
     const { slug } = await params;
+
+    const config = locationsData[slug];
+    if (config) {
+      const carsData = await getCars();
+      const cars = await Promise.all(carsData.map(car => mapSupabaseCarToAppCar(car)));
+
+      return (
+        <>
+          <HeroStructuredData />
+          
+          {/* 1. Hero Section */}
+          <Hero 
+            title={config.h1.includes(',') ? config.h1.split(',')[0] + ',' : config.h1}
+            titleAccent={config.h1.includes(',') ? config.h1.split(',')[1] : ''}
+            subtitle={config.p1.slice(0, 150) + '...'}
+          />
+
+          {/* 2. Booking Form Section */}
+          <Section className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 py-12 w-full" size="none">
+            <Container>
+              <BookingForm 
+                title={config.formHeading}
+                subtitle={config.formContent}
+                className="bg-white rounded-lg shadow-lg"
+              />
+            </Container>
+          </Section>
+
+          {/* 3. Body: H1 Section */}
+          <Section className="bg-white dark:bg-gray-900 py-12" size="sm">
+            <Container>
+              <div className="max-w-4xl mx-auto space-y-4 text-center md:text-left">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight">
+                  {config.h1}
+                </h1>
+                <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed pt-2">
+                  {config.p1}
+                </p>
+              </div>
+            </Container>
+          </Section>
+
+          {/* 4. Car Listing (No Description in Car Listing, No Price) */}
+          <Section className="bg-gray-50 dark:bg-gray-800 py-12" size="sm">
+            <Container>
+              <div className="text-center max-w-3xl mx-auto mb-10">
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                  {config.h2}
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg">
+                  {config.p2}
+                </p>
+              </div>
+
+              {cars.length > 0 ? (
+                <div className="grid grid-cols-1 min-[375px]:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {cars.map(car => (
+                    <CarCard key={car.id} car={car} showCategory={true} showDescription={false} />
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-10 bg-white rounded-lg">
+                  <p className="text-lg text-gray-500">No cars available currently. Please check back soon or contact us for assistance.</p>
+                </div>
+              )}
+            </Container>
+          </Section>
+
+          {/* 5. Services */}
+          <Services />
+
+          {/* 6. Why Choose Us */}
+          <Section className="bg-gray-50 dark:bg-gray-800 py-12" size="sm">
+            <Container>
+              <div className="text-center max-w-3xl mx-auto mb-10">
+                <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                  {config.whyChooseHeading}
+                </h3>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {config.whyChooseItems.map((item, idx) => (
+                  <div key={idx} className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                    <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-full w-fit">
+                      <Shield className="w-8 h-8 text-blue-600" />
+                    </div>
+                    <h4 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">{item.title}</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{item.description}</p>
+                  </div>
+                ))}
+              </div>
+            </Container>
+          </Section>
+
+          {/* 7. How It Works */}
+          <HowItWorks />
+
+          {/* 8. FAQs */}
+          <Section className="bg-white dark:bg-gray-900 py-12" size="sm">
+            <Container>
+              <div className="text-center max-w-3xl mx-auto mb-10">
+                <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                  Frequently Asked Questions
+                </h3>
+              </div>
+              <div className="max-w-4xl mx-auto space-y-4">
+                {config.faqs.map((faq, idx) => (
+                  <div key={idx} className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
+                    <h4 className="font-bold text-lg md:text-xl text-gray-900 dark:text-white mb-2">{faq.question}</h4>
+                    <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">{faq.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </Container>
+          </Section>
+        </>
+      );
+    }
 
     // ── Dedicated High-Converting Landing Page for Google Ads / SEO ──
     if (slug === 'self-drive-car-rental-in-goa') {
