@@ -17,6 +17,9 @@ import Faqs from "@/components/home/Faqs";
 import HowItWorks from "@/components/home/HowItWorks";
 import { locationsData } from "@/lib/location-data";
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 type Props = {
   params: Promise<{ slug: string }>;
 };

@@ -229,6 +229,34 @@ export const locationsData: Record<string, LocationPageConfig> = {
     ]
   },
 
+  "self-drive-car-rental-agonda": {
+    slug: "self-drive-car-rental-agonda",
+    name: "Agonda",
+    metaTitle: "Best Self Drive Car Rental in Agonda | Zio Car Rentals",
+    metaDescription: "Rent a car in Agonda with affordable self-drive cars, SUVs, and sedans. Enjoy easy booking, flexible rental plans, and reliable service across South Goa.",
+    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-agonda",
+    formHeading: "Book your Self Drive Cars in Agonda Today",
+    formContent: "Fill out the form to check availability and book your preferred self-drive car in Agonda.",
+    h1: "Best Self Drive Car Rental in Agonda, Goa",
+    p1: "Planning a trip to Agonda and looking for a convenient way to explore Goa? Drive comfortably to popular places like Agonda Beach, Palolem, Cola Beach, Cabo de Rama Fort, and Margao.",
+    h2: "Find the Perfect Car on Rent in Agonda",
+    p2: "Hatchbacks, sedans, SUVs, and premium cars for peaceful South Goa coastal travel.",
+    whyChooseHeading: "Why Choose Our Agonda Car Rental?",
+    whyChooseItems: [
+      { title: "Wide Range of Cars", description: "Choose from hatchbacks, sedans, SUVs, and premium cars." },
+      { title: "Affordable Rental Rates", description: "Budget-friendly prices with zero hidden charges." },
+      { title: "Agonda Beach Delivery", description: "Doorstep delivery across Agonda and Palolem resorts." },
+      { title: "Easy Online Reservation", description: "Instant booking confirmation." },
+      { title: "Clean & Sanitized", description: "Thoroughly cleaned and inspected cars." },
+      { title: "24/7 Customer Support", description: "Support available whenever you need." }
+    ],
+    howItWorksHeading: "Rent a Car in Agonda in 3 Easy Steps",
+    faqs: [
+      { question: "Q1. What types of cars are available for rent in Agonda?", answer: "We offer hatchbacks, sedans, SUVs, MUVs, and premium cars." },
+      { question: "Q2. Can I rent a self-drive car in Agonda?", answer: "Yes, self-drive options are available for complete flexibility." }
+    ]
+  },
+
   "self-drive-car-rental-north-goa": {
     slug: "self-drive-car-rental-north-goa",
     name: "North Goa",
@@ -243,12 +271,12 @@ export const locationsData: Record<string, LocationPageConfig> = {
     p2: "Well-maintained hatchbacks, sedans, SUVs, and luxury cars for North Goa exploration.",
     whyChooseHeading: "Why Choose Our North Goa Car Rental?",
     whyChooseItems: [
-      { title: "Wide Range of Vehicles", description: "Hatchbacks, SUVs, sedans, and luxury vehicles." },
-      { title: "Affordable Rental Rates", description: "Budget-friendly prices with zero hidden charges." },
+      { title: "Wide Range of Self-Drive Cars", description: "Select from hatchbacks, sedans, SUVs, and luxury cars." },
+      { title: "Affordable Rental Prices", description: "Competitive rates with transparent pricing." },
       { title: "Explore All North Goa Spots", description: "Freedom to visit Baga, Anjuna, Morjim, and Arambol." },
-      { title: "Easy Online Reservation", description: "Instant booking confirmation." },
-      { title: "Clean & Sanitized", description: "Thoroughly cleaned and inspected cars." },
-      { title: "24/7 Customer Support", description: "Support available whenever you need." }
+      { title: "Easy Online Booking", description: "Instant booking confirmation." },
+      { title: "Well-Maintained Fleet", description: "Serviced and sanitized before every rental." },
+      { title: "24/7 Roadside Assistance", description: "Support available whenever you need." }
     ],
     howItWorksHeading: "Rent a Car in North Goa in 3 Easy Steps",
     faqs: [
@@ -282,6 +310,62 @@ export const locationsData: Record<string, LocationPageConfig> = {
     faqs: [
       { question: "Q1. Are your cars delivered to South Goa resorts?", answer: "Yes, we provide doorstep delivery across all major South Goa resorts." },
       { question: "Q2. What documents do I need?", answer: "Valid driving licence and photo ID." }
+    ]
+  },
+
+  "self-drive-car-rental-anjuna": {
+    slug: "self-drive-car-rental-anjuna",
+    name: "Anjuna",
+    metaTitle: "Self Drive Car Rental in Anjuna Goa | Affordable Cars | Zio Car Rentals",
+    metaDescription: "Book a self-drive car rental in Anjuna Goa with affordable hatchbacks, SUVs, and sedans. Enjoy easy booking, flexible rentals, clean cars, and smooth travel.",
+    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-anjuna",
+    formHeading: "Book your Self Drive Cars in Anjuna Today",
+    formContent: "Fill out the form to check availability and book your preferred self-drive car in Anjuna Beach.",
+    h1: "Best Self Drive Car Rental in Anjuna, Goa",
+    p1: "Planning to explore the vibrant beaches, flea markets, and nightlife of Anjuna? Our self-drive cars offer complete freedom to explore Anjuna, Vagator, Baga, and Calangute.",
+    h2: "Find the Perfect Car on Rent in Anjuna",
+    p2: "Hatchbacks, sedans, SUVs, and luxury vehicles ready for your Anjuna trip.",
+    whyChooseHeading: "Why Choose Our Anjuna Car Rental?",
+    whyChooseItems: [
+      { title: "Wide Range of Self-Drive Cars", description: "Hatchbacks, sedans, SUVs, and luxury vehicles." },
+      { title: "Affordable Rental Prices", description: "Competitive rates with no hidden costs." },
+      { title: "Anjuna Beach & Hotel Pickup", description: "Convenient doorstep delivery across Anjuna." },
+      { title: "Easy Reservation", description: "Quick online booking with instant confirmation." },
+      { title: "Sanitized Vehicles", description: "Cleaned and safety-checked before every trip." },
+      { title: "24/7 Customer Support", description: "Roadside assistance available 24 hours." }
+    ],
+    howItWorksHeading: "Rent a Car in Anjuna in 3 Easy Steps",
+    faqs: [
+      { question: "Q1. Can I rent a car in Anjuna Goa for 2 days?", answer: "Yes, 2-day, multi-day, and weekly rentals are available." },
+      { question: "Q2. Do you deliver to Anjuna hotels?", answer: "Yes, free hotel delivery is available across Anjuna." }
+    ]
+  },
+
+  "self-drive-car-rental-arambol": {
+    slug: "self-drive-car-rental-arambol",
+    name: "Arambol",
+    metaTitle: "Best Self Drive Car Rental in Arambol Goa | Affordable Cars | Zio Car Rentals",
+    metaDescription: "Book a self-drive car rental in Arambol Goa with affordable hatchbacks, SUVs, and sedans. Enjoy flexible rentals, easy booking, clean vehicles, and smooth travel.",
+    canonicalUrl: "https://www.ziocarrentals.com/locations/self-drive-car-rental-arambol",
+    formHeading: "Book your Self Drive Cars in Arambol Today",
+    formContent: "Fill out the form to check availability and book your preferred self-drive car in Arambol Beach.",
+    h1: "Best Self Drive Car Rental in Arambol, Goa",
+    p1: "Explore the bohemian vibes, Sweet Water Lake, Querim, Mandrem, and Ashwem beaches of Arambol with our reliable self-drive cars.",
+    h2: "Find the Perfect Car on Rent in Arambol",
+    p2: "Well-maintained hatchbacks, sedans, and SUVs ready for North Goa coastal drives.",
+    whyChooseHeading: "Why Choose Our Arambol Car Rental?",
+    whyChooseItems: [
+      { title: "Wide Selection", description: "Budget hatchbacks to spacious family SUVs." },
+      { title: "Competitive Rates", description: "Clear pricing with zero hidden fees." },
+      { title: "Arambol Beach Delivery", description: "Delivery to hotels and shacks across Arambol." },
+      { title: "Simple Booking", description: "Book via website or WhatsApp in minutes." },
+      { title: "Clean & Sanitized", description: "Thoroughly inspected vehicles for safety." },
+      { title: "24/7 Assistance", description: "Round-the-clock roadside assistance." }
+    ],
+    howItWorksHeading: "Rent a Car in Arambol in 3 Easy Steps",
+    faqs: [
+      { question: "Q1. Can I drive from Arambol to Mopa Airport?", answer: "Yes, Arambol is close to Mopa (GOX) Airport and airport drop-offs are available." },
+      { question: "Q2. Are fuel charges included?", answer: "Fuel is not included; return with agreed fuel level." }
     ]
   }
 };

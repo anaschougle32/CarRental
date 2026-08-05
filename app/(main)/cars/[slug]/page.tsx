@@ -19,12 +19,6 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
-export async function generateStaticParams() {
-  // Return empty array to disable static generation for car pages
-  // This ensures all car pages are generated dynamically at request time
-  return [];
-}
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const { slug } = await params;
