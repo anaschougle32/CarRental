@@ -46,16 +46,6 @@ const CarDetails = ({ car }: CarDetailsProps) => {
         
         <div className="flex items-center space-x-4">
           <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-full">
-            <Calendar className="h-6 w-6 text-blue-600" />
-          </div>
-          <div>
-            <p className="text-sm text-gray-500 dark:text-gray-400">Minimum Rental</p>
-            <p className="font-medium">{car.min_days} day{car.min_days > 1 ? 's' : ''}</p>
-          </div>
-        </div>
-        
-        <div className="flex items-center space-x-4">
-          <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-full">
             <Users className="h-6 w-6 text-blue-600" />
           </div>
           <div>

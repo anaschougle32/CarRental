@@ -76,10 +76,6 @@ const BookingCTA = ({ car }: BookingCTAProps) => {
             <p className="text-lg font-bold text-gray-900 dark:text-white">{car.brand} {car.name}</p>
             <p className="text-xs text-gray-500">{car.category} • {car.fuel_type} • {car.transmission}</p>
           </div>
-          <div className="text-right">
-            <p className="text-sm text-gray-500 dark:text-gray-400">Min. rental</p>
-            <p className="font-medium">{car.min_days} days</p>
-          </div>
         </div>
         
         <div className="space-y-4 mb-6">
