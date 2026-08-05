@@ -7,7 +7,6 @@ import { Separator } from "@/components/ui/separator";
 import { Check, Shield, Clock, MapPin, Car as CarIcon, BadgeDollarSign } from "lucide-react";
 import CarCard from "@/components/car/CarCard";
 import BookingForm from "@/components/common/BookingForm";
-import Head from "next/head";
 import { Container, Section } from "@/components/common/LayoutComponents";
 import Hero, { HeroStructuredData } from "@/components/home/Hero";
 import WhyChooseUs from "@/components/home/WhyChooseUs";

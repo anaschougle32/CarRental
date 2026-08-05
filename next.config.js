@@ -129,7 +129,7 @@ function buildHeaders() {
 }
 
 const nextConfig = {
-  serverExternalPackages: ['@supabase/supabase-js'],
+  serverExternalPackages: ['@supabase/supabase-js', 'tailwind-merge', 'clsx'],
   eslint: {
     ignoreDuringBuilds: true,
   },
