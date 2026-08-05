@@ -541,13 +541,23 @@ export default async function LocationPage({ params }: Props) {
         }
       };
       
+      // Helper to get clean city name from slug
+      const getCleanName = (s: string) => {
+        const cleaned = s
+          .replace(/^self-drive-car-rental-/i, '')
+          .replace(/^self-drive-/i, '')
+          .replace(/-/g, ' ')
+          .trim();
+        return cleaned.replace(/\b\w/g, (l) => l.toUpperCase());
+      };
+
       // Use the fallback location if it exists, otherwise create a generic one
       location = fallbackLocations[slug as keyof typeof fallbackLocations] || {
         id: `default-${slug}`,
-        name: slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, ' '),
+        name: getCleanName(slug),
         slug: slug,
-        headline: `Car Rental Service in ${slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, ' ')}, Goa`,
-        content: `Find the best car rental deals in ${slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, ' ')}, Goa with ZioCarRentals.`,
+        headline: `Best Self Drive Car Rental in ${getCleanName(slug)} | Zio Car Rentals`,
+        content: `Find the best self-drive car rental deals in ${getCleanName(slug)} with ZioCarRentals. Affordable rates, well-maintained vehicles, and 24/7 support.`,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString()
       };
@@ -563,7 +573,7 @@ export default async function LocationPage({ params }: Props) {
         
         {/* 1. Hero Section */}
         <Hero 
-          title={`Car Rental in ${location.name},`}
+          title={`Self Drive Car Rental in ${location.name},`}
           titleAccent="Goa"
           subtitle={location.headline || `Book the best self-drive cars in ${location.name} with unlimited kilometers, zero hidden fees, and 24/7 support.`}
         />
