@@ -21,22 +21,22 @@ const baseHeaders = [
       "default-src 'self'",
 
       // Scripts — Next.js requires unsafe-inline + unsafe-eval for hydration
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://va.vercel-scripts.com https://cdn.vercel-insights.com",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.gstatic.com https://www.google.com https://*.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://ad.doubleclick.net https://stats.g.doubleclick.net https://va.vercel-scripts.com https://cdn.vercel-insights.com",
 
       // Styles — Tailwind inline + Google Fonts + Fontshare
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.fontshare.com",
 
-      // Fonts
-      "font-src 'self' https://fonts.gstatic.com https://api.fontshare.com",
+      // Fonts — Google Fonts + Fontshare
+      "font-src 'self' https://fonts.gstatic.com https://api.fontshare.com data:",
 
-      // Images — wildcard https covers Pexels, Supabase Storage, picsum, etc.
-      "img-src 'self' https: data: blob:",
+      // Images — Google Ads, Analytics, DoubleClick, gstatic, Supabase Storage, data, blob
+      "img-src 'self' https: data: blob: https://www.google.com https://*.google.com https://www.google-analytics.com https://stats.g.doubleclick.net https://ad.doubleclick.net https://googleads.g.doubleclick.net https://*.doubleclick.net https://www.gstatic.com",
 
-      // Fetch / XHR / WebSocket — Supabase REST + Realtime WS MUST be whitelisted
-      "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://va.vercel-scripts.com https://vitals.vercel-insights.com https://www.google-analytics.com https://www.googletagmanager.com https://googleads.g.doubleclick.net",
+      // Fetch / XHR / WebSocket — Google Analytics, Tag Manager, DoubleClick, Remarketing, Supabase REST & WS
+      "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com https://www.googletagmanager.com https://www.google.com https://*.google.com https://stats.g.doubleclick.net https://ad.doubleclick.net https://googleads.g.doubleclick.net https://*.doubleclick.net https://va.vercel-scripts.com https://vitals.vercel-insights.com",
 
-      // Iframes — Google Maps embed (Footer) + Google Ads frames
-      "frame-src 'self' https://www.google.com https://maps.google.com https://googleads.g.doubleclick.net",
+      // Iframes — Google Maps embed + Google Tag Manager / Ads / DoubleClick frames
+      "frame-src 'self' https://www.googletagmanager.com https://www.google.com https://*.google.com https://maps.google.com https://googleads.g.doubleclick.net https://ad.doubleclick.net https://*.doubleclick.net",
 
       // Media / Workers / Plugins
       "media-src 'self'",

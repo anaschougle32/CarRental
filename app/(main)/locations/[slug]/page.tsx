@@ -55,13 +55,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // ── Special-case: high-priority Google Ads landing page ──
     if (slug === 'self-drive-car-rental-in-goa') {
       return {
-        title: 'Best Self Drive Car Rental in Goa | Car Hire From ₹999',
+        title: 'Best Self Drive Car Rental in Goa | ZioCarRentals',
         description:
           'Book self-drive cars in Goa for 2 days, weekly, or monthly rentals. Wide range of vehicles, competitive pricing, easy booking, and 24/7 customer support.',
         keywords:
-          'self drive car rental in goa, self drive cars goa, car hire goa, rent a car goa, affordable car rental goa, goa car rental from 999, weekly car rental goa, monthly car rental goa',
+          'self drive car rental in goa, self drive cars goa, car hire goa, rent a car goa, affordable car rental goa, weekly car rental goa, monthly car rental goa',
         openGraph: {
-          title: 'Best Self Drive Car Rental in Goa | Affordable Car Hire From ₹999',
+          title: 'Best Self Drive Car Rental in Goa | ZioCarRentals',
           description:
             'Book self-drive cars in Goa for 2 days, weekly, or monthly rentals. Wide range of vehicles, competitive pricing, easy booking, and 24/7 customer support.',
           url: 'https://www.ziocarrentals.com/locations/self-drive-car-rental-in-goa',
@@ -72,7 +72,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         },
         twitter: {
           card: 'summary_large_image',
-          title: 'Best Self Drive Car Rental in Goa | From ₹999/day | ZioCarRentals',
+          title: 'Best Self Drive Car Rental in Goa | ZioCarRentals',
           description: 'Book self-drive cars in Goa for 2 days, weekly, or monthly rentals. Easy booking & 24/7 support.',
           images: ['/images/locations/og-image.jpg'],
         },
@@ -86,12 +86,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // ── Special-case: Madgaon Landing Page ──
     if (slug === 'self-drive-car-rental-madgaon') {
       return {
-        title: 'Best Self Drive Car Rental in Madgaon Railway Station | From ₹999',
-        description: 'Hire a self-drive car at Madgaon Railway Station from ₹999/day. Explore Goa with affordable rates, multiple car options, easy booking, and hassle-free service.',
+        title: 'Best Self Drive Car Rental in Madgaon Railway Station | ZioCarRentals',
+        description: 'Hire a self-drive car at Madgaon Railway Station. Explore Goa with affordable rates, multiple car options, easy booking, and hassle-free service.',
         keywords: 'self drive car rental madgaon, car rental madgaon railway station, rent a car margao, car hire madgaon, self drive cars margao goa',
         openGraph: {
-          title: 'Best Self Drive Car Rental in Madgaon Railway Station | From ₹999',
-          description: 'Hire a self-drive car at Madgaon Railway Station from ₹999/day. Explore Goa with affordable rates, multiple car options, easy booking, and hassle-free service.',
+          title: 'Best Self Drive Car Rental in Madgaon Railway Station | ZioCarRentals',
+          description: 'Hire a self-drive car at Madgaon Railway Station. Explore Goa with affordable rates, multiple car options, easy booking, and hassle-free service.',
           url: 'https://www.ziocarrentals.com/locations/self-drive-car-rental-madgaon',
           siteName: 'ZioCarRentals',
           locale: 'en_IN',
@@ -100,8 +100,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         },
         twitter: {
           card: 'summary_large_image',
-          title: 'Best Self Drive Car Rental in Madgaon Railway Station | From ₹999',
-          description: 'Hire a self-drive car at Madgaon Railway Station from ₹999/day. Easy booking & 24/7 support.',
+          title: 'Best Self Drive Car Rental in Madgaon Railway Station | ZioCarRentals',
+          description: 'Hire a self-drive car at Madgaon Railway Station. Easy booking & 24/7 support.',
           images: ['/images/locations/og-image.jpg'],
         },
         alternates: {
@@ -530,8 +530,8 @@ export default async function LocationPage({ params }: Props) {
           id: 'default-vasco',
           name: 'Vasco da Gama',
           slug: 'vasco',
-          headline: 'Best Self Drive Car Rental in Vasco da Gama Goa | From ₹999',
-          content: 'Hire a self-drive car in Vasco da Gama from ₹999/day. Near Dabolim Airport & Vasco Railway Station with unlimited kilometers and 24/7 roadside assistance.',
+          headline: 'Best Self Drive Car Rental in Vasco da Gama Goa',
+          content: 'Hire a self-drive car in Vasco da Gama. Near Dabolim Airport & Vasco Railway Station with unlimited kilometers and 24/7 roadside assistance.',
           created_at: new Date().toISOString(),
           updated_at: new Date().toISOString()
         },
@@ -539,8 +539,8 @@ export default async function LocationPage({ params }: Props) {
           id: 'default-vasco-da-gama',
           name: 'Vasco da Gama',
           slug: 'vasco-da-gama',
-          headline: 'Best Self Drive Car Rental in Vasco da Gama Goa | From ₹999',
-          content: 'Hire a self-drive car in Vasco da Gama from ₹999/day. Near Dabolim Airport & Vasco Railway Station with unlimited kilometers and 24/7 roadside assistance.',
+          headline: 'Best Self Drive Car Rental in Vasco da Gama Goa',
+          content: 'Hire a self-drive car in Vasco da Gama. Near Dabolim Airport & Vasco Railway Station with unlimited kilometers and 24/7 roadside assistance.',
           created_at: new Date().toISOString(),
           updated_at: new Date().toISOString()
         }

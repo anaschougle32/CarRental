@@ -59,7 +59,7 @@ export const locationsData: Record<string, LocationPageConfig> = {
   "self-drive-car-rental-in-goa": {
       "slug": "self-drive-car-rental-in-goa",
       "name": "Goa",
-      "metaTitle": "Best Self Drive Car Rental in Goa | Car Hire From ₹999",
+      "metaTitle": "Best Self Drive Car Rental in Goa | Car Hire Services",
       "metaDescription": "Book self-drive cars in Goa for 2 days, weekly, or monthly rentals. Wide range of vehicles, competitive pricing, easy booking, and 24/7 customer support.",
       "canonicalUrl": "https://www.ziocarrentals.com/locations/self-drive-car-rental-in-goa",
       "formHeading": "Book Your Self-Drive Car",
@@ -123,8 +123,8 @@ export const locationsData: Record<string, LocationPageConfig> = {
   "self-drive-car-rental-madgaon": {
       "slug": "self-drive-car-rental-madgaon",
       "name": "Madgaon",
-      "metaTitle": "Best Self Drive Car Rental in Madgaon Railway Station | From ₹999",
-      "metaDescription": "Hire a self-drive car at Madgaon Railway Station from ₹999/day. Explore Goa with affordable rates, multiple car options, easy booking, and hassle-free service.",
+      "metaTitle": "Best Self Drive Car Rental in Madgaon Railway Station | ZioCarRentals",
+      "metaDescription": "Hire a self-drive car at Madgaon Railway Station. Explore Goa with affordable rates, multiple car options, easy booking, and hassle-free service.",
       "canonicalUrl": "https://www.ziocarrentals.com/locations/self-drive-car-rental-madgaon",
       "formHeading": "Self Drive Car Rental in Margao",
       "formContent": "Fill out the form to check availability and book your preferred self-drive car. Enjoy quick booking and affordable prices.",
@@ -195,8 +195,8 @@ export const locationsData: Record<string, LocationPageConfig> = {
   "madgaon": {
       "slug": "madgaon",
       "name": "Madgaon",
-      "metaTitle": "Best Self Drive Car Rental in Madgaon Railway Station | From ₹999",
-      "metaDescription": "Hire a self-drive car at Madgaon Railway Station from ₹999/day. Explore Goa with affordable rates, multiple car options, easy booking, and hassle-free service.",
+      "metaTitle": "Best Self Drive Car Rental in Madgaon Railway Station | ZioCarRentals",
+      "metaDescription": "Hire a self-drive car at Madgaon Railway Station. Explore Goa with affordable rates, multiple car options, easy booking, and hassle-free service.",
       "canonicalUrl": "https://www.ziocarrentals.com/locations/self-drive-car-rental-madgaon",
       "formHeading": "Self Drive Car Rental in Margao",
       "formContent": "Fill out the form to check availability and book your preferred self-drive car. Enjoy quick booking and affordable prices.",
