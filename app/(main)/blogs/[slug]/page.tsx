@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Calendar, User, Tag, ArrowLeft, Clock, MessageCircle } from 'lucide-react';
 import BlogContent from '@/components/blog/BlogContent';
 import TableOfContents from '@/components/blog/TableOfContents';
+import BlogBookingPopupModal from '@/components/blog/BlogBookingPopupModal';
 import ShareButtons from '@/components/blog/ShareButtons';
 import ContactInfo from '@/components/blog/ContactInfo';
 import RelatedArticles from '@/components/blog/RelatedArticles';
@@ -106,6 +107,9 @@ export default async function BlogPost({ params }: Props) {
 
   return (
     <Section className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800" size="sm">
+      {/* 2-Second Timed Booking Popup Modal for Blogs */}
+      <BlogBookingPopupModal blogTitle={post.title || "Goa Car Rental"} />
+
       <Container className="max-w-4xl">
         <div className="mb-8">
           <Link 
