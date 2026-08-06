@@ -19,20 +19,16 @@ export default function BookingPopupModal({ car }: BookingPopupModalProps) {
   );
 
   useEffect(() => {
-    // Show popup 6 seconds after user opens the car details page
+    // Show popup 2 seconds after user opens the car details page
     const timer = setTimeout(() => {
-      const hasDismissed = sessionStorage.getItem(`dismissed_popup_${car.slug}`);
-      if (!hasDismissed) {
-        setIsOpen(true);
-      }
-    }, 6000);
+      setIsOpen(true);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, [car.slug]);
 
   const handleClose = () => {
     setIsOpen(false);
-    sessionStorage.setItem(`dismissed_popup_${car.slug}`, "true");
   };
 
   if (!isOpen) return null;
