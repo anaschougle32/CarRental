@@ -135,7 +135,6 @@ export default function RootLayout({
         "image": "https://www.ziocarrentals.com/favicon.png",
         "telephone": "+91 90828 88912",
         "email": "info@ziocarrentals.com",
-        "priceRange": "₹999 - ₹15000",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Shop no. 1, Mini Max Apartment, ND Naik Rd",
@@ -179,25 +178,17 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-        {/* Preconnect to external domains for TTFB performance */}
-        <link 
-          rel="preconnect" 
-          href="https://www.googletagmanager.com" 
-          crossOrigin="anonymous"
-        />
-        <link 
-          rel="dns-prefetch" 
-          href="https://www.googletagmanager.com" 
-        />
-        <link 
-          rel="preconnect" 
-          href="https://images.pexels.com" 
-          crossOrigin="anonymous" 
-        />
-        <link 
-          rel="dns-prefetch" 
-          href="https://images.pexels.com" 
-        />
+        {/* Preconnect & DNS Prefetch to external Google & Analytics domains for TTFB performance */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://images.pexels.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://images.pexels.com" />
 
         {/* Identity Schema Script */}
         <script
@@ -220,12 +211,12 @@ export default function RootLayout({
           <Analytics />
         </ThemeProvider>
 
-        {/* Google Ads Tag — loaded asynchronously after page becomes interactive */}
+        {/* Google Ads Tag — loaded after page becomes interactive */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-11098887425"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
-        <Script id="google-ads" strategy="lazyOnload">
+        <Script id="google-ads" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
