@@ -26,6 +26,35 @@ export interface LocationPageConfig {
   faqs: LocationFAQ[];
 }
 
+export function getLocationFaqs(locationName: string): LocationFAQ[] {
+  return [
+    {
+      question: `What documents are required to rent a self-drive car in ${locationName}?`,
+      answer: `A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy.`
+    },
+    {
+      question: `Can tourists rent a self-drive car in ${locationName}?`,
+      answer: `Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars.`
+    },
+    {
+      question: `Is there a refundable security deposit?`,
+      answer: `Yes. A refundable security deposit is applicable depending on the vehicle category.`
+    },
+    {
+      question: `Can I drive anywhere in Goa with the rental car?`,
+      answer: `Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules.`
+    },
+    {
+      question: `Can you deliver the car to my hotel in ${locationName}?`,
+      answer: `Yes. Hotel and resort delivery is available in many areas of ${locationName}, subject to availability and prior confirmation.`
+    },
+    {
+      question: `How much does it cost to rent a car in ${locationName}?`,
+      answer: `Self Drive Car rental in ${locationName} starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand.`
+    }
+  ];
+}
+
 export const locationsData: Record<string, LocationPageConfig> = {
   "self-drive-car-rental-in-goa": {
       "slug": "self-drive-car-rental-in-goa",
@@ -65,32 +94,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+              "question": "What documents are required to rent a self-drive car in Goa?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+              "question": "Can tourists rent a self-drive car in Goa?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "What documents are required to rent a self-drive car?",
-              "answer": "A valid driving licence and a government-issued photo ID are generally required. Additional verification may be requested depending on the booking and location."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+              "question": "Can you deliver the car to my hotel in Goa?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Goa, subject to availability and prior confirmation."
           },
           {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Goa?",
+              "answer": "Self Drive Car rental in Goa starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -141,52 +166,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Madgaon Goa in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What documents are required to rent a self-drive car in Margao?",
-              "answer": "You generally need a valid driving license, a government-issued ID proof, and the required security deposit, depending on the rental policy."
+              "question": "What documents are required to rent a self-drive car in Madgaon?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I book a self-drive car online?",
-              "answer": "Yes. Yes, you can easily reserve your preferred vehicle online with instant booking confirmation."
+              "question": "Can tourists rent a self-drive car in Madgaon?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Are fuel charges included in the rental price?",
-              "answer": "No. Fuel is typically not included, and the vehicle should usually be returned with the agreed fuel level as per the rental terms."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Is there a minimum rental duration?",
-              "answer": "Yes. Yes, the minimum rental duration depends on the vehicle and rental package. 2 days, and long-term options are available."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "What types of cars are available for rent in Margao, Goa?",
-              "answer": "es, you can drive across most tourist destinations in Goa while following the rental agreement and local traffic regulations."
+              "question": "Can you deliver the car to my hotel in Madgaon?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Madgaon, subject to availability and prior confirmation."
           },
           {
-              "question": "How much does it cost to rent a car in Goa?",
-              "answer": "Self Drive Car rental in Madgaon Goa starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Madgaon?",
+              "answer": "Self Drive Car rental in Madgaon starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -237,52 +238,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Madgaon Goa in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What documents are required to rent a self-drive car in Margao?",
-              "answer": "You generally need a valid driving license, a government-issued ID proof, and the required security deposit, depending on the rental policy."
+              "question": "What documents are required to rent a self-drive car in Madgaon?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I book a self-drive car online?",
-              "answer": "Yes. Yes, you can easily reserve your preferred vehicle online with instant booking confirmation."
+              "question": "Can tourists rent a self-drive car in Madgaon?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Are fuel charges included in the rental price?",
-              "answer": "No. Fuel is typically not included, and the vehicle should usually be returned with the agreed fuel level as per the rental terms."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Is there a minimum rental duration?",
-              "answer": "Yes. Yes, the minimum rental duration depends on the vehicle and rental package. 2 days, and long-term options are available."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "What types of cars are available for rent in Margao, Goa?",
-              "answer": "es, you can drive across most tourist destinations in Goa while following the rental agreement and local traffic regulations."
+              "question": "Can you deliver the car to my hotel in Madgaon?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Madgaon, subject to availability and prior confirmation."
           },
           {
-              "question": "How much does it cost to rent a car in Goa?",
-              "answer": "Self Drive Car rental in Madgaon Goa starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Madgaon?",
+              "answer": "Self Drive Car rental in Madgaon starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -330,51 +307,27 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "faqs": [
           {
               "question": "What documents are required to rent a self-drive car in Panjim?",
-              "answer": "A valid Driving Licence, Aadhaar Card/Passport, and any additional ID required by the rental policy."
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can tourists rent a self-drive car in panjim Goa?",
+              "question": "Can tourists rent a self-drive car in Panjim?",
               "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Is a security deposit required?",
+              "question": "Is there a refundable security deposit?",
               "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Is there a minimum rental duration?",
-              "answer": "Yes. Yes, the minimum rental duration depends on the vehicle and rental package. 2 days, and long-term options are available."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Can I travel throughout Goa?",
-              "answer": "Yes. You are free to explore North Goa and South Goa while following the rental agreement and traffic rules."
+              "question": "Can you deliver the car to my hotel in Panjim?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Panjim, subject to availability and prior confirmation."
           },
           {
-              "question": "How much does it cost to rent a car in Panjim Goa?",
-              "answer": "Self Drive Car rental in Panjim Goa starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Panjim?",
+              "answer": "Self Drive Car rental in Panjim starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -422,51 +375,27 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "faqs": [
           {
               "question": "What documents are required to rent a self-drive car in Panjim?",
-              "answer": "A valid Driving Licence, Aadhaar Card/Passport, and any additional ID required by the rental policy."
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can tourists rent a self-drive car in panjim Goa?",
+              "question": "Can tourists rent a self-drive car in Panjim?",
               "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Is a security deposit required?",
+              "question": "Is there a refundable security deposit?",
               "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Is there a minimum rental duration?",
-              "answer": "Yes. Yes, the minimum rental duration depends on the vehicle and rental package. 2 days, and long-term options are available."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Can I travel throughout Goa?",
-              "answer": "Yes. You are free to explore North Goa and South Goa while following the rental agreement and traffic rules."
+              "question": "Can you deliver the car to my hotel in Panjim?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Panjim, subject to availability and prior confirmation."
           },
           {
-              "question": "How much does it cost to rent a car in Panjim Goa?",
-              "answer": "Self Drive Car rental in Panjim Goa starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Panjim?",
+              "answer": "Self Drive Car rental in Panjim starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -509,52 +438,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Goa Airport in 3 Easy Steps",
       "faqs": [
           {
-              "question": "Can I pick up my self-drive car directly from Goa Airport?",
-              "answer": "Yes. We offer pickup services from both Goa International Airport (Dabolim - GOI) and Manohar International Airport (Mopa - GOX)."
+              "question": "What documents are required to rent a self-drive car in Goa Airport?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "What documents are required to rent a self-drive car from goa airport?",
-              "answer": "You need a valid driving licence, a government-issued photo ID (such as Aadhaar or Passport), and any other documents required by the rental policy."
+              "question": "Can tourists rent a self-drive car in Goa Airport?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
               "question": "Is there a refundable security deposit?",
               "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Can I return the car at a different location in Goa?",
-              "answer": "Depending on availability and rental terms, one-way drop-off may be available. Please confirm this at the time of booking."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Can I book the car before my flight arrives?",
-              "answer": "Yes. We recommend booking in advance so your vehicle is ready when you land."
+              "question": "Can you deliver the car to my hotel in Goa Airport?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Goa Airport, subject to availability and prior confirmation."
           },
           {
               "question": "How much does it cost to rent a car in Goa Airport?",
               "answer": "Self Drive Car rental in Goa Airport starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -597,52 +502,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Goa Airport in 3 Easy Steps",
       "faqs": [
           {
-              "question": "Can I pick up my self-drive car directly from Goa Airport?",
-              "answer": "Yes. We offer pickup services from both Goa International Airport (Dabolim - GOI) and Manohar International Airport (Mopa - GOX)."
+              "question": "What documents are required to rent a self-drive car in Goa Airport?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "What documents are required to rent a self-drive car from goa airport?",
-              "answer": "You need a valid driving licence, a government-issued photo ID (such as Aadhaar or Passport), and any other documents required by the rental policy."
+              "question": "Can tourists rent a self-drive car in Goa Airport?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
               "question": "Is there a refundable security deposit?",
               "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Can I return the car at a different location in Goa?",
-              "answer": "Depending on availability and rental terms, one-way drop-off may be available. Please confirm this at the time of booking."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Can I book the car before my flight arrives?",
-              "answer": "Yes. We recommend booking in advance so your vehicle is ready when you land."
+              "question": "Can you deliver the car to my hotel in Goa Airport?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Goa Airport, subject to availability and prior confirmation."
           },
           {
               "question": "How much does it cost to rent a car in Goa Airport?",
               "answer": "Self Drive Car rental in Goa Airport starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -705,32 +586,8 @@ export const locationsData: Record<string, LocationPageConfig> = {
               "answer": "Yes. Hotel and resort delivery is available in many areas of Calangute, subject to availability and prior confirmation."
           },
           {
-              "question": "How much does it cost to rent a car in Calangute ?",
+              "question": "How much does it cost to rent a car in Calangute?",
               "answer": "Self Drive Car rental in Calangute starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -793,32 +650,8 @@ export const locationsData: Record<string, LocationPageConfig> = {
               "answer": "Yes. Hotel and resort delivery is available in many areas of Calangute, subject to availability and prior confirmation."
           },
           {
-              "question": "How much does it cost to rent a car in Calangute ?",
+              "question": "How much does it cost to rent a car in Calangute?",
               "answer": "Self Drive Car rental in Calangute starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -865,52 +698,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Vasco in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What documents are required to rent a car in Vasco?",
-              "answer": "You typically need a valid driving license, a government-issued photo ID, and any additional documents requested at the time of booking."
+              "question": "What documents are required to rent a self-drive car in Vasco?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I rent a self-drive car in Vasco?",
-              "answer": "Yes. We offer self-drive cars in multiple categories, allowing you to explore Goa at your own pace."
+              "question": "Can tourists rent a self-drive car in Vasco?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Do you provide airport pickup and drop services?",
-              "answer": "Yes, we provide convenient pickup and drop-off services near Goa International Airport (Dabolim) and other locations in Vasco."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Are there any hidden charges?",
-              "answer": "No. We follow transparent pricing, and all applicable charges are clearly communicated before confirming your booking."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Can I book a car for multiple days?",
-              "answer": "Absolutely. We offer flexible rental options for daily, weekly, and long-term bookings."
-          },
-          {
-              "question": "How can I book a car rental in Vasco?",
-              "answer": "You can book by contacting us via phone, WhatsApp, or through our online booking system. Simply choose your vehicle, select your travel dates, and confirm your reservation."
+              "question": "Can you deliver the car to my hotel in Vasco?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Vasco, subject to availability and prior confirmation."
           },
           {
               "question": "How much does it cost to rent a car in Vasco?",
               "answer": "Self Drive Car rental in Vasco starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -957,52 +766,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Vasco in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What documents are required to rent a car in Vasco?",
-              "answer": "You typically need a valid driving license, a government-issued photo ID, and any additional documents requested at the time of booking."
+              "question": "What documents are required to rent a self-drive car in Vasco?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I rent a self-drive car in Vasco?",
-              "answer": "Yes. We offer self-drive cars in multiple categories, allowing you to explore Goa at your own pace."
+              "question": "Can tourists rent a self-drive car in Vasco?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Do you provide airport pickup and drop services?",
-              "answer": "Yes, we provide convenient pickup and drop-off services near Goa International Airport (Dabolim) and other locations in Vasco."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Are there any hidden charges?",
-              "answer": "No. We follow transparent pricing, and all applicable charges are clearly communicated before confirming your booking."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Can I book a car for multiple days?",
-              "answer": "Absolutely. We offer flexible rental options for daily, weekly, and long-term bookings."
-          },
-          {
-              "question": "How can I book a car rental in Vasco?",
-              "answer": "You can book by contacting us via phone, WhatsApp, or through our online booking system. Simply choose your vehicle, select your travel dates, and confirm your reservation."
+              "question": "Can you deliver the car to my hotel in Vasco?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Vasco, subject to availability and prior confirmation."
           },
           {
               "question": "How much does it cost to rent a car in Vasco?",
               "answer": "Self Drive Car rental in Vasco starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -1050,51 +835,27 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "faqs": [
           {
               "question": "What documents are required to rent a self-drive car in Varca?",
-              "answer": "You will generally need a valid driving license, a government-issued photo ID, and any additional documents required during the booking process."
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I book a self-drive car online?",
-              "answer": "Yes. You can easily reserve your preferred vehicle online or by contacting our team via phone or WhatsApp."
+              "question": "Can tourists rent a self-drive car in Varca?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Why should I choose a self-drive car in Varca?",
-              "answer": "A self-drive car gives you complete flexibility to explore Goa on your own schedule, visit beaches and attractions comfortably, and enjoy greater privacy throughout your trip."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Do you provide pickup and drop-off services in Varca?",
-              "answer": "Yes. We offer convenient pickup and drop-off services in Varca and nearby areas for a seamless rental experience."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Can I book a car for multiple days?",
-              "answer": "Absolutely. We offer flexible rental options for daily, weekly, and long-term bookings."
-          },
-          {
-              "question": "How can I book a car rental in Varca?",
-              "answer": "You can book by contacting us via phone, WhatsApp, or through our online booking system. Simply choose your vehicle, select your travel dates, and confirm your reservation."
+              "question": "Can you deliver the car to my hotel in Varca?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Varca, subject to availability and prior confirmation."
           },
           {
               "question": "How much does it cost to rent a car in Varca?",
               "answer": "Self Drive Car rental in Varca starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -1142,51 +903,27 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "faqs": [
           {
               "question": "What documents are required to rent a self-drive car in Varca?",
-              "answer": "You will generally need a valid driving license, a government-issued photo ID, and any additional documents required during the booking process."
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I book a self-drive car online?",
-              "answer": "Yes. You can easily reserve your preferred vehicle online or by contacting our team via phone or WhatsApp."
+              "question": "Can tourists rent a self-drive car in Varca?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Why should I choose a self-drive car in Varca?",
-              "answer": "A self-drive car gives you complete flexibility to explore Goa on your own schedule, visit beaches and attractions comfortably, and enjoy greater privacy throughout your trip."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Do you provide pickup and drop-off services in Varca?",
-              "answer": "Yes. We offer convenient pickup and drop-off services in Varca and nearby areas for a seamless rental experience."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Can I book a car for multiple days?",
-              "answer": "Absolutely. We offer flexible rental options for daily, weekly, and long-term bookings."
-          },
-          {
-              "question": "How can I book a car rental in Varca?",
-              "answer": "You can book by contacting us via phone, WhatsApp, or through our online booking system. Simply choose your vehicle, select your travel dates, and confirm your reservation."
+              "question": "Can you deliver the car to my hotel in Varca?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Varca, subject to availability and prior confirmation."
           },
           {
               "question": "How much does it cost to rent a car in Varca?",
               "answer": "Self Drive Car rental in Varca starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -1233,52 +970,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Agonda in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of cars are available for rent in Agonda?",
-              "answer": "We offer a wide range of vehicles, including hatchbacks, sedans, SUVs, MUVs, and premium cars to suit different travel needs."
+              "question": "What documents are required to rent a self-drive car in Agonda?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I rent a self-drive car in Agonda?",
-              "answer": "Yes, we provide self-drive car rental options that allow you to explore Goa independently with complete flexibility."
+              "question": "Can tourists rent a self-drive car in Agonda?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required to rent a car in Agonda?",
-              "answer": "A valid driving license and government-issued ID proof are generally required for booking a rental car."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Is there a minimum rental period for cars in Agonda?",
-              "answer": "Rental duration depends on the vehicle and plan selected. You can choose from short-term and long-term rental options."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you provide car delivery and pickup in Agonda?",
-              "answer": "Yes, we offer convenient pickup and drop-off services in Agonda and nearby locations."
+              "question": "Can you deliver the car to my hotel in Agonda?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Agonda, subject to availability and prior confirmation."
           },
           {
-              "question": "Are there any hidden charges when renting a car?",
-              "answer": "No, we maintain transparent pricing and inform customers about all applicable charges before confirming the booking."
-          },
-          {
-              "question": "Why should I rent a car in Agonda instead of using taxis?",
-              "answer": "A rental car gives you more freedom, privacy, and flexibility to explore Goa’s beaches and attractions at your own pace."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Agonda?",
+              "answer": "Self Drive Car rental in Agonda starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -1325,52 +1038,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Agonda in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of cars are available for rent in Agonda?",
-              "answer": "We offer a wide range of vehicles, including hatchbacks, sedans, SUVs, MUVs, and premium cars to suit different travel needs."
+              "question": "What documents are required to rent a self-drive car in Agonda?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I rent a self-drive car in Agonda?",
-              "answer": "Yes, we provide self-drive car rental options that allow you to explore Goa independently with complete flexibility."
+              "question": "Can tourists rent a self-drive car in Agonda?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required to rent a car in Agonda?",
-              "answer": "A valid driving license and government-issued ID proof are generally required for booking a rental car."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Is there a minimum rental period for cars in Agonda?",
-              "answer": "Rental duration depends on the vehicle and plan selected. You can choose from short-term and long-term rental options."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you provide car delivery and pickup in Agonda?",
-              "answer": "Yes, we offer convenient pickup and drop-off services in Agonda and nearby locations."
+              "question": "Can you deliver the car to my hotel in Agonda?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Agonda, subject to availability and prior confirmation."
           },
           {
-              "question": "Are there any hidden charges when renting a car?",
-              "answer": "No, we maintain transparent pricing and inform customers about all applicable charges before confirming the booking."
-          },
-          {
-              "question": "Why should I rent a car in Agonda instead of using taxis?",
-              "answer": "A rental car gives you more freedom, privacy, and flexibility to explore Goa’s beaches and attractions at your own pace."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Agonda?",
+              "answer": "Self Drive Car rental in Agonda starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -1418,55 +1107,27 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "faqs": [
           {
               "question": "What documents are required to rent a self-drive car in North Goa?",
-              "answer": "To rent a self-drive car in North Goa, you generally need a valid driving license and a government-issued photo ID. Additional documents may be required based on the rental policy."
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "What types of cars are available for self-drive rental in North Goa?",
-              "answer": "We offer a wide range of vehicles including hatchbacks, sedans, SUVs, MUVs, and premium cars to suit solo travelers, couples, families, and groups."
+              "question": "Can tourists rent a self-drive car in North Goa?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Can I rent a self-drive car in North Goa for one day?",
-              "answer": "No, you can rent a car for a two days, multiple days, weekends, or longer durations depending on your travel plans."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Is airport pickup and drop available for self-drive cars in North Goa?",
-              "answer": "Yes, convenient pickup and drop-off services are available at selected locations, including Goa airport and popular areas across North Goa."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Are there any hidden charges for self-drive car rentals?",
-              "answer": "No, we provide transparent pricing with all applicable charges clearly explained before confirming your booking."
+              "question": "Can you deliver the car to my hotel in North Goa?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of North Goa, subject to availability and prior confirmation."
           },
           {
-              "question": "Can I take the rental car to South Goa or other places in Goa?",
-              "answer": "Yes, you can explore different parts of Goa with your rental car, including South Goa beaches, sightseeing locations, and nearby attractions."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in North Goa?",
-              "answer": "A self-drive car gives you complete freedom, privacy, and flexibility to explore beaches, markets, forts, and tourist attractions at your own pace without depending on taxis."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in North Goa?",
+              "answer": "Self Drive Car rental in North Goa starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -1514,55 +1175,27 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "faqs": [
           {
               "question": "What documents are required to rent a self-drive car in North Goa?",
-              "answer": "To rent a self-drive car in North Goa, you generally need a valid driving license and a government-issued photo ID. Additional documents may be required based on the rental policy."
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "What types of cars are available for self-drive rental in North Goa?",
-              "answer": "We offer a wide range of vehicles including hatchbacks, sedans, SUVs, MUVs, and premium cars to suit solo travelers, couples, families, and groups."
+              "question": "Can tourists rent a self-drive car in North Goa?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Can I rent a self-drive car in North Goa for one day?",
-              "answer": "No, you can rent a car for a two days, multiple days, weekends, or longer durations depending on your travel plans."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Is airport pickup and drop available for self-drive cars in North Goa?",
-              "answer": "Yes, convenient pickup and drop-off services are available at selected locations, including Goa airport and popular areas across North Goa."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Are there any hidden charges for self-drive car rentals?",
-              "answer": "No, we provide transparent pricing with all applicable charges clearly explained before confirming your booking."
+              "question": "Can you deliver the car to my hotel in North Goa?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of North Goa, subject to availability and prior confirmation."
           },
           {
-              "question": "Can I take the rental car to South Goa or other places in Goa?",
-              "answer": "Yes, you can explore different parts of Goa with your rental car, including South Goa beaches, sightseeing locations, and nearby attractions."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in North Goa?",
-              "answer": "A self-drive car gives you complete freedom, privacy, and flexibility to explore beaches, markets, forts, and tourist attractions at your own pace without depending on taxis."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in North Goa?",
+              "answer": "Self Drive Car rental in North Goa starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -1609,48 +1242,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in South Goa in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of cars are available for rent in Anjuna Goa?",
-              "answer": "We offer a wide range of rental cars in Anjuna Goa, including hatchbacks, sedans, SUVs, MUVs, and premium cars to suit solo travelers, couples, families, and groups."
+              "question": "What documents are required to rent a self-drive car in South Goa?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "What documents are required for car rental in Anjuna Goa?",
-              "answer": "To rent a car in Anjuna Goa, you generally need a valid driving license and a government-issued photo ID. Additional documents may be required based on the rental plan."
+              "question": "Can tourists rent a self-drive car in South Goa?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Can I rent a self-drive car in Anjuna Goa?",
-              "answer": "Yes, self-drive car rental is available in Anjuna Goa, allowing you to explore beaches, markets, and attractions with complete privacy and flexibility."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Can I rent a car in Anjuna Goa for one day?",
-              "answer": "NO, you can rent a car for two days, multiple days, weekends, or longer periods according to your travel schedule and requirements."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you provide car delivery and pickup services in Anjuna Goa?",
-              "answer": "Yes, convenient car delivery and pickup services are available in Anjuna and nearby areas to make your rental experience easy and hassle-free."
+              "question": "Can you deliver the car to my hotel in South Goa?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of South Goa, subject to availability and prior confirmation."
           },
           {
-              "question": "Are there any hidden charges for Anjuna Goa car rental?",
-              "answer": "No, we maintain transparent pricing and clearly communicate all rental charges before confirming your booking. There are no unexpected hidden fees."
-          },
-          {
-              "question": "Why should I choose a rental car in Anjuna Goa?",
-              "answer": "A rental car gives you the freedom to explore popular places like Anjuna Beach, Vagator Beach, Chapora Fort, Baga, and other Goa attractions at your own pace without depending on taxis."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in South Goa?",
+              "answer": "Self Drive Car rental in South Goa starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -1697,48 +1310,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in South Goa in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of cars are available for rent in Anjuna Goa?",
-              "answer": "We offer a wide range of rental cars in Anjuna Goa, including hatchbacks, sedans, SUVs, MUVs, and premium cars to suit solo travelers, couples, families, and groups."
+              "question": "What documents are required to rent a self-drive car in South Goa?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "What documents are required for car rental in Anjuna Goa?",
-              "answer": "To rent a car in Anjuna Goa, you generally need a valid driving license and a government-issued photo ID. Additional documents may be required based on the rental plan."
+              "question": "Can tourists rent a self-drive car in South Goa?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Can I rent a self-drive car in Anjuna Goa?",
-              "answer": "Yes, self-drive car rental is available in Anjuna Goa, allowing you to explore beaches, markets, and attractions with complete privacy and flexibility."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Can I rent a car in Anjuna Goa for one day?",
-              "answer": "NO, you can rent a car for two days, multiple days, weekends, or longer periods according to your travel schedule and requirements."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you provide car delivery and pickup services in Anjuna Goa?",
-              "answer": "Yes, convenient car delivery and pickup services are available in Anjuna and nearby areas to make your rental experience easy and hassle-free."
+              "question": "Can you deliver the car to my hotel in South Goa?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of South Goa, subject to availability and prior confirmation."
           },
           {
-              "question": "Are there any hidden charges for Anjuna Goa car rental?",
-              "answer": "No, we maintain transparent pricing and clearly communicate all rental charges before confirming your booking. There are no unexpected hidden fees."
-          },
-          {
-              "question": "Why should I choose a rental car in Anjuna Goa?",
-              "answer": "A rental car gives you the freedom to explore popular places like Anjuna Beach, Vagator Beach, Chapora Fort, Baga, and other Goa attractions at your own pace without depending on taxis."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in South Goa?",
+              "answer": "Self Drive Car rental in South Goa starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -1785,48 +1378,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Anjuna in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What documents are required for a self-drive car rental in Goa?",
-              "answer": "You need a valid driving license and a government-issued photo ID to rent a self-drive car. Additional requirements may vary depending on the rental provider."
+              "question": "What documents are required to rent a self-drive car in Anjuna?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "What types of cars are available for self-drive rental in Goa?",
-              "answer": "You can choose from hatchbacks, sedans, SUVs, MUVs, and premium cars based on your travel needs and group size."
+              "question": "Can tourists rent a self-drive car in Anjuna?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Can I rent a car for one day in Goa?",
-              "answer": "No, Two-day car rentals are available along with multi-day and long-term rental options."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Do you provide pickup and drop-off services in Goa?",
-              "answer": "Yes, convenient pickup and drop-off services are available at selected locations across Goa for a hassle-free experience."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Can I take the rental car from North Goa to South Goa?",
-              "answer": "Yes, rental cars can be used to explore different parts of Goa, including South Goa beaches, sightseeing locations, and attractions."
+              "question": "Can you deliver the car to my hotel in Anjuna?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Anjuna, subject to availability and prior confirmation."
           },
           {
-              "question": "Are there any hidden charges in self-drive car rental?",
-              "answer": "No, pricing is transparent, and all applicable rental charges are explained before confirming the booking."
-          },
-          {
-              "question": "Why is self-drive car rental a good option for exploring Goa?",
-              "answer": "A self-drive car provides freedom, privacy, and flexibility, allowing you to explore beaches, tourist spots, and hidden places according to your own schedule."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Anjuna?",
+              "answer": "Self Drive Car rental in Anjuna starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -1873,48 +1446,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Anjuna in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What documents are required for a self-drive car rental in Goa?",
-              "answer": "You need a valid driving license and a government-issued photo ID to rent a self-drive car. Additional requirements may vary depending on the rental provider."
+              "question": "What documents are required to rent a self-drive car in Anjuna?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "What types of cars are available for self-drive rental in Goa?",
-              "answer": "You can choose from hatchbacks, sedans, SUVs, MUVs, and premium cars based on your travel needs and group size."
+              "question": "Can tourists rent a self-drive car in Anjuna?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Can I rent a car for one day in Goa?",
-              "answer": "No, Two-day car rentals are available along with multi-day and long-term rental options."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Do you provide pickup and drop-off services in Goa?",
-              "answer": "Yes, convenient pickup and drop-off services are available at selected locations across Goa for a hassle-free experience."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Can I take the rental car from North Goa to South Goa?",
-              "answer": "Yes, rental cars can be used to explore different parts of Goa, including South Goa beaches, sightseeing locations, and attractions."
+              "question": "Can you deliver the car to my hotel in Anjuna?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Anjuna, subject to availability and prior confirmation."
           },
           {
-              "question": "Are there any hidden charges in self-drive car rental?",
-              "answer": "No, pricing is transparent, and all applicable rental charges are explained before confirming the booking."
-          },
-          {
-              "question": "Why is self-drive car rental a good option for exploring Goa?",
-              "answer": "A self-drive car provides freedom, privacy, and flexibility, allowing you to explore beaches, tourist spots, and hidden places according to your own schedule."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Anjuna?",
+              "answer": "Self Drive Car rental in Anjuna starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -1961,56 +1514,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Canacona in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of cars are available for rent in Canacona Goa?",
-              "answer": "We offer a wide range of vehicles including hatchbacks, sedans, SUVs, MUVs, and premium cars suitable for individuals, couples, families, and groups."
+              "question": "What documents are required to rent a self-drive car in Canacona?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "What documents are required for a self-drive car rental in Canacona?",
-              "answer": "You generally need a valid driving license and a government-issued photo ID to rent a self-drive car in Canacona Goa."
+              "question": "Can tourists rent a self-drive car in Canacona?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Can I rent a self-drive car in Canacona for one day?",
-              "answer": "No, you can rent a car for two days, multiple days, weekends, or extended periods according to your travel requirements."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Is car pickup and drop-off available in Canacona Goa?",
-              "answer": "Yes, convenient pickup and drop-off services are available in Canacona and nearby areas for a smooth rental experience."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Can I travel from Canacona to other parts of Goa with a rental car?",
-              "answer": "Yes, you can explore both North Goa and South Goa attractions using your rental car."
+              "question": "Can you deliver the car to my hotel in Canacona?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Canacona, subject to availability and prior confirmation."
           },
           {
-              "question": "Are there any hidden charges for Canacona Goa car rental?",
-              "answer": "No, we follow transparent pricing and clearly explain all applicable rental charges before confirming your booking."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Canacona Goa?",
-              "answer": "A self-drive car provides complete freedom, privacy, and flexibility to explore beaches, sightseeing spots, and hidden locations at your own pace."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Canacona?",
+              "answer": "Self Drive Car rental in Canacona starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -2057,56 +1582,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Canacona in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of cars are available for rent in Canacona Goa?",
-              "answer": "We offer a wide range of vehicles including hatchbacks, sedans, SUVs, MUVs, and premium cars suitable for individuals, couples, families, and groups."
+              "question": "What documents are required to rent a self-drive car in Canacona?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "What documents are required for a self-drive car rental in Canacona?",
-              "answer": "You generally need a valid driving license and a government-issued photo ID to rent a self-drive car in Canacona Goa."
+              "question": "Can tourists rent a self-drive car in Canacona?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Can I rent a self-drive car in Canacona for one day?",
-              "answer": "No, you can rent a car for two days, multiple days, weekends, or extended periods according to your travel requirements."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Is car pickup and drop-off available in Canacona Goa?",
-              "answer": "Yes, convenient pickup and drop-off services are available in Canacona and nearby areas for a smooth rental experience."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Can I travel from Canacona to other parts of Goa with a rental car?",
-              "answer": "Yes, you can explore both North Goa and South Goa attractions using your rental car."
+              "question": "Can you deliver the car to my hotel in Canacona?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Canacona, subject to availability and prior confirmation."
           },
           {
-              "question": "Are there any hidden charges for Canacona Goa car rental?",
-              "answer": "No, we follow transparent pricing and clearly explain all applicable rental charges before confirming your booking."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Canacona Goa?",
-              "answer": "A self-drive car provides complete freedom, privacy, and flexibility to explore beaches, sightseeing spots, and hidden locations at your own pace."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Canacona?",
+              "answer": "Self Drive Car rental in Canacona starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -2153,52 +1650,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Candolim in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of cars are available for rent in Candolim Goa?",
-              "answer": "We offer a wide range of cars including hatchbacks, sedans, SUVs, MUVs, and premium vehicles suitable for different travel needs and group sizes."
+              "question": "What documents are required to rent a self-drive car in Candolim?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "What documents are required for self-drive car rental in Candolim?",
-              "answer": "You generally need a valid driving license and a government-issued photo ID to rent a self-drive car in Candolim Goa."
+              "question": "Can tourists rent a self-drive car in Candolim?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Can I rent a self-drive car in Candolim for one day?",
-              "answer": "No, you can rent a car for two days, multiple days, weekends, or longer durations depending on your travel plans."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Do you provide car delivery and pickup services in Candolim?",
-              "answer": "Yes, convenient pickup and drop-off services are available in Candolim and nearby areas for a hassle-free rental experience."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Can I travel from Candolim to other parts of Goa with a rental car?",
-              "answer": "Yes, you can explore North Goa and South Goa destinations, including beaches, sightseeing spots, and attractions using your rental car."
+              "question": "Can you deliver the car to my hotel in Candolim?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Candolim, subject to availability and prior confirmation."
           },
           {
-              "question": "Are there any hidden charges for Candolim Goa car rental?",
-              "answer": "No, we maintain transparent pricing and clearly mention all applicable charges before confirming your booking."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Candolim Goa?",
-              "answer": "A self-drive car provides freedom, privacy, and flexibility, allowing you to explore beaches, nightlife, and tourist attractions at your own pace."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Candolim?",
+              "answer": "Self Drive Car rental in Candolim starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -2245,52 +1718,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Candolim in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of cars are available for rent in Candolim Goa?",
-              "answer": "We offer a wide range of cars including hatchbacks, sedans, SUVs, MUVs, and premium vehicles suitable for different travel needs and group sizes."
+              "question": "What documents are required to rent a self-drive car in Candolim?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "What documents are required for self-drive car rental in Candolim?",
-              "answer": "You generally need a valid driving license and a government-issued photo ID to rent a self-drive car in Candolim Goa."
+              "question": "Can tourists rent a self-drive car in Candolim?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Can I rent a self-drive car in Candolim for one day?",
-              "answer": "No, you can rent a car for two days, multiple days, weekends, or longer durations depending on your travel plans."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Do you provide car delivery and pickup services in Candolim?",
-              "answer": "Yes, convenient pickup and drop-off services are available in Candolim and nearby areas for a hassle-free rental experience."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Can I travel from Candolim to other parts of Goa with a rental car?",
-              "answer": "Yes, you can explore North Goa and South Goa destinations, including beaches, sightseeing spots, and attractions using your rental car."
+              "question": "Can you deliver the car to my hotel in Candolim?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Candolim, subject to availability and prior confirmation."
           },
           {
-              "question": "Are there any hidden charges for Candolim Goa car rental?",
-              "answer": "No, we maintain transparent pricing and clearly mention all applicable charges before confirming your booking."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Candolim Goa?",
-              "answer": "A self-drive car provides freedom, privacy, and flexibility, allowing you to explore beaches, nightlife, and tourist attractions at your own pace."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Candolim?",
+              "answer": "Self Drive Car rental in Candolim starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -2337,56 +1786,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Colva in 3 Easy Steps",
       "faqs": [
           {
-              "question": "Which cars are available for self-drive rental in Colva?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium cars, and spacious family vehicles suitable for all types of travellers."
+              "question": "What documents are required to rent a self-drive car in Colva?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Is self-drive car rental available near Colva Beach?",
-              "answer": "Yes. We provide self-drive car rental services in Colva and nearby areas, making it easy to collect or receive your vehicle close to the beach."
+              "question": "Can tourists rent a self-drive car in Colva?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required to rent a self-drive car?",
-              "answer": "A valid driving licence and a government-issued photo ID are generally required at the time of booking."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Can I drive the rental car across Goa?",
-              "answer": "Yes. You can use the rental car to travel throughout North Goa and South Goa, subject to the rental agreement."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you offer daily and weekly rental packages?",
-              "answer": "Yes. We provide flexible rental options including daily, weekend, weekly, and long-term plans."
+              "question": "Can you deliver the car to my hotel in Colva?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Colva, subject to availability and prior confirmation."
           },
           {
-              "question": "Is advance booking recommended during the tourist season?",
-              "answer": "Yes. Booking in advance helps ensure your preferred vehicle is available, especially during weekends and peak holiday periods."
-          },
-          {
-              "question": "Why should I choose a self-drive car in Colva?",
-              "answer": "A self-drive car offers complete flexibility, privacy, and convenience, allowing you to explore beaches, attractions, restaurants, and scenic routes at your own pace without depending on taxis."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Colva?",
+              "answer": "Self Drive Car rental in Colva starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -2433,56 +1854,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Colva in 3 Easy Steps",
       "faqs": [
           {
-              "question": "Which cars are available for self-drive rental in Colva?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium cars, and spacious family vehicles suitable for all types of travellers."
+              "question": "What documents are required to rent a self-drive car in Colva?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Is self-drive car rental available near Colva Beach?",
-              "answer": "Yes. We provide self-drive car rental services in Colva and nearby areas, making it easy to collect or receive your vehicle close to the beach."
+              "question": "Can tourists rent a self-drive car in Colva?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required to rent a self-drive car?",
-              "answer": "A valid driving licence and a government-issued photo ID are generally required at the time of booking."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Can I drive the rental car across Goa?",
-              "answer": "Yes. You can use the rental car to travel throughout North Goa and South Goa, subject to the rental agreement."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you offer daily and weekly rental packages?",
-              "answer": "Yes. We provide flexible rental options including daily, weekend, weekly, and long-term plans."
+              "question": "Can you deliver the car to my hotel in Colva?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Colva, subject to availability and prior confirmation."
           },
           {
-              "question": "Is advance booking recommended during the tourist season?",
-              "answer": "Yes. Booking in advance helps ensure your preferred vehicle is available, especially during weekends and peak holiday periods."
-          },
-          {
-              "question": "Why should I choose a self-drive car in Colva?",
-              "answer": "A self-drive car offers complete flexibility, privacy, and convenience, allowing you to explore beaches, attractions, restaurants, and scenic routes at your own pace without depending on taxis."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Colva?",
+              "answer": "Self Drive Car rental in Colva starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -2529,52 +1922,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Karmali in 3 Easy Steps",
       "faqs": [
           {
-              "question": "Is self-drive car rental available near Karmali Railway Station?",
-              "answer": "Yes. We offer self-drive car rentals close to Karmali Railway Station, making it easy to begin your trip immediately after arrival."
+              "question": "What documents are required to rent a self-drive car in Karmali?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "What vehicles can I rent in Karmali?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, premium cars, and family-friendly vehicles to suit different travel needs."
+              "question": "Can tourists rent a self-drive car in Karmali?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required for renting a self-drive car?",
-              "answer": "A valid driving licence and a government-issued photo ID are generally required at the time of booking."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Can I travel across Goa with the rental car?",
-              "answer": "Yes. You can drive throughout North Goa and South Goa according to the terms of your rental agreement."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Are daily and long-term rental options available?",
-              "answer": "Yes. We offer flexible rental plans for two days, multiple days, weekly bookings, and extended rentals."
+              "question": "Can you deliver the car to my hotel in Karmali?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Karmali, subject to availability and prior confirmation."
           },
           {
-              "question": "Do you provide pickup and drop-off services?",
-              "answer": "Yes. Pickup and drop-off services are available in Karmali and nearby areas for added convenience."
-          },
-          {
-              "question": "Why should I choose a self-drive car in Karmali?",
-              "answer": "A self-drive car saves time after arriving by train and allows you to explore Goa comfortably, visit multiple destinations, and travel at your own pace without relying on taxis."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Karmali?",
+              "answer": "Self Drive Car rental in Karmali starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -2621,52 +1990,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Karmali in 3 Easy Steps",
       "faqs": [
           {
-              "question": "Is self-drive car rental available near Karmali Railway Station?",
-              "answer": "Yes. We offer self-drive car rentals close to Karmali Railway Station, making it easy to begin your trip immediately after arrival."
+              "question": "What documents are required to rent a self-drive car in Karmali?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "What vehicles can I rent in Karmali?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, premium cars, and family-friendly vehicles to suit different travel needs."
+              "question": "Can tourists rent a self-drive car in Karmali?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required for renting a self-drive car?",
-              "answer": "A valid driving licence and a government-issued photo ID are generally required at the time of booking."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Can I travel across Goa with the rental car?",
-              "answer": "Yes. You can drive throughout North Goa and South Goa according to the terms of your rental agreement."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Are daily and long-term rental options available?",
-              "answer": "Yes. We offer flexible rental plans for two days, multiple days, weekly bookings, and extended rentals."
+              "question": "Can you deliver the car to my hotel in Karmali?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Karmali, subject to availability and prior confirmation."
           },
           {
-              "question": "Do you provide pickup and drop-off services?",
-              "answer": "Yes. Pickup and drop-off services are available in Karmali and nearby areas for added convenience."
-          },
-          {
-              "question": "Why should I choose a self-drive car in Karmali?",
-              "answer": "A self-drive car saves time after arriving by train and allows you to explore Goa comfortably, visit multiple destinations, and travel at your own pace without relying on taxis."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Karmali?",
+              "answer": "Self Drive Car rental in Karmali starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -2713,48 +2058,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Thivim in 3 Easy Steps",
       "faqs": [
           {
-              "question": "Is self-drive car rental available near Thivim Railway Station?",
-              "answer": "Yes. We offer self-drive car rentals near Thivim Railway Station, allowing travellers to begin their journey immediately after arrival."
+              "question": "What documents are required to rent a self-drive car in Thivim?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "What types of vehicles can I rent in Thivim?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, premium cars, and spacious family vehicles suitable for different travel needs."
+              "question": "Can tourists rent a self-drive car in Thivim?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required to rent a self-drive car?",
-              "answer": "You generally need a valid driving licence and a government-issued photo ID. Additional documents may be requested depending on the booking."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Can I drive from Thivim to other parts of Goa?",
-              "answer": "Yes. You can travel throughout North Goa and South Goa, including beaches, tourist attractions, and nearby towns, according to the rental agreement."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you provide daily and long-term rental options?",
-              "answer": "Yes. We offer flexible rental plans ranging from one-day rentals to weekly and long-term bookings."
+              "question": "Can you deliver the car to my hotel in Thivim?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Thivim, subject to availability and prior confirmation."
           },
           {
-              "question": "Is advance booking recommended during the tourist season?",
-              "answer": "Yes. Booking in advance helps ensure the availability of your preferred vehicle, especially during holidays and peak travel periods."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Thivim?",
-              "answer": "A self-drive car provides greater flexibility, privacy, and convenience, allowing you to explore Goa comfortably at your own pace while saving time after arriving by train."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Thivim?",
+              "answer": "Self Drive Car rental in Thivim starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -2801,48 +2126,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Thivim in 3 Easy Steps",
       "faqs": [
           {
-              "question": "Is self-drive car rental available near Thivim Railway Station?",
-              "answer": "Yes. We offer self-drive car rentals near Thivim Railway Station, allowing travellers to begin their journey immediately after arrival."
+              "question": "What documents are required to rent a self-drive car in Thivim?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "What types of vehicles can I rent in Thivim?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, premium cars, and spacious family vehicles suitable for different travel needs."
+              "question": "Can tourists rent a self-drive car in Thivim?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required to rent a self-drive car?",
-              "answer": "You generally need a valid driving licence and a government-issued photo ID. Additional documents may be requested depending on the booking."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Can I drive from Thivim to other parts of Goa?",
-              "answer": "Yes. You can travel throughout North Goa and South Goa, including beaches, tourist attractions, and nearby towns, according to the rental agreement."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you provide daily and long-term rental options?",
-              "answer": "Yes. We offer flexible rental plans ranging from one-day rentals to weekly and long-term bookings."
+              "question": "Can you deliver the car to my hotel in Thivim?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Thivim, subject to availability and prior confirmation."
           },
           {
-              "question": "Is advance booking recommended during the tourist season?",
-              "answer": "Yes. Booking in advance helps ensure the availability of your preferred vehicle, especially during holidays and peak travel periods."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Thivim?",
-              "answer": "A self-drive car provides greater flexibility, privacy, and convenience, allowing you to explore Goa comfortably at your own pace while saving time after arriving by train."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Thivim?",
+              "answer": "Self Drive Car rental in Thivim starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -2889,56 +2194,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Mandrem in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Mandrem Goa?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium vehicles, and family cars to suit different travel requirements and budgets."
-          },
-          {
-              "question": "Can I pick up a rental car in Mandrem and return it elsewhere?",
-              "answer": "Yes, depending on availability, flexible pickup and drop-off options may be arranged at selected locations across Goa."
-          },
-          {
               "question": "What documents are required to rent a self-drive car in Mandrem?",
-              "answer": "A valid driving licence and a government-issued photo ID are generally required to complete the rental process."
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Which nearby attractions can I visit from Mandrem?",
-              "answer": "You can easily drive to Ashwem Beach, Morjim Beach, Arambol Beach, Querim Beach, Vagator, Anjuna, Chapora Fort, and Mapusa."
+              "question": "Can tourists rent a self-drive car in Mandrem?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Are the rental cars suitable for family trips?",
-              "answer": "Yes. We offer spacious SUVs and family-friendly vehicles that are perfect for comfortable travel with children and luggage."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Can I book a self-drive car for a week or longer?",
-              "answer": "Absolutely. We provide flexible rental plans for daily, weekly, and long-term bookings."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Why choose a self-drive car rental in Mandrem Goa?",
-              "answer": "A self-drive car offers complete freedom to explore peaceful beaches, scenic villages, and North Goa attractions at your own pace while enjoying privacy, comfort, and convenience."
+              "question": "Can you deliver the car to my hotel in Mandrem?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Mandrem, subject to availability and prior confirmation."
           },
           {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Mandrem?",
+              "answer": "Self Drive Car rental in Mandrem starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -2985,56 +2262,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Mandrem in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Mandrem Goa?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium vehicles, and family cars to suit different travel requirements and budgets."
-          },
-          {
-              "question": "Can I pick up a rental car in Mandrem and return it elsewhere?",
-              "answer": "Yes, depending on availability, flexible pickup and drop-off options may be arranged at selected locations across Goa."
-          },
-          {
               "question": "What documents are required to rent a self-drive car in Mandrem?",
-              "answer": "A valid driving licence and a government-issued photo ID are generally required to complete the rental process."
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Which nearby attractions can I visit from Mandrem?",
-              "answer": "You can easily drive to Ashwem Beach, Morjim Beach, Arambol Beach, Querim Beach, Vagator, Anjuna, Chapora Fort, and Mapusa."
+              "question": "Can tourists rent a self-drive car in Mandrem?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Are the rental cars suitable for family trips?",
-              "answer": "Yes. We offer spacious SUVs and family-friendly vehicles that are perfect for comfortable travel with children and luggage."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Can I book a self-drive car for a week or longer?",
-              "answer": "Absolutely. We provide flexible rental plans for daily, weekly, and long-term bookings."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Why choose a self-drive car rental in Mandrem Goa?",
-              "answer": "A self-drive car offers complete freedom to explore peaceful beaches, scenic villages, and North Goa attractions at your own pace while enjoying privacy, comfort, and convenience."
+              "question": "Can you deliver the car to my hotel in Mandrem?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Mandrem, subject to availability and prior confirmation."
           },
           {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Mandrem?",
+              "answer": "Self Drive Car rental in Mandrem starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -3081,56 +2330,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Vagator in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Vagator Goa?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium cars, and family-friendly vehicles to suit different budgets and travel requirements."
+              "question": "What documents are required to rent a self-drive car in Vagator?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I rent a self-drive car near Vagator Beach?",
-              "answer": "Yes. Our self-drive car rental service is conveniently available for travelers staying in Vagator and nearby North Goa areas."
+              "question": "Can tourists rent a self-drive car in Vagator?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required to rent a self-drive car?",
-              "answer": "A valid driving licence and a government-issued photo ID are generally required. Additional verification may be requested during booking."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Which places can I visit from Vagator with a rental car?",
-              "answer": "You can easily explore Chapora Fort, Anjuna Beach, Ozran Beach, Morjim, Ashwem, Calangute, Baga, Candolim, and many other popular destinations across Goa."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you offer daily and weekly rental plans?",
-              "answer": "Yes. We provide flexible rental options including daily, weekend, weekly, and long-term packages."
+              "question": "Can you deliver the car to my hotel in Vagator?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Vagator, subject to availability and prior confirmation."
           },
           {
-              "question": "Are your rental cars suitable for long drives across Goa?",
-              "answer": "Absolutely. Our vehicles are regularly serviced and maintained, making them suitable for comfortable travel throughout North Goa and South Goa."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Vagator Goa?",
-              "answer": "A self-drive car gives you the flexibility to explore beaches, forts, restaurants, and nightlife on your own schedule while enjoying greater privacy, convenience, and value for money."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Vagator?",
+              "answer": "Self Drive Car rental in Vagator starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -3177,56 +2398,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Vagator in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Vagator Goa?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium cars, and family-friendly vehicles to suit different budgets and travel requirements."
+              "question": "What documents are required to rent a self-drive car in Vagator?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I rent a self-drive car near Vagator Beach?",
-              "answer": "Yes. Our self-drive car rental service is conveniently available for travelers staying in Vagator and nearby North Goa areas."
+              "question": "Can tourists rent a self-drive car in Vagator?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required to rent a self-drive car?",
-              "answer": "A valid driving licence and a government-issued photo ID are generally required. Additional verification may be requested during booking."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Which places can I visit from Vagator with a rental car?",
-              "answer": "You can easily explore Chapora Fort, Anjuna Beach, Ozran Beach, Morjim, Ashwem, Calangute, Baga, Candolim, and many other popular destinations across Goa."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you offer daily and weekly rental plans?",
-              "answer": "Yes. We provide flexible rental options including daily, weekend, weekly, and long-term packages."
+              "question": "Can you deliver the car to my hotel in Vagator?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Vagator, subject to availability and prior confirmation."
           },
           {
-              "question": "Are your rental cars suitable for long drives across Goa?",
-              "answer": "Absolutely. Our vehicles are regularly serviced and maintained, making them suitable for comfortable travel throughout North Goa and South Goa."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Vagator Goa?",
-              "answer": "A self-drive car gives you the flexibility to explore beaches, forts, restaurants, and nightlife on your own schedule while enjoying greater privacy, convenience, and value for money."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Vagator?",
+              "answer": "Self Drive Car rental in Vagator starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -3273,56 +2466,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Ponda in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Ponda Goa?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium cars, and family vehicles suitable for business trips, sightseeing, and vacations."
+              "question": "What documents are required to rent a self-drive car in Ponda?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I rent a self-drive car for visiting temples in Ponda?",
-              "answer": "Yes. Our rental cars are ideal for visiting famous temples such as Shri Mangueshi Temple, Shri Shantadurga Temple, Mahalsa Temple, and other cultural landmarks."
+              "question": "Can tourists rent a self-drive car in Ponda?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required for renting a self-drive car?",
-              "answer": "You generally need a valid driving licence and a government-issued photo ID. Additional verification may be required depending on the booking."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Can I drive from Ponda to North Goa and South Goa?",
-              "answer": "Yes. Our rental cars can be used to explore destinations across Goa, including Panjim, Calangute, Colva, Palolem, and other popular tourist locations."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you offer daily, weekly, and long-term rental plans?",
-              "answer": "Yes. We provide flexible rental packages ranging from one-day bookings to weekly and long-term rentals."
+              "question": "Can you deliver the car to my hotel in Ponda?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Ponda, subject to availability and prior confirmation."
           },
           {
-              "question": "Is advance booking recommended?",
-              "answer": "Yes. Booking in advance is advisable, especially during weekends, festivals, and the peak tourist season, to ensure your preferred vehicle is available."
-          },
-          {
-              "question": "Why choose a self-drive car rental in Ponda Goa?",
-              "answer": "A self-drive car gives you the flexibility to explore Goa's temples, spice plantations, wildlife sanctuaries, and scenic countryside at your own pace while enjoying comfort, privacy, and convenience."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Ponda?",
+              "answer": "Self Drive Car rental in Ponda starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -3369,56 +2534,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Ponda in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Ponda Goa?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium cars, and family vehicles suitable for business trips, sightseeing, and vacations."
+              "question": "What documents are required to rent a self-drive car in Ponda?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I rent a self-drive car for visiting temples in Ponda?",
-              "answer": "Yes. Our rental cars are ideal for visiting famous temples such as Shri Mangueshi Temple, Shri Shantadurga Temple, Mahalsa Temple, and other cultural landmarks."
+              "question": "Can tourists rent a self-drive car in Ponda?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required for renting a self-drive car?",
-              "answer": "You generally need a valid driving licence and a government-issued photo ID. Additional verification may be required depending on the booking."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Can I drive from Ponda to North Goa and South Goa?",
-              "answer": "Yes. Our rental cars can be used to explore destinations across Goa, including Panjim, Calangute, Colva, Palolem, and other popular tourist locations."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you offer daily, weekly, and long-term rental plans?",
-              "answer": "Yes. We provide flexible rental packages ranging from one-day bookings to weekly and long-term rentals."
+              "question": "Can you deliver the car to my hotel in Ponda?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Ponda, subject to availability and prior confirmation."
           },
           {
-              "question": "Is advance booking recommended?",
-              "answer": "Yes. Booking in advance is advisable, especially during weekends, festivals, and the peak tourist season, to ensure your preferred vehicle is available."
-          },
-          {
-              "question": "Why choose a self-drive car rental in Ponda Goa?",
-              "answer": "A self-drive car gives you the flexibility to explore Goa's temples, spice plantations, wildlife sanctuaries, and scenic countryside at your own pace while enjoying comfort, privacy, and convenience."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Ponda?",
+              "answer": "Self Drive Car rental in Ponda starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -3465,56 +2602,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Mapusa in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Mapusa Goa?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium cars, and family-friendly vehicles suitable for solo travellers, couples, families, and groups."
+              "question": "What documents are required to rent a self-drive car in Mapusa?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I rent a self-drive car to visit the beaches near Mapusa?",
-              "answer": "Yes. Our rental cars are perfect for exploring nearby destinations such as Anjuna, Vagator, Calangute, Baga, Candolim, Morjim, and Ashwem."
+              "question": "Can tourists rent a self-drive car in Mapusa?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required to rent a self-drive car?",
-              "answer": "A valid driving licence and a government-issued photo ID are generally required. Additional verification may be requested depending on the booking."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Is Mapusa a good location to start a Goa road trip?",
-              "answer": "Yes. Mapusa is centrally located in North Goa, making it an excellent starting point for exploring beaches, markets, forts, and nearby towns."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you offer daily and long-term car rental plans?",
-              "answer": "Yes. We provide flexible rental options including two days, weekend, weekly, and long-term packages."
+              "question": "Can you deliver the car to my hotel in Mapusa?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Mapusa, subject to availability and prior confirmation."
           },
           {
-              "question": "Are the rental vehicles cleaned before every booking?",
-              "answer": "Absolutely. Every vehicle is professionally cleaned, sanitized, and inspected to provide a safe and comfortable driving experience."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Mapusa Goa?",
-              "answer": "A self-drive car gives you the flexibility to explore North Goa's beaches, markets, restaurants, and attractions at your own pace while enjoying comfort, privacy, and excellent value for money."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Mapusa?",
+              "answer": "Self Drive Car rental in Mapusa starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -3561,56 +2670,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Mapusa in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Mapusa Goa?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium cars, and family-friendly vehicles suitable for solo travellers, couples, families, and groups."
+              "question": "What documents are required to rent a self-drive car in Mapusa?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I rent a self-drive car to visit the beaches near Mapusa?",
-              "answer": "Yes. Our rental cars are perfect for exploring nearby destinations such as Anjuna, Vagator, Calangute, Baga, Candolim, Morjim, and Ashwem."
+              "question": "Can tourists rent a self-drive car in Mapusa?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required to rent a self-drive car?",
-              "answer": "A valid driving licence and a government-issued photo ID are generally required. Additional verification may be requested depending on the booking."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Is Mapusa a good location to start a Goa road trip?",
-              "answer": "Yes. Mapusa is centrally located in North Goa, making it an excellent starting point for exploring beaches, markets, forts, and nearby towns."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you offer daily and long-term car rental plans?",
-              "answer": "Yes. We provide flexible rental options including two days, weekend, weekly, and long-term packages."
+              "question": "Can you deliver the car to my hotel in Mapusa?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Mapusa, subject to availability and prior confirmation."
           },
           {
-              "question": "Are the rental vehicles cleaned before every booking?",
-              "answer": "Absolutely. Every vehicle is professionally cleaned, sanitized, and inspected to provide a safe and comfortable driving experience."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Mapusa Goa?",
-              "answer": "A self-drive car gives you the flexibility to explore North Goa's beaches, markets, restaurants, and attractions at your own pace while enjoying comfort, privacy, and excellent value for money."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Mapusa?",
+              "answer": "Self Drive Car rental in Mapusa starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -3657,52 +2738,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Siolim in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Siolim Goa?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium vehicles, and spacious family cars suitable for different travel needs and budgets."
+              "question": "What documents are required to rent a self-drive car in Siolim?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Which attractions can I visit from Siolim with a rental car?",
-              "answer": "You can easily explore Morjim Beach, Ashwem Beach, Mandrem Beach, Vagator, Anjuna, Chapora Fort, Mapusa, and several scenic villages across North Goa."
+              "question": "Can tourists rent a self-drive car in Siolim?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required to rent a self-drive car?",
-              "answer": "You generally need a valid driving licence and a government-issued photo ID. Additional verification may be required depending on the booking."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Can I drive the rental car throughout Goa?",
-              "answer": "Yes. You can travel across both North Goa and South Goa, subject to the terms of your rental agreement."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Are daily, weekly, and long-term rental plans available?",
-              "answer": "Yes. We offer flexible rental options for two days, weekend, weekly, and extended bookings."
+              "question": "Can you deliver the car to my hotel in Siolim?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Siolim, subject to availability and prior confirmation."
           },
           {
-              "question": "Do you provide pickup and drop-off services in Siolim?",
-              "answer": "Yes. Pickup and return services are available in Siolim and nearby locations for added convenience."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Siolim Goa?",
-              "answer": "A self-drive car gives you the flexibility to explore riverside villages, beautiful beaches, heritage attractions, and local cafés at your own pace while enjoying comfort, privacy, and value for money."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Siolim?",
+              "answer": "Self Drive Car rental in Siolim starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -3749,52 +2806,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Siolim in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Siolim Goa?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium vehicles, and spacious family cars suitable for different travel needs and budgets."
+              "question": "What documents are required to rent a self-drive car in Siolim?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Which attractions can I visit from Siolim with a rental car?",
-              "answer": "You can easily explore Morjim Beach, Ashwem Beach, Mandrem Beach, Vagator, Anjuna, Chapora Fort, Mapusa, and several scenic villages across North Goa."
+              "question": "Can tourists rent a self-drive car in Siolim?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required to rent a self-drive car?",
-              "answer": "You generally need a valid driving licence and a government-issued photo ID. Additional verification may be required depending on the booking."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Can I drive the rental car throughout Goa?",
-              "answer": "Yes. You can travel across both North Goa and South Goa, subject to the terms of your rental agreement."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Are daily, weekly, and long-term rental plans available?",
-              "answer": "Yes. We offer flexible rental options for two days, weekend, weekly, and extended bookings."
+              "question": "Can you deliver the car to my hotel in Siolim?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Siolim, subject to availability and prior confirmation."
           },
           {
-              "question": "Do you provide pickup and drop-off services in Siolim?",
-              "answer": "Yes. Pickup and return services are available in Siolim and nearby locations for added convenience."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Siolim Goa?",
-              "answer": "A self-drive car gives you the flexibility to explore riverside villages, beautiful beaches, heritage attractions, and local cafés at your own pace while enjoying comfort, privacy, and value for money."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Siolim?",
+              "answer": "Self Drive Car rental in Siolim starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -3841,52 +2874,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Arpora in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Arpora Goa?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium cars, and family-friendly vehicles suitable for different budgets and travel needs."
-          },
-          {
-              "question": "Can I rent a self-drive car near the Arpora Saturday Night Market?",
-              "answer": "Yes. Our rental service is conveniently available for visitors staying in Arpora and nearby areas, making it easy to explore the Saturday Night Market and surrounding attractions."
-          },
-          {
               "question": "What documents are required to rent a self-drive car in Arpora?",
-              "answer": "You generally need a valid driving licence and a government-issued photo ID. Additional verification may be required depending on the booking."
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Which tourist attractions can I visit from Arpora?",
-              "answer": "You can easily drive to Baga Beach, Calangute Beach, Anjuna Beach, Vagator Beach, Candolim, Chapora Fort, and other popular North Goa destinations."
+              "question": "Can tourists rent a self-drive car in Arpora?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Do you provide daily and long-term rental options?",
-              "answer": "Yes. We offer flexible rental packages for two days, weekly, and long-term bookings to suit different travel plans."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Are the rental cars cleaned and serviced regularly?",
-              "answer": "Absolutely. Every vehicle is professionally sanitized, regularly serviced, and thoroughly inspected before every rental."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Why should I choose a self-drive car rental in Arpora Goa?",
-              "answer": "A self-drive car gives you the freedom to explore beaches, markets, nightlife, restaurants, and scenic attractions on your own schedule while enjoying comfort, privacy, and excellent value for money."
+              "question": "Can you deliver the car to my hotel in Arpora?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Arpora, subject to availability and prior confirmation."
           },
           {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Arpora?",
+              "answer": "Self Drive Car rental in Arpora starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -3933,52 +2942,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Arpora in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Arpora Goa?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium cars, and family-friendly vehicles suitable for different budgets and travel needs."
-          },
-          {
-              "question": "Can I rent a self-drive car near the Arpora Saturday Night Market?",
-              "answer": "Yes. Our rental service is conveniently available for visitors staying in Arpora and nearby areas, making it easy to explore the Saturday Night Market and surrounding attractions."
-          },
-          {
               "question": "What documents are required to rent a self-drive car in Arpora?",
-              "answer": "You generally need a valid driving licence and a government-issued photo ID. Additional verification may be required depending on the booking."
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Which tourist attractions can I visit from Arpora?",
-              "answer": "You can easily drive to Baga Beach, Calangute Beach, Anjuna Beach, Vagator Beach, Candolim, Chapora Fort, and other popular North Goa destinations."
+              "question": "Can tourists rent a self-drive car in Arpora?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Do you provide daily and long-term rental options?",
-              "answer": "Yes. We offer flexible rental packages for two days, weekly, and long-term bookings to suit different travel plans."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Are the rental cars cleaned and serviced regularly?",
-              "answer": "Absolutely. Every vehicle is professionally sanitized, regularly serviced, and thoroughly inspected before every rental."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Why should I choose a self-drive car rental in Arpora Goa?",
-              "answer": "A self-drive car gives you the freedom to explore beaches, markets, nightlife, restaurants, and scenic attractions on your own schedule while enjoying comfort, privacy, and excellent value for money."
+              "question": "Can you deliver the car to my hotel in Arpora?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Arpora, subject to availability and prior confirmation."
           },
           {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Arpora?",
+              "answer": "Self Drive Car rental in Arpora starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -4025,56 +3010,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Benaulim in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Benaulim Goa?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium vehicles, and spacious family cars to suit every budget and travel requirement."
+              "question": "What documents are required to rent a self-drive car in Benaulim?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I rent a self-drive car near Benaulim Beach?",
-              "answer": "Yes. Our self-drive car rental service is available in Benaulim and nearby South Goa locations for easy pickup and delivery."
+              "question": "Can tourists rent a self-drive car in Benaulim?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required for renting a self-drive car?",
-              "answer": "You generally need a valid driving licence and a government-issued photo ID. Additional verification may be required depending on the booking."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Which attractions can I visit from Benaulim?",
-              "answer": "You can easily explore Colva Beach, Varca Beach, Cavelossim Beach, Betalbatim Beach, Margao, Cabo de Rama Fort, and other popular South Goa destinations."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you offer daily and long-term rental plans?",
-              "answer": "Yes. We provide flexible rental packages including two days, weekly, weekend, and long-term bookings."
+              "question": "Can you deliver the car to my hotel in Benaulim?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Benaulim, subject to availability and prior confirmation."
           },
           {
-              "question": "Are your rental vehicles cleaned before every booking?",
-              "answer": "Absolutely. Every vehicle is professionally sanitized, regularly serviced, and inspected to ensure a safe and comfortable driving experience."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Benaulim Goa?",
-              "answer": "A self-drive car gives you the flexibility to explore South Goa's beaches, villages, restaurants, and cultural attractions at your own pace while enjoying greater comfort, privacy, and convenience."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Benaulim?",
+              "answer": "Self Drive Car rental in Benaulim starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -4121,56 +3078,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Benaulim in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Benaulim Goa?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium vehicles, and spacious family cars to suit every budget and travel requirement."
+              "question": "What documents are required to rent a self-drive car in Benaulim?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I rent a self-drive car near Benaulim Beach?",
-              "answer": "Yes. Our self-drive car rental service is available in Benaulim and nearby South Goa locations for easy pickup and delivery."
+              "question": "Can tourists rent a self-drive car in Benaulim?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required for renting a self-drive car?",
-              "answer": "You generally need a valid driving licence and a government-issued photo ID. Additional verification may be required depending on the booking."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Which attractions can I visit from Benaulim?",
-              "answer": "You can easily explore Colva Beach, Varca Beach, Cavelossim Beach, Betalbatim Beach, Margao, Cabo de Rama Fort, and other popular South Goa destinations."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you offer daily and long-term rental plans?",
-              "answer": "Yes. We provide flexible rental packages including two days, weekly, weekend, and long-term bookings."
+              "question": "Can you deliver the car to my hotel in Benaulim?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Benaulim, subject to availability and prior confirmation."
           },
           {
-              "question": "Are your rental vehicles cleaned before every booking?",
-              "answer": "Absolutely. Every vehicle is professionally sanitized, regularly serviced, and inspected to ensure a safe and comfortable driving experience."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Benaulim Goa?",
-              "answer": "A self-drive car gives you the flexibility to explore South Goa's beaches, villages, restaurants, and cultural attractions at your own pace while enjoying greater comfort, privacy, and convenience."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Benaulim?",
+              "answer": "Self Drive Car rental in Benaulim starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -4217,52 +3146,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Bambolim in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Bambolim Goa?",
-              "answer": "We offer hatchbacks, sedans, SUVs, MUVs, and premium vehicles suitable for business travel, family vacations, and sightseeing."
+              "question": "What documents are required to rent a self-drive car in Bambolim?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I rent a self-drive car near Goa Medical College in Bambolim?",
-              "answer": "Yes. Our self-drive car rental service is conveniently available for visitors, students, professionals, and tourists staying near Goa Medical College and Bambolim."
+              "question": "Can tourists rent a self-drive car in Bambolim?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required to rent a self-drive car?",
-              "answer": "You generally need a valid driving licence and a government-issued photo ID. Additional verification may be required depending on the booking."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Which places can I visit from Bambolim with a rental car?",
-              "answer": "You can easily explore Bambolim Beach, Panjim, Dona Paula, Miramar Beach, Old Goa, Reis Magos Fort, Candolim, Calangute, and many other attractions across Goa."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you provide daily and long-term rental options?",
-              "answer": "Yes. We offer flexible rental plans including two days, weekly, monthly, and extended bookings."
+              "question": "Can you deliver the car to my hotel in Bambolim?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Bambolim, subject to availability and prior confirmation."
           },
           {
-              "question": "Are your rental vehicles regularly maintained?",
-              "answer": "Absolutely. Every vehicle is professionally cleaned, sanitized, serviced, and inspected before every rental to ensure a safe driving experience."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Bambolim Goa?",
-              "answer": "A self-drive car gives you the flexibility to explore Goa's beaches, heritage sites, educational institutions, and business centres comfortably while enjoying privacy, convenience, and excellent value for money."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Bambolim?",
+              "answer": "Self Drive Car rental in Bambolim starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -4309,52 +3214,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Bambolim in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Bambolim Goa?",
-              "answer": "We offer hatchbacks, sedans, SUVs, MUVs, and premium vehicles suitable for business travel, family vacations, and sightseeing."
+              "question": "What documents are required to rent a self-drive car in Bambolim?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I rent a self-drive car near Goa Medical College in Bambolim?",
-              "answer": "Yes. Our self-drive car rental service is conveniently available for visitors, students, professionals, and tourists staying near Goa Medical College and Bambolim."
+              "question": "Can tourists rent a self-drive car in Bambolim?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required to rent a self-drive car?",
-              "answer": "You generally need a valid driving licence and a government-issued photo ID. Additional verification may be required depending on the booking."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Which places can I visit from Bambolim with a rental car?",
-              "answer": "You can easily explore Bambolim Beach, Panjim, Dona Paula, Miramar Beach, Old Goa, Reis Magos Fort, Candolim, Calangute, and many other attractions across Goa."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you provide daily and long-term rental options?",
-              "answer": "Yes. We offer flexible rental plans including two days, weekly, monthly, and extended bookings."
+              "question": "Can you deliver the car to my hotel in Bambolim?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Bambolim, subject to availability and prior confirmation."
           },
           {
-              "question": "Are your rental vehicles regularly maintained?",
-              "answer": "Absolutely. Every vehicle is professionally cleaned, sanitized, serviced, and inspected before every rental to ensure a safe driving experience."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Bambolim Goa?",
-              "answer": "A self-drive car gives you the flexibility to explore Goa's beaches, heritage sites, educational institutions, and business centres comfortably while enjoying privacy, convenience, and excellent value for money."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Bambolim?",
+              "answer": "Self Drive Car rental in Bambolim starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -4401,56 +3282,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Assagao in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Assagao Goa?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium vehicles, and spacious family cars to suit every travel style and budget."
+              "question": "What documents are required to rent a self-drive car in Assagao?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Which attractions can I visit from Assagao with a rental car?",
-              "answer": "You can easily explore Anjuna Beach, Vagator Beach, Chapora Fort, Ozran Beach, Mapusa, Morjim, Ashwem, Mandrem, and other popular destinations across North Goa."
+              "question": "Can tourists rent a self-drive car in Assagao?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required to rent a self-drive car?",
-              "answer": "A valid driving licence and a government-issued photo ID are generally required. Additional verification may be requested during the booking process."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Can I drive the rental car throughout Goa?",
-              "answer": "Yes. Our rental cars can be driven across North Goa and South Goa, subject to the terms and conditions of the rental agreement."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you offer daily and long-term rental packages?",
-              "answer": "Yes. We provide flexible rental options including two days, weekend, weekly, and long-term bookings."
+              "question": "Can you deliver the car to my hotel in Assagao?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Assagao, subject to availability and prior confirmation."
           },
           {
-              "question": "Are your rental vehicles cleaned and serviced before delivery?",
-              "answer": "Absolutely. Every vehicle is professionally cleaned, sanitized, and regularly serviced to ensure safety, reliability, and comfort."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Assagao Goa?",
-              "answer": "A self-drive car allows you to explore Goa's beaches, boutique cafés, heritage villages, and scenic roads on your own schedule while enjoying complete privacy, convenience, and excellent value."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Assagao?",
+              "answer": "Self Drive Car rental in Assagao starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -4497,56 +3350,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Assagao in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Assagao Goa?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium vehicles, and spacious family cars to suit every travel style and budget."
+              "question": "What documents are required to rent a self-drive car in Assagao?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Which attractions can I visit from Assagao with a rental car?",
-              "answer": "You can easily explore Anjuna Beach, Vagator Beach, Chapora Fort, Ozran Beach, Mapusa, Morjim, Ashwem, Mandrem, and other popular destinations across North Goa."
+              "question": "Can tourists rent a self-drive car in Assagao?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required to rent a self-drive car?",
-              "answer": "A valid driving licence and a government-issued photo ID are generally required. Additional verification may be requested during the booking process."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Can I drive the rental car throughout Goa?",
-              "answer": "Yes. Our rental cars can be driven across North Goa and South Goa, subject to the terms and conditions of the rental agreement."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you offer daily and long-term rental packages?",
-              "answer": "Yes. We provide flexible rental options including two days, weekend, weekly, and long-term bookings."
+              "question": "Can you deliver the car to my hotel in Assagao?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Assagao, subject to availability and prior confirmation."
           },
           {
-              "question": "Are your rental vehicles cleaned and serviced before delivery?",
-              "answer": "Absolutely. Every vehicle is professionally cleaned, sanitized, and regularly serviced to ensure safety, reliability, and comfort."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Assagao Goa?",
-              "answer": "A self-drive car allows you to explore Goa's beaches, boutique cafés, heritage villages, and scenic roads on your own schedule while enjoying complete privacy, convenience, and excellent value."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Assagao?",
+              "answer": "Self Drive Car rental in Assagao starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -4593,56 +3418,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Majorda in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Majorda Goa?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium vehicles, and spacious family cars to meet different travel requirements and budgets."
+              "question": "What documents are required to rent a self-drive car in Majorda?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I rent a self-drive car near Majorda Beach?",
-              "answer": "Yes. Our self-drive car rental service is available in Majorda with convenient pickup and drop-off options for nearby hotels, resorts, and beach areas."
+              "question": "Can tourists rent a self-drive car in Majorda?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required to rent a self-drive car?",
-              "answer": "You generally need a valid driving licence and a government-issued photo ID. Additional verification may be required during the booking process."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Which attractions can I visit from Majorda?",
-              "answer": "You can easily explore Majorda Beach, Utorda Beach, Betalbatim Beach, Colva Beach, Benaulim, Margao, Three Kings Chapel, and many other South Goa attractions."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Are daily and long-term rental plans available?",
-              "answer": "Yes. We provide flexible rental packages including daily, weekend, weekly, and long-term options."
+              "question": "Can you deliver the car to my hotel in Majorda?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Majorda, subject to availability and prior confirmation."
           },
           {
-              "question": "Are your rental cars regularly maintained?",
-              "answer": "Absolutely. Every vehicle is professionally sanitized, regularly serviced, and thoroughly inspected before each rental."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Majorda Goa?",
-              "answer": "A self-drive car offers complete freedom to explore South Goa's beaches, villages, restaurants, and cultural attractions at your own pace while enjoying comfort, privacy, and excellent value for money."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Majorda?",
+              "answer": "Self Drive Car rental in Majorda starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -4689,56 +3486,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Majorda in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Majorda Goa?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium vehicles, and spacious family cars to meet different travel requirements and budgets."
+              "question": "What documents are required to rent a self-drive car in Majorda?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I rent a self-drive car near Majorda Beach?",
-              "answer": "Yes. Our self-drive car rental service is available in Majorda with convenient pickup and drop-off options for nearby hotels, resorts, and beach areas."
+              "question": "Can tourists rent a self-drive car in Majorda?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required to rent a self-drive car?",
-              "answer": "You generally need a valid driving licence and a government-issued photo ID. Additional verification may be required during the booking process."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Which attractions can I visit from Majorda?",
-              "answer": "You can easily explore Majorda Beach, Utorda Beach, Betalbatim Beach, Colva Beach, Benaulim, Margao, Three Kings Chapel, and many other South Goa attractions."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Are daily and long-term rental plans available?",
-              "answer": "Yes. We provide flexible rental packages including daily, weekend, weekly, and long-term options."
+              "question": "Can you deliver the car to my hotel in Majorda?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Majorda, subject to availability and prior confirmation."
           },
           {
-              "question": "Are your rental cars regularly maintained?",
-              "answer": "Absolutely. Every vehicle is professionally sanitized, regularly serviced, and thoroughly inspected before each rental."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Majorda Goa?",
-              "answer": "A self-drive car offers complete freedom to explore South Goa's beaches, villages, restaurants, and cultural attractions at your own pace while enjoying comfort, privacy, and excellent value for money."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Majorda?",
+              "answer": "Self Drive Car rental in Majorda starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -4785,52 +3554,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Bogmalo in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Bogmalo Goa?",
-              "answer": "We offer hatchbacks, sedans, SUVs, MUVs, and premium cars suitable for tourists, families, couples, and business travellers."
+              "question": "What documents are required to rent a self-drive car in Bogmalo?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I rent a self-drive car near Goa International Airport?",
-              "answer": "Yes. Our self-drive car rental service is convenient for travellers arriving at Goa Airport and staying in Bogmalo or nearby areas."
+              "question": "Can tourists rent a self-drive car in Bogmalo?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required for renting a self-drive car?",
-              "answer": "A valid driving licence and a government-issued photo ID are generally required to complete the rental process."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Which places can I visit from Bogmalo with a rental car?",
-              "answer": "You can explore Bogmalo Beach, Vasco da Gama, Mormugao Fort, Colva, Majorda, Benaulim, Panjim, Old Goa, and other attractions across Goa."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you provide short-term and long-term car rentals?",
-              "answer": "Yes. We offer flexible rental plans including two day rentals, weekend bookings, weekly rentals, and extended packages."
+              "question": "Can you deliver the car to my hotel in Bogmalo?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Bogmalo, subject to availability and prior confirmation."
           },
           {
-              "question": "Are the rental cars maintained regularly?",
-              "answer": "Yes. Every vehicle is cleaned, sanitized, serviced, and inspected before delivery to ensure a safe driving experience."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Bogmalo Goa?",
-              "answer": "A self-drive car gives you the freedom to travel from the airport, explore coastal destinations, and enjoy Goa's attractions comfortably with privacy and flexibility."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Bogmalo?",
+              "answer": "Self Drive Car rental in Bogmalo starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -4877,52 +3622,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Bogmalo in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Bogmalo Goa?",
-              "answer": "We offer hatchbacks, sedans, SUVs, MUVs, and premium cars suitable for tourists, families, couples, and business travellers."
+              "question": "What documents are required to rent a self-drive car in Bogmalo?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I rent a self-drive car near Goa International Airport?",
-              "answer": "Yes. Our self-drive car rental service is convenient for travellers arriving at Goa Airport and staying in Bogmalo or nearby areas."
+              "question": "Can tourists rent a self-drive car in Bogmalo?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required for renting a self-drive car?",
-              "answer": "A valid driving licence and a government-issued photo ID are generally required to complete the rental process."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Which places can I visit from Bogmalo with a rental car?",
-              "answer": "You can explore Bogmalo Beach, Vasco da Gama, Mormugao Fort, Colva, Majorda, Benaulim, Panjim, Old Goa, and other attractions across Goa."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you provide short-term and long-term car rentals?",
-              "answer": "Yes. We offer flexible rental plans including two day rentals, weekend bookings, weekly rentals, and extended packages."
+              "question": "Can you deliver the car to my hotel in Bogmalo?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Bogmalo, subject to availability and prior confirmation."
           },
           {
-              "question": "Are the rental cars maintained regularly?",
-              "answer": "Yes. Every vehicle is cleaned, sanitized, serviced, and inspected before delivery to ensure a safe driving experience."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Bogmalo Goa?",
-              "answer": "A self-drive car gives you the freedom to travel from the airport, explore coastal destinations, and enjoy Goa's attractions comfortably with privacy and flexibility."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Bogmalo?",
+              "answer": "Self Drive Car rental in Bogmalo starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -4969,56 +3690,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Morjim in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Morjim Goa?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium vehicles, and family cars suitable for different budgets and travel requirements."
+              "question": "What documents are required to rent a self-drive car in Morjim?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I rent a self-drive car near Morjim Beach?",
-              "answer": "Yes. Our self-drive car rental service is available for travellers staying in Morjim and nearby North Goa areas."
+              "question": "Can tourists rent a self-drive car in Morjim?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are needed to rent a self-drive car?",
-              "answer": "A valid driving licence and a government-issued photo ID are generally required for booking confirmation."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Which places can I visit from Morjim with a rental car?",
-              "answer": "You can easily explore Ashwem Beach, Mandrem Beach, Arambol, Chapora Fort, Vagator, Anjuna, Baga, and other popular North Goa attractions."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you offer daily and long-term rental plans?",
-              "answer": "Yes. We provide flexible rental options including daily, weekend, weekly, and extended rental packages."
+              "question": "Can you deliver the car to my hotel in Morjim?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Morjim, subject to availability and prior confirmation."
           },
           {
-              "question": "Are the rental vehicles suitable for long-distance travel?",
-              "answer": "Yes. Our cars are regularly serviced and maintained, making them comfortable for exploring destinations across Goa."
-          },
-          {
-              "question": "Why choose a self-drive car rental in Morjim Goa?",
-              "answer": "A self-drive car provides the freedom to explore peaceful beaches, local attractions, and scenic routes at your own pace while enjoying comfort, privacy, and convenience."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Morjim?",
+              "answer": "Self Drive Car rental in Morjim starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -5065,56 +3758,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Morjim in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Morjim Goa?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium vehicles, and family cars suitable for different budgets and travel requirements."
+              "question": "What documents are required to rent a self-drive car in Morjim?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I rent a self-drive car near Morjim Beach?",
-              "answer": "Yes. Our self-drive car rental service is available for travellers staying in Morjim and nearby North Goa areas."
+              "question": "Can tourists rent a self-drive car in Morjim?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are needed to rent a self-drive car?",
-              "answer": "A valid driving licence and a government-issued photo ID are generally required for booking confirmation."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Which places can I visit from Morjim with a rental car?",
-              "answer": "You can easily explore Ashwem Beach, Mandrem Beach, Arambol, Chapora Fort, Vagator, Anjuna, Baga, and other popular North Goa attractions."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you offer daily and long-term rental plans?",
-              "answer": "Yes. We provide flexible rental options including daily, weekend, weekly, and extended rental packages."
+              "question": "Can you deliver the car to my hotel in Morjim?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Morjim, subject to availability and prior confirmation."
           },
           {
-              "question": "Are the rental vehicles suitable for long-distance travel?",
-              "answer": "Yes. Our cars are regularly serviced and maintained, making them comfortable for exploring destinations across Goa."
-          },
-          {
-              "question": "Why choose a self-drive car rental in Morjim Goa?",
-              "answer": "A self-drive car provides the freedom to explore peaceful beaches, local attractions, and scenic routes at your own pace while enjoying comfort, privacy, and convenience."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Morjim?",
+              "answer": "Self Drive Car rental in Morjim starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -5161,48 +3826,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Mumbai in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Mumbai?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium cars, and family-friendly vehicles suitable for different travel needs."
-          },
-          {
-              "question": "Can I rent a self-drive car for airport pickup in Mumbai?",
-              "answer": "Yes. Self-drive car rental options are available for travellers arriving at Mumbai Airport and those staying in different parts of the city."
-          },
-          {
               "question": "What documents are required to rent a self-drive car in Mumbai?",
-              "answer": "You generally need a valid driving licence and a government-issued photo ID to complete the rental process."
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I use the rental car for trips outside Mumbai?",
-              "answer": "Yes. Depending on the rental terms, you can travel to nearby destinations and explore places across Maharashtra."
+              "question": "Can tourists rent a self-drive car in Mumbai?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Do you provide short-term and long-term car rentals?",
-              "answer": "Yes. We offer flexible rental plans including hourly, daily, weekly, and long-term bookings."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Are the rental cars maintained regularly?",
-              "answer": "Yes. All vehicles are cleaned, sanitized, serviced, and inspected before every booking for a safe driving experience."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Why should I choose a self-drive car rental in Mumbai?",
-              "answer": "A self-drive car gives you complete flexibility to explore Mumbai's attractions, manage your schedule, and travel comfortably with privacy and convenience."
+              "question": "Can you deliver the car to my hotel in Mumbai?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Mumbai, subject to availability and prior confirmation."
           },
           {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Mumbai?",
+              "answer": "Self Drive Car rental in Mumbai starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -5249,48 +3894,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Mumbai in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Mumbai?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium cars, and family-friendly vehicles suitable for different travel needs."
-          },
-          {
-              "question": "Can I rent a self-drive car for airport pickup in Mumbai?",
-              "answer": "Yes. Self-drive car rental options are available for travellers arriving at Mumbai Airport and those staying in different parts of the city."
-          },
-          {
               "question": "What documents are required to rent a self-drive car in Mumbai?",
-              "answer": "You generally need a valid driving licence and a government-issued photo ID to complete the rental process."
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I use the rental car for trips outside Mumbai?",
-              "answer": "Yes. Depending on the rental terms, you can travel to nearby destinations and explore places across Maharashtra."
+              "question": "Can tourists rent a self-drive car in Mumbai?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Do you provide short-term and long-term car rentals?",
-              "answer": "Yes. We offer flexible rental plans including hourly, daily, weekly, and long-term bookings."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Are the rental cars maintained regularly?",
-              "answer": "Yes. All vehicles are cleaned, sanitized, serviced, and inspected before every booking for a safe driving experience."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Why should I choose a self-drive car rental in Mumbai?",
-              "answer": "A self-drive car gives you complete flexibility to explore Mumbai's attractions, manage your schedule, and travel comfortably with privacy and convenience."
+              "question": "Can you deliver the car to my hotel in Mumbai?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Mumbai, subject to availability and prior confirmation."
           },
           {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Mumbai?",
+              "answer": "Self Drive Car rental in Mumbai starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -5337,56 +3962,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Mumbra in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Mumbra?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium cars, and family-friendly vehicles suitable for different travel requirements."
+              "question": "What documents are required to rent a self-drive car in Mumbra?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I rent a self-drive car for travelling from Mumbra to Mumbai?",
-              "answer": "Yes. Our rental cars are ideal for travelling between Mumbra, Mumbai, Thane, Navi Mumbai, and other nearby locations."
+              "question": "Can tourists rent a self-drive car in Mumbra?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required to rent a self-drive car?",
-              "answer": "You generally need a valid driving licence and a government-issued photo ID to complete the booking process."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Can I take the rental car for an outstation trip from Mumbra?",
-              "answer": "Yes. Depending on the rental terms, you can use the vehicle for outstation travel to nearby destinations in Maharashtra."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you offer daily and monthly car rental plans?",
-              "answer": "Yes. We provide flexible rental options including daily, weekly, and monthly packages."
+              "question": "Can you deliver the car to my hotel in Mumbra?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Mumbra, subject to availability and prior confirmation."
           },
           {
-              "question": "Are the rental vehicles cleaned before every booking?",
-              "answer": "Yes. Every vehicle is cleaned, sanitized, serviced, and inspected before delivery to ensure a comfortable driving experience."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Mumbra?",
-              "answer": "A self-drive car provides privacy, flexibility, and convenience, allowing you to travel around Mumbai, Thane, and nearby destinations according to your own schedule."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Mumbra?",
+              "answer": "Self Drive Car rental in Mumbra starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -5433,56 +4030,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Mumbra in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Mumbra?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium cars, and family-friendly vehicles suitable for different travel requirements."
+              "question": "What documents are required to rent a self-drive car in Mumbra?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I rent a self-drive car for travelling from Mumbra to Mumbai?",
-              "answer": "Yes. Our rental cars are ideal for travelling between Mumbra, Mumbai, Thane, Navi Mumbai, and other nearby locations."
+              "question": "Can tourists rent a self-drive car in Mumbra?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required to rent a self-drive car?",
-              "answer": "You generally need a valid driving licence and a government-issued photo ID to complete the booking process."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Can I take the rental car for an outstation trip from Mumbra?",
-              "answer": "Yes. Depending on the rental terms, you can use the vehicle for outstation travel to nearby destinations in Maharashtra."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you offer daily and monthly car rental plans?",
-              "answer": "Yes. We provide flexible rental options including daily, weekly, and monthly packages."
+              "question": "Can you deliver the car to my hotel in Mumbra?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Mumbra, subject to availability and prior confirmation."
           },
           {
-              "question": "Are the rental vehicles cleaned before every booking?",
-              "answer": "Yes. Every vehicle is cleaned, sanitized, serviced, and inspected before delivery to ensure a comfortable driving experience."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Mumbra?",
-              "answer": "A self-drive car provides privacy, flexibility, and convenience, allowing you to travel around Mumbai, Thane, and nearby destinations according to your own schedule."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Do you provide customer support during the rental period?",
-              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Mumbra?",
+              "answer": "Self Drive Car rental in Mumbra starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -5529,52 +4098,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Thane in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Thane?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium cars, and family vehicles suitable for different travel needs."
-          },
-          {
-              "question": "Can I rent a self-drive car for local travel in Thane?",
-              "answer": "Yes. Our rental cars are available for local sightseeing, business travel, personal use, and daily transportation needs."
-          },
-          {
               "question": "What documents are required to rent a self-drive car in Thane?",
-              "answer": "A valid driving licence and government-issued photo ID are generally required to complete the rental process."
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Which places can I visit from Thane with a rental car?",
-              "answer": "You can explore Upvan Lake, Yeoor Hills, Sanjay Gandhi National Park, Tikuji-Ni-Wadi, Lonavala, Khandala, Matheran, and other nearby destinations."
+              "question": "Can tourists rent a self-drive car in Thane?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Do you provide short-term and long-term car rentals?",
-              "answer": "Yes. We offer flexible rental plans including hourly, daily, weekly, and monthly options."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Are your rental cars regularly serviced?",
-              "answer": "Yes. Every vehicle is cleaned, sanitized, maintained, and inspected before each booking for a safe driving experience."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Why should I choose a self-drive car rental in Thane?",
-              "answer": "A self-drive car provides flexibility, privacy, and convenience, allowing you to travel around Thane and nearby destinations comfortably on your own schedule."
+              "question": "Can you deliver the car to my hotel in Thane?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Thane, subject to availability and prior confirmation."
           },
           {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Thane?",
+              "answer": "Self Drive Car rental in Thane starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -5621,52 +4166,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Thane in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Thane?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium cars, and family vehicles suitable for different travel needs."
-          },
-          {
-              "question": "Can I rent a self-drive car for local travel in Thane?",
-              "answer": "Yes. Our rental cars are available for local sightseeing, business travel, personal use, and daily transportation needs."
-          },
-          {
               "question": "What documents are required to rent a self-drive car in Thane?",
-              "answer": "A valid driving licence and government-issued photo ID are generally required to complete the rental process."
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Which places can I visit from Thane with a rental car?",
-              "answer": "You can explore Upvan Lake, Yeoor Hills, Sanjay Gandhi National Park, Tikuji-Ni-Wadi, Lonavala, Khandala, Matheran, and other nearby destinations."
+              "question": "Can tourists rent a self-drive car in Thane?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Do you provide short-term and long-term car rentals?",
-              "answer": "Yes. We offer flexible rental plans including hourly, daily, weekly, and monthly options."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Are your rental cars regularly serviced?",
-              "answer": "Yes. Every vehicle is cleaned, sanitized, maintained, and inspected before each booking for a safe driving experience."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Why should I choose a self-drive car rental in Thane?",
-              "answer": "A self-drive car provides flexibility, privacy, and convenience, allowing you to travel around Thane and nearby destinations comfortably on your own schedule."
+              "question": "Can you deliver the car to my hotel in Thane?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Thane, subject to availability and prior confirmation."
           },
           {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Thane?",
+              "answer": "Self Drive Car rental in Thane starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -5737,52 +4258,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Navi Mumbai in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Navi Mumbai?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium cars, and family-friendly vehicles suitable for different travel needs."
+              "question": "What documents are required to rent a self-drive car in Navi Mumbai?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I rent a self-drive car for airport travel from Navi Mumbai?",
-              "answer": "Yes. Our self-drive cars are convenient for travellers travelling between Navi Mumbai, Mumbai Airport, and nearby areas."
+              "question": "Can tourists rent a self-drive car in Navi Mumbai?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required to rent a self-drive car?",
-              "answer": "You generally need a valid driving licence and a government-issued photo ID to complete the rental process."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Which places can I visit from Navi Mumbai with a rental car?",
-              "answer": "You can explore Kharghar Hills, Pandavkada Waterfall, Central Park, Belapur Fort, Lonavala, Khandala, Matheran, Alibaug, and many other destinations."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you provide daily and monthly rental plans?",
-              "answer": "Yes. We offer flexible rental options including hourly, daily, weekly, and monthly packages."
+              "question": "Can you deliver the car to my hotel in Navi Mumbai?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Navi Mumbai, subject to availability and prior confirmation."
           },
           {
-              "question": "Are your rental cars regularly maintained?",
-              "answer": "Yes. Every vehicle is cleaned, sanitized, serviced, and inspected before delivery to ensure a safe and comfortable journey."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Navi Mumbai?",
-              "answer": "A self-drive car gives you privacy, flexibility, and convenience, allowing you to explore Navi Mumbai and nearby destinations according to your own travel schedule."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Navi Mumbai?",
+              "answer": "Self Drive Car rental in Navi Mumbai starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -5853,52 +4350,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Navi Mumbai in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Navi Mumbai?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium cars, and family-friendly vehicles suitable for different travel needs."
+              "question": "What documents are required to rent a self-drive car in Navi Mumbai?",
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Can I rent a self-drive car for airport travel from Navi Mumbai?",
-              "answer": "Yes. Our self-drive cars are convenient for travellers travelling between Navi Mumbai, Mumbai Airport, and nearby areas."
+              "question": "Can tourists rent a self-drive car in Navi Mumbai?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "What documents are required to rent a self-drive car?",
-              "answer": "You generally need a valid driving licence and a government-issued photo ID to complete the rental process."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Which places can I visit from Navi Mumbai with a rental car?",
-              "answer": "You can explore Kharghar Hills, Pandavkada Waterfall, Central Park, Belapur Fort, Lonavala, Khandala, Matheran, Alibaug, and many other destinations."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Do you provide daily and monthly rental plans?",
-              "answer": "Yes. We offer flexible rental options including hourly, daily, weekly, and monthly packages."
+              "question": "Can you deliver the car to my hotel in Navi Mumbai?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Navi Mumbai, subject to availability and prior confirmation."
           },
           {
-              "question": "Are your rental cars regularly maintained?",
-              "answer": "Yes. Every vehicle is cleaned, sanitized, serviced, and inspected before delivery to ensure a safe and comfortable journey."
-          },
-          {
-              "question": "Why should I choose a self-drive car rental in Navi Mumbai?",
-              "answer": "A self-drive car gives you privacy, flexibility, and convenience, allowing you to explore Navi Mumbai and nearby destinations according to your own travel schedule."
-          },
-          {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Navi Mumbai?",
+              "answer": "Self Drive Car rental in Navi Mumbai starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -5945,52 +4418,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Hyderabad in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Hyderabad?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium cars, and family-friendly vehicles suitable for different travel requirements."
-          },
-          {
-              "question": "Can I rent a self-drive car for Hyderabad airport travel?",
-              "answer": "Yes. Our self-drive car rental service is convenient for travellers arriving at Rajiv Gandhi International Airport and travelling across Hyderabad."
-          },
-          {
               "question": "What documents are required to rent a self-drive car in Hyderabad?",
-              "answer": "You generally need a valid driving licence and a government-issued photo ID to complete the booking process."
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Which places can I visit from Hyderabad with a rental car?",
-              "answer": "You can explore Charminar, Golconda Fort, Ramoji Film City, Hussain Sagar Lake, Ananthagiri Hills, Warangal, and many other attractions."
+              "question": "Can tourists rent a self-drive car in Hyderabad?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Do you provide daily and long-term car rental plans?",
-              "answer": "Yes. We offer flexible rental options including hourly, daily, weekly, and monthly packages."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Are your rental cars regularly maintained?",
-              "answer": "Yes. Every vehicle is cleaned, sanitized, serviced, and inspected before delivery to ensure a safe and comfortable journey."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Why should I choose a self-drive car rental in Hyderabad?",
-              "answer": "A self-drive car gives you complete flexibility, privacy, and convenience, allowing you to explore Hyderabad and nearby destinations at your own pace."
+              "question": "Can you deliver the car to my hotel in Hyderabad?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Hyderabad, subject to availability and prior confirmation."
           },
           {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Hyderabad?",
+              "answer": "Self Drive Car rental in Hyderabad starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -6037,52 +4486,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Hyderabad in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Hyderabad?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium cars, and family-friendly vehicles suitable for different travel requirements."
-          },
-          {
-              "question": "Can I rent a self-drive car for Hyderabad airport travel?",
-              "answer": "Yes. Our self-drive car rental service is convenient for travellers arriving at Rajiv Gandhi International Airport and travelling across Hyderabad."
-          },
-          {
               "question": "What documents are required to rent a self-drive car in Hyderabad?",
-              "answer": "You generally need a valid driving licence and a government-issued photo ID to complete the booking process."
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Which places can I visit from Hyderabad with a rental car?",
-              "answer": "You can explore Charminar, Golconda Fort, Ramoji Film City, Hussain Sagar Lake, Ananthagiri Hills, Warangal, and many other attractions."
+              "question": "Can tourists rent a self-drive car in Hyderabad?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Do you provide daily and long-term car rental plans?",
-              "answer": "Yes. We offer flexible rental options including hourly, daily, weekly, and monthly packages."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Are your rental cars regularly maintained?",
-              "answer": "Yes. Every vehicle is cleaned, sanitized, serviced, and inspected before delivery to ensure a safe and comfortable journey."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Why should I choose a self-drive car rental in Hyderabad?",
-              "answer": "A self-drive car gives you complete flexibility, privacy, and convenience, allowing you to explore Hyderabad and nearby destinations at your own pace."
+              "question": "Can you deliver the car to my hotel in Hyderabad?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Hyderabad, subject to availability and prior confirmation."
           },
           {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Hyderabad?",
+              "answer": "Self Drive Car rental in Hyderabad starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -6129,52 +4554,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Delhi in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Delhi?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium cars, and family-friendly vehicles suitable for different travel needs."
-          },
-          {
-              "question": "Can I rent a self-drive car for Delhi Airport travel?",
-              "answer": "Yes. Our self-drive car rental service is convenient for travellers arriving at Indira Gandhi International Airport and travelling across Delhi NCR."
-          },
-          {
               "question": "What documents are required to rent a self-drive car in Delhi?",
-              "answer": "You generally need a valid driving licence and a government-issued photo ID to complete the rental process."
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Which places can I visit from Delhi with a rental car?",
-              "answer": "You can explore India Gate, Red Fort, Qutub Minar, Lotus Temple, Agra, Jaipur, Rishikesh, Haridwar, and many other destinations."
+              "question": "Can tourists rent a self-drive car in Delhi?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Do you provide daily and long-term rental options?",
-              "answer": "Yes. We offer flexible rental plans including hourly, daily, weekly, and monthly bookings."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Are the rental vehicles regularly maintained?",
-              "answer": "Yes. Every vehicle is cleaned, sanitized, serviced, and inspected before delivery to ensure a safe and comfortable journey."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Why should I choose a self-drive car rental in Delhi?",
-              "answer": "A self-drive car provides privacy, flexibility, and convenience, allowing you to explore Delhi and nearby destinations according to your own travel schedule."
+              "question": "Can you deliver the car to my hotel in Delhi?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Delhi, subject to availability and prior confirmation."
           },
           {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Delhi?",
+              "answer": "Self Drive Car rental in Delhi starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },
@@ -6221,52 +4622,28 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "howItWorksHeading": "Rent a Car in Delhi in 3 Easy Steps",
       "faqs": [
           {
-              "question": "What types of self-drive cars are available in Delhi?",
-              "answer": "We offer hatchbacks, sedans, SUVs, premium cars, and family-friendly vehicles suitable for different travel needs."
-          },
-          {
-              "question": "Can I rent a self-drive car for Delhi Airport travel?",
-              "answer": "Yes. Our self-drive car rental service is convenient for travellers arriving at Indira Gandhi International Airport and travelling across Delhi NCR."
-          },
-          {
               "question": "What documents are required to rent a self-drive car in Delhi?",
-              "answer": "You generally need a valid driving licence and a government-issued photo ID to complete the rental process."
+              "answer": "A valid driving licence, a government-issued photo ID (Aadhaar Card, Passport, or similar), and any additional documents required by the rental policy."
           },
           {
-              "question": "Which places can I visit from Delhi with a rental car?",
-              "answer": "You can explore India Gate, Red Fort, Qutub Minar, Lotus Temple, Agra, Jaipur, Rishikesh, Haridwar, and many other destinations."
+              "question": "Can tourists rent a self-drive car in Delhi?",
+              "answer": "Yes. Both Indian and international tourists with a valid driving licence can rent self-drive cars."
           },
           {
-              "question": "Do you provide daily and long-term rental options?",
-              "answer": "Yes. We offer flexible rental plans including hourly, daily, weekly, and monthly bookings."
+              "question": "Is there a refundable security deposit?",
+              "answer": "Yes. A refundable security deposit is applicable depending on the vehicle category."
           },
           {
-              "question": "Are the rental vehicles regularly maintained?",
-              "answer": "Yes. Every vehicle is cleaned, sanitized, serviced, and inspected before delivery to ensure a safe and comfortable journey."
+              "question": "Can I drive anywhere in Goa with the rental car?",
+              "answer": "Yes. You can explore North Goa and South Goa while following the rental agreement and local traffic rules."
           },
           {
-              "question": "Why should I choose a self-drive car rental in Delhi?",
-              "answer": "A self-drive car provides privacy, flexibility, and convenience, allowing you to explore Delhi and nearby destinations according to your own travel schedule."
+              "question": "Can you deliver the car to my hotel in Delhi?",
+              "answer": "Yes. Hotel and resort delivery is available in many areas of Delhi, subject to availability and prior confirmation."
           },
           {
-              "question": "What types of vehicles are available?",
-              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
-          },
-          {
-              "question": "Are your vehicles regularly serviced and sanitized?",
-              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
-          },
-          {
-              "question": "Can I rent a car for both short-term and long-term use?",
-              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
-          },
-          {
-              "question": "Can I use the rental car for outstation travel?",
-              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
-          },
-          {
-              "question": "What makes your company different from other car rental providers?",
-              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+              "question": "How much does it cost to rent a car in Delhi?",
+              "answer": "Self Drive Car rental in Delhi starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
           }
       ]
   },

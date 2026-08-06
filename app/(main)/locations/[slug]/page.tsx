@@ -14,7 +14,7 @@ import Services from "@/components/home/Services";
 import PopularCars from "@/components/home/PopularCars";
 import Faqs from "@/components/home/Faqs";
 import HowItWorks from "@/components/home/HowItWorks";
-import { locationsData } from "@/lib/location-data";
+import { locationsData, getLocationFaqs } from "@/lib/location-data";
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -618,7 +618,10 @@ export default async function LocationPage({ params }: Props) {
         <HowItWorks />
 
         {/* 6. FAQs */}
-        <Faqs />
+        <Faqs 
+          items={getLocationFaqs(location.name)} 
+          subtitle={`Find answers to common questions about self-drive car rentals in ${location.name}`}
+        />
       </>
     );
   } catch (error) {
