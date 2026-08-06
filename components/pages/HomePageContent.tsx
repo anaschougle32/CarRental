@@ -39,7 +39,7 @@ const Faqs = dynamic(() => import("@/components/home/Faqs"), {
 export default function HomePageContent() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Hero />
+      <Hero title="Freedom to Explore Goa," titleAccent="Your Way" />
       <PopularCars />
       <Services />
       <WhyChooseUs />

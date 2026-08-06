@@ -55,7 +55,7 @@ interface HeroProps {
 
 const Hero = ({
   title = "Freedom to Explore Goa,",
-  titleAccent = "Your Way",
+  titleAccent = "",
   subtitle = "Fill out the form to get the best self-drive car rental deals with instant booking assistance today."
 }: HeroProps = {}) => {
   const router = useRouter();
