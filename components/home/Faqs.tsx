@@ -4,32 +4,38 @@ import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const faqs = [
+export const standard7Faqs = [
   {
-    question: "What documents are required to rent a self-drive car in Goa?",
-    answer: "You typically need a valid driving licence, a government-issued photo ID, and any additional documents required by the rental agreement."
+    question: "What types of vehicles are available?",
+    answer: "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
   },
   {
-    question: "Can tourists rent a self-drive car in Goa?",
-    answer: "Yes. Both domestic and international tourists can rent a self-drive car, provided they meet the driver's licence and identification requirements."
+    question: "Are your vehicles regularly serviced and sanitized?",
+    answer: "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
   },
   {
-    question: "Is there a security deposit?",
-    answer: "Yes. A refundable security deposit may be required depending on the vehicle category and rental duration."
+    question: "Can I rent a car for both short-term and long-term use?",
+    answer: "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
   },
   {
-    question: "Can I pick up the car at Goa Airport?",
-    answer: "Yes. We offer convenient pickup and drop-off options at Goa Airport and selected locations across Goa."
+    question: "What documents are required to rent a self-drive car?",
+    answer: "A valid driving licence and a government-issued photo ID are generally required. Additional verification may be requested depending on the booking and location."
   },
   {
-    question: "Is there a daily kilometre limit?",
-    answer: "Mileage limits depend on the rental plan you choose. The applicable terms will be shown before you confirm your booking."
+    question: "Do you provide customer support during the rental period?",
+    answer: "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
   },
   {
-    question: "How much does it cost to rent a car in Goa?",
-    answer: "Car rental in Goa starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
+    question: "Can I use the rental car for outstation travel?",
+    answer: "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+  },
+  {
+    question: "What makes your company different from other car rental providers?",
+    answer: "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
   }
 ];
+
+const faqs = standard7Faqs;
 
 interface FaqsProps {
   items?: { question: string; answer: string }[];

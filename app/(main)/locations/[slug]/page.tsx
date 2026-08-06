@@ -342,23 +342,10 @@ export default async function LocationPage({ params }: Props) {
           <HowItWorks />
 
           {/* 8. FAQs */}
-          <Section className="bg-white dark:bg-gray-900 py-12" size="sm">
-            <Container>
-              <div className="text-center max-w-3xl mx-auto mb-10">
-                <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                  Frequently Asked Questions
-                </h3>
-              </div>
-              <div className="max-w-4xl mx-auto space-y-4">
-                {config.faqs.map((faq, idx) => (
-                  <div key={idx} className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
-                    <h4 className="font-bold text-lg md:text-xl text-gray-900 dark:text-white mb-2">{faq.question}</h4>
-                    <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">{faq.answer}</p>
-                  </div>
-                ))}
-              </div>
-            </Container>
-          </Section>
+          <Faqs 
+            items={config.faqs && config.faqs.length > 0 ? config.faqs : undefined} 
+            subtitle={`Find answers to common questions about self-drive car rentals in ${config.name}`}
+          />
         </>
       );
     }

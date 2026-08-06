@@ -63,7 +63,36 @@ export const locationsData: Record<string, LocationPageConfig> = {
           }
       ],
       "howItWorksHeading": "Rent a Car in 3 Easy Steps",
-      "faqs": []
+      "faqs": [
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "What documents are required to rent a self-drive car?",
+              "answer": "A valid driving licence and a government-issued photo ID are generally required. Additional verification may be requested depending on the booking and location."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
+          }
+      ]
   },
 
   "self-drive-car-rental-madgaon": {
@@ -134,6 +163,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "How much does it cost to rent a car in Goa?",
               "answer": "Self Drive Car rental in Madgaon Goa starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -206,6 +259,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "How much does it cost to rent a car in Goa?",
               "answer": "Self Drive Car rental in Madgaon Goa starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -274,6 +351,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "How much does it cost to rent a car in Panjim Goa?",
               "answer": "Self Drive Car rental in Panjim Goa starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -342,6 +443,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "How much does it cost to rent a car in Panjim Goa?",
               "answer": "Self Drive Car rental in Panjim Goa starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -406,6 +531,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "How much does it cost to rent a car in Goa Airport?",
               "answer": "Self Drive Car rental in Goa Airport starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -470,6 +619,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "How much does it cost to rent a car in Goa Airport?",
               "answer": "Self Drive Car rental in Goa Airport starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -534,6 +707,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "How much does it cost to rent a car in Calangute ?",
               "answer": "Self Drive Car rental in Calangute starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -598,6 +795,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "How much does it cost to rent a car in Calangute ?",
               "answer": "Self Drive Car rental in Calangute starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -670,6 +891,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "How much does it cost to rent a car in Vasco?",
               "answer": "Self Drive Car rental in Vasco starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -742,6 +983,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "How much does it cost to rent a car in Vasco?",
               "answer": "Self Drive Car rental in Vasco starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -814,6 +1075,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "How much does it cost to rent a car in Varca?",
               "answer": "Self Drive Car rental in Varca starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -830,7 +1111,7 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "p1": "Looking for a reliable self drive car rental in Varca? Enjoy the freedom to explore Goa at your own pace with our well-maintained fleet of self-drive cars.",
       "h2": "Find the Perfect Car on Rent in Varca",
       "p2": "Choose from a wide selection of hatchbacks, sedans, SUVs, MUVs, and premium vehicles at competitive prices.",
-      "whyChooseHeading": "Why Choose Our Varca Car Rental?",
+      "whyChooseHeading": "Why Choose Our Vasco Car Rental?",
       "whyChooseItems": [
           {
               "title": "Wide Range of Self-Drive Cars",
@@ -886,6 +1167,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "How much does it cost to rent a car in Varca?",
               "answer": "Self Drive Car rental in Varca starts from INR 900 per day for hatchbacks, mini SUVs or SUVs start from INR 2000 per day, and luxury car rentals start from INR 15000 per day. Prices can vary according to season and demand."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -958,6 +1259,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I rent a car in Agonda instead of using taxis?",
               "answer": "A rental car gives you more freedom, privacy, and flexibility to explore Goa’s beaches and attractions at your own pace."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -1030,6 +1351,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I rent a car in Agonda instead of using taxis?",
               "answer": "A rental car gives you more freedom, privacy, and flexibility to explore Goa’s beaches and attractions at your own pace."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -1102,6 +1443,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in North Goa?",
               "answer": "A self-drive car gives you complete freedom, privacy, and flexibility to explore beaches, markets, forts, and tourist attractions at your own pace without depending on taxis."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -1174,6 +1539,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in North Goa?",
               "answer": "A self-drive car gives you complete freedom, privacy, and flexibility to explore beaches, markets, forts, and tourist attractions at your own pace without depending on taxis."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -1246,6 +1635,22 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a rental car in Anjuna Goa?",
               "answer": "A rental car gives you the freedom to explore popular places like Anjuna Beach, Vagator Beach, Chapora Fort, Baga, and other Goa attractions at your own pace without depending on taxis."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -1318,6 +1723,22 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a rental car in Anjuna Goa?",
               "answer": "A rental car gives you the freedom to explore popular places like Anjuna Beach, Vagator Beach, Chapora Fort, Baga, and other Goa attractions at your own pace without depending on taxis."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -1390,6 +1811,22 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why is self-drive car rental a good option for exploring Goa?",
               "answer": "A self-drive car provides freedom, privacy, and flexibility, allowing you to explore beaches, tourist spots, and hidden places according to your own schedule."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -1462,6 +1899,22 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why is self-drive car rental a good option for exploring Goa?",
               "answer": "A self-drive car provides freedom, privacy, and flexibility, allowing you to explore beaches, tourist spots, and hidden places according to your own schedule."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -1534,6 +1987,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Canacona Goa?",
               "answer": "A self-drive car provides complete freedom, privacy, and flexibility to explore beaches, sightseeing spots, and hidden locations at your own pace."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -1606,6 +2083,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Canacona Goa?",
               "answer": "A self-drive car provides complete freedom, privacy, and flexibility to explore beaches, sightseeing spots, and hidden locations at your own pace."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -1678,6 +2179,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Candolim Goa?",
               "answer": "A self-drive car provides freedom, privacy, and flexibility, allowing you to explore beaches, nightlife, and tourist attractions at your own pace."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -1750,6 +2271,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Candolim Goa?",
               "answer": "A self-drive car provides freedom, privacy, and flexibility, allowing you to explore beaches, nightlife, and tourist attractions at your own pace."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -1822,6 +2363,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car in Colva?",
               "answer": "A self-drive car offers complete flexibility, privacy, and convenience, allowing you to explore beaches, attractions, restaurants, and scenic routes at your own pace without depending on taxis."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -1894,6 +2459,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car in Colva?",
               "answer": "A self-drive car offers complete flexibility, privacy, and convenience, allowing you to explore beaches, attractions, restaurants, and scenic routes at your own pace without depending on taxis."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -1966,6 +2555,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car in Karmali?",
               "answer": "A self-drive car saves time after arriving by train and allows you to explore Goa comfortably, visit multiple destinations, and travel at your own pace without relying on taxis."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -2038,6 +2647,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car in Karmali?",
               "answer": "A self-drive car saves time after arriving by train and allows you to explore Goa comfortably, visit multiple destinations, and travel at your own pace without relying on taxis."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -2110,6 +2739,22 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Thivim?",
               "answer": "A self-drive car provides greater flexibility, privacy, and convenience, allowing you to explore Goa comfortably at your own pace while saving time after arriving by train."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -2182,6 +2827,22 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Thivim?",
               "answer": "A self-drive car provides greater flexibility, privacy, and convenience, allowing you to explore Goa comfortably at your own pace while saving time after arriving by train."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -2254,6 +2915,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why choose a self-drive car rental in Mandrem Goa?",
               "answer": "A self-drive car offers complete freedom to explore peaceful beaches, scenic villages, and North Goa attractions at your own pace while enjoying privacy, comfort, and convenience."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -2326,6 +3011,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why choose a self-drive car rental in Mandrem Goa?",
               "answer": "A self-drive car offers complete freedom to explore peaceful beaches, scenic villages, and North Goa attractions at your own pace while enjoying privacy, comfort, and convenience."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -2398,6 +3107,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Vagator Goa?",
               "answer": "A self-drive car gives you the flexibility to explore beaches, forts, restaurants, and nightlife on your own schedule while enjoying greater privacy, convenience, and value for money."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -2470,6 +3203,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Vagator Goa?",
               "answer": "A self-drive car gives you the flexibility to explore beaches, forts, restaurants, and nightlife on your own schedule while enjoying greater privacy, convenience, and value for money."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -2542,6 +3299,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why choose a self-drive car rental in Ponda Goa?",
               "answer": "A self-drive car gives you the flexibility to explore Goa's temples, spice plantations, wildlife sanctuaries, and scenic countryside at your own pace while enjoying comfort, privacy, and convenience."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -2614,6 +3395,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why choose a self-drive car rental in Ponda Goa?",
               "answer": "A self-drive car gives you the flexibility to explore Goa's temples, spice plantations, wildlife sanctuaries, and scenic countryside at your own pace while enjoying comfort, privacy, and convenience."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -2686,6 +3491,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Mapusa Goa?",
               "answer": "A self-drive car gives you the flexibility to explore North Goa's beaches, markets, restaurants, and attractions at your own pace while enjoying comfort, privacy, and excellent value for money."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -2758,6 +3587,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Mapusa Goa?",
               "answer": "A self-drive car gives you the flexibility to explore North Goa's beaches, markets, restaurants, and attractions at your own pace while enjoying comfort, privacy, and excellent value for money."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -2830,6 +3683,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Siolim Goa?",
               "answer": "A self-drive car gives you the flexibility to explore riverside villages, beautiful beaches, heritage attractions, and local cafés at your own pace while enjoying comfort, privacy, and value for money."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -2902,6 +3775,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Siolim Goa?",
               "answer": "A self-drive car gives you the flexibility to explore riverside villages, beautiful beaches, heritage attractions, and local cafés at your own pace while enjoying comfort, privacy, and value for money."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -2974,6 +3867,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Arpora Goa?",
               "answer": "A self-drive car gives you the freedom to explore beaches, markets, nightlife, restaurants, and scenic attractions on your own schedule while enjoying comfort, privacy, and excellent value for money."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -3046,6 +3959,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Arpora Goa?",
               "answer": "A self-drive car gives you the freedom to explore beaches, markets, nightlife, restaurants, and scenic attractions on your own schedule while enjoying comfort, privacy, and excellent value for money."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -3118,6 +4051,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Benaulim Goa?",
               "answer": "A self-drive car gives you the flexibility to explore South Goa's beaches, villages, restaurants, and cultural attractions at your own pace while enjoying greater comfort, privacy, and convenience."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -3190,6 +4147,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Benaulim Goa?",
               "answer": "A self-drive car gives you the flexibility to explore South Goa's beaches, villages, restaurants, and cultural attractions at your own pace while enjoying greater comfort, privacy, and convenience."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -3262,6 +4243,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Bambolim Goa?",
               "answer": "A self-drive car gives you the flexibility to explore Goa's beaches, heritage sites, educational institutions, and business centres comfortably while enjoying privacy, convenience, and excellent value for money."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -3334,6 +4335,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Bambolim Goa?",
               "answer": "A self-drive car gives you the flexibility to explore Goa's beaches, heritage sites, educational institutions, and business centres comfortably while enjoying privacy, convenience, and excellent value for money."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -3406,6 +4427,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Assagao Goa?",
               "answer": "A self-drive car allows you to explore Goa's beaches, boutique cafés, heritage villages, and scenic roads on your own schedule while enjoying complete privacy, convenience, and excellent value."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -3478,6 +4523,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Assagao Goa?",
               "answer": "A self-drive car allows you to explore Goa's beaches, boutique cafés, heritage villages, and scenic roads on your own schedule while enjoying complete privacy, convenience, and excellent value."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -3550,6 +4619,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Majorda Goa?",
               "answer": "A self-drive car offers complete freedom to explore South Goa's beaches, villages, restaurants, and cultural attractions at your own pace while enjoying comfort, privacy, and excellent value for money."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -3622,6 +4715,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Majorda Goa?",
               "answer": "A self-drive car offers complete freedom to explore South Goa's beaches, villages, restaurants, and cultural attractions at your own pace while enjoying comfort, privacy, and excellent value for money."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -3694,6 +4811,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Bogmalo Goa?",
               "answer": "A self-drive car gives you the freedom to travel from the airport, explore coastal destinations, and enjoy Goa's attractions comfortably with privacy and flexibility."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -3766,6 +4903,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Bogmalo Goa?",
               "answer": "A self-drive car gives you the freedom to travel from the airport, explore coastal destinations, and enjoy Goa's attractions comfortably with privacy and flexibility."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -3838,6 +4995,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why choose a self-drive car rental in Morjim Goa?",
               "answer": "A self-drive car provides the freedom to explore peaceful beaches, local attractions, and scenic routes at your own pace while enjoying comfort, privacy, and convenience."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -3910,6 +5091,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why choose a self-drive car rental in Morjim Goa?",
               "answer": "A self-drive car provides the freedom to explore peaceful beaches, local attractions, and scenic routes at your own pace while enjoying comfort, privacy, and convenience."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -3982,6 +5187,22 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Mumbai?",
               "answer": "A self-drive car gives you complete flexibility to explore Mumbai's attractions, manage your schedule, and travel comfortably with privacy and convenience."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -4054,6 +5275,22 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Mumbai?",
               "answer": "A self-drive car gives you complete flexibility to explore Mumbai's attractions, manage your schedule, and travel comfortably with privacy and convenience."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -4126,6 +5363,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Mumbra?",
               "answer": "A self-drive car provides privacy, flexibility, and convenience, allowing you to travel around Mumbai, Thane, and nearby destinations according to your own schedule."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -4198,6 +5459,30 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Mumbra?",
               "answer": "A self-drive car provides privacy, flexibility, and convenience, allowing you to travel around Mumbai, Thane, and nearby destinations according to your own schedule."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Do you provide customer support during the rental period?",
+              "answer": "Yes. Our customer support team is available to assist you with bookings, vehicle-related queries, and any assistance you may need during your rental period."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -4270,6 +5555,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Thane?",
               "answer": "A self-drive car provides flexibility, privacy, and convenience, allowing you to travel around Thane and nearby destinations comfortably on your own schedule."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -4342,6 +5647,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Thane?",
               "answer": "A self-drive car provides flexibility, privacy, and convenience, allowing you to travel around Thane and nearby destinations comfortably on your own schedule."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -4438,6 +5763,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Navi Mumbai?",
               "answer": "A self-drive car gives you privacy, flexibility, and convenience, allowing you to explore Navi Mumbai and nearby destinations according to your own travel schedule."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -4534,6 +5879,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Navi Mumbai?",
               "answer": "A self-drive car gives you privacy, flexibility, and convenience, allowing you to explore Navi Mumbai and nearby destinations according to your own travel schedule."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -4606,6 +5971,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Hyderabad?",
               "answer": "A self-drive car gives you complete flexibility, privacy, and convenience, allowing you to explore Hyderabad and nearby destinations at your own pace."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -4678,6 +6063,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Hyderabad?",
               "answer": "A self-drive car gives you complete flexibility, privacy, and convenience, allowing you to explore Hyderabad and nearby destinations at your own pace."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -4750,6 +6155,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Delhi?",
               "answer": "A self-drive car provides privacy, flexibility, and convenience, allowing you to explore Delhi and nearby destinations according to your own travel schedule."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
@@ -4822,6 +6247,26 @@ export const locationsData: Record<string, LocationPageConfig> = {
           {
               "question": "Why should I choose a self-drive car rental in Delhi?",
               "answer": "A self-drive car provides privacy, flexibility, and convenience, allowing you to explore Delhi and nearby destinations according to your own travel schedule."
+          },
+          {
+              "question": "What types of vehicles are available?",
+              "answer": "Our fleet includes hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit different travel needs, budgets, and group sizes."
+          },
+          {
+              "question": "Are your vehicles regularly serviced and sanitized?",
+              "answer": "Yes. Every vehicle undergoes regular maintenance, safety inspections, professional cleaning, and sanitization before being delivered to customers."
+          },
+          {
+              "question": "Can I rent a car for both short-term and long-term use?",
+              "answer": "Absolutely. We offer flexible rental options including hourly, daily, weekend, weekly, monthly, and long-term rentals based on your travel requirements."
+          },
+          {
+              "question": "Can I use the rental car for outstation travel?",
+              "answer": "Yes. Depending on the rental agreement and destination, many of our vehicles can be used for outstation trips, allowing you to enjoy flexible road travel."
+          },
+          {
+              "question": "What makes your company different from other car rental providers?",
+              "answer": "We focus on customer satisfaction by offering quality vehicles, transparent pricing, flexible rental plans, reliable service, convenient pickup and drop-off options, and a smooth booking experience, making every journey comfortable and stress-free."
           }
       ]
   },
