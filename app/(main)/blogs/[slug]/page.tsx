@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Calendar, User, Tag, ArrowLeft, Clock, MessageCircle } from 'lucide-react';
 import BlogContent from '@/components/blog/BlogContent';
+import TableOfContents from '@/components/blog/TableOfContents';
 import ShareButtons from '@/components/blog/ShareButtons';
 import ContactInfo from '@/components/blog/ContactInfo';
 import RelatedArticles from '@/components/blog/RelatedArticles';
@@ -246,22 +247,32 @@ export default async function BlogPost({ params }: Props) {
           </article>
           
           {/* Sidebar */}
-          <aside className="lg:col-span-4 space-y-8">
-            {/* Table of contents */}
-            <div className="sticky top-24">
-              <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
-                <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">Table of Contents</h3>
-                <div className="space-y-2 text-sm">
-                  {/* This would be dynamically generated based on headings */}
-                  <a href="#introduction" className="block text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors">Introduction</a>
-                  <a href="#features" className="block text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors">Key Features</a>
-                  <a href="#conclusion" className="block text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors">Conclusion</a>
-                </div>
+          <aside className="lg:col-span-4 space-y-6">
+            <div className="sticky top-24 space-y-6">
+              {/* Dynamic Table of Contents */}
+              <TableOfContents content={post.content} />
+
+              {/* Sidebar Booking CTA Card */}
+              <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-6 text-white shadow-lg relative overflow-hidden">
+                <div className="absolute top-0 right-0 transform translate-x-4 -translate-y-4 w-24 h-24 bg-white/10 rounded-full blur-xl pointer-events-none" />
+                <h3 className="text-xl font-bold mb-2">Need a Car in Goa?</h3>
+                <p className="text-xs text-blue-100 mb-5 leading-relaxed">
+                  Rent self-drive hatchbacks, SUVs & luxury cars with unlimited kilometers and zero hidden fees.
+                </p>
+                <a
+                  href={`https://wa.me/917977288350?text=${encodeURIComponent(`Hi, I read your article "${post.title}" and want to inquire about renting a car.`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 px-4 rounded-xl text-sm shadow-md transition-all"
+                >
+                  <MessageCircle size={18} />
+                  Book on WhatsApp
+                </a>
               </div>
-              
+
               {/* Share sidebar */}
-              <div className="mt-8 bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
-                <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">Share this article</h3>
+              <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
+                <h3 className="text-base font-bold mb-4 text-gray-900 dark:text-white">Share this article</h3>
                 <ShareButtons 
                   url={`/blogs/${post.slug}`} 
                   title={post.title}
