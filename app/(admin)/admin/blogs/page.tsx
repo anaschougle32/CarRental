@@ -465,8 +465,7 @@ export default function AdminBlogs() {
         blogImageUrl = selectedBlog.cover_image;
         console.log("Keeping existing image:", blogImageUrl);
       } else {
-        showNotification("Please upload an image for the blog", "error");
-        return;
+        blogImageUrl = "/images/og-image.jpg";
       }
       
       // STEP 2: Prepare the data for database operation
@@ -486,37 +485,15 @@ export default function AdminBlogs() {
       if (selectedBlog) {
         // UPDATING EXISTING BLOG
         console.log("Updating blog with ID:", selectedBlog.id);
-        console.log("Update data:", JSON.stringify(blogData, null, 2));
+        const { error: updateError } = await supabase
+          .from("blogs")
+          .update(blogData)
+          .eq("id", selectedBlog.id);
         
-        // Use a raw SQL query to update the blog
-        // This bypasses any potential RLS or schema issues
-        const { error } = await supabase.rpc('update_blog', {
-          blog_id: selectedBlog.id,
-          blog_title: blogData.title,
-          blog_slug: blogData.slug,
-          blog_content: blogData.content,
-          blog_excerpt: blogData.excerpt,
-          blog_cover_image: blogData.cover_image,
-          blog_published_at: blogData.published_at,
-          blog_author: blogData.author,
-          blog_category: blogData.category
-        });
-        
-        if (error) {
-          console.error("Error calling update_blog RPC:", error);
-          
-          // Fallback to direct update if RPC fails
-          console.log("Falling back to direct update...");
-          const { error: updateError } = await supabase
-            .from("blogs")
-            .update(blogData)
-            .eq("id", selectedBlog.id);
-          
-          if (updateError) {
-            console.error("Update error:", updateError);
-            showNotification(`Error updating blog: ${updateError.message}`, "error");
-            return;
-          }
+        if (updateError) {
+          console.error("Update error:", updateError);
+          showNotification(`Error updating blog: ${updateError.message}`, "error");
+          return;
         }
         
         console.log("Blog update successful");
@@ -524,41 +501,19 @@ export default function AdminBlogs() {
       } else {
         // ADDING NEW BLOG
         console.log("Adding new blog with data:", JSON.stringify(blogData, null, 2));
-        
-        // Add created_at for new blogs
         const insertData = {
           ...blogData,
           created_at: now
         };
         
-        // Use a raw SQL query to insert the blog
-        // This bypasses any potential RLS or schema issues
-        const { error } = await supabase.rpc('insert_blog', {
-          blog_title: insertData.title,
-          blog_slug: insertData.slug,
-          blog_content: insertData.content,
-          blog_excerpt: insertData.excerpt,
-          blog_cover_image: insertData.cover_image,
-          blog_published_at: insertData.published_at,
-          blog_created_at: insertData.created_at,
-          blog_author: insertData.author,
-          blog_category: insertData.category
-        });
+        const { error: insertError } = await supabase
+          .from("blogs")
+          .insert(insertData);
         
-        if (error) {
-          console.error("Error calling insert_blog RPC:", error);
-          
-          // Fallback to direct insert if RPC fails
-          console.log("Falling back to direct insert...");
-          const { error: insertError } = await supabase
-            .from("blogs")
-            .insert(insertData);
-          
-          if (insertError) {
-            console.error("Insert error:", insertError);
-            showNotification(`Error adding blog: ${insertError.message}`, "error");
-            return;
-          }
+        if (insertError) {
+          console.error("Insert error:", insertError);
+          showNotification(`Error adding blog: ${insertError.message}`, "error");
+          return;
         }
         
         console.log("Blog added successfully");
