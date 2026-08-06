@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { Car } from "@/lib/types";
-import { X, MessageSquare, PhoneCall, Sparkles, Calendar as CalendarIcon } from "lucide-react";
+import { X, PhoneCall, Sparkles, Calendar as CalendarIcon } from "lucide-react";
 import { format, addDays } from "date-fns";
+import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 
 interface BookingPopupModalProps {
   car: Car;
@@ -116,9 +117,9 @@ export default function BookingPopupModal({ car }: BookingPopupModalProps) {
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleClose}
-              className="w-full inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 text-sm"
+              className="w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold py-3 px-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 text-sm"
             >
-              <MessageSquare size={18} />
+              <WhatsAppIcon className="w-5 h-5 fill-current" />
               Book on WhatsApp
             </a>
 

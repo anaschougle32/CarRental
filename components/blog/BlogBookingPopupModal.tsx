@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { X, MessageCircle, PhoneCall, Sparkles, Calendar as CalendarIcon } from "lucide-react";
+import { X, PhoneCall, Sparkles, Calendar as CalendarIcon } from "lucide-react";
 import { format, addDays } from "date-fns";
+import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 
 interface BlogBookingPopupModalProps {
   blogTitle: string;
@@ -123,9 +124,9 @@ export default function BlogBookingPopupModal({ blogTitle }: BlogBookingPopupMod
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleClose}
-              className="w-full inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 px-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 text-sm"
+              className="w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold py-3 px-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 text-sm"
             >
-              <MessageCircle size={18} /> Book on WhatsApp
+              <WhatsAppIcon className="w-5 h-5 fill-current" /> Book on WhatsApp
             </a>
 
             <a

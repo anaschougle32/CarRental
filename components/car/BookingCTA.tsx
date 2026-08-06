@@ -8,7 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { addDays, format } from "date-fns";
-import { CalendarIcon, PhoneCall, MessageSquare } from "lucide-react";
+import { CalendarIcon, PhoneCall } from "lucide-react";
+import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 
 interface BookingCTAProps {
   car: Car;
@@ -140,8 +141,8 @@ const BookingCTA = ({ car }: BookingCTAProps) => {
       </CardContent>
       
       <CardFooter className="flex flex-col gap-3">
-        <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full gap-2">
-          <MessageSquare size={18} />
+        <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-[#25D366] text-white hover:bg-[#20bd5a] h-10 px-4 py-2 w-full gap-2 font-semibold shadow-md">
+          <WhatsAppIcon className="w-5 h-5 fill-current" />
           Book on WhatsApp
         </a>
         

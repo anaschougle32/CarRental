@@ -6,6 +6,7 @@ import { Calendar, User, Tag, ArrowLeft, Clock, MessageCircle } from 'lucide-rea
 import BlogContent from '@/components/blog/BlogContent';
 import TableOfContents from '@/components/blog/TableOfContents';
 import BlogBookingPopupModal from '@/components/blog/BlogBookingPopupModal';
+import WhatsAppIcon from '@/components/common/WhatsAppIcon';
 import ShareButtons from '@/components/blog/ShareButtons';
 import ContactInfo from '@/components/blog/ContactInfo';
 import RelatedArticles from '@/components/blog/RelatedArticles';
@@ -267,9 +268,9 @@ export default async function BlogPost({ params }: Props) {
                   href={`https://wa.me/917977288350?text=${encodeURIComponent(`Hi, I read your article "${post.title}" and want to inquire about renting a car.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 px-4 rounded-xl text-sm shadow-md transition-all"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold py-3 px-4 rounded-xl text-sm shadow-md transition-all"
                 >
-                  <MessageCircle size={18} />
+                  <WhatsAppIcon className="w-5 h-5 fill-current" />
                   Book on WhatsApp
                 </a>
               </div>
