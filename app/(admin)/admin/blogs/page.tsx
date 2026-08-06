@@ -483,27 +483,32 @@ export default function AdminBlogs() {
       
       // STEP 3: Database operation (update or insert)
       if (selectedBlog) {
-        // UPDATING EXISTING BLOG
-        console.log("Updating blog with ID:", selectedBlog.id, "and Slug:", selectedBlog.slug);
+        // UPDATING EXISTING BLOG via update_blog RPC (bypasses RLS)
+        console.log("Updating blog with ID:", selectedBlog.id);
         
-        // Parse ID as number if numeric
-        const parsedId = !isNaN(Number(selectedBlog.id)) ? Number(selectedBlog.id) : selectedBlog.id;
-
-        let { error: updateError } = await supabase
-          .from("blogs")
-          .update(blogData)
-          .eq("id", parsedId);
+        const { error: rpcError } = await supabase.rpc('update_blog', {
+          blog_id: selectedBlog.id,
+          blog_title: blogData.title,
+          blog_slug: blogData.slug,
+          blog_content: blogData.content,
+          blog_excerpt: blogData.excerpt,
+          blog_cover_image: blogData.cover_image,
+          blog_published_at: blogData.published_at,
+          blog_author: blogData.author,
+          blog_category: blogData.category
+        });
         
-        if (updateError) {
-          console.log("ID update error, attempting update by original slug:", selectedBlog.slug);
-          const { error: slugUpdateError } = await supabase
+        if (rpcError) {
+          console.error("RPC update_blog error:", rpcError);
+          // Fallback to direct update if RPC returns error
+          const { error: updateError } = await supabase
             .from("blogs")
             .update(blogData)
-            .eq("slug", selectedBlog.slug);
+            .eq("id", selectedBlog.id);
 
-          if (slugUpdateError) {
-            console.error("Update error:", slugUpdateError);
-            showNotification(`Error updating blog: ${slugUpdateError.message}`, "error");
+          if (updateError) {
+            console.error("Direct update error:", updateError);
+            showNotification(`Error updating blog: ${updateError.message}`, "error");
             return;
           }
         }
@@ -511,21 +516,36 @@ export default function AdminBlogs() {
         console.log("Blog update successful");
         showNotification("Blog updated successfully", "success");
       } else {
-        // ADDING NEW BLOG
+        // ADDING NEW BLOG via insert_blog RPC (bypasses RLS)
         console.log("Adding new blog with data:", JSON.stringify(blogData, null, 2));
         const insertData = {
           ...blogData,
           created_at: now
         };
         
-        const { error: insertError } = await supabase
-          .from("blogs")
-          .insert(insertData);
+        const { error: rpcError } = await supabase.rpc('insert_blog', {
+          blog_title: insertData.title,
+          blog_slug: insertData.slug,
+          blog_content: insertData.content,
+          blog_excerpt: insertData.excerpt,
+          blog_cover_image: insertData.cover_image,
+          blog_published_at: insertData.published_at,
+          blog_created_at: insertData.created_at,
+          blog_author: insertData.author,
+          blog_category: insertData.category
+        });
         
-        if (insertError) {
-          console.error("Insert error:", insertError);
-          showNotification(`Error adding blog: ${insertError.message}`, "error");
-          return;
+        if (rpcError) {
+          console.error("RPC insert_blog error:", rpcError);
+          const { error: insertError } = await supabase
+            .from("blogs")
+            .insert(insertData);
+          
+          if (insertError) {
+            console.error("Direct insert error:", insertError);
+            showNotification(`Error adding blog: ${insertError.message}`, "error");
+            return;
+          }
         }
         
         console.log("Blog added successfully");
