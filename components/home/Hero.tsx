@@ -31,7 +31,6 @@ export function HeroStructuredData() {
           "@type": "RentalCarCompany",
           "name": "ZioCarRentals",
           "image": heroImage,
-          "priceRange": "₹₹",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "Shop no. 1, Mini Max Apartment, ND Naik Rd",
