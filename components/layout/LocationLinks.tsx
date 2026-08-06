@@ -12,6 +12,7 @@ const LocationLinks = () => {
     { name: "Karmali Railway Station", slug: "self-drive-car-rental-karmali" },
     { name: "South Goa", slug: "self-drive-car-rental-south-goa" },
     { name: "North Goa", slug: "self-drive-car-rental-north-goa" },
+    { name: "Vasco da Gama", slug: "self-drive-car-rental-vasco" },
     { name: "Mumbai", slug: "self-drive-car-rental-mumbai" },
     { name: "Hyderabad", slug: "self-drive-car-rental-hyderabad" },
     { name: "Bangalore", slug: "self-drive-car-rental-bangalore" }

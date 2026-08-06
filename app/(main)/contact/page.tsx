@@ -122,27 +122,6 @@ export default function ContactPage() {
           </div>
         </Container>
       </Section>
-      
-      {/* Map Section */}
-      <Section className="bg-gray-50 dark:bg-gray-800" size="lg">
-        <Container>
-          <h2 className="text-2xl font-bold mb-8 text-center">Find Us Here</h2>
-          
-          <div className="h-96 rounded-lg overflow-hidden shadow-md w-full">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3483.0556040277565!2d73.9706294745849!3d15.27314771025846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfb3d41dfadb93%3A0x575b1e5b00c0ea93!2sZio%20Car%20%26%20Bike%20Rentals!5e1!3m2!1sen!2sin!4v1764955984518!5m2!1sen!2sin"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Zio Car & Bike Rentals - Shop no. 1, Mini Max Apartment, ND Naik Rd, Madgaon, Goa 403601"
-              className="w-full h-full"
-            ></iframe>
-          </div>
-        </Container>
-      </Section>
     </>
   );
 }

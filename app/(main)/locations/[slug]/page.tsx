@@ -538,6 +538,24 @@ export default async function LocationPage({ params }: Props) {
           content: 'Convenient car rental service at Thivim Railway Station with ZioCarRentals. Book in advance for best rates! Thivim Railway Station is the main railway station serving North Goa, connecting to major cities across India. With our car rental service, you can easily begin your journey to popular North Goa destinations like Calangute, Baga, and Anjuna. We offer a wide range of vehicles from compact cars to SUVs, all at competitive prices with unlimited kilometers.',
           created_at: new Date().toISOString(),
           updated_at: new Date().toISOString()
+        },
+        'vasco': {
+          id: 'default-vasco',
+          name: 'Vasco da Gama',
+          slug: 'vasco',
+          headline: 'Best Self Drive Car Rental in Vasco da Gama Goa | From ₹999',
+          content: 'Hire a self-drive car in Vasco da Gama from ₹999/day. Near Dabolim Airport & Vasco Railway Station with unlimited kilometers and 24/7 roadside assistance.',
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        },
+        'vasco-da-gama': {
+          id: 'default-vasco-da-gama',
+          name: 'Vasco da Gama',
+          slug: 'vasco-da-gama',
+          headline: 'Best Self Drive Car Rental in Vasco da Gama Goa | From ₹999',
+          content: 'Hire a self-drive car in Vasco da Gama from ₹999/day. Near Dabolim Airport & Vasco Railway Station with unlimited kilometers and 24/7 roadside assistance.',
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
         }
       };
       
@@ -573,8 +591,7 @@ export default async function LocationPage({ params }: Props) {
         
         {/* 1. Hero Section */}
         <Hero 
-          title={`Self Drive Car Rental in ${location.name},`}
-          titleAccent="Goa"
+          title={`Self Drive Car Rental in ${location.name}`}
           subtitle={location.headline || `Book the best self-drive cars in ${location.name} with unlimited kilometers, zero hidden fees, and 24/7 support.`}
         />
 

@@ -830,7 +830,7 @@ export const locationsData: Record<string, LocationPageConfig> = {
       "p1": "Looking for a reliable self drive car rental in Varca? Enjoy the freedom to explore Goa at your own pace with our well-maintained fleet of self-drive cars.",
       "h2": "Find the Perfect Car on Rent in Varca",
       "p2": "Choose from a wide selection of hatchbacks, sedans, SUVs, MUVs, and premium vehicles at competitive prices.",
-      "whyChooseHeading": "Why Choose Our Vasco Car Rental?",
+      "whyChooseHeading": "Why Choose Our Varca Car Rental?",
       "whyChooseItems": [
           {
               "title": "Wide Range of Self-Drive Cars",
