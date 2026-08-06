@@ -182,13 +182,12 @@ export default function RootLayout({
         {/* Preconnect to external domains for TTFB performance */}
         <link 
           rel="preconnect" 
-          href="https://fonts.googleapis.com" 
+          href="https://www.googletagmanager.com" 
           crossOrigin="anonymous"
         />
         <link 
-          rel="preconnect" 
-          href="https://fonts.gstatic.com" 
-          crossOrigin="anonymous"
+          rel="dns-prefetch" 
+          href="https://www.googletagmanager.com" 
         />
         <link 
           rel="preconnect" 
