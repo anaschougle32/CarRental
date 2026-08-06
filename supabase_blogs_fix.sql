@@ -34,7 +34,12 @@ GRANT ALL ON TABLE public.blogs TO anon;
 GRANT ALL ON TABLE public.blogs TO authenticated;
 GRANT ALL ON TABLE public.blogs TO service_role;
 
--- 5. Stored Procedure: insert_blog (SECURITY DEFINER to bypass all RLS checks)
+-- 5. DROP OLD FUNCTIONS FIRST (To avoid PostgreSQL 42P13 return type mismatch error)
+DROP FUNCTION IF EXISTS public.insert_blog CASCADE;
+DROP FUNCTION IF EXISTS public.update_blog CASCADE;
+DROP FUNCTION IF EXISTS public.delete_blog CASCADE;
+
+-- 6. Stored Procedure: insert_blog (SECURITY DEFINER to bypass all RLS checks)
 CREATE OR REPLACE FUNCTION public.insert_blog(
   blog_title text,
   blog_slug text,
@@ -75,7 +80,7 @@ BEGIN
 END;
 $$;
 
--- 6. Stored Procedure: update_blog (SECURITY DEFINER to bypass all RLS checks)
+-- 7. Stored Procedure: update_blog (SECURITY DEFINER to bypass all RLS checks)
 CREATE OR REPLACE FUNCTION public.update_blog(
   blog_id text,
   blog_title text,
@@ -107,7 +112,7 @@ BEGIN
 END;
 $$;
 
--- 7. Stored Procedure: delete_blog (SECURITY DEFINER to bypass all RLS checks)
+-- 8. Stored Procedure: delete_blog (SECURITY DEFINER to bypass all RLS checks)
 CREATE OR REPLACE FUNCTION public.delete_blog(
   blog_id text
 )
@@ -121,7 +126,7 @@ BEGIN
 END;
 $$;
 
--- 8. Grant execute permissions on functions to anon and authenticated users
+-- 9. Grant execute permissions on functions to anon and authenticated users
 GRANT EXECUTE ON FUNCTION public.insert_blog TO anon, authenticated, service_role;
 GRANT EXECUTE ON FUNCTION public.update_blog TO anon, authenticated, service_role;
 GRANT EXECUTE ON FUNCTION public.delete_blog TO anon, authenticated, service_role;
