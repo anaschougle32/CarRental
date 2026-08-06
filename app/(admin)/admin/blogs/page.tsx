@@ -484,16 +484,28 @@ export default function AdminBlogs() {
       // STEP 3: Database operation (update or insert)
       if (selectedBlog) {
         // UPDATING EXISTING BLOG
-        console.log("Updating blog with ID:", selectedBlog.id);
-        const { error: updateError } = await supabase
+        console.log("Updating blog with ID:", selectedBlog.id, "and Slug:", selectedBlog.slug);
+        
+        // Parse ID as number if numeric
+        const parsedId = !isNaN(Number(selectedBlog.id)) ? Number(selectedBlog.id) : selectedBlog.id;
+
+        let { error: updateError } = await supabase
           .from("blogs")
           .update(blogData)
-          .eq("id", selectedBlog.id);
+          .eq("id", parsedId);
         
         if (updateError) {
-          console.error("Update error:", updateError);
-          showNotification(`Error updating blog: ${updateError.message}`, "error");
-          return;
+          console.log("ID update error, attempting update by original slug:", selectedBlog.slug);
+          const { error: slugUpdateError } = await supabase
+            .from("blogs")
+            .update(blogData)
+            .eq("slug", selectedBlog.slug);
+
+          if (slugUpdateError) {
+            console.error("Update error:", slugUpdateError);
+            showNotification(`Error updating blog: ${slugUpdateError.message}`, "error");
+            return;
+          }
         }
         
         console.log("Blog update successful");

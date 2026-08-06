@@ -12,6 +12,10 @@ import type { BlogPost } from '@/types/blog';
 import { calculateReadingTime } from '@/lib/utils/reading-time';
 import { Container, Section } from "@/components/common/LayoutComponents";
 
+// Disable caching to ensure blog updates reflect instantly
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 interface Props {
   params: Promise<{ slug: string }>;
 }
