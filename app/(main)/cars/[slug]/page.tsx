@@ -4,6 +4,7 @@ import CarDetails from "@/components/car/CarDetails";
 import CarFeatures from "@/components/car/CarFeatures";
 import RelatedCars from "@/components/car/RelatedCars";
 import BookingCTA from "@/components/car/BookingCTA";
+import BookingPopupModal from "@/components/car/BookingPopupModal";
 import CarGalleryWrapper from "@/components/car/CarGalleryWrapper";
 import { Separator } from "@/components/ui/separator";
 import { getCarBySlug, getCars, getBrands } from "@/lib/supabase";
@@ -165,6 +166,11 @@ export default async function CarPage({ params }: Props) {
             
             <CarGalleryWrapper main_image={car.main_image || "/images/cars/car-placeholder.jpg"} alt={`${car.brand} ${car.name} Car Rental in Goa`} />
             
+            {/* Mobile View Booking Form — Shown right below the car photo for instant CTA */}
+            <div className="block lg:hidden mt-6 mb-2">
+              <BookingCTA car={car} />
+            </div>
+
             <Separator className="my-8" />
             
             <div className="mb-8">
@@ -208,7 +214,8 @@ export default async function CarPage({ params }: Props) {
             </div>
           </div>
           
-          <div className="lg:col-span-1">
+          {/* Desktop Sticky Sidebar Booking Form */}
+          <div className="hidden lg:block lg:col-span-1">
             <BookingCTA car={car} />
             
             {/* Location Availability Section */}
@@ -247,6 +254,9 @@ export default async function CarPage({ params }: Props) {
         <Separator className="my-12" />
         
         <RelatedCars currentSlug={car.slug} />
+
+        {/* Timed Booking CTA Popup */}
+        <BookingPopupModal car={car} />
         </Container>
       </Section>
     );
