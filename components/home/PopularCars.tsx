@@ -108,9 +108,11 @@ const PopularCars = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 min-[375px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-10">
+        <div className="flex flex-wrap justify-center gap-4 mt-10">
           {popularCars.map((car) => (
-            <CarCard key={car.id} car={car} showCategory={true} />
+            <div key={car.id} className="w-full min-[375px]:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.67rem)] lg:w-[calc(25%-0.75rem)] max-w-sm flex-grow-0 flex-shrink-0">
+              <CarCard car={car} showCategory={true} />
+            </div>
           ))}
         </div>
 

@@ -159,9 +159,11 @@ const CarsGrid = () => {
   }
 
   return (
-    <div className="grid grid-cols-1 min-[375px]:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="flex flex-wrap justify-center gap-4">
       {filteredCars.map(car => (
-        <CarCard key={car.id} car={car} showCategory={true} />
+        <div key={car.id} className="w-full min-[375px]:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.67rem)] max-w-sm flex-grow-0 flex-shrink-0">
+          <CarCard car={car} showCategory={true} />
+        </div>
       ))}
     </div>
   );

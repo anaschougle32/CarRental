@@ -66,11 +66,11 @@ const WhyChooseUs = ({
           )}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+        <div className="flex flex-wrap justify-center gap-6 mt-10">
           {featureList.map((feature, index) => (
             <div 
               key={index} 
-              className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center border border-gray-100 dark:border-gray-800"
+              className="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] max-w-sm flex-grow-0 bg-white dark:bg-gray-900 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center border border-gray-100 dark:border-gray-800"
             >
               <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-full">
                 {feature.icon || <Shield className="w-10 h-10 text-blue-600" />}

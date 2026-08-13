@@ -300,9 +300,11 @@ export default async function LocationPage({ params }: Props) {
               </div>
 
               {cars.length > 0 ? (
-                <div className="grid grid-cols-1 min-[375px]:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="flex flex-wrap justify-center gap-6">
                   {cars.map(car => (
-                    <CarCard key={car.id} car={car} showCategory={true} showDescription={false} />
+                    <div key={car.id} className="w-full min-[375px]:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] max-w-sm flex-grow-0 flex-shrink-0">
+                      <CarCard car={car} showCategory={true} showDescription={false} />
+                    </div>
                   ))}
                 </div>
               ) : (
@@ -595,9 +597,11 @@ export default async function LocationPage({ params }: Props) {
             </div>
 
             {cars.length > 0 ? (
-              <div className="grid grid-cols-1 min-[375px]:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="flex flex-wrap justify-center gap-6">
                 {cars.map(car => (
-                  <CarCard key={car.id} car={car} showCategory={true} showDescription={false} />
+                  <div key={car.id} className="w-full min-[375px]:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] max-w-sm flex-grow-0 flex-shrink-0">
+                    <CarCard car={car} showCategory={true} showDescription={false} />
+                  </div>
                 ))}
               </div>
             ) : (
