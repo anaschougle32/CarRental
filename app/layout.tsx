@@ -8,6 +8,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { ConditionalLayout } from '@/components/layout/ConditionalLayout';
 import { Toaster } from '@/components/ui/sonner';
+import GoogleAdsTracker from '@/components/common/GoogleAdsTracker';
 
 // Configure Poppins font (body text)
 const poppins = Poppins({ 
@@ -207,6 +208,7 @@ export default function RootLayout({
             {children}
           </ConditionalLayout>
           <Toaster />
+          <GoogleAdsTracker />
           <SpeedInsights />
           <Analytics />
         </ThemeProvider>
