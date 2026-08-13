@@ -207,7 +207,7 @@ const Hero = ({
                 id="phone" 
                 value={formData.phone}
                 onChange={(e) => handleInputChange("phone", e.target.value)}
-                placeholder="+91 98765 43210" 
+                placeholder="+91 90828 88912" 
                 className="bg-white/20 text-white placeholder:text-white/70 border-white/30 h-10 sm:h-11 w-full"
                 required
               />

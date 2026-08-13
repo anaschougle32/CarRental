@@ -102,7 +102,7 @@ const ContactForm = () => {
                 <FormItem>
                   <FormLabel>Phone Number</FormLabel>
                   <FormControl>
-                    <Input placeholder="+91 98765 43210" {...field} />
+                    <Input placeholder="+91 90828 88912" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
