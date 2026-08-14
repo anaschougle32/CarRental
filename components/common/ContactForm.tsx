@@ -17,7 +17,8 @@ import {
 } from "@/components/ui/form";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
-import { submitContactForm } from "@/lib/supabase";
+import { submitContactForm } from "@/lib/supabase/index";
+import { trackLeadConversion } from "@/lib/google-ads";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
@@ -48,6 +49,8 @@ const ContactForm = () => {
       const result = await submitContactForm(data);
       
       if (result.success) {
+        // Trigger Google Ads Enhanced Conversion for lead submission
+        trackLeadConversion({ phone: data.phone, email: data.email });
         toast.success("Message sent successfully! We'll get back to you soon.");
         form.reset();
       } else {

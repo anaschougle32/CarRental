@@ -16,6 +16,7 @@ import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { toast } from "sonner";
 import { submitBookingInquiry } from "@/lib/supabase/index";
+import { trackLeadConversion } from "@/lib/google-ads";
 
 // Single high-quality background image
 const heroImage = "https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&dpr=1";
@@ -135,6 +136,8 @@ const Hero = ({
       });
 
       if (result.success) {
+        // Trigger Google Ads Enhanced Conversion for lead submission
+        trackLeadConversion({ phone: formData.phone });
         toast.success("Booking inquiry submitted! Redirecting to available cars...");
         // Redirect to cars page after successful submission
         setTimeout(() => {

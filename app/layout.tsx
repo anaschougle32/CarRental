@@ -227,8 +227,9 @@ export default function RootLayout({
             gtag('config', 'AW-11098887425', {
               'allow_enhanced_conversions': true
             });
-            gtag('config', 'AW-11098887425/dqHrCLCxk44YEIGqrqwp', {
-              'phone_conversion_number': '+91 90828 88912'
+            gtag('set', {
+              'phone_conversion_number': '+91 90828 88912',
+              'phone_conversion_ids': ['AW-11098887425/dqHrCLCxk44YEIGqrqwp']
             });
           `}
         </Script>

@@ -12,6 +12,7 @@ import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { toast } from "sonner";
 import { submitBookingInquiry } from "@/lib/supabase/index";
+import { trackLeadConversion } from "@/lib/google-ads";
 
 interface BookingFormProps {
   title?: string;
@@ -102,6 +103,8 @@ const BookingForm = ({
       });
 
       if (result.success) {
+        // Trigger Google Ads Enhanced Conversion for lead submission
+        trackLeadConversion({ phone: formData.phone });
         toast.success("Booking inquiry submitted! Redirecting to available cars...");
         // Redirect to cars page after successful submission
         setTimeout(() => {
