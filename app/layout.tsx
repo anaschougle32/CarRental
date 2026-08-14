@@ -224,8 +224,10 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', 'AW-11098887425');
-            gtag('config', 'AW-11098887425/phone_conversion', {
+            gtag('config', 'AW-11098887425', {
+              'allow_enhanced_conversions': true
+            });
+            gtag('config', 'AW-11098887425/dqHrCLCxk44YEIGqrqwp', {
               'phone_conversion_number': '+91 90828 88912'
             });
           `}

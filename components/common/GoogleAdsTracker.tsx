@@ -2,10 +2,10 @@
 
 import { useEffect } from "react";
 
-// Replace these conversion labels with the exact labels from Google Ads conversion actions
+// Exact Conversion Action Labels from client Google Ads setup
 const GOOGLE_ADS_ID = "AW-11098887425";
-const PHONE_CONVERSION_LABEL = "phone_conversion"; // e.g. "g_xzCMuK5_IYEIGqrqwp" or active label
-const WHATSAPP_CONVERSION_LABEL = "whatsapp_conversion"; // e.g. "dqHrCLCxk44YEIGqrqwp" or active label
+const PHONE_CONVERSION_LABELS = ["dqHrCLCxk44YEIGqrqwp", "g_xzCMuK5_IYEIGqrqwp"];
+const WHATSAPP_CONVERSION_LABEL = "_C5xCM6K5_IYEIGqrqwp";
 
 declare global {
   interface Window {
@@ -26,17 +26,19 @@ export default function GoogleAdsTracker() {
       const href = link.getAttribute("href");
       if (!href) return;
 
-      // Track Phone Clicks
+      // Track Phone Clicks (triggers conversion actions for phone lead)
       if (href.startsWith("tel:")) {
         if (typeof window !== "undefined" && typeof window.gtag === "function") {
-          window.gtag("event", "conversion", {
-            send_to: `${GOOGLE_ADS_ID}/${PHONE_CONVERSION_LABEL}`,
+          PHONE_CONVERSION_LABELS.forEach((label) => {
+            window.gtag!("event", "conversion", {
+              send_to: `${GOOGLE_ADS_ID}/${label}`,
+            });
           });
         }
       }
 
-      // Track WhatsApp Clicks
-      if (href.includes("wa.me") || href.includes("whatsapp.com")) {
+      // Track WhatsApp Clicks (triggers conversion action for WhatsApp lead)
+      if (href.includes("wa.me") || href.includes("whatsapp.com") || href.includes("api.whatsapp.com")) {
         if (typeof window !== "undefined" && typeof window.gtag === "function") {
           window.gtag("event", "conversion", {
             send_to: `${GOOGLE_ADS_ID}/${WHATSAPP_CONVERSION_LABEL}`,
