@@ -2,14 +2,14 @@
 
 import { useEffect } from "react";
 
-// Exact Conversion Action Labels from client Google Ads setup
+// Verified Google Ads Conversion ID & Labels from Client Account
 const GOOGLE_ADS_ID = "AW-11098887425";
 
-// TODO: Verify in Google Ads -> Goals -> Conversions -> Summary:
-// - 'g_xzCMuK5_IYEIGqrqwp' is used for website phone click leads
-// - 'dqHrCLCxk44YEIGqrqwp' is used in app/layout.tsx for Google Call Forwarding Number replacement
-const PHONE_CLICK_CONVERSION_LABEL = "g_xzCMuK5_IYEIGqrqwp";
-const WHATSAPP_CLICK_CONVERSION_LABEL = "_C5xCM6K5_IYEIGqrqwp";
+// Verified Action 2: Call Now Button Click
+const CALL_NOW_BUTTON_CONVERSION_LABEL = "g_xzCMuK5_IYEIGqrqwp";
+
+// Verified Action 3: WhatsApp Button Click
+const WHATSAPP_BUTTON_CONVERSION_LABEL = "_C5xCM6K5_IYEIGqrqwp";
 
 declare global {
   interface Window {
@@ -30,20 +30,20 @@ export default function GoogleAdsTracker() {
       const href = link.getAttribute("href");
       if (!href) return;
 
-      // Track Phone Clicks (triggers exactly ONE conversion event per click)
+      // Track Call Now Button Clicks (AW-11098887425/g_xzCMuK5_IYEIGqrqwp)
       if (href.startsWith("tel:")) {
         if (typeof window !== "undefined" && typeof window.gtag === "function") {
           window.gtag("event", "conversion", {
-            send_to: `${GOOGLE_ADS_ID}/${PHONE_CLICK_CONVERSION_LABEL}`,
+            send_to: `${GOOGLE_ADS_ID}/${CALL_NOW_BUTTON_CONVERSION_LABEL}`,
           });
         }
       }
 
-      // Track WhatsApp Clicks (triggers exactly ONE conversion event per click)
+      // Track WhatsApp Button Clicks (AW-11098887425/_C5xCM6K5_IYEIGqrqwp)
       if (href.includes("wa.me") || href.includes("whatsapp.com") || href.includes("api.whatsapp.com")) {
         if (typeof window !== "undefined" && typeof window.gtag === "function") {
           window.gtag("event", "conversion", {
-            send_to: `${GOOGLE_ADS_ID}/${WHATSAPP_CLICK_CONVERSION_LABEL}`,
+            send_to: `${GOOGLE_ADS_ID}/${WHATSAPP_BUTTON_CONVERSION_LABEL}`,
           });
         }
       }
