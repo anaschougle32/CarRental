@@ -391,24 +391,25 @@ export default function BookingInquiriesPage() {
         </div>
 
         {/* ─── Search, Filter, Sort & Export Toolbar ─────────────────────── */}
-        <div className="bg-white dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 rounded-2xl p-3 sm:p-4 shadow-sm flex flex-col md:flex-row items-center justify-between gap-3">
+        <div className="bg-white dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 rounded-2xl p-3.5 sm:p-4 shadow-sm flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3 sm:gap-4">
           
           {/* Search Input */}
-          <div className="relative w-full md:flex-1">
+          <div className="relative w-full lg:max-w-md flex-1">
             <Search size={18} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
             <Input
               placeholder="Search by name, phone, or location..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 h-11 bg-gray-50/50 dark:bg-gray-800/50 border-gray-200 dark:border-gray-700 rounded-xl focus-visible:ring-blue-500 text-sm"
+              className="pl-10 h-11 bg-gray-50/50 dark:bg-gray-800/50 border-gray-200 dark:border-gray-700 rounded-xl focus-visible:ring-blue-500 text-sm w-full"
             />
           </div>
 
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3 w-full md:w-auto">
+          {/* Controls Container */}
+          <div className="grid grid-cols-2 sm:flex sm:flex-row items-center gap-2 sm:gap-3 w-full lg:w-auto shrink-0">
             
             {/* Status Filter */}
             <Select value={statusFilter} onValueChange={setStatusFilter}>
-              <SelectTrigger className="h-11 border-gray-200 dark:border-gray-700 rounded-xl text-sm bg-white dark:bg-gray-900 gap-2 min-w-[125px]">
+              <SelectTrigger className="h-11 border-gray-200 dark:border-gray-700 rounded-xl text-xs sm:text-sm bg-white dark:bg-gray-900 gap-1.5 sm:gap-2 flex-1 sm:w-36">
                 <Filter size={15} className="text-gray-500 shrink-0" />
                 <SelectValue placeholder="All Status" />
               </SelectTrigger>
@@ -424,7 +425,7 @@ export default function BookingInquiriesPage() {
 
             {/* Location Filter */}
             <Select value={locationFilter} onValueChange={setLocationFilter}>
-              <SelectTrigger className="h-11 border-gray-200 dark:border-gray-700 rounded-xl text-sm bg-white dark:bg-gray-900 gap-2 min-w-[135px]">
+              <SelectTrigger className="h-11 border-gray-200 dark:border-gray-700 rounded-xl text-xs sm:text-sm bg-white dark:bg-gray-900 gap-1.5 sm:gap-2 flex-1 sm:w-36">
                 <MapPin size={15} className="text-gray-500 shrink-0" />
                 <SelectValue placeholder="All Locations" />
               </SelectTrigger>
@@ -440,7 +441,7 @@ export default function BookingInquiriesPage() {
 
             {/* Sort Selector */}
             <Select value={sortBy} onValueChange={setSortBy}>
-              <SelectTrigger className="h-11 border-gray-200 dark:border-gray-700 rounded-xl text-sm bg-white dark:bg-gray-900 gap-2 min-w-[145px]">
+              <SelectTrigger className="h-11 border-gray-200 dark:border-gray-700 rounded-xl text-xs sm:text-sm bg-white dark:bg-gray-900 gap-1.5 sm:gap-2 flex-1 sm:w-36">
                 <ArrowUpDown size={15} className="text-gray-500 shrink-0" />
                 <SelectValue placeholder="Sort: Newest" />
               </SelectTrigger>
@@ -454,7 +455,7 @@ export default function BookingInquiriesPage() {
             {/* Export Button */}
             <Button
               onClick={handleExportCSV}
-              className="h-11 bg-blue-600 hover:bg-blue-700 text-white rounded-xl px-5 font-semibold shadow-sm transition-colors shrink-0 flex items-center gap-2"
+              className="h-11 bg-blue-600 hover:bg-blue-700 text-white rounded-xl px-4 sm:px-5 font-semibold shadow-sm transition-colors shrink-0 flex items-center justify-center gap-2 col-span-2 sm:col-span-1"
             >
               <Download size={16} />
               <span>Export</span>
