@@ -60,7 +60,8 @@ export const validateIndianPhone = (phone: string): PhoneValidationResult => {
 };
 
 /**
- * Generates a pre-filled WhatsApp redirect URL for booking inquiries.
+ * Generates a pre-filled conversational WhatsApp redirect URL for booking inquiries.
+ * Formatted as a natural message written by the customer.
  */
 export const createBookingWhatsAppUrl = (details: {
   name: string;
@@ -75,26 +76,25 @@ export const createBookingWhatsAppUrl = (details: {
   carType?: string;
 }): string => {
   const targetPhone = "917977288350"; // Zio Car Rentals WhatsApp Business Number
-  const timeInfoPickup = details.pickupTime ? ` (${details.pickupTime})` : "";
-  const timeInfoDrop = details.dropTime ? ` (${details.dropTime})` : "";
-  const durationInfo = details.durationDays ? `\n⏳ *Rental Duration:* ${details.durationDays} Day(s)` : "";
-  const carTypeInfo = details.carType ? `\n🚘 *Car Preference:* ${details.carType}` : "";
 
-  const text = 
-`🚗 *New Booking Request - Zio Car Rentals*
+  const name = details.name ? details.name.trim() : "Customer";
+  const duration = details.durationDays && details.durationDays > 0 ? `${details.durationDays} days` : "a few days";
+  const carPref = details.carType ? ` for a ${details.carType}` : "";
+  
+  const pickupTimeStr = details.pickupTime ? ` at ${details.pickupTime}` : "";
+  const dropTimeStr = details.dropTime ? ` at ${details.dropTime}` : "";
 
-👤 *Name:* ${details.name.trim()}
-📞 *Phone:* +91 ${details.phone.trim()}
-📍 *Pickup:* ${details.pickupLocation.trim()} on ${details.pickupDate}${timeInfoPickup}
-🏁 *Drop:* ${details.dropLocation.trim()} on ${details.dropDate}${timeInfoDrop}${durationInfo}${carTypeInfo}
+  const text = `Hi Zio Car Rentals, my name is ${name}. I’m looking for a car rental${carPref} for ${duration}.
 
-Hello Zio Car Rentals team, I have submitted my booking request on your website. Please share available car models and pricing for these dates.`;
+I’ll be picking up the car from ${details.pickupLocation.trim()} on ${details.pickupDate}${pickupTimeStr} and dropping it at ${details.dropLocation.trim()} on ${details.dropDate}${dropTimeStr}.
+
+Could you please share the available cars and their rental prices for these dates? Thank you!`;
 
   return `https://wa.me/${targetPhone}?text=${encodeURIComponent(text)}`;
 };
 
 /**
- * Generates a pre-filled WhatsApp redirect URL for contact form inquiries.
+ * Generates a pre-filled conversational WhatsApp redirect URL for contact form inquiries.
  */
 export const createContactWhatsAppUrl = (details: {
   name: string;
@@ -103,16 +103,12 @@ export const createContactWhatsAppUrl = (details: {
   message?: string;
 }): string => {
   const targetPhone = "917977288350";
-  const emailInfo = details.email ? `\n✉️ *Email:* ${details.email.trim()}` : "";
-  const messageInfo = details.message ? `\n💬 *Message:* ${details.message.trim()}` : "";
+  const name = details.name ? details.name.trim() : "Customer";
+  const userMsg = details.message && details.message.trim() ? `\n\n${details.message.trim()}` : "";
 
-  const text = 
-`📩 *New Website Inquiry - Zio Car Rentals*
+  const text = `Hi Zio Car Rentals, my name is ${name}.${userMsg}
 
-👤 *Name:* ${details.name.trim()}
-📞 *Phone:* +91 ${details.phone.trim()}${emailInfo}${messageInfo}
-
-Hello Zio Car Rentals team, I submitted an inquiry on your website. Please get back to me.`;
+My contact number is +91 ${details.phone.trim()}. Could you please share the details for the same? Thank you!`;
 
   return `https://wa.me/${targetPhone}?text=${encodeURIComponent(text)}`;
 };
