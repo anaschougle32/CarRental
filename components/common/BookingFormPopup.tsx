@@ -10,6 +10,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { createClient } from "@supabase/supabase-js";
 import { toast } from "sonner";
+import { validateIndianPhone, createBookingWhatsAppUrl } from "@/lib/validation";
+import { trackLeadConversion } from "@/lib/google-ads";
 
 interface BookingFormPopupProps {
   triggerText?: string;
@@ -46,6 +48,19 @@ export default function BookingFormPopup({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!formData.name.trim()) {
+      toast.error("Please enter your name");
+      return;
+    }
+
+    // Strict 10-Digit Indian Phone Validation
+    const phoneCheck = validateIndianPhone(formData.phone);
+    if (!phoneCheck.isValid) {
+      toast.error(phoneCheck.error || "Please enter a valid 10-digit mobile number");
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -56,7 +71,7 @@ export default function BookingFormPopup({
           {
             name: formData.name,
             email: formData.email,
-            phone: formData.phone,
+            phone: phoneCheck.cleanPhone,
             pickup_location: formData.pickupLocation,
             pickup_date: formData.pickupDate,
             return_date: formData.returnDate,
@@ -71,7 +86,21 @@ export default function BookingFormPopup({
         console.error('Error submitting booking:', error);
         toast.error("Failed to submit booking. Please try again.");
       } else {
-        toast.success("Booking inquiry submitted successfully! We'll contact you soon.");
+        // Dispatch Enhanced Conversions
+        trackLeadConversion({ phone: phoneCheck.cleanPhone, email: formData.email });
+
+        // Construct pre-filled WhatsApp template message
+        const waUrl = createBookingWhatsAppUrl({
+          name: formData.name,
+          phone: phoneCheck.cleanPhone,
+          pickupLocation: formData.pickupLocation || "Goa",
+          pickupDate: formData.pickupDate || "As discussed",
+          dropLocation: formData.pickupLocation || "Goa",
+          dropDate: formData.returnDate || "As discussed",
+          carType: formData.carType
+        });
+
+        toast.success("Booking inquiry submitted! Opening WhatsApp...");
         
         // Reset form
         setFormData({
@@ -85,8 +114,11 @@ export default function BookingFormPopup({
           message: ""
         });
         
-        // Close popup
+        // Close popup and redirect to WhatsApp
         setIsOpen(false);
+        setTimeout(() => {
+          window.location.href = waUrl;
+        }, 800);
       }
     } catch (error) {
       console.error('Error submitting booking:', error);

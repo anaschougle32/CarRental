@@ -8,11 +8,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { format } from "date-fns";
+import { format, differenceInDays } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { toast } from "sonner";
 import { submitBookingInquiry } from "@/lib/supabase/index";
 import { trackLeadConversion } from "@/lib/google-ads";
+import { validateIndianPhone, createBookingWhatsAppUrl } from "@/lib/validation";
 
 interface BookingFormProps {
   title?: string;
@@ -26,7 +27,8 @@ const BookingForm = ({
   className = ""
 }: BookingFormProps) => {
   const router = useRouter();
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [pickupDate, setPickupDate] = useState<Date>();
+  const [returnDate, setReturnDate] = useState<Date>();
   
   // Form state
   const [formData, setFormData] = useState({
@@ -34,17 +36,20 @@ const BookingForm = ({
     phone: "",
     pickupLocation: "",
     dropLocation: "",
-    pickupTime: "10:00",
-    dropTime: "10:00"
+    pickupTime: "10:00 AM",
+    dropTime: "10:00 AM"
   });
   
-  const [pickupDate, setPickupDate] = useState<Date | undefined>(undefined);
-  const [returnDate, setReturnDate] = useState<Date | undefined>(undefined);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   // Initialize dates on client side only
   useEffect(() => {
-    setPickupDate(new Date());
-    setReturnDate(new Date(new Date().setDate(new Date().getDate() + 3)));
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    
+    setPickupDate(today);
+    setReturnDate(tomorrow);
   }, []);
 
   const handleInputChange = (field: string, value: string) => {
@@ -63,8 +68,10 @@ const BookingForm = ({
       return;
     }
     
-    if (!formData.phone.trim()) {
-      toast.error("Please enter your phone number");
+    // Strict 10-Digit Indian Phone Number Validation
+    const phoneCheck = validateIndianPhone(formData.phone);
+    if (!phoneCheck.isValid) {
+      toast.error(phoneCheck.error || "Please enter a valid 10-digit mobile number");
       return;
     }
     
@@ -93,7 +100,7 @@ const BookingForm = ({
     try {
       const result = await submitBookingInquiry({
         name: formData.name,
-        phone: formData.phone,
+        phone: phoneCheck.cleanPhone,
         pickup_location: formData.pickupLocation,
         drop_location: formData.dropLocation,
         pickup_date: format(pickupDate, "yyyy-MM-dd"),
@@ -103,13 +110,29 @@ const BookingForm = ({
       });
 
       if (result.success) {
-        // Trigger Google Ads Enhanced Conversion for lead submission
-        trackLeadConversion({ phone: formData.phone });
-        toast.success("Booking inquiry submitted! Redirecting to available cars...");
-        // Redirect to cars page after successful submission
+        // 1. Dispatch Google Ads Enhanced Conversions
+        trackLeadConversion({ phone: phoneCheck.cleanPhone });
+
+        // 2. Calculate duration and construct pre-filled WhatsApp template message
+        const durationDays = differenceInDays(returnDate, pickupDate) || 1;
+        const waUrl = createBookingWhatsAppUrl({
+          name: formData.name,
+          phone: phoneCheck.cleanPhone,
+          pickupLocation: formData.pickupLocation,
+          pickupDate: format(pickupDate, "dd MMM yyyy"),
+          pickupTime: formData.pickupTime,
+          dropLocation: formData.dropLocation,
+          dropDate: format(returnDate, "dd MMM yyyy"),
+          dropTime: formData.dropTime,
+          durationDays: Math.max(1, durationDays)
+        });
+
+        toast.success("Booking inquiry submitted! Opening WhatsApp...");
+
+        // 3. Immediately redirect to WhatsApp with template message
         setTimeout(() => {
-          router.push("/cars");
-        }, 1500);
+          window.location.href = waUrl;
+        }, 800);
       } else {
         toast.error("Failed to submit booking inquiry. Please try again.");
         console.error("Booking submission error:", result.error);
