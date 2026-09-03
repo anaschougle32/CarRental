@@ -26,6 +26,61 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
-  return <HomePageContent />;
+import { getCars, getBrands } from "@/lib/supabase";
+import { getBlogs } from "@/lib/blogs";
+import type { Car } from "@/lib/types";
+
+import type { BlogPost } from "@/types/blog";
+
+// ISR: Cache homepage at the edge for 1 hour
+export const revalidate = 3600;
+
+export default async function Home() {
+  let initialCars: Car[] = [];
+  let initialBlogs: BlogPost[] = [];
+
+  try {
+    const [carsData, brandsData, blogsData] = await Promise.all([
+      getCars(),
+      getBrands(),
+      getBlogs(),
+    ]);
+
+    const brandMap = new Map((brandsData || []).map((b) => [b.id, b.name]));
+
+    initialCars = (carsData || []).slice(0, 8).map((car) => {
+      const brandName = brandMap.get(car.brand_id) || "Unknown";
+      return {
+        id: car.id,
+        name: car.name,
+        brand: brandName,
+        slug: car.slug,
+        price_per_day: car.price_per_day,
+        description: car.description || `Experience the comfort of ${car.name} for your Goa trip.`,
+        features: (car.features || []).map((feature) => ({
+          icon: "check",
+          name: feature,
+        })),
+        fuel_type: car.fuel_type as any,
+        transmission: car.transmission as any,
+        min_days: 1,
+        main_image: car.main_image || "/images/cars/car-placeholder.jpg",
+        mileage: car.mileage,
+        category:
+          car.seats <= 5
+            ? car.seats <= 4
+              ? "Hatchback"
+              : "Sedan"
+            : car.seats <= 7
+            ? "SUV"
+            : "Premium",
+      } as unknown as Car;
+    });
+
+    initialBlogs = (blogsData || []).slice(0, 3);
+  } catch (error) {
+    console.error("Error pre-rendering homepage data:", error);
+  }
+
+  return <HomePageContent initialCars={initialCars} initialBlogs={initialBlogs} />;
 }

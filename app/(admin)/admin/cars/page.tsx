@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { createClient } from "@supabase/supabase-js";
 import { 
   Edit, Trash2, Plus, Search, Upload, X, CheckCircle, AlertCircle
@@ -385,7 +386,7 @@ export default function AdminCars() {
       const { data, error } = await supabase.storage
         .from('blog-images')
         .upload(filename, imageFile, {
-          cacheControl: '3600',
+          cacheControl: '2592000',
           upsert: true,
           contentType: imageFile.type
         });
@@ -711,14 +712,12 @@ export default function AdminCars() {
                     <TableCell>
                       {car.main_image ? (
                         <div className="w-16 h-16 relative overflow-hidden rounded-md">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img
+                          <Image
                             src={car.main_image}
                             alt={car.name}
-                            className="object-cover w-full h-full"
-                            onError={(e) => {
-                              (e.target as HTMLImageElement).src = "/images/cars/car-placeholder.jpg";
-                            }}
+                            fill
+                            sizes="64px"
+                            className="object-cover"
                           />
                         </div>
                       ) : (

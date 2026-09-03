@@ -5,9 +5,8 @@ import { getBlogs } from "@/lib/blogs";
 import { BlogPost } from "@/types/blog";
 import { Container, Section } from "@/components/common/LayoutComponents";
 
-// Disable caching for this route
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
+// ISR: regenerate at most once per hour
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Goa Travel Tips, Driving Guides & Car Rental Advice | ZioCarRentals Blog",

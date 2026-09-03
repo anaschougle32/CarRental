@@ -135,8 +135,22 @@ const nextConfig = {
   },
   images: {
     formats: ['image/avif', 'image/webp'],
-    qualities: [75, 85],
-    unoptimized: true,
+    minimumCacheTTL: 2592000,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'idghdvapzklhijftyico.supabase.co',
+        pathname: '/storage/v1/object/public/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+      },
+    ],
   },
   reactStrictMode: true,
   compiler: {

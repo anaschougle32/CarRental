@@ -12,9 +12,8 @@ import { Car as SupabaseCar } from "@/lib/supabase";
 import { Car } from "@/lib/types";
 import { Container, Section } from "@/components/common/LayoutComponents";
 
-// Force dynamic rendering
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
+// ISR: regenerate at most once per hour
+export const revalidate = 3600;
 
 type Props = {
   params: Promise<{ slug: string }>;

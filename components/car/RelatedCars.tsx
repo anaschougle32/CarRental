@@ -8,8 +8,8 @@ interface RelatedCarsProps {
 
 async function getRelatedCarsFromSupabase(currentSlug: string) {
   try {
-    const allCars = await getCars();
-    const allBrands = await getBrands();
+    const [allCars, allBrands] = await Promise.all([getCars(), getBrands()]);
+    const brandMap = new Map(allBrands.map(b => [b.id, b.name]));
     
     // Filter out current car and limit to 3 related cars
     const filteredCars = allCars
@@ -22,9 +22,7 @@ async function getRelatedCarsFromSupabase(currentSlug: string) {
     
     // Transform Supabase car data to match our Car type
     const mappedCars: Car[] = filteredCars.map(car => {
-      // Find the brand for this car
-      const brand = allBrands.find(b => b.id === car.brand_id);
-      const brandName = brand ? brand.name : "Unknown";
+      const brandName = brandMap.get(car.brand_id) || "Unknown";
       
       return {
         id: car.id,
@@ -40,7 +38,7 @@ async function getRelatedCarsFromSupabase(currentSlug: string) {
         fuel_type: car.fuel_type as any,
         transmission: car.transmission as any,
         min_days: 1, // Default value
-            main_image: car.main_image || "/images/cars/car-placeholder.jpg",
+        main_image: car.main_image || "/images/cars/car-placeholder.jpg",
         category: car.seats <= 5 
           ? car.seats <= 4 ? "Hatchback" : "Sedan" 
           : car.seats <= 7 ? "SUV" : "Premium"

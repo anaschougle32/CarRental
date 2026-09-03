@@ -16,8 +16,8 @@ import Faqs from "@/components/home/Faqs";
 import HowItWorks from "@/components/home/HowItWorks";
 import { locationsData, getLocationFaqs } from "@/lib/location-data";
 
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
+// ISR: regenerate at most once per hour
+export const revalidate = 3600;
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -238,12 +238,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-// Helper function to convert Supabase car to our app's Car type
-async function mapSupabaseCarToAppCar(carData: SupabaseCar): Promise<Car> {
-  // Get brand info
-  const brands = await getBrands();
-  const brand = brands.find(b => b.id === carData.brand_id);
-  const brandName = brand ? brand.name : "Unknown";
+// Helper function to convert Supabase car to our app's Car type without N+1 brand queries
+function mapSupabaseCarToAppCar(carData: SupabaseCar, brandMap: Map<string, string>): Car {
+  const brandName = brandMap.get(carData.brand_id) || "Unknown";
   
   return {
     id: carData.id,
@@ -273,8 +270,11 @@ export default async function LocationPage({ params }: Props) {
 
     const config = locationsData[slug];
     if (config) {
-      const carsData = await getCars();
-      const cars = await Promise.all(carsData.map(car => mapSupabaseCarToAppCar(car)));
+      const [carsData, brands] = await Promise.all([getCars(), getBrands()]);
+      const brandMap = new Map(brands.map(b => [b.id, b.name]));
+      const cars = carsData.map(car => mapSupabaseCarToAppCar(car, brandMap));
+      // Display top 9 cars to prevent massive concurrent image downloads
+      const displayedCars = cars.slice(0, 9);
 
       return (
         <>
@@ -287,7 +287,7 @@ export default async function LocationPage({ params }: Props) {
             subtitle={config.p1}
           />
 
-          {/* 4. Car Listing (No Description in Car Listing, No Price) */}
+          {/* 4. Car Listing (Optimized to 9 cards + View All link to limit image egress) */}
           <Section className="bg-gray-50 dark:bg-gray-800 py-12" size="sm">
             <Container>
               <div className="text-center max-w-3xl mx-auto mb-10">
@@ -299,17 +299,37 @@ export default async function LocationPage({ params }: Props) {
                 </p>
               </div>
 
-              {cars.length > 0 ? (
-                <div className="flex flex-wrap justify-center gap-6">
-                  {cars.map(car => (
-                    <div key={car.id} className="w-full min-[375px]:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] max-w-sm flex-grow-0 flex-shrink-0">
-                      <CarCard car={car} showCategory={true} showDescription={false} />
+              {displayedCars.length > 0 ? (
+                <>
+                  <div className="flex flex-wrap justify-center gap-6">
+                    {displayedCars.map(car => (
+                      <div key={car.id} className="w-full min-[375px]:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] max-w-sm flex-grow-0 flex-shrink-0">
+                        <CarCard car={car} showCategory={true} showDescription={false} />
+                      </div>
+                    ))}
+                  </div>
+                  {cars.length > 9 && (
+                    <div className="text-center mt-10">
+                      <a
+                        href="/cars"
+                        className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 shadow-md transition-colors"
+                      >
+                        Explore All {cars.length} Cars Available in {config.name || 'Goa'} →
+                      </a>
                     </div>
-                  ))}
-                </div>
+                  )}
+                </>
               ) : (
-                <div className="text-center py-10 bg-white rounded-lg">
-                  <p className="text-lg text-gray-500">No cars available currently. Please check back soon or contact us for assistance.</p>
+                <div className="text-center py-10 bg-white dark:bg-gray-900 rounded-lg p-6 max-w-md mx-auto">
+                  <p className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">Our fleet is available for immediate rental in {config.name}!</p>
+                  <a
+                    href="https://wa.me/917977288350?text=Hi%2C%20I%20want%20to%20rent%20a%20car%20in%20Goa"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-5 py-2.5 bg-green-600 text-white rounded-lg font-medium text-sm hover:bg-green-700"
+                  >
+                    Check Availability on WhatsApp
+                  </a>
                 </div>
               )}
             </Container>
@@ -570,9 +590,11 @@ export default async function LocationPage({ params }: Props) {
       };
     }
     
-    // Fetch all cars instead of just cars for this location
-    const carsData = await getCars();
-    const cars = await Promise.all(carsData.map(car => mapSupabaseCarToAppCar(car)));
+    // Fetch cars and brands in parallel without N+1 queries
+    const [carsData, brands] = await Promise.all([getCars(), getBrands()]);
+    const brandMap = new Map(brands.map(b => [b.id, b.name]));
+    const cars = carsData.map(car => mapSupabaseCarToAppCar(car, brandMap));
+    const displayedCars = cars.slice(0, 9);
     
     return (
       <>
@@ -596,17 +618,37 @@ export default async function LocationPage({ params }: Props) {
               </p>
             </div>
 
-            {cars.length > 0 ? (
-              <div className="flex flex-wrap justify-center gap-6">
-                {cars.map(car => (
-                  <div key={car.id} className="w-full min-[375px]:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] max-w-sm flex-grow-0 flex-shrink-0">
-                    <CarCard car={car} showCategory={true} showDescription={false} />
+            {displayedCars.length > 0 ? (
+              <>
+                <div className="flex flex-wrap justify-center gap-6">
+                  {displayedCars.map(car => (
+                    <div key={car.id} className="w-full min-[375px]:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] max-w-sm flex-grow-0 flex-shrink-0">
+                      <CarCard car={car} showCategory={true} showDescription={false} />
+                    </div>
+                  ))}
+                </div>
+                {cars.length > 9 && (
+                  <div className="text-center mt-10">
+                    <a
+                      href="/cars"
+                      className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 shadow-md transition-colors"
+                    >
+                      Explore All {cars.length} Cars Available in {location.name} →
+                    </a>
                   </div>
-                ))}
-              </div>
+                )}
+              </>
             ) : (
-              <div className="text-center py-10 bg-white rounded-lg">
-                <p className="text-lg text-gray-500">No cars available currently. Please check back soon or contact us for assistance.</p>
+              <div className="text-center py-10 bg-white dark:bg-gray-900 rounded-lg p-6 max-w-md mx-auto">
+                <p className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">Our fleet is available for pickup in {location.name}!</p>
+                <a
+                  href="https://wa.me/917977288350?text=Hi%2C%20I%20want%20to%20rent%20a%20car%20in%20Goa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-5 py-2.5 bg-green-600 text-white rounded-lg font-medium text-sm hover:bg-green-700"
+                >
+                  Check Availability on WhatsApp
+                </a>
               </div>
             )}
           </Container>

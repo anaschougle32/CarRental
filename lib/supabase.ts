@@ -101,54 +101,92 @@ export type Location = {
   updated_at: string;
 };
 
-// Helper functions for database operations
-export async function getCars() {
-  const { data, error } = await supabase
-    .from('cars')
-    .select('*')
-    .order('created_at', { ascending: false });
-  
-  if (error) {
-    logSupabaseError('getCars', error);
-    return [];
-  }
-  
-  return data as Car[];
-}
+import { cache } from 'react';
+import { fallbackCars, fallbackBrands } from '@/data/fallback-cars';
 
-export async function getCarBySlug(slug: string) {
-  const { data, error } = await supabase
-    .from('cars')
-    .select('*')
-    .eq('slug', slug)
-    .single();
-  
-  if (error) {
-    logSupabaseError('getCarBySlug', error);
+// Helper functions for database operations (wrapped with React cache for automatic per-request deduplication)
+export const getCars = cache(async function getCars(): Promise<Car[]> {
+  const start = Date.now();
+  try {
+    const { data, error } = await supabase
+      .from('cars')
+      .select('id, name, slug, brand_id, price_per_day, transmission, fuel_type, seats, luggage, description, features, main_image, mileage, created_at')
+      .order('created_at', { ascending: false });
+    
+    // Only fall back if there is an actual API/network error (e.g. service restriction, connection failure)
+    if (error) {
+      logSupabaseError('getCars', error);
+      console.warn('[Supabase Fallback] Database error in getCars, serving fallbackCars to keep site operational');
+      return fallbackCars;
+    }
+    
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`[Supabase Dev] getCars: returned ${data?.length || 0} cars in ${Date.now() - start}ms`);
+    }
+    
+    // Genuine database result: if the table genuinely has 0 cars, return []
+    return (data || []) as Car[];
+  } catch (err) {
+    console.error('[Supabase Fallback] Network exception in getCars, using fallbackCars:', err);
+    return fallbackCars;
+  }
+});
+
+export const getCarBySlug = cache(async function getCarBySlug(slug: string): Promise<Car | null> {
+  try {
+    const { data, error } = await supabase
+      .from('cars')
+      .select('id, name, slug, brand_id, price_per_day, transmission, fuel_type, seats, luggage, description, features, main_image, mileage, created_at')
+      .eq('slug', slug)
+      .single();
+    
+    if (error) {
+      // PGRST116 means the query succeeded but 0 rows matched (genuine 404)
+      if (error.code === 'PGRST116') {
+        return null;
+      }
+      // Any other error means a database/API/permission failure
+      logSupabaseError(`getCarBySlug(${slug})`, error);
+      const fallback = fallbackCars.find(c => c.slug === slug);
+      if (fallback) {
+        console.warn(`[Supabase Fallback] Serving fallback car for slug: ${slug} due to DB error`);
+        return fallback;
+      }
+      return null;
+    }
+    
+    return (data as Car) || null;
+  } catch (err) {
+    const fallback = fallbackCars.find(c => c.slug === slug);
+    if (fallback) return fallback;
     return null;
   }
-  
-  return data as Car;
-}
+});
 
-export async function getBrands() {
-  const { data, error } = await supabase
-    .from('brands')
-    .select('*')
-    .order('name');
-  
-  if (error) {
-    logSupabaseError('getBrands', error);
-    return [];
+export const getBrands = cache(async function getBrands(): Promise<Brand[]> {
+  try {
+    const { data, error } = await supabase
+      .from('brands')
+      .select('id, name, logo')
+      .order('name');
+    
+    // Only fall back on actual error
+    if (error) {
+      logSupabaseError('getBrands', error);
+      return fallbackBrands;
+    }
+    
+    // Genuine database result
+    return (data || []) as Brand[];
+  } catch (err) {
+    return fallbackBrands;
   }
-  
-  return data as Brand[];
-}
+});
 
-export async function getTestimonials() {
+export const getTestimonials = cache(async function getTestimonials(): Promise<Testimonial[]> {
   const { data, error } = await supabase
     .from('testimonials')
-    .select('*');
+    .select('id, name, location, rating, comment, image');
   
   if (error) {
     console.error('Error fetching testimonials:', error);
@@ -156,7 +194,7 @@ export async function getTestimonials() {
   }
   
   return data as Testimonial[];
-}
+});
 
 export async function submitContactForm(contactData: Omit<ContactMessage, 'id' | 'created_at'>) {
   const { data, error } = await supabase
@@ -221,11 +259,11 @@ export async function getRelatedBlogs(currentSlug: string, category: string, cou
   return data as Blog[];
 }
 
-// Location functions
-export async function getLocations() {
+// Location functions (wrapped with React cache for deduplication)
+export const getLocations = cache(async function getLocations(): Promise<Location[]> {
   const { data, error } = await supabase
     .from('locations')
-    .select('*')
+    .select('id, name, slug, headline, content, created_at, updated_at')
     .order('name');
   
   if (error) {
@@ -233,23 +271,23 @@ export async function getLocations() {
     return [];
   }
   
-  return data as Location[];
-}
+  return (data || []) as Location[];
+});
 
-export async function getLocationBySlug(slug: string) {
+export const getLocationBySlug = cache(async function getLocationBySlug(slug: string): Promise<Location | null> {
   const { data, error } = await supabase
     .from('locations')
-    .select('*')
+    .select('id, name, slug, headline, content, created_at, updated_at')
     .eq('slug', slug)
     .single();
   
   if (error) {
-    console.error('Error fetching location:', error);
+    console.error(`Error fetching location ${slug}:`, error.message);
     return null;
   }
   
   return data as Location;
-}
+});
 
 export async function getCarsByLocation(locationName: string) {
   try {

@@ -10,9 +10,13 @@ import { Car } from "@/lib/types";
 
 import { Section, Container } from "../common/LayoutComponents";
 
-const PopularCars = () => {
-  const [popularCars, setPopularCars] = useState<Car[]>([]);
-  const [loading, setLoading] = useState(true);
+interface PopularCarsProps {
+  initialCars?: Car[];
+}
+
+const PopularCars = ({ initialCars = [] }: PopularCarsProps) => {
+  const [popularCars, setPopularCars] = useState<Car[]>(initialCars);
+  const [loading, setLoading] = useState(initialCars.length === 0);
   const [mounted, setMounted] = useState(false);
   
   // Ensure component is mounted before making API calls
@@ -21,7 +25,8 @@ const PopularCars = () => {
   }, []);
   
   useEffect(() => {
-    if (!mounted) return;
+    // If we already have server-rendered / ISR cars, do NOT make a client-side Supabase request
+    if (!mounted || initialCars.length > 0) return;
     
     const fetchCars = async () => {
       try {

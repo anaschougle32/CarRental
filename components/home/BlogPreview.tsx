@@ -8,57 +8,18 @@ import { getBlogs } from "@/lib/blogs";
 import { BlogPost } from "@/types/blog";
 import { useEffect, useState } from "react";
 
-// Fallback blog data for when database is empty
-const fallbackBlogs: BlogPost[] = [
-  {
-    id: "fallback-1",
-    title: "10 Hidden Beaches in Goa You Can Only Reach With a Car",
-    slug: "hidden-beaches-in-goa",
-    description: "Discover secluded beaches in Goa that are away from the tourist crowds.",
-    excerpt: "Discover secluded beaches in Goa that are away from the tourist crowds.",
-    content: "# 10 Hidden Beaches in Goa\n\nGoa is famous for its beautiful beaches...",
-    cover_image: "https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg",
-    created_at: "2023-04-15T10:30:00Z",
-    updated_at: "2023-04-15T10:30:00Z",
-    published: true,
-    author: "Priya Nayak",
-    category: "Travel"
-  },
-  {
-    id: "fallback-2",
-    title: "The Complete Guide to Driving in Goa",
-    slug: "guide-to-driving-in-goa",
-    description: "Everything you need to know about road rules and navigation in Goa.",
-    excerpt: "Everything you need to know about road rules and navigation in Goa.",
-    content: "# The Complete Guide to Driving in Goa\n\nExploring Goa with your own vehicle...",
-    cover_image: "https://images.pexels.com/photos/7876379/pexels-photo-7876379.jpeg",
-    created_at: "2023-07-05T14:15:00Z",
-    updated_at: "2023-07-05T14:15:00Z",
-    published: true,
-    author: "Anjali Menon",
-    category: "Travel Tips"
-  },
-  {
-    id: "fallback-3",
-    title: "5 Scenic Drives in Goa You Shouldn't Miss",
-    slug: "scenic-drives-in-goa",
-    description: "Explore the most beautiful routes for a road trip in Goa.",
-    excerpt: "Explore the most beautiful routes for a road trip in Goa.",
-    content: "# 5 Scenic Drives in Goa\n\nWith its winding coastal roads and lush landscapes...",
-    cover_image: "https://images.pexels.com/photos/1252500/pexels-photo-1252500.jpeg",
-    created_at: "2023-08-12T09:45:00Z",
-    updated_at: "2023-08-12T09:45:00Z",
-    published: true,
-    author: "Rahul Sharma",
-    category: "Travel"
-  }
-];
-
+import { fallbackBlogs } from "@/data/fallback-blogs";
 import { Section, Container } from "../common/LayoutComponents";
 
-const BlogPreview = () => {
-  const [recentBlogs, setRecentBlogs] = useState<BlogPost[]>(fallbackBlogs);
-  const [loading, setLoading] = useState(true);
+interface BlogPreviewProps {
+  initialBlogs?: BlogPost[];
+}
+
+const BlogPreview = ({ initialBlogs = [] }: BlogPreviewProps) => {
+  const [recentBlogs, setRecentBlogs] = useState<BlogPost[]>(
+    initialBlogs.length > 0 ? initialBlogs : fallbackBlogs
+  );
+  const [loading, setLoading] = useState(initialBlogs.length === 0);
   const [mounted, setMounted] = useState(false);
   
   // Ensure component is mounted before making API calls
@@ -67,7 +28,8 @@ const BlogPreview = () => {
   }, []);
 
   useEffect(() => {
-    if (!mounted) return;
+    // If server already provided initialBlogs, do NOT make a client-side Supabase request
+    if (!mounted || initialBlogs.length > 0) return;
     
     let isMounted = true;
  

@@ -19,7 +19,56 @@ function LoadingCars() {
   );
 }
 
-export default function CarsPage() {
+import { getCars, getBrands } from "@/lib/supabase";
+import type { Car } from "@/lib/types";
+
+// ISR: Cache cars fleet page at the edge for 1 hour
+export const revalidate = 3600;
+
+export default async function CarsPage() {
+  let initialCars: Car[] = [];
+
+  try {
+    const [carsData, brandsData] = await Promise.all([
+      getCars(),
+      getBrands(),
+    ]);
+
+    const brandMap = new Map((brandsData || []).map((b) => [b.id, b.name]));
+
+    initialCars = (carsData || []).map((car) => {
+      const brandName = brandMap.get(car.brand_id) || "Unknown";
+      return {
+        id: car.id,
+        name: car.name,
+        brand: brandName,
+        brand_id: car.brand_id,
+        slug: car.slug,
+        price_per_day: car.price_per_day,
+        description: car.description || `Experience the comfort of ${car.name} for your Goa trip.`,
+        features: (car.features || []).map((feature) => ({
+          icon: "check",
+          name: feature,
+        })),
+        fuel_type: car.fuel_type as any,
+        transmission: car.transmission as any,
+        min_days: 1,
+        mileage: car.mileage,
+        main_image: car.main_image || "/images/cars/car-placeholder.jpg",
+        category:
+          car.seats <= 5
+            ? car.seats <= 4
+              ? "Hatchback"
+              : "Sedan"
+            : car.seats <= 7
+            ? "SUV"
+            : "Premium",
+      } as unknown as Car;
+    });
+  } catch (err) {
+    console.error("Error pre-fetching cars on server:", err);
+  }
+
   return (
     <Section className="bg-white dark:bg-gray-900" size="lg">
       <Container>
@@ -33,7 +82,7 @@ export default function CarsPage() {
         </div>
 
         <Suspense fallback={<LoadingCars />}>
-          <CarsGrid />
+          <CarsGrid initialCars={initialCars} />
         </Suspense>
       </Container>
     </Section>

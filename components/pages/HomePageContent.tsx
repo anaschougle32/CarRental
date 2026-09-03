@@ -36,16 +36,24 @@ const Faqs = dynamic(() => import("@/components/home/Faqs"), {
   ssr: false,
 });
 
-export default function HomePageContent() {
+import type { Car } from "@/lib/types";
+import type { BlogPost } from "@/types/blog";
+
+interface HomePageContentProps {
+  initialCars?: Car[];
+  initialBlogs?: BlogPost[];
+}
+
+export default function HomePageContent({ initialCars = [], initialBlogs = [] }: HomePageContentProps) {
   return (
     <div className="flex flex-col min-h-screen">
       <Hero title="Freedom to Explore Goa," titleAccent="Your Way" />
-      <PopularCars />
+      <PopularCars initialCars={initialCars} />
       <Services />
       <WhyChooseUs />
       <HowItWorks />
       <Testimonials />
-      <BlogPreview />
+      <BlogPreview initialBlogs={initialBlogs} />
       <Faqs />
       <CtaBanner />
     </div>

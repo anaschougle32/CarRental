@@ -15,9 +15,8 @@ import type { BlogPost } from '@/types/blog';
 import { calculateReadingTime } from '@/lib/utils/reading-time';
 import { Container, Section } from "@/components/common/LayoutComponents";
 
-// Disable caching to ensure blog updates reflect instantly
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
+// ISR: regenerate at most once per hour
+export const revalidate = 3600;
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -56,12 +55,14 @@ export default async function BlogPost({ params }: Props) {
     category: string | null;
   }
 
-  // Fetch all blog posts for related articles
-  const { data: allPosts, error: postsError } = await supabase
+  // Fetch at most 6 related blog posts with lightweight columns (omits heavy 'content' column)
+  const { data: allPosts } = await supabase
     .from('blogs')
-    .select('*')
+    .select('id, title, slug, excerpt, cover_image, created_at, updated_at, published, author, category')
     .eq('published', true)
-    .order('created_at', { ascending: false });
+    .neq('slug', slug)
+    .order('created_at', { ascending: false })
+    .limit(6);
     
   // Safely cast and filter posts
   const relatedPosts: BlogPost[] = [];
@@ -72,17 +73,15 @@ export default async function BlogPost({ params }: Props) {
     allPosts.forEach((item: unknown) => {
       const postItem = item as SupabaseBlogPost;
       
-      // Skip if this is the current post or missing required fields
       if (!postItem.id || postItem.id === post.id) return;
       
-      // Create a properly typed BlogPost object
       const relatedPost: BlogPost = {
         id: String(postItem.id),
         title: String(postItem.title || 'Untitled Post'),
         slug: String(postItem.slug || `post-${Date.now()}`),
         description: String(postItem.description || postItem.excerpt || ''),
         excerpt: String(postItem.excerpt || postItem.description || ''),
-        content: String(postItem.content || ''),
+        content: '',
         cover_image: String(postItem.cover_image || ''),
         created_at: String(postItem.created_at || now),
         updated_at: String(postItem.updated_at || postItem.created_at || now),
@@ -93,14 +92,6 @@ export default async function BlogPost({ params }: Props) {
       
       relatedPosts.push(relatedPost);
     });
-  }
-
-  // Update view count
-  if (post.id) {
-    await supabase
-      .from('blogs')
-      .update({ views: (post.views || 0) + 1 })
-      .eq('id', post.id);
   }
 
   // Calculate reading time

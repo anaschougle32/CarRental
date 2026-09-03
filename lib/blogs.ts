@@ -31,37 +31,39 @@ interface BlogDB {
   category: string | null;
 }
 
+import { fallbackBlogs } from '@/data/fallback-blogs';
+
 /**
- * Returns empty array when database fetch fails
+ * Returns fallback blogs when database fetch fails
  */
 function getEmptyBlogArray(): BlogPost[] {
-  return [];
+  return fallbackBlogs;
 }
 
 /**
- * Fetch all blogs from the database
+ * Fetch all blogs from the database (lightweight metadata for listing pages)
  */
 export async function getBlogs(): Promise<BlogPost[]> {
   try {
-    // Force a new connection to ensure fresh data
     const supabase = createClient();
     
+    // Select only columns needed for listing cards — omits multi-megabyte markdown 'content' column
     const { data, error } = await supabase
       .from('blogs')
-      .select('*')
+      .select('id, title, slug, excerpt, cover_image, created_at, updated_at, published, author, category')
       .order('created_at', { ascending: false });
       
+    // Only fall back on actual API/database error
     if (error) {
       logSupabaseError('getBlogs', error);
-      return getEmptyBlogArray();
+      console.warn('[Supabase Fallback] Using fallback blogs due to database error/restriction');
+      return fallbackBlogs;
     }
     
+    // Genuine database result: if there are 0 published blogs, return []
     if (!data || data.length === 0) {
-      console.log('No blogs found in database');
-      return getEmptyBlogArray();
+      return [];
     }
-    
-    console.log('Successfully fetched', data.length, 'blogs from database');
     
     // Map the database fields to the BlogPost type with proper type safety
     return data.map((blog) => {
@@ -74,7 +76,7 @@ export async function getBlogs(): Promise<BlogPost[]> {
         slug: blog.slug || `post-${Date.now()}`,
         description: blog.excerpt || '',
         excerpt: blog.excerpt || '',
-        content: blog.content || '',
+        content: '', // content omitted for listings to minimize egress
         cover_image: blog.cover_image || '/images/blog-placeholder.jpg',
         created_at: createdAt,
         updated_at: updatedAt,
@@ -84,28 +86,18 @@ export async function getBlogs(): Promise<BlogPost[]> {
       } as BlogPost;
     });
   } catch (error) {
-    console.error('Error fetching blogs:', error);
-    return getEmptyBlogArray();
+    console.error('Error fetching blogs, using fallback data:', error);
+    return fallbackBlogs;
   }
 }
 
 /**
- * Fetch a blog by its slug
+ * Fetch a single blog post by its slug from Supabase
  */
 export async function getBlogBySlug(slug: string): Promise<BlogPost | null> {
   try {
-    // Force a new connection to ensure fresh data
     const supabase = createClient();
     
-    // Add a cache-busting timestamp parameter to ensure fresh data
-    const timestamp = new Date().getTime();
-    
-    // First try direct query with cache-busting headers
-    console.log(`Fetching blog with slug: ${slug} at timestamp: ${timestamp}`);
-    
-    let blogData: any = null;
-    
-    // Try direct query first (case-sensitive)
     const { data: directData, error: directError } = await supabase
       .from('blogs')
       .select('*')
@@ -125,46 +117,41 @@ export async function getBlogBySlug(slug: string): Promise<BlogPost | null> {
       }>();
 
     if (directError) {
-      console.error('Error fetching blog by slug (direct):', directError);
+      // PGRST116 means genuine 404 (0 rows matched)
+      if (directError.code === 'PGRST116') {
+        return null;
+      }
+      console.warn(`[Supabase Fallback] Error fetching blog ${slug}:`, directError.message);
+      // Actual database failure: check fallback
+      const fallback = fallbackBlogs.find(b => b.slug === slug);
+      if (fallback) return fallback;
       return null;
     }
     
     if (!directData) {
-      console.log('No blog found with slug:', slug);
       return null;
     }
     
-    blogData = directData;
+    const updatedAt = directData.updated_at || directData.created_at || new Date().toISOString();
+    const createdAt = directData.created_at || new Date().toISOString();
     
-    // Log the retrieved content for debugging
-    console.log(`Retrieved blog ${slug} with content length:`, blogData.content?.length || 0);
-    console.log('Blog content preview:', blogData.content?.substring(0, 100) + '...');
-    
-    // Map the database fields to the BlogPost type with proper type safety
-    if (directData) {
-      const updatedAt = directData.updated_at || directData.created_at || new Date().toISOString();
-      const createdAt = directData.created_at || new Date().toISOString();
-      
-      const blogPost: BlogPost = {
-        id: directData.id,
-        title: directData.title || 'Untitled Post',
-        slug: directData.slug || `post-${Date.now()}`,
-        description: directData.excerpt || '',
-        excerpt: directData.excerpt || '',
-        content: directData.content || '',
-        cover_image: directData.cover_image,
-        created_at: directData.created_at,
-        updated_at: directData.updated_at,
-        published: directData.published ?? true,
-        author: directData.author,
-        category: directData.category,
-      };
-      console.log('Found blog with direct query:', blogPost);
-      return blogPost;
-    }
-    return null;
+    return {
+      id: directData.id,
+      title: directData.title || 'Untitled Post',
+      slug: directData.slug || `post-${Date.now()}`,
+      description: directData.excerpt || '',
+      excerpt: directData.excerpt || '',
+      content: directData.content || '',
+      cover_image: directData.cover_image,
+      created_at: createdAt,
+      updated_at: updatedAt,
+      published: directData.published ?? true,
+      author: directData.author,
+      category: directData.category,
+    } as BlogPost;
   } catch (error) {
-    console.error('Error fetching blog by slug:', error);
+    const fallback = fallbackBlogs.find(b => b.slug === slug);
+    if (fallback) return fallback;
     return null;
   }
 }

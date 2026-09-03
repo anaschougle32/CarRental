@@ -8,10 +8,14 @@ import { Loader2, AlertCircle } from "lucide-react";
 import { getCars, getBrands } from "@/lib/supabase";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
-const CarsGrid = () => {
-  const [filteredCars, setFilteredCars] = useState<Car[]>([]);
-  const [allCars, setAllCars] = useState<Car[]>([]);
-  const [loading, setLoading] = useState(true);
+interface CarsGridProps {
+  initialCars?: Car[];
+}
+
+const CarsGrid = ({ initialCars = [] }: CarsGridProps) => {
+  const [filteredCars, setFilteredCars] = useState<Car[]>(initialCars);
+  const [allCars, setAllCars] = useState<Car[]>(initialCars);
+  const [loading, setLoading] = useState(initialCars.length === 0);
   const [error, setError] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
   const searchParams = useSearchParams();
@@ -21,9 +25,9 @@ const CarsGrid = () => {
     setMounted(true);
   }, []);
 
-  // Fetch all cars on component mount
+  // Fetch all cars on component mount only if not already provided by server
   useEffect(() => {
-    if (!mounted) return;
+    if (!mounted || initialCars.length > 0) return;
     
     const fetchCars = async () => {
       try {

@@ -190,6 +190,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://images.pexels.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://images.pexels.com" />
+        <link rel="preconnect" href="https://idghdvapzklhijftyico.supabase.co" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://idghdvapzklhijftyico.supabase.co" />
 
         {/* Identity Schema Script */}
         <script

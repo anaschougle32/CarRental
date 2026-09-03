@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { createClient } from "@supabase/supabase-js";
 import { 
   Edit, Trash2, Plus, Search, Upload, X, CheckCircle, AlertCircle, Calendar,
@@ -365,7 +366,7 @@ export default function AdminBlogs() {
       const { data, error } = await supabase.storage
         .from('blog-images')
         .upload(filename, imageFile, {
-          cacheControl: '3600',
+          cacheControl: '2592000',
           upsert: true, // Use upsert to overwrite if file exists
           contentType: imageFile.type // Set the content type explicitly
         });
@@ -430,7 +431,7 @@ export default function AdminBlogs() {
           const { data, error } = await supabase.storage
             .from('blog-images')
             .upload(filename, imageFile, {
-              cacheControl: '3600',
+              cacheControl: '2592000',
               upsert: true,
               contentType: imageFile.type
             });
@@ -616,16 +617,14 @@ export default function AdminBlogs() {
                 filteredBlogs.map((blog) => (
                   <TableRow key={blog.id}>
                     <TableCell>
-                      <div className="w-16 h-16 rounded-md overflow-hidden bg-gray-100">
+                      <div className="w-16 h-16 rounded-md overflow-hidden bg-gray-100 relative">
                         {blog.cover_image ? (
-                          <img
+                          <Image
                             src={blog.cover_image}
                             alt={blog.title}
-                            className="w-full h-full object-cover"
-                            onError={(e) => {
-                              // Set a fallback image on error
-                              (e.target as HTMLImageElement).src = "https://via.placeholder.com/150?text=No+Image";
-                            }}
+                            fill
+                            sizes="64px"
+                            className="object-cover"
                           />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center text-gray-400">
