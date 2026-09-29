@@ -9,6 +9,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { ConditionalLayout } from '@/components/layout/ConditionalLayout';
 import { Toaster } from '@/components/ui/sonner';
 import GoogleAdsTracker from '@/components/common/GoogleAdsTracker';
+import { SOCIAL_ARRAY } from '@/lib/social';
 
 // Configure Poppins font (body text)
 const poppins = Poppins({ 
@@ -63,6 +64,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'ZioCarRentals - Self Drive Car Rentals in Goa | Unlimited KM',
     description: 'Premium self-drive car rentals in Goa with unlimited kilometers, airport pickup, and 24/7 roadside assistance. Book online or call now!',
+    site: '@ziocarrentals',
+    creator: '@ziocarrentals',
     images: ['https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&dpr=1'],
   },
   verification: {
@@ -123,9 +126,7 @@ export default function RootLayout({
             "availableLanguage": ["English", "Hindi"]
           }
         ],
-        "sameAs": [
-          "https://www.ziocarrentals.com"
-        ]
+        "sameAs": SOCIAL_ARRAY
       },
       {
         "@type": "AutoRental",
@@ -136,6 +137,7 @@ export default function RootLayout({
         "image": "https://www.ziocarrentals.com/favicon.png",
         "telephone": "+91 90828 88912",
         "email": "info@ziocarrentals.com",
+        "sameAs": SOCIAL_ARRAY,
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Shop no. 1, Mini Max Apartment, ND Naik Rd",

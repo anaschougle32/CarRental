@@ -2,10 +2,13 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 import PlaceholderImage from "@/components/ui/placeholder-image";
+import { 
+  getCarImageUrl, 
+  getCarGitHubImageUrl, 
+  getCarLocalImageUrl, 
+  getCarImageFilename 
+} from "@/lib/car-images";
 
 interface CarGalleryProps {
   main_image?: string;
@@ -13,10 +16,26 @@ interface CarGalleryProps {
 }
 
 const CarGallery = ({ main_image, alt }: CarGalleryProps) => {
+  const initialImage = getCarImageUrl({ name: alt, slug: alt, main_image });
+  const [imgSrc, setImgSrc] = useState<string>(initialImage);
   const [hasImageError, setHasImageError] = useState(false);
+
+  const handleImageError = () => {
+    const filename = getCarImageFilename(alt);
+    const githubUrl = getCarGitHubImageUrl(filename);
+    const localUrl = getCarLocalImageUrl(filename);
+
+    if (imgSrc !== githubUrl && imgSrc !== localUrl) {
+      setImgSrc(githubUrl);
+    } else if (imgSrc === githubUrl) {
+      setImgSrc(localUrl);
+    } else {
+      setHasImageError(true);
+    }
+  };
   
-  // Use fallback if no valid image
-  if (!main_image || hasImageError) {
+  // Use fallback placeholder if all sources fail
+  if (hasImageError || !imgSrc) {
     return (
       <div className="relative rounded-lg overflow-hidden h-64 md:h-96">
         <PlaceholderImage text={`${alt} - Image Not Available`} />
@@ -27,16 +46,16 @@ const CarGallery = ({ main_image, alt }: CarGalleryProps) => {
   return (
     <div className="relative rounded-lg overflow-hidden">
       {/* Main Image */}
-      <div className="relative h-64 md:h-96 bg-gray-100 dark:bg-gray-800">
+      <div className="relative h-64 md:h-96 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center p-4">
         <div className="relative w-full h-full">
           <Image
-            src={main_image}
+            src={imgSrc}
             alt={alt}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover object-right"
+            className="object-contain"
             priority
-            onError={() => setHasImageError(true)}
+            onError={handleImageError}
           />
         </div>
       </div>

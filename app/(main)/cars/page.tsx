@@ -21,6 +21,7 @@ function LoadingCars() {
 
 import { getCars, getBrands } from "@/lib/supabase";
 import type { Car } from "@/lib/types";
+import { getCarImageUrl } from "@/lib/car-images";
 
 // ISR: Cache cars fleet page at the edge for 1 hour
 export const revalidate = 3600;
@@ -54,7 +55,7 @@ export default async function CarsPage() {
         transmission: car.transmission as any,
         min_days: 1,
         mileage: car.mileage,
-        main_image: car.main_image || "/images/cars/car-placeholder.jpg",
+        main_image: getCarImageUrl(car),
         category:
           car.seats <= 5
             ? car.seats <= 4

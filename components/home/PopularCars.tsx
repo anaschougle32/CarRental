@@ -7,6 +7,7 @@ import CarCard from "@/components/car/CarCard";
 import { Button } from "@/components/ui/button";
 import { getCars, getBrands } from "@/lib/supabase";
 import { Car } from "@/lib/types";
+import { getCarImageUrl } from "@/lib/car-images";
 
 import { Section, Container } from "../common/LayoutComponents";
 
@@ -61,7 +62,7 @@ const PopularCars = ({ initialCars = [] }: PopularCarsProps) => {
             fuel_type: car.fuel_type as any,
             transmission: car.transmission as any,
             min_days: 1,
-            main_image: car.main_image || "/images/cars/car-placeholder.jpg",
+            main_image: getCarImageUrl(car),
             category: car.seats <= 5 
               ? car.seats <= 4 ? "Hatchback" : "Sedan" 
               : car.seats <= 7 ? "SUV" : "Premium"

@@ -11,6 +11,7 @@ import { getCarBySlug, getCars, getBrands } from "@/lib/supabase";
 import { Car as SupabaseCar } from "@/lib/supabase";
 import { Car } from "@/lib/types";
 import { Container, Section } from "@/components/common/LayoutComponents";
+import { getCarImageUrl } from "@/lib/car-images";
 
 // ISR: regenerate at most once per hour
 export const revalidate = 3600;
@@ -42,7 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       : carData.seats <= 7 ? "SUV" : "Premium";
     
     // Ensure we have a valid image URL for OpenGraph
-    const imageUrl = carData.main_image || '/images/cars/car-placeholder.jpg';
+    const imageUrl = getCarImageUrl(carData);
     
     // Create SEO-optimized title and description
     const title = `Rent ${brandName} ${carData.name} in Goa | ZioCarRentals`;
@@ -132,7 +133,7 @@ async function mapSupabaseCarToAppCar(carData: SupabaseCar): Promise<Car> {
     fuel_type: carData.fuel_type as any,
     transmission: carData.transmission as any,
     min_days: 1, // Default minimum days
-    main_image: carData.main_image || "/images/cars/car-placeholder.jpg",
+    main_image: getCarImageUrl(carData),
     mileage: carData.mileage || undefined,
     category: carData.seats <= 5 
       ? carData.seats <= 4 ? "Hatchback" : "Sedan" 

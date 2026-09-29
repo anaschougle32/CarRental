@@ -15,6 +15,7 @@ import PopularCars from "@/components/home/PopularCars";
 import Faqs from "@/components/home/Faqs";
 import HowItWorks from "@/components/home/HowItWorks";
 import { locationsData, getLocationFaqs } from "@/lib/location-data";
+import { getCarImageUrl } from "@/lib/car-images";
 
 // ISR: regenerate at most once per hour
 export const revalidate = 3600;
@@ -256,7 +257,7 @@ function mapSupabaseCarToAppCar(carData: SupabaseCar, brandMap: Map<string, stri
     fuel_type: carData.fuel_type as any,
     transmission: carData.transmission as any,
     min_days: 1, // Default minimum days
-    main_image: carData.main_image || "/images/cars/car-placeholder.jpg",
+    main_image: getCarImageUrl(carData),
     mileage: carData.mileage || undefined,
     category: carData.seats <= 5 
       ? carData.seats <= 4 ? "Hatchback" : "Sedan" 

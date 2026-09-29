@@ -27,6 +27,7 @@ interface BlogDB {
   created_at: string;
   updated_at?: string;
   published?: boolean;
+  published_at?: string | null;
   author: string | null;
   category: string | null;
 }
@@ -50,7 +51,7 @@ export async function getBlogs(): Promise<BlogPost[]> {
     // Select only columns needed for listing cards — omits multi-megabyte markdown 'content' column
     const { data, error } = await supabase
       .from('blogs')
-      .select('id, title, slug, excerpt, cover_image, created_at, updated_at, published, author, category')
+      .select('id, title, slug, excerpt, cover_image, created_at, updated_at, published_at, author, category')
       .order('created_at', { ascending: false });
       
     // Only fall back on actual API/database error
@@ -66,9 +67,10 @@ export async function getBlogs(): Promise<BlogPost[]> {
     }
     
     // Map the database fields to the BlogPost type with proper type safety
-    return data.map((blog) => {
+    return (data as any[]).map((blog) => {
       const updatedAt = blog.updated_at || blog.created_at || new Date().toISOString();
       const createdAt = blog.created_at || new Date().toISOString();
+      const isPublished = blog.published_at !== undefined ? Boolean(blog.published_at) : (blog.published ?? true);
       
       return {
         id: blog.id,
@@ -80,7 +82,7 @@ export async function getBlogs(): Promise<BlogPost[]> {
         cover_image: blog.cover_image || '/images/blog-placeholder.jpg',
         created_at: createdAt,
         updated_at: updatedAt,
-        published: blog.published ?? true,
+        published: isPublished,
         author: blog.author || null,
         category: blog.category || null,
       } as BlogPost;
@@ -112,6 +114,7 @@ export async function getBlogBySlug(slug: string): Promise<BlogPost | null> {
         created_at: string;
         updated_at?: string;
         published?: boolean;
+        published_at?: string | null;
         author: string | null;
         category: string | null;
       }>();
@@ -134,6 +137,9 @@ export async function getBlogBySlug(slug: string): Promise<BlogPost | null> {
     
     const updatedAt = directData.updated_at || directData.created_at || new Date().toISOString();
     const createdAt = directData.created_at || new Date().toISOString();
+    const isPublished = (directData as any).published_at !== undefined
+      ? Boolean((directData as any).published_at)
+      : (directData.published ?? true);
     
     return {
       id: directData.id,
@@ -145,7 +151,7 @@ export async function getBlogBySlug(slug: string): Promise<BlogPost | null> {
       cover_image: directData.cover_image,
       created_at: createdAt,
       updated_at: updatedAt,
-      published: directData.published ?? true,
+      published: isPublished,
       author: directData.author,
       category: directData.category,
     } as BlogPost;
@@ -197,6 +203,9 @@ export async function getRelatedBlogs(currentSlug: string, count = 2): Promise<B
     return relatedBlogs.map(blog => {
       const updatedAt = blog.updated_at || blog.created_at || new Date().toISOString();
       const createdAt = blog.created_at || new Date().toISOString();
+      const isPublished = (blog as any).published_at !== undefined
+        ? Boolean((blog as any).published_at)
+        : ((blog as any).published ?? true);
       
       return {
         id: blog.id,
@@ -208,7 +217,7 @@ export async function getRelatedBlogs(currentSlug: string, count = 2): Promise<B
         cover_image: blog.cover_image || '/images/blog-placeholder.jpg',
         created_at: createdAt,
         updated_at: updatedAt,
-        published: blog.published ?? true,
+        published: isPublished,
         author: blog.author || null,
         category: blog.category || null,
       } as BlogPost;

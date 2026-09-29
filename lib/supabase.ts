@@ -103,6 +103,7 @@ export type Location = {
 
 import { cache } from 'react';
 import { fallbackCars, fallbackBrands } from '@/data/fallback-cars';
+import { attachCarImageFallback } from '@/lib/car-images';
 
 // Helper functions for database operations (wrapped with React cache for automatic per-request deduplication)
 export const getCars = cache(async function getCars(): Promise<Car[]> {
@@ -124,8 +125,12 @@ export const getCars = cache(async function getCars(): Promise<Car[]> {
       console.log(`[Supabase Dev] getCars: returned ${data?.length || 0} cars in ${Date.now() - start}ms`);
     }
     
-    // Genuine database result: if the table genuinely has 0 cars, return []
-    return (data || []) as Car[];
+    // If the table genuinely has 0 cars, serve fallbackCars to keep the fleet populated
+    if (!data || data.length === 0) {
+      return fallbackCars;
+    }
+    
+    return data.map(attachCarImageFallback) as Car[];
   } catch (err) {
     console.error('[Supabase Fallback] Network exception in getCars, using fallbackCars:', err);
     return fallbackCars;
@@ -143,7 +148,8 @@ export const getCarBySlug = cache(async function getCarBySlug(slug: string): Pro
     if (error) {
       // PGRST116 means the query succeeded but 0 rows matched (genuine 404)
       if (error.code === 'PGRST116') {
-        return null;
+        const fallback = fallbackCars.find(c => c.slug === slug);
+        return fallback || null;
       }
       // Any other error means a database/API/permission failure
       logSupabaseError(`getCarBySlug(${slug})`, error);
@@ -155,7 +161,7 @@ export const getCarBySlug = cache(async function getCarBySlug(slug: string): Pro
       return null;
     }
     
-    return (data as Car) || null;
+    return data ? (attachCarImageFallback(data as Car) as Car) : null;
   } catch (err) {
     const fallback = fallbackCars.find(c => c.slug === slug);
     if (fallback) return fallback;
@@ -339,7 +345,7 @@ export async function getCarsByLocation(locationName: string) {
       return [];
     }
     
-    return carsData as Car[];
+    return (carsData || []).map(attachCarImageFallback) as Car[];
   } catch (error) {
     console.error('Error in getCarsByLocation:', error);
     return [];

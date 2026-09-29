@@ -29,6 +29,7 @@ export const metadata: Metadata = {
 import { getCars, getBrands } from "@/lib/supabase";
 import { getBlogs } from "@/lib/blogs";
 import type { Car } from "@/lib/types";
+import { getCarImageUrl } from "@/lib/car-images";
 
 import type { BlogPost } from "@/types/blog";
 
@@ -64,7 +65,7 @@ export default async function Home() {
         fuel_type: car.fuel_type as any,
         transmission: car.transmission as any,
         min_days: 1,
-        main_image: car.main_image || "/images/cars/car-placeholder.jpg",
+        main_image: getCarImageUrl(car),
         mileage: car.mileage,
         category:
           car.seats <= 5

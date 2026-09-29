@@ -10,6 +10,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import PlaceholderImage from "@/components/ui/placeholder-image";
 import { cn } from "@/lib/utils";
+import { 
+  getCarImageUrl, 
+  getCarGitHubImageUrl, 
+  getCarLocalImageUrl, 
+  getCarImageFilename 
+} from "@/lib/car-images";
 
 interface CarCardProps {
   car: Car;
@@ -18,26 +24,44 @@ interface CarCardProps {
 }
 
 const CarCard = ({ car, showCategory = false, showDescription = true }: CarCardProps) => {
-  // State to track if image has error
+  const initialImage = getCarImageUrl(car);
+  const [imgSrc, setImgSrc] = useState<string>(initialImage);
   const [hasImageError, setHasImageError] = useState(false);
   
   // Create WhatsApp message with car details
   const whatsappMessage = encodeURIComponent(`Hi, I'm interested in renting the ${car.brand} ${car.name}. Could you provide more information?`);
   const whatsappLink = `https://wa.me/917977288350?text=${whatsappMessage}`;
+
+  const handleImageError = () => {
+    const filename = getCarImageFilename(car.slug || car.name);
+    const githubUrl = getCarGitHubImageUrl(filename);
+    const localUrl = getCarLocalImageUrl(filename);
+
+    if (imgSrc !== githubUrl && imgSrc !== localUrl) {
+      // First fallback: try GitHub raw URL
+      setImgSrc(githubUrl);
+    } else if (imgSrc === githubUrl) {
+      // Second fallback: try local path
+      setImgSrc(localUrl);
+    } else {
+      // Ultimate fallback: placeholder
+      setHasImageError(true);
+    }
+  };
   
   return (
     <Card className="overflow-hidden group h-full flex flex-col transition-all hover:shadow-lg">
-      <div className="relative h-32 sm:h-40 md:h-48 overflow-hidden">
-        {car.main_image && !hasImageError ? (
+      <div className="relative h-36 sm:h-44 md:h-52 overflow-hidden bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center p-2">
+        {!hasImageError && imgSrc ? (
           <div className="relative w-full h-full">
             <Image
-              src={car.main_image}
+              src={imgSrc}
               alt={`${car.brand} ${car.name}`}
               fill
               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 384px"
               loading="lazy"
-              className="object-cover object-right transition-transform duration-500 group-hover:scale-105"
-              onError={() => setHasImageError(true)}
+              className="object-contain transition-transform duration-500 group-hover:scale-105"
+              onError={handleImageError}
             />
           </div>
         ) : (
