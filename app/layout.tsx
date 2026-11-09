@@ -40,14 +40,14 @@ export const metadata: Metadata = {
   },
   description: 'Premium self-drive car rentals in Goa with unlimited kilometers, airport pickup, and 24/7 roadside assistance. Book online or call now!',
   keywords: 'car rental, self drive, Goa, rent a car, holiday car, unlimited km, airport pickup, car hire, SUV rental, budget car, affordable car rental',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://ziocarrentals.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://www.ziocarrentals.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: 'ZioCarRentals - Self Drive Car Rentals in Goa | Unlimited KM',
     description: 'Premium self-drive car rentals in Goa with unlimited kilometers, airport pickup, and 24/7 roadside assistance. Book online or call now!',
-    url: 'https://ziocarrentals.com',
+    url: 'https://www.ziocarrentals.com',
     siteName: 'ZioCarRentals',
     locale: 'en_US',
     type: 'website',

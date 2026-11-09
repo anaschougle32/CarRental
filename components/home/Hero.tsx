@@ -41,8 +41,8 @@ export function HeroStructuredData() {
             "postalCode": "403601",
             "addressCountry": "IN"
           },
-          "telephone": "+918888888888",
-          "description": "Premium self-drive car rentals in Goa with unlimited kilometers, airport pickup, and 24/7 roadside assistance."
+          "telephone": "+91 90828 88912",
+          "description": "Premium self-drive car rentals with unlimited kilometers, airport pickup, and 24/7 roadside assistance."
         })
       }}
     />
@@ -56,9 +56,9 @@ interface HeroProps {
 }
 
 const Hero = ({
-  title = "Freedom to Explore Goa,",
+  title = "Book Self Drive Car Rental in India",
   titleAccent = "",
-  subtitle = "Fill out the form to get the best self-drive car rental deals with instant booking assistance today."
+  subtitle = "Fill out the form to check availability and book your preferred self-drive car. Enjoy quick booking, affordable prices, and a hassle-free travel experience."
 }: HeroProps = {}) => {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -343,8 +343,7 @@ const Hero = ({
               </>
             ) : (
               <>
-              <span className="hidden sm:inline">Search Available Cars</span>
-              <span className="sm:hidden">Search Cars</span>
+              <span>Check Availability</span>
               <ChevronRight size={16} className="ml-2" />
               </>
             )}

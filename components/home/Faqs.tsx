@@ -35,7 +35,30 @@ export const standard7Faqs = [
   }
 ];
 
-const faqs = standard7Faqs;
+export const homeFaqs = [
+  {
+    question: "1. What documents are required to rent a self-drive car in India?",
+    answer: "You need a valid driving licence, a government-issued photo ID (such as Aadhaar Card, Passport, or Voter ID), and any additional documents required by the rental provider."
+  },
+  {
+    question: "2. Can tourists rent a self-drive car in India?",
+    answer: "Yes. Indian residents and international tourists with a valid driving licence and the required documents can rent self-drive cars."
+  },
+  {
+    question: "3. Is a security deposit required?",
+    answer: "Yes. A refundable security deposit may be applicable depending on the vehicle category and rental policy."
+  },
+  {
+    question: "4. Can I book a self-drive car online?",
+    answer: "Yes. You can book your preferred vehicle online, by phone, or through WhatsApp for a quick and hassle-free reservation."
+  },
+  {
+    question: "5. Why should I choose a self-drive car instead of a taxi?",
+    answer: "A self-drive car gives you complete privacy, travel flexibility, better control over your schedule, and often proves more economical for sightseeing, business trips, and long-distance travel."
+  }
+];
+
+const faqs = homeFaqs;
 
 interface FaqsProps {
   items?: { question: string; answer: string }[];
@@ -48,7 +71,7 @@ import { Section, Container } from "../common/LayoutComponents";
 export default function Faqs({ 
   items, 
   title = "Frequently Asked Questions", 
-  subtitle = "Find answers to common questions about renting a car in Goa" 
+  subtitle = "Find answers to common questions about our self-drive car rentals and booking services." 
 }: FaqsProps = {}) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const faqList = items || faqs;

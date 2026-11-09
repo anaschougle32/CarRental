@@ -13,6 +13,7 @@ import RelatedArticles from '@/components/blog/RelatedArticles';
 import BookingFormPopup from '@/components/common/BookingFormPopup';
 import type { BlogPost } from '@/types/blog';
 import { calculateReadingTime } from '@/lib/utils/reading-time';
+import type { Metadata } from 'next';
 import { Container, Section } from "@/components/common/LayoutComponents";
 
 // ISR: regenerate at most once per hour
@@ -22,10 +23,51 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const supabase = createClient();
+  const { data: post } = await supabase
+    .from('blogs')
+    .select('title, excerpt, description, cover_image')
+    .eq('slug', slug)
+    .single();
+
+  if (!post) {
+    return {
+      title: 'Blog Post Not Found | ZioCarRentals',
+    };
+  }
+
+  const title = `${post.title} | ZioCarRentals Blog`;
+  const description = post.description || post.excerpt || 'Read the latest travel guides and car rental tips from ZioCarRentals.';
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `https://www.ziocarrentals.com/blogs/${slug}`,
+    },
+    openGraph: {
+      title,
+      description,
+      url: `https://www.ziocarrentals.com/blogs/${slug}`,
+      siteName: 'ZioCarRentals',
+      type: 'article',
+      images: post.cover_image ? [{ url: post.cover_image }] : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: post.cover_image ? [post.cover_image] : [],
+    },
+  };
+}
+
 export default async function BlogPost({ params }: Props) {
   const { slug } = await params;
   const supabase = createClient();
-  
+
   // Fetch the blog post by slug
   const { data: postData, error } = await supabase
     .from('blogs')
@@ -63,18 +105,18 @@ export default async function BlogPost({ params }: Props) {
     .neq('slug', slug)
     .order('created_at', { ascending: false })
     .limit(6);
-    
+
   // Safely cast and filter posts
   const relatedPosts: BlogPost[] = [];
-  
+
   if (allPosts && Array.isArray(allPosts)) {
     const now = new Date().toISOString();
-    
+
     allPosts.forEach((item: unknown) => {
       const postItem = item as SupabaseBlogPost;
-      
+
       if (!postItem.id || postItem.id === post.id) return;
-      
+
       const relatedPost: BlogPost = {
         id: String(postItem.id),
         title: String(postItem.title || 'Untitled Post'),
@@ -89,7 +131,7 @@ export default async function BlogPost({ params }: Props) {
         author: postItem.author ? String(postItem.author) : null,
         category: postItem.category ? String(postItem.category) : null,
       };
-      
+
       relatedPosts.push(relatedPost);
     });
   }
@@ -104,8 +146,8 @@ export default async function BlogPost({ params }: Props) {
 
       <Container className="max-w-4xl">
         <div className="mb-8">
-          <Link 
-            href="/blogs" 
+          <Link
+            href="/blogs"
             className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
           >
             <ArrowLeft className="w-4 h-4 mr-1.5" />
@@ -122,17 +164,17 @@ export default async function BlogPost({ params }: Props) {
               </span>
             </div>
           )}
-          
+
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
             {post.title || 'Untitled Post'}
           </h1>
-          
+
           <div className="max-w-2xl mx-auto">
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
               {post.excerpt || 'A detailed look at our latest insights and updates.'}
             </p>
           </div>
-          
+
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6 text-sm text-gray-500 dark:text-gray-400">
             {post.author && (
               <div className="flex items-center">
@@ -144,9 +186,9 @@ export default async function BlogPost({ params }: Props) {
                 </div>
               </div>
             )}
-            
+
             <div className="h-4 w-px bg-gray-200 dark:bg-gray-700 hidden sm:block"></div>
-            
+
             <div className="flex items-center space-x-6">
               {post.created_at && (
                 <div className="flex items-center">
@@ -160,7 +202,7 @@ export default async function BlogPost({ params }: Props) {
                   </time>
                 </div>
               )}
-              
+
               <div className="flex items-center">
                 <Clock className="w-4 h-4 mr-2" />
                 <span>{readingTime} min read</span>
@@ -190,15 +232,15 @@ export default async function BlogPost({ params }: Props) {
             <div className="prose lg:prose-lg xl:prose-xl dark:prose-invert max-w-none">
               <BlogContent content={post.content} />
             </div>
-            
+
             {/* Tags */}
             {post.tags && post.tags.length > 0 && (
               <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
                 <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">TAGS</h3>
                 <div className="flex flex-wrap gap-2">
                   {post.tags.map((tag) => (
-                    <span 
-                      key={tag} 
+                    <span
+                      key={tag}
                       className="px-3 py-1 rounded-full bg-gray-100 text-gray-800 text-sm font-medium dark:bg-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                     >
                       {tag}
@@ -207,7 +249,7 @@ export default async function BlogPost({ params }: Props) {
                 </div>
               </div>
             )}
-            
+
             {/* Author bio */}
             {post.author && (
               <div className="mt-12 p-6 bg-gray-50 dark:bg-gray-800/50 rounded-2xl">
@@ -224,7 +266,7 @@ export default async function BlogPost({ params }: Props) {
                 </div>
               </div>
             )}
-            
+
             {/* Comments section */}
             <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
               <div className="flex items-center justify-between mb-6">
@@ -241,7 +283,7 @@ export default async function BlogPost({ params }: Props) {
               </div>
             </div>
           </article>
-          
+
           {/* Sidebar */}
           <aside className="lg:col-span-4 space-y-6">
             <div className="sticky top-24 space-y-6">
@@ -269,8 +311,8 @@ export default async function BlogPost({ params }: Props) {
               {/* Share sidebar */}
               <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
                 <h3 className="text-base font-bold mb-4 text-gray-900 dark:text-white">Share this article</h3>
-                <ShareButtons 
-                  url={`/blogs/${post.slug}`} 
+                <ShareButtons
+                  url={`/blogs/${post.slug}`}
                   title={post.title}
                   variant="vertical"
                 />
@@ -278,7 +320,7 @@ export default async function BlogPost({ params }: Props) {
             </div>
           </aside>
         </div>
-        
+
         {/* Call to Action Section with Booking Popup */}
         <div className="mt-20 mb-16 text-center">
           <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-8 md:p-12 text-white">
@@ -287,11 +329,11 @@ export default async function BlogPost({ params }: Props) {
               After reading about these amazing places, book your car rental now and start your Goa adventure!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <BookingFormPopup 
+              <BookingFormPopup
                 triggerText="Book Your Car Now"
                 triggerClassName="bg-white text-blue-600 hover:bg-gray-100 shadow-xl font-semibold px-8 py-3 rounded-lg transition-all duration-300"
               />
-              <a 
+              <a
                 href="/cars"
                 className="inline-flex items-center bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 font-semibold px-8 py-3 rounded-lg transition-all duration-300"
               >
@@ -303,28 +345,28 @@ export default async function BlogPost({ params }: Props) {
             </div>
           </div>
         </div>
-        
+
         {/* Related Articles */}
         {relatedPosts.length > 0 && (
           <div className="mt-24">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">You might also like</h2>
-            <RelatedArticles 
-              currentPostId={post.id} 
-              category={post.category || 'General'} 
-              posts={relatedPosts} 
+            <RelatedArticles
+              currentPostId={post.id}
+              category={post.category || 'General'}
+              posts={relatedPosts}
             />
           </div>
         )}
-        
+
         {/* Newsletter signup */}
         <div className="mt-24 bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-8 md:p-12 text-white">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Stay updated with our latest posts</h2>
             <p className="text-blue-100 mb-8">Subscribe to our newsletter and never miss our latest articles and updates.</p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input 
-                type="email" 
-                placeholder="Enter your email" 
+              <input
+                type="email"
+                placeholder="Enter your email"
                 className="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-white/20 placeholder-blue-200 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
               />
               <button className="px-6 py-3 bg-white text-blue-700 font-medium rounded-lg hover:bg-gray-100 transition-colors">
@@ -333,7 +375,7 @@ export default async function BlogPost({ params }: Props) {
             </div>
           </div>
         </div>
-        
+
         {/* Contact information */}
         <div className="mt-24">
           <ContactInfo />

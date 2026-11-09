@@ -5,9 +5,12 @@ import { Loader2 } from "lucide-react";
 import { Container, Section } from "@/components/common/LayoutComponents";
 
 export const metadata: Metadata = {
-  title: "Available Self Drive Cars in Goa – Book Online",
-  description: "Browse our fleet of well-maintained cars for rent in Goa. From compact hatchbacks to premium SUVs, find the perfect car for your Goan adventure.",
+  title: "Available Self Drive Cars in Goa – Book Online | ZioCarRentals",
+  description: "Browse our fleet of well-maintained self-drive cars in Goa. From compact hatchbacks to premium SUVs, find the perfect car with unlimited km and 24/7 support.",
   keywords: "car rental Goa, self drive cars, rent car Goa, SUV rental, budget cars Goa",
+  alternates: {
+    canonical: "https://www.ziocarrentals.com/cars",
+  },
 };
 
 function LoadingCars() {
@@ -85,6 +88,43 @@ export default async function CarsPage() {
         <Suspense fallback={<LoadingCars />}>
           <CarsGrid initialCars={initialCars} />
         </Suspense>
+
+        {/* SEO Category Content from Content Specification */}
+        <div className="mt-16 pt-12 border-t border-gray-100 dark:border-gray-800">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white">
+            Choose the Right Car for Your Goa Trip
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="bg-gray-50 dark:bg-gray-800/60 p-6 rounded-xl border border-gray-100 dark:border-gray-700">
+              <h3 className="text-xl font-bold mb-2 text-blue-600 dark:text-blue-400">Hatchback Cars</h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed">
+                Compact, fuel-efficient, and easy to drive, hatchbacks are ideal for solo travellers, couples, and short city trips. They are perfect for navigating Goa's narrow roads while offering excellent mileage and affordable rental rates.
+              </p>
+            </div>
+
+            <div className="bg-gray-50 dark:bg-gray-800/60 p-6 rounded-xl border border-gray-100 dark:border-gray-700">
+              <h3 className="text-xl font-bold mb-2 text-blue-600 dark:text-blue-400">Sedan Cars</h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed">
+                If you're looking for extra comfort and luggage space, our sedan cars are an excellent choice. They are perfect for business travellers, couples, and families planning longer drives across North Goa and South Goa.
+              </p>
+            </div>
+
+            <div className="bg-gray-50 dark:bg-gray-800/60 p-6 rounded-xl border border-gray-100 dark:border-gray-700">
+              <h3 className="text-xl font-bold mb-2 text-blue-600 dark:text-blue-400">SUV Cars</h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed">
+                Travel comfortably with family or friends by choosing one of our spacious SUVs. These vehicles provide ample seating, generous luggage capacity, and a smooth driving experience for beach hopping, sightseeing, and outstation trips.
+              </p>
+            </div>
+
+            <div className="bg-gray-50 dark:bg-gray-800/60 p-6 rounded-xl border border-gray-100 dark:border-gray-700">
+              <h3 className="text-xl font-bold mb-2 text-blue-600 dark:text-blue-400">Premium & Luxury Cars</h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed">
+                Make your Goa vacation even more memorable with our premium and luxury car collection. These vehicles offer advanced features, superior comfort, and stylish interiors, making them perfect for special occasions, corporate travel, and premium holiday experiences.
+              </p>
+            </div>
+          </div>
+        </div>
       </Container>
     </Section>
   );

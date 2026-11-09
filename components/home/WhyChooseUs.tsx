@@ -4,38 +4,38 @@ import { Section, Container } from "../common/LayoutComponents";
 const defaultFeatures = [
   {
     icon: <Car className="w-10 h-10 text-blue-600" />,
-    title: "Wide Range of Cars",
-    description: "Choose from hatchbacks, sedans, SUVs, and premium cars to match your travel style, group size, and budget.",
+    title: "1. Wide Range of Vehicles",
+    description: "Choose from hatchbacks, sedans, SUVs, MUVs, premium cars, and luxury vehicles to suit solo travellers, families, business professionals, and groups.",
   },
   {
     icon: <BadgeDollarSign className="w-10 h-10 text-blue-600" />,
-    title: "Affordable Rental Plans",
-    description: "Enjoy competitive pricing with transparent rates and no hidden charges, making your Goa trip budget-friendly.",
+    title: "2. Affordable & Transparent Pricing",
+    description: "Enjoy competitive rental rates with clear pricing, no hidden charges, and flexible plans that fit your budget.",
   },
   {
     icon: <Shield className="w-10 h-10 text-blue-600" />,
-    title: "Clean & Well-Maintained Vehicles",
-    description: "Every car is thoroughly cleaned, regularly serviced, and safety-checked before every rental.",
-  },
-  {
-    icon: <Check className="w-10 h-10 text-blue-600" />,
-    title: "Easy Online Booking",
-    description: "Reserve your preferred vehicle in just a few simple steps with our quick and hassle-free booking process.",
+    title: "3. Well-Maintained & Sanitized Cars",
+    description: "Every vehicle is regularly serviced, thoroughly cleaned, and inspected to ensure safety, reliability, and a comfortable driving experience.",
   },
   {
     icon: <Clock className="w-10 h-10 text-blue-600" />,
-    title: "24/7 Customer Support",
-    description: "Our dedicated support team is available to assist you with bookings, roadside assistance, and any queries during your rental.",
+    title: "4. Flexible Rental Plans",
+    description: "Whether you need a car for a few hours, a day, a weekend, a week, or a month, we offer rental options designed to match your travel plans.",
   },
   {
-    icon: <Shield className="w-10 h-10 text-blue-600" />,
-    title: "Safe & Reliable Travel",
-    description: "Drive with confidence knowing every vehicle is maintained to high safety standards for a smooth and comfortable journey.",
+    icon: <Check className="w-10 h-10 text-blue-600" />,
+    title: "5. Easy Online Booking",
+    description: "Book your preferred self-drive car quickly through our simple and secure reservation process with fast confirmation.",
   },
   {
     icon: <MapPin className="w-10 h-10 text-blue-600" />,
-    title: "Convenient Pickup & Drop-off",
-    description: "Pick up or return your car at Goa Airport, your hotel, or other selected locations across Goa.",
+    title: "6. Convenient Pickup & Drop-Off",
+    description: "We offer flexible vehicle pickup and return services at multiple locations, including airports, railway stations, hotels, and city centres where available.",
+  },
+  {
+    icon: <Clock className="w-10 h-10 text-blue-600" />,
+    title: "7. Reliable Customer Support",
+    description: "Our experienced support team is available to assist you before, during, and after your rental, ensuring a smooth and worry-free experience.",
   },
 ];
 
@@ -46,8 +46,8 @@ interface WhyChooseUsProps {
 }
 
 const WhyChooseUs = ({
-  title = "Why Choose Our Self-Drive Car Rental in Goa?",
-  subtitle = "We make every journey simple, comfortable, and memorable by providing reliable vehicles and exceptional customer service.",
+  title = "Why Choose Us?",
+  subtitle = "Finding the right self-drive car rental service is essential for a smooth and enjoyable journey. We are committed to delivering reliable vehicles, affordable pricing, and exceptional customer service, making every trip comfortable and hassle-free.",
   items,
 }: WhyChooseUsProps = {}) => {
   const featureList = items || defaultFeatures;

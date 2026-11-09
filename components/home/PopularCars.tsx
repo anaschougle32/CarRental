@@ -87,11 +87,17 @@ const PopularCars = ({ initialCars = [] }: PopularCarsProps) => {
       <Section className="bg-white dark:bg-gray-900">
         <Container>
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Our Most Popular Cars
+            <h1 className="text-3xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
+              Best Self Drive Car Rental in India
+            </h1>
+            <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto mb-8">
+              Looking for a trusted Self Drive Car Rental in India? Whether you're planning a family vacation, business trip, weekend getaway, road trip, or daily commute, our self-drive car rental service offers the perfect combination of comfort, convenience, and affordability.
+            </p>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3 text-gray-900 dark:text-white">
+              Find the Perfect Car on Rent in India
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Discover our most-booked vehicles - perfectly maintained, fully insured, and ready for your Goan adventure.
+            <p className="text-base text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+              We provide a wide range of rental vehicles across India, including hatchbacks, sedans, SUVs, MUVs, automatic cars, and luxury vehicles. Our cars are regularly serviced, professionally cleaned, and thoroughly inspected to ensure a safe, reliable, and enjoyable driving experience.
             </p>
           </div>
           <div className="flex justify-center items-center h-40">
@@ -106,11 +112,17 @@ const PopularCars = ({ initialCars = [] }: PopularCarsProps) => {
     <Section className="bg-white dark:bg-gray-900">
       <Container>
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Our Most Popular Cars
+          <h1 className="text-3xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
+            Best Self Drive Car Rental in India
+          </h1>
+          <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto mb-8">
+            Looking for a trusted Self Drive Car Rental in India? Whether you're planning a family vacation, business trip, weekend getaway, road trip, or daily commute, our self-drive car rental service offers the perfect combination of comfort, convenience, and affordability.
+          </p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-3 text-gray-900 dark:text-white">
+            Find the Perfect Car on Rent in India
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Discover our most-booked vehicles - perfectly maintained, fully insured, and ready for your Goan adventure.
+          <p className="text-base text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            We provide a wide range of rental vehicles across India, including hatchbacks, sedans, SUVs, MUVs, automatic cars, and luxury vehicles. Our cars are regularly serviced, professionally cleaned, and thoroughly inspected to ensure a safe, reliable, and enjoyable driving experience.
           </p>
         </div>
 

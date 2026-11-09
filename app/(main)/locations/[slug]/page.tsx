@@ -20,6 +20,12 @@ import { getCarImageUrl } from "@/lib/car-images";
 // ISR: regenerate at most once per hour
 export const revalidate = 3600;
 
+export async function generateStaticParams() {
+  return Object.keys(locationsData).map((slug) => ({
+    slug,
+  }));
+}
+
 type Props = {
   params: Promise<{ slug: string }>;
 };
@@ -27,8 +33,9 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const { slug } = await params;
+    const normalizedSlug = slug.toLowerCase();
 
-    const configData = locationsData[slug];
+    const configData = locationsData[slug] || locationsData[normalizedSlug];
     if (configData) {
       return {
         title: configData.metaTitle,
@@ -268,8 +275,9 @@ function mapSupabaseCarToAppCar(carData: SupabaseCar, brandMap: Map<string, stri
 export default async function LocationPage({ params }: Props) {
   try {
     const { slug } = await params;
+    const normalizedSlug = slug.toLowerCase();
 
-    const config = locationsData[slug];
+    const config = locationsData[slug] || locationsData[normalizedSlug];
     if (config) {
       const [carsData, brands] = await Promise.all([getCars(), getBrands()]);
       const brandMap = new Map(brands.map(b => [b.id, b.name]));
@@ -283,19 +291,24 @@ export default async function LocationPage({ params }: Props) {
           
           {/* 1. Hero Section (Contains Banner Booking Form) */}
           <Hero 
-            title={config.h1.includes(',') ? config.h1.split(',')[0] + ',' : config.h1}
-            titleAccent={config.h1.includes(',') ? config.h1.split(',')[1] : ''}
-            subtitle={config.p1}
+            title={config.formHeading}
+            subtitle={config.formContent}
           />
 
-          {/* 4. Car Listing (Optimized to 9 cards + View All link to limit image egress) */}
+          {/* 4. Car Listing & Main SEO Content */}
           <Section className="bg-gray-50 dark:bg-gray-800 py-12" size="sm">
             <Container>
-              <div className="text-center max-w-3xl mx-auto mb-10">
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              <div className="text-center max-w-4xl mx-auto mb-10">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                  {config.h1}
+                </h1>
+                <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg mb-8 leading-relaxed">
+                  {config.p1}
+                </p>
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
                   {config.h2}
                 </h2>
-                <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg">
+                <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
                   {config.p2}
                 </p>
               </div>

@@ -23,7 +23,7 @@ interface CarCardProps {
   showDescription?: boolean;
 }
 
-const CarCard = ({ car, showCategory = false, showDescription = true }: CarCardProps) => {
+const CarCard = ({ car, showCategory = false, showDescription = false }: CarCardProps) => {
   const initialImage = getCarImageUrl(car);
   const [imgSrc, setImgSrc] = useState<string>(initialImage);
   const [hasImageError, setHasImageError] = useState(false);

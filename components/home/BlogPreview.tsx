@@ -78,10 +78,10 @@ const BlogPreview = ({ initialBlogs = [] }: BlogPreviewProps) => {
       <Container>
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Travel Tips & Guides
+            Travel Tips and Guide
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Discover Goa through our blog. From hidden beaches to driving tips, we've got you covered.
+            Discover through our blog. From hidden beaches to driving tips, we've got you covered.
           </p>
         </div>
 
@@ -106,7 +106,7 @@ const BlogPreview = ({ initialBlogs = [] }: BlogPreviewProps) => {
         <div className="text-center mt-12">
           <Link href="/blogs">
             <Button variant="outline" className="group">
-              View All Blog Posts
+              View All Blogs
               <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>

@@ -18,7 +18,7 @@ const steps = [
     icon: <Car className="w-12 h-12 text-blue-600" />,
     title: "Enjoy Your Drive",
     description:
-      "Pick up your car at your preferred location and enjoy exploring Goa at your own pace.",
+      "Pick up your car at your preferred location and enjoy exploring India at your own pace.",
   },
 ];
 
@@ -28,7 +28,7 @@ interface HowItWorksProps {
 }
 
 const HowItWorks = ({
-  title = "How It Works",
+  title = "Rent a Car in India in 3 Easy Steps",
   subtitle = "Renting a car with ZioCarRentals is quick and easy. Follow these simple steps:"
 }: HowItWorksProps = {}) => {
   return (

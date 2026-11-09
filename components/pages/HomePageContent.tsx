@@ -47,7 +47,10 @@ interface HomePageContentProps {
 export default function HomePageContent({ initialCars = [], initialBlogs = [] }: HomePageContentProps) {
   return (
     <div className="flex flex-col min-h-screen">
-      <Hero title="Freedom to Explore Goa," titleAccent="Your Way" />
+      <Hero 
+        title="Book Self Drive Car Rental in India" 
+        subtitle="Fill out the form to check availability and book your preferred self-drive car. Enjoy quick booking, affordable prices, and a hassle-free travel experience." 
+      />
       <PopularCars initialCars={initialCars} />
       <Services />
       <WhyChooseUs />
